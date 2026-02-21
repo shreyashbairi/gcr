@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"/Users/Shreyash/Desktop/globalex projects/gcr\" config --local --get-all remote.origin.url:*)",
+      "Bash(git -C \"/Users/Shreyash/Desktop/globalex projects/gcr\" branch -a)",
+      "Bash(git -C \"/Users/Shreyash/Desktop/globalex projects/gcr\" log --oneline)",
+      "Bash(git -C \"/Users/Shreyash/Desktop/globalex projects/gcr\" status)",
+      "Bash(git -C \"/Users/Shreyash/Desktop/globalex projects/gcr\" log --all --oneline)",
+      "Bash(python3:*)",
+      "Bash(textutil -convert txt -stdout:*)",
+      "WebFetch(domain:asianinsiders.com)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}
