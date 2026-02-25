@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    ========================================================================
-    DEVELOPER NOTES — index.html (Home Page)
-    ========================================================================
-    Source document : 1 Consulting WEB Home.docx
-    Page title      : Change the <title> tag below
-    Meta description: Change the <meta name="description"> content below
-    Hero image      : Replace hero background via .hero--home in CSS
-    Nav order       : Edit <nav> links in the <header> section
-    ========================================================================
-  -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="GCR Consulting — The reliable, sustainable and secure gateway to the Greater Caspian Region. We transform the GCR's opacity into operational clarity for Western capital.">
@@ -22,26 +11,16 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
-  <!-- Skip Navigation (Accessibility) -->
   <a href="#main-content" class="sr-only">Skip to main content</a>
 
-  <!-- ========================================================================
-       HEADER / NAVIGATION
-       Shared across all pages. Copy this block to every HTML file.
-       To add/remove pages: edit the <a> links in both desktop nav and mobile menu.
-       ======================================================================== -->
+  <!-- HEADER -->
   <header class="header" role="banner">
     <div class="container header__inner">
-
-      <!-- Logo — TODO: replace by Figma asset -->
       <a href="index.html" class="header__logo" aria-label="GCR Consulting Home">
         <div data-placeholder-img style="width:160px;height:40px;font-size:0.75rem;">LOGO</div>
       </a>
-
-      <!-- Desktop Navigation -->
       <nav class="header__nav" role="navigation" aria-label="Main navigation">
-        <a href="index.html" class="header__nav-link">Home</a>
+        <a href="index.html" class="header__nav-link is-active">Home</a>
         <a href="page-02.html" class="header__nav-link">About</a>
         <a href="page-03.html" class="header__nav-link">Services</a>
         <a href="page-04.html" class="header__nav-link">Case Studies</a>
@@ -49,19 +28,13 @@
         <a href="page-07.html" class="header__nav-link">News</a>
         <a href="page-08.html" class="header__nav-link">Contact</a>
       </nav>
-
-      <!-- Readiness Check button (desktop only) -->
       <a href="page-06.html" class="btn btn--primary header__cta">Readiness Check</a>
-
-      <!-- Hamburger Button (mobile only) -->
       <button class="header__burger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
-
-    <!-- Mobile Menu Overlay -->
     <div class="header__mobile-menu" aria-hidden="true">
-      <a href="index.html" class="header__mobile-link">Home</a>
+      <a href="index.html" class="header__mobile-link is-active">Home</a>
       <a href="page-02.html" class="header__mobile-link">About</a>
       <a href="page-03.html" class="header__mobile-link">Services</a>
       <a href="page-04.html" class="header__mobile-link">Case Studies</a>
@@ -72,86 +45,57 @@
     </div>
   </header>
 
-
-  <!-- ========================================================================
-       MAIN CONTENT
-       ======================================================================== -->
   <main id="main-content">
 
-
-    <!-- ────────────────────────────────────────────────────────────────────
-         SECTION 1: HERO
-         TODO: replace by Figma asset (background image)
-         ──────────────────────────────────────────────────────────────────── -->
+    <!-- SECTION 1: HERO -->
     <section class="hero hero--home">
       <div class="container">
         <h1 class="hero__headline">The Reliable, Sustainable and Secure Gateway to the Greater Caspian Region.</h1>
         <p class="hero__subhead">We transform the GCR's opacity into operational clarity for Western capital. By combining sovereign-level access with on-the-ground execution, we de-risk market entry into the world's most critical emerging Oil and Gas, Critical Minerals and Logistics hub.</p>
-        <a href="page-08.html" class="btn btn--primary btn--lg">Partner with Us</a>
+        <a href="page-08.html" class="btn btn--primary btn--lg mt-lg">Partner with Us</a>
       </div>
     </section>
 
-
-    <!-- ────────────────────────────────────────────────────────────────────
-         SECTION 2: TRUST BAR (Press / Institutional Logos)
-         TODO: replace placeholder logos by Figma assets
-         ──────────────────────────────────────────────────────────────────── -->
+    <!-- SECTION 2: TRUST BAR -->
     <section class="section" aria-label="Trusted by global institutions">
       <div class="container">
         <p class="trust-bar__surtitle">Insights and expertise trusted by global institutions:</p>
         <div class="trust-bar">
-          <!-- TODO: replace by Figma asset — WEF logo -->
-          <div data-placeholder-img style="width:120px;height:40px;" role="img" aria-label="World Economic Forum logo">WEF</div>
-          <!-- TODO: replace by Figma asset — UN logo -->
-          <div data-placeholder-img style="width:120px;height:40px;" role="img" aria-label="United Nations logo">UN</div>
-          <!-- TODO: replace by Figma asset — FIATA logo -->
-          <div data-placeholder-img style="width:120px;height:40px;" role="img" aria-label="FIATA logo">FIATA</div>
-          <!-- TODO: replace by Figma asset — ICC logo -->
-          <div data-placeholder-img style="width:120px;height:40px;" role="img" aria-label="International Chamber of Commerce logo">ICC</div>
-          <!-- TODO: replace by Figma asset — Forbes / Bloomberg logo -->
-          <div data-placeholder-img style="width:120px;height:40px;" role="img" aria-label="Forbes logo">Forbes</div>
+          <div class="trust-bar__logo" role="img" aria-label="World Economic Forum logo"><div data-placeholder-img style="width:120px;height:40px;">WEF</div></div>
+          <div class="trust-bar__logo" role="img" aria-label="United Nations logo"><div data-placeholder-img style="width:120px;height:40px;">UN</div></div>
+          <div class="trust-bar__logo" role="img" aria-label="FIATA logo"><div data-placeholder-img style="width:120px;height:40px;">FIATA</div></div>
+          <div class="trust-bar__logo" role="img" aria-label="International Chamber of Commerce logo"><div data-placeholder-img style="width:120px;height:40px;">ICC</div></div>
+          <div class="trust-bar__logo" role="img" aria-label="Forbes logo"><div data-placeholder-img style="width:120px;height:40px;">Forbes</div></div>
         </div>
       </div>
     </section>
 
-
-    <!-- ────────────────────────────────────────────────────────────────────
-         SECTION 3: WHY GCR NOW?
-         ──────────────────────────────────────────────────────────────────── -->
+    <!-- SECTION 3: WHY GCR NOW? -->
     <section class="section section--alt">
       <div class="container">
         <div class="section-intro">
           <h2>The world's next strategic intersection for Global Capital, Innovation, Long-Term Growth, Market Expansion, Oil &amp; Gas, Critical Minerals, Partnerships and Progress.</h2>
         </div>
         <p class="mb-xl">While traditional markets saturate, the Greater Caspian Region (GCR) creates a new center of gravity for global trade. Connecting China and Europe via the Trans Caspian Corridor, this market represents a $8.4T GDP potential and access to 640+ million consumers. It is no longer a question of "if" global business expands here, but "how" to navigate the complexity.</p>
-
-        <!-- Key Metrics Grid -->
-        <div class="grid grid--3">
-          <div class="card text-center">
-            <p class="metrics__value">$8.4T</p>
-            <h3>Combined GDP (PPP)</h3>
-            <p class="card__desc">Combined GDP of the GCR economies.</p>
+        <div class="stats-row">
+          <div class="stats-row__item">
+            <p class="stats-row__number">$8.4T</p>
+            <p class="stats-row__label">Combined GDP (PPP)</p>
           </div>
-          <div class="card text-center">
-            <p class="metrics__value">Energy</p>
-            <h3>Transition</h3>
-            <p class="card__desc">World's largest untapped potential for Oil, Gas, Critical Minerals &amp; Renewable Energy.</p>
+          <div class="stats-row__item">
+            <p class="stats-row__number">Energy</p>
+            <p class="stats-row__label">Transition</p>
           </div>
-          <div class="card text-center">
-            <p class="metrics__value">+40%</p>
-            <h3>Logistics Growth</h3>
-            <p class="card__desc">YoY growth in cargo transit via the Trans-Caspian Route.</p>
+          <div class="stats-row__item">
+            <p class="stats-row__number">+40%</p>
+            <p class="stats-row__label">Logistics Hub (YoY)</p>
           </div>
         </div>
-
         <p class="mt-xl text-light">Despite the opportunity, the region remains a "blind spot" for Western companies. Navigating complex PSAs and local content requirements for industries such as extractive creates a barrier we bridge.</p>
       </div>
     </section>
 
-
-    <!-- ────────────────────────────────────────────────────────────────────
-         SECTION 4: IMPACT METRICS (The Power of the Network)
-         ──────────────────────────────────────────────────────────────────── -->
+    <!-- SECTION 4: IMPACT METRICS -->
     <section class="section section--dark">
       <div class="container">
         <h2 class="text-center mb-2xl">The Power of the Network</h2>
@@ -165,7 +109,7 @@
             <p class="metrics__label">Partners — Verified database of local distributors, integrators, and B2G stakeholders.</p>
           </div>
           <div class="metrics__item">
-            <p class="metrics__value">UN &amp; ICC</p>
+            <p class="metrics__value">UN &amp; ICC &amp; FIATA &amp; More</p>
             <p class="metrics__label">High-level access via accredited representation and global engagement.</p>
           </div>
           <div class="metrics__item">
@@ -176,211 +120,168 @@
       </div>
     </section>
 
-
-    <!-- ────────────────────────────────────────────────────────────────────
-         SECTION 5: SERVICES OVERVIEW (12 Capability Cards)
-         Grid layout: 4 columns desktop, 2 columns mobile.
-         ──────────────────────────────────────────────────────────────────── -->
+    <!-- SECTION 5: SERVICES OVERVIEW -->
     <section class="section">
       <div class="container">
         <div class="section-intro">
           <h2>Our Capabilities</h2>
           <p>Comprehensive solutions for every stage of your GCR market journey.</p>
         </div>
-
-        <div class="grid grid--4">
-
-          <div class="card card--service">
-            <div class="card__icon">&#9678;</div>
-            <h3>GCR Market Entry &amp; GTM Strategy</h3>
-            <p class="card__desc">We turn the region's uncertainty into a calculated investment plan and step-by-step strategy.</p>
-            <a href="page-03.html" class="card__explore">Explore &rarr;</a>
-          </div>
-
-          <div class="card card--service">
-            <div class="card__icon">&#9673;</div>
-            <h3>GCR Deployment Teams &amp; Operational Infrastructure</h3>
-            <p class="card__desc">Instant launch of operations without legal entity registration and capital expenditures.</p>
-            <a href="page-03.html" class="card__explore">Explore &rarr;</a>
-          </div>
-
-          <div class="card card--service">
-            <div class="card__icon">&#9672;</div>
-            <h3>Strategic Alliance Origination &amp; Stakeholder Alignment</h3>
-            <p class="card__desc">Direct access to stakeholders and creation of alliances with the market elite.</p>
-            <a href="page-03.html" class="card__explore">Explore &rarr;</a>
-          </div>
-
-          <div class="card card--service">
-            <div class="card__icon">&#9670;</div>
-            <h3>Negotiation Mastery &amp; Channel Performance</h3>
-            <p class="card__desc">Cultural mediation of deals and turning distributors into a transparent sales channel.</p>
-            <a href="page-03.html" class="card__explore">Explore &rarr;</a>
-          </div>
-
-          <div class="card card--service">
-            <div class="card__icon">&#9671;</div>
-            <h3>Multi-Jurisdictional Fiscal Architecture &amp; Compliance</h3>
-            <p class="card__desc">Creating a legal shell for asset protection and free repatriation of capital.</p>
-            <a href="page-03.html" class="card__explore">Explore &rarr;</a>
-          </div>
-
-          <div class="card card--service">
-            <div class="card__icon">&#9674;</div>
-            <h3>Industrial Asset Deployment &amp; Supply Chain Resilience</h3>
-            <p class="card__desc">Management of asset construction and setting up sustainable "turnkey" supply chains.</p>
-            <a href="page-03.html" class="card__explore">Explore &rarr;</a>
-          </div>
-
-          <div class="card card--service">
-            <div class="card__icon">&#9675;</div>
-            <h3>Regulatory Framework &amp; Market Access Acceleration</h3>
-            <p class="card__desc">Overcoming non-tariff barriers and accelerating customs clearance via "green corridors".</p>
-            <a href="page-03.html" class="card__explore">Explore &rarr;</a>
-          </div>
-
-          <div class="card card--service">
-            <div class="card__icon">&#9679;</div>
-            <h3>M&amp;A Lifecycle &amp; Capital Allocation</h3>
-            <p class="card__desc">Search for non-public assets and rigorous verification of the real business value.</p>
-            <a href="page-03.html" class="card__explore">Explore &rarr;</a>
-          </div>
-
-          <div class="card card--service">
-            <div class="card__icon">&#9733;</div>
-            <h3>Digital Ecosystem Integration &amp; GCR Innovation Scouting</h3>
-            <p class="card__desc">Integration into local SuperApps and scouting technologies for industrial giants.</p>
-            <a href="page-03.html" class="card__explore">Explore &rarr;</a>
-          </div>
-
-          <div class="card card--service">
-            <div class="card__icon">&#9737;</div>
-            <h3>Corporate Governance Oversight &amp; Fiduciary Control</h3>
-            <p class="card__desc">System of checks and balances for full control over remote assets.</p>
-            <a href="page-03.html" class="card__explore">Explore &rarr;</a>
-          </div>
-
-          <div class="card card--service">
-            <div class="card__icon">&#9740;</div>
-            <h3>Risk Management &amp; Asset Protection</h3>
-            <p class="card__desc">Immunity from regulatory pressure and protection of intellectual property and reputation.</p>
-            <a href="page-03.html" class="card__explore">Explore &rarr;</a>
-          </div>
-
-          <div class="card card--service">
-            <div class="card__icon">&#9876;</div>
-            <h3>Legal Defense &amp; Crisis Resolution</h3>
-            <p class="card__desc">Legal armor and operational command in situations of existential threat to the business.</p>
-            <a href="page-03.html" class="card__explore">Explore &rarr;</a>
-          </div>
-
+        <div class="service-cards">
+          <a href="service-01.html" class="service-card">
+            <div class="service-card__icon">&#9678;</div>
+            <h3 class="service-card__title">GCR Market Entry &amp; GTM Strategy</h3>
+            <p class="service-card__desc">We turn the region's uncertainty into a calculated investment plan and step-by-step strategy.</p>
+            <span class="service-card__explore">Explore</span>
+          </a>
+          <a href="service-02.html" class="service-card">
+            <div class="service-card__icon">&#9673;</div>
+            <h3 class="service-card__title">GCR Deployment Teams &amp; Operational Infrastructure</h3>
+            <p class="service-card__desc">Instant launch of operations without legal entity registration and capital expenditures.</p>
+            <span class="service-card__explore">Explore</span>
+          </a>
+          <a href="service-03.html" class="service-card">
+            <div class="service-card__icon">&#9672;</div>
+            <h3 class="service-card__title">Strategic Alliance Origination &amp; Stakeholder Alignment</h3>
+            <p class="service-card__desc">Direct access to stakeholders and creation of alliances with the market elite.</p>
+            <span class="service-card__explore">Explore</span>
+          </a>
+          <a href="service-04.html" class="service-card">
+            <div class="service-card__icon">&#9670;</div>
+            <h3 class="service-card__title">Negotiation Mastery &amp; Channel Performance</h3>
+            <p class="service-card__desc">Cultural mediation of deals and turning distributors into a transparent sales channel.</p>
+            <span class="service-card__explore">Explore</span>
+          </a>
+          <a href="service-05.html" class="service-card">
+            <div class="service-card__icon">&#9671;</div>
+            <h3 class="service-card__title">Multi-Jurisdictional Fiscal Architecture &amp; Compliance</h3>
+            <p class="service-card__desc">Creating a legal shell for asset protection and free repatriation of capital.</p>
+            <span class="service-card__explore">Explore</span>
+          </a>
+          <a href="service-06.html" class="service-card">
+            <div class="service-card__icon">&#9674;</div>
+            <h3 class="service-card__title">Industrial Asset Deployment &amp; Supply Chain Resilience</h3>
+            <p class="service-card__desc">Management of asset construction and setting up sustainable turnkey supply chains.</p>
+            <span class="service-card__explore">Explore</span>
+          </a>
+          <a href="service-07.html" class="service-card">
+            <div class="service-card__icon">&#9675;</div>
+            <h3 class="service-card__title">Regulatory Framework &amp; Market Access Acceleration</h3>
+            <p class="service-card__desc">Overcoming non-tariff barriers and accelerating customs clearance via green corridors.</p>
+            <span class="service-card__explore">Explore</span>
+          </a>
+          <a href="service-08.html" class="service-card">
+            <div class="service-card__icon">&#9679;</div>
+            <h3 class="service-card__title">M&amp;A Lifecycle &amp; Capital Allocation</h3>
+            <p class="service-card__desc">Search for non-public assets and rigorous verification of the real business value.</p>
+            <span class="service-card__explore">Explore</span>
+          </a>
+          <a href="service-09.html" class="service-card">
+            <div class="service-card__icon">&#9733;</div>
+            <h3 class="service-card__title">Digital Ecosystem Integration &amp; GCR Innovation Scouting</h3>
+            <p class="service-card__desc">Integration into local SuperApps and scouting technologies for industrial giants.</p>
+            <span class="service-card__explore">Explore</span>
+          </a>
+          <a href="service-10.html" class="service-card">
+            <div class="service-card__icon">&#9737;</div>
+            <h3 class="service-card__title">Corporate Governance Oversight &amp; Fiduciary Control</h3>
+            <p class="service-card__desc">System of checks and balances for full control over remote assets.</p>
+            <span class="service-card__explore">Explore</span>
+          </a>
+          <a href="service-11.html" class="service-card">
+            <div class="service-card__icon">&#9740;</div>
+            <h3 class="service-card__title">Risk Management &amp; Asset Protection</h3>
+            <p class="service-card__desc">Immunity from regulatory pressure and protection of intellectual property and reputation.</p>
+            <span class="service-card__explore">Explore</span>
+          </a>
+          <a href="service-12.html" class="service-card">
+            <div class="service-card__icon">&#9876;</div>
+            <h3 class="service-card__title">Legal Defense &amp; Crisis Resolution</h3>
+            <p class="service-card__desc">Legal armor and operational command in situations of existential threat to the business.</p>
+            <span class="service-card__explore">Explore</span>
+          </a>
         </div>
       </div>
     </section>
 
-
-    <!-- ────────────────────────────────────────────────────────────────────
-         SECTION 6: EXPERT MATERIALS FEED (60/40 Split)
-         Left: Case slider | Right: Insights feed
-         ──────────────────────────────────────────────────────────────────── -->
+    <!-- SECTION 6: EXPERT MATERIALS FEED -->
     <section class="section section--alt">
       <div class="container">
         <div class="grid grid--split">
-
-          <!-- Left: Case Slider -->
           <div class="expert-feed__slider">
+            <h3 class="mb-lg">Case Studies</h3>
             <div class="expert-feed__slide is-active">
-              <h3>Market Entry via AIFC</h3>
+              <div data-placeholder-img class="ratio-16-9" style="margin-bottom:1rem;">Case Study Image</div>
+              <h4>Market Entry via AIFC</h4>
               <p>From zero to fully licensed fintech operation in Kazakhstan.</p>
             </div>
             <div class="expert-feed__slide">
-              <h3>Strategic Partnership</h3>
+              <div data-placeholder-img class="ratio-16-9" style="margin-bottom:1rem;">Case Study Image</div>
+              <h4>Strategic Partnership</h4>
               <p>Facilitated joint venture for a European Energy Major.</p>
             </div>
             <div class="expert-feed__dots">
               <button class="expert-feed__dot is-active" aria-label="Show slide 1"></button>
               <button class="expert-feed__dot" aria-label="Show slide 2"></button>
             </div>
+            <a href="page-04.html" class="btn btn--primary mt-md">Learn More</a>
           </div>
-
-          <!-- Right: Insights Feed -->
           <div>
             <h3 class="mb-lg">Latest Insights</h3>
             <div class="card card--insight mb-md">
-              <!-- TODO: replace by Figma asset -->
               <div class="card__image" data-placeholder-img>Insight Image</div>
               <p class="card__meta">Regulation &bull; 3 min read</p>
               <h4>Navigating AIFC Regulatory Sandboxes</h4>
             </div>
-            <div class="card card--insight">
-              <!-- TODO: replace by Figma asset -->
+            <div class="card card--insight mb-md">
               <div class="card__image" data-placeholder-img>Insight Image</div>
               <p class="card__meta">Logistics &bull; 5 min read</p>
               <h4>Trans-Caspian Route: 2026 Outlook</h4>
             </div>
+            <a href="page-07.html" class="btn btn--primary mt-md">Learn More</a>
           </div>
-
         </div>
       </div>
     </section>
 
-
-    <!-- ────────────────────────────────────────────────────────────────────
-         SECTION 7: LEADERSHIP PREVIEW
-         TODO: PENDING DATA — Partner names, photos, bios
-         ──────────────────────────────────────────────────────────────────── -->
+    <!-- SECTION 7: LEADERSHIP PREVIEW -->
     <section class="section">
       <div class="container">
         <div class="section-intro">
           <h2>Leadership &amp; Access</h2>
           <p>Expertise grounded in decades of high-level diplomacy and business execution.</p>
         </div>
-
         <div class="grid grid--3">
-          <!-- Partner 1 — placeholder -->
           <div class="partner-card">
-            <!-- TODO: replace by Figma asset — partner photo -->
-            <div class="partner-card__photo" data-placeholder-img class="ratio-3-4">Photo</div>
+            <div class="partner-card__photo" data-placeholder-img>Partner Photo</div>
             <p class="partner-card__name">Partner Name</p>
-            <p class="partner-card__role">Founding Partner</p>
-            <p class="partner-card__regalia">Davos Participant &bull; UN Expert</p>
+            <p class="partner-card__role">Founding Partner. Davos Participant. UN Expert.</p>
             <a href="page-05.html" class="partner-card__link">Read Bio &rarr;</a>
           </div>
-
-          <!-- Partner 2 — placeholder -->
           <div class="partner-card">
-            <div class="partner-card__photo" data-placeholder-img class="ratio-3-4">Photo</div>
+            <div class="partner-card__photo" data-placeholder-img>Partner Photo</div>
             <p class="partner-card__name">Partner Name</p>
-            <p class="partner-card__role">Head of GCR Strategy</p>
-            <p class="partner-card__regalia">20 Years in Oil &amp; Gas</p>
+            <p class="partner-card__role">Head of GCR Strategy. 20 Years in Oil &amp; Gas.</p>
             <a href="page-05.html" class="partner-card__link">Read Bio &rarr;</a>
           </div>
-
-          <!-- Partner 3 — placeholder -->
           <div class="partner-card">
-            <div class="partner-card__photo" data-placeholder-img class="ratio-3-4">Photo</div>
+            <div class="partner-card__photo" data-placeholder-img>Partner Photo</div>
             <p class="partner-card__name">Partner Name</p>
-            <p class="partner-card__role">Head of Operations</p>
-            <p class="partner-card__regalia">Ex-Big4 Partner</p>
+            <p class="partner-card__role">Head of Operations. Ex-Big4 Partner.</p>
             <a href="page-05.html" class="partner-card__link">Read Bio &rarr;</a>
           </div>
         </div>
       </div>
     </section>
 
-
-    <!-- ────────────────────────────────────────────────────────────────────
-         SECTION 8: INDUSTRY EXPERTISE (Sector Cards with hover)
-         ──────────────────────────────────────────────────────────────────── -->
+    <!-- SECTION 8: SECTOR EXPERTISE -->
     <section class="section section--alt">
       <div class="container">
         <div class="section-intro">
           <h2>Sector-Specific Intelligence</h2>
           <p>We do not apply generic templates. Our expertise is deeply verticalized to address the unique regulatory and operational challenges of the GCR's dominant industries.</p>
         </div>
-
         <div class="grid grid--4">
-
           <div class="card card--sector">
             <div class="card__visible">
               <h3>Energy &amp; Resources</h3>
@@ -390,7 +291,6 @@
               <p>Navigating PSAs, subsoil usage rights, and ESG compliance for the energy transition.</p>
             </div>
           </div>
-
           <div class="card card--sector">
             <div class="card__visible">
               <h3>Transport &amp; Logistics</h3>
@@ -400,7 +300,6 @@
               <p>Solving cross-border friction and customs bottlenecks across the Trans-Caspian routes.</p>
             </div>
           </div>
-
           <div class="card card--sector">
             <div class="card__visible">
               <h3>Fintech &amp; Digital</h3>
@@ -410,7 +309,6 @@
               <p>Leveraging AIFC regulatory sandboxes and building banking partnerships for rapid scaling.</p>
             </div>
           </div>
-
           <div class="card card--sector">
             <div class="card__visible">
               <h3>FMCG &amp; Retail</h3>
@@ -420,48 +318,35 @@
               <p>Accessing reliable distribution networks and adapting brands to local cultural codes.</p>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
-
-    <!-- ────────────────────────────────────────────────────────────────────
-         SECTION 9: READINESS CHECK CTA
-         ──────────────────────────────────────────────────────────────────── -->
+    <!-- SECTION 9: READINESS CHECK CTA -->
     <section class="section section--dark">
       <div class="container text-center">
         <h2>Is Your Business Ready for the GCR Expansion?</h2>
-        <p class="hero__subhead" style="margin:0 auto var(--space-xl);">The Caspian region favors deep preparation over improvisation. Take our 10-minute preliminary assessment to evaluate your licensing eligibility and regulatory readiness for the GCR energy and minerals market. Receive a personalized risk profile and recommended entry strategy.</p>
+        <p class="hero__subhead" style="margin:0 auto var(--space-xl);max-width:60ch;">The Caspian region favors deep preparation over improvisation. Take our 10-minute preliminary assessment to evaluate your licensing eligibility and regulatory readiness for the GCR energy and minerals market. Receive a personalized risk profile and recommended entry strategy.</p>
         <a href="page-06.html" class="btn btn--primary btn--lg">Start Readiness Assessment</a>
       </div>
     </section>
 
-
   </main>
 
-
-  <!-- ========================================================================
-       FOOTER
-       Shared across all pages. Copy this block to every HTML file.
-       ======================================================================== -->
+  <!-- FOOTER -->
   <footer class="footer section--dark" role="contentinfo">
     <div class="container">
       <div class="footer__grid">
-
         <div class="footer__col">
-          <!-- TODO: replace by Figma asset — white logo -->
           <div data-placeholder-img style="width:140px;height:35px;font-size:0.7rem;margin-bottom:1rem;">LOGO (white)</div>
           <p>Boutique Bridging Western Capital with Caspian Opportunity.</p>
         </div>
-
         <div class="footer__col">
           <h4 class="footer__heading">Offices</h4>
           <p>Geneva (HQ): By Appointment</p>
           <p>Astana: AIFC, Mangilik Yel Ave.</p>
           <p>Baku: Representative Office</p>
         </div>
-
         <div class="footer__col">
           <h4 class="footer__heading">Navigate</h4>
           <a href="page-03.html" class="footer__link">Services</a>
@@ -469,15 +354,12 @@
           <a href="page-07.html" class="footer__link">Insights &amp; Reports</a>
           <a href="page-06.html" class="footer__link">Readiness Check</a>
         </div>
-
         <div class="footer__col">
           <h4 class="footer__heading">Connect</h4>
           <a href="#" class="footer__link" aria-label="Follow GCR on LinkedIn">LinkedIn</a>
           <a href="mailto:partners@gcr-boutique.com" class="footer__link">partners@gcr-boutique.com</a>
         </div>
-
       </div>
-
       <div class="footer__legal">
         <p>&copy; 2026 GCR Consulting. All Rights Reserved.</p>
         <div class="footer__legal-links">
@@ -489,8 +371,6 @@
     </div>
   </footer>
 
-
-  <!-- ── Cookie Banner (hidden by default, shown via JS) ── -->
   <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent" hidden>
     <div class="container cookie-banner__inner">
       <p>We use cookies to improve your experience. See our <a href="page-09.html#privacy">Privacy Policy</a>.</p>

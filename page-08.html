@@ -1,31 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    ========================================================================
-    DEVELOPER NOTES — page-08.html (Contact)
-    ========================================================================
-    Source document : 8 Consulting WEB Contact.docx
-    Page title      : Change the <title> tag below
-    Meta description: Change the <meta name="description"> content below
-    Form fields     : Edit the form markup below
-    Email validation: Edit GENERIC_DOMAINS in js/main.js
-    NOTE: No backend — form shows client-side success message only.
-    ========================================================================
-  -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact GCR Consulting — Discuss your market entry or expansion strategy directly with our partners. Strictly confidential.">
+  <meta name="description" content="Contact GCR Consulting — Discuss your market entry or expansion strategy directly with our partners.">
   <meta property="og:title" content="Contact | GCR Consulting">
-  <meta property="og:description" content="Discuss your GCR market entry strategy directly with our partners. Confidential consultation available.">
+  <meta property="og:description" content="Discuss your GCR market entry strategy directly with our partners.">
   <meta property="og:type" content="website">
   <title>Contact | GCR Consulting</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
   <a href="#main-content" class="sr-only">Skip to main content</a>
 
-  <!-- HEADER -->
   <header class="header" role="banner">
     <div class="container header__inner">
       <a href="index.html" class="header__logo" aria-label="GCR Consulting Home">
@@ -67,147 +55,179 @@
       </div>
     </section>
 
-    <!-- CONTACT FORM -->
+    <!-- CONTACT FORM SECTION -->
     <section class="section">
       <div class="container container--narrow">
 
-        <!-- Intent Selector Tabs -->
-        <div data-tabs>
-          <div class="tabs" role="tablist">
-            <button class="tabs__btn is-active" data-tab-target="tab-client" role="tab" aria-selected="true">I am a Client</button>
-            <button class="tabs__btn" data-tab-target="tab-media" role="tab" aria-selected="false">Media &amp; Press</button>
-            <button class="tabs__btn" data-tab-target="tab-partnership" role="tab" aria-selected="false">Partnership Proposal</button>
-          </div>
+        <!-- Role Tabs -->
+        <div class="contact-form__tabs" role="tablist">
+          <button class="contact-form__tab is-active" data-tab-target="tab-client" role="tab" aria-selected="true">I am a Client</button>
+          <button class="contact-form__tab" data-tab-target="tab-media" role="tab" aria-selected="false">Media &amp; Press</button>
+          <button class="contact-form__tab" data-tab-target="tab-other" role="tab" aria-selected="false">Partnership Proposal</button>
+        </div>
 
-          <!-- CLIENT FORM -->
-          <div class="tabs__panel is-active" data-tab-id="tab-client" role="tabpanel" aria-hidden="false">
-            <form id="contactForm" novalidate>
+        <!-- CLIENT TAB -->
+        <div class="tabs__panel is-active" data-tab-id="tab-client" role="tabpanel" aria-hidden="false">
+          <form id="contactForm" class="contact-form" novalidate>
 
-              <h2 class="mt-lg mb-lg">Client Inquiry</h2>
+            <h3 style="margin-bottom:0.5rem;">Personal Details</h3>
 
-              <!-- Personal Details -->
-              <div class="form-group">
-                <label for="clientName" class="form-label">Full Name</label>
-                <input type="text" id="clientName" class="form-input" required aria-describedby="clientNameError">
-                <p class="form-error" id="clientNameError"></p>
-              </div>
-
-              <div class="form-group">
-                <label for="clientTitle" class="form-label">Job Title</label>
-                <input type="text" id="clientTitle" class="form-input" placeholder="e.g., CEO, Head of Expansion, Managing Director">
-              </div>
-
-              <!-- Contact Information -->
-              <div class="form-group">
-                <label for="clientEmail" class="form-label">Work Email</label>
-                <input type="email" id="clientEmail" class="form-input" required aria-describedby="clientEmailError">
-                <p class="form-error" id="clientEmailError"></p>
-              </div>
-
-              <div class="form-group">
-                <label for="clientPhone" class="form-label">Phone Number (Optional)</label>
-                <input type="tel" id="clientPhone" class="form-input">
-                <p class="form-microcopy">Used only for urgent scheduling regarding your inquiry.</p>
-              </div>
-
-              <!-- Strategic Context -->
-              <div class="form-group">
-                <label for="clientInquiry" class="form-label">Nature of Inquiry</label>
-                <select id="clientInquiry" class="form-select" required aria-describedby="clientInquiryError">
-                  <option value="">Select one...</option>
-                  <option value="market-entry">Strategic Market Entry &amp; Validation</option>
-                  <option value="government-relations">Government Relations (GR) &amp; High-Level Access</option>
-                  <option value="operational-setup">Operational Setup &amp; Risk Mitigation</option>
-                  <option value="partnership">Partnership Proposal</option>
-                </select>
-                <p class="form-error" id="clientInquiryError"></p>
-              </div>
-
-              <div class="form-group">
-                <label for="clientOrg" class="form-label">Organization Profile</label>
-                <select id="clientOrg" class="form-select">
-                  <option value="">Select one...</option>
-                  <option value="mnc">Multinational Corporation / Enterprise</option>
-                  <option value="fund">Investment Fund / Private Equity / Family Office</option>
-                  <option value="scaleup">Scale-up / High Growth Venture</option>
-                  <option value="gov">Government Entity / NGO</option>
-                </select>
-              </div>
-
-              <!-- The Brief -->
-              <div class="form-group">
-                <label for="clientContext" class="form-label">Context &amp; Objectives</label>
-                <textarea id="clientContext" class="form-textarea" placeholder="Briefly describe your strategic goals or the specific challenge you are facing in the Greater Caspian Region."></textarea>
-              </div>
-
-              <!-- Compliance Checkbox -->
-              <div class="form-group">
-                <div class="form-checkbox">
-                  <input type="checkbox" id="clientCompliance" required aria-describedby="clientComplianceError">
-                  <label for="clientCompliance">I acknowledge the <a href="page-09.html#privacy">Privacy Policy</a> and confirm that my inquiry aligns with GCR Consulting's ethical compliance standards. I understand that the firm strictly operates within legal frameworks and does not engage in grey schemes.</label>
-                </div>
-                <p class="form-error" id="clientComplianceError"></p>
-              </div>
-
-              <button type="submit" class="btn btn--primary btn--lg">Request Consultation</button>
-            </form>
-
-            <!-- Success Message (shown after valid submit) -->
-            <div class="form-success" id="formSuccess" aria-live="polite">
-              <h3>Thank You</h3>
-              <p class="mt-md">Your inquiry has been received. A managing partner will be in touch within 48 hours.</p>
-              <p class="text-sm text-light mt-md">Confidentiality guaranteed. NDA signed before the first call.</p>
+            <div class="form-group">
+              <label for="contactName" class="form-label">Full Name *</label>
+              <input type="text" id="contactName" class="form-input" required aria-describedby="contactNameError">
+              <p class="form-error" id="contactNameError"></p>
             </div>
-          </div>
 
-          <!-- MEDIA FORM -->
-          <div class="tabs__panel" data-tab-id="tab-media" role="tabpanel" aria-hidden="true">
-            <h2 class="mt-lg mb-lg">Media &amp; Press Inquiry</h2>
-            <form>
-              <div class="form-group">
-                <label for="mediaName" class="form-label">Full Name</label>
-                <input type="text" id="mediaName" class="form-input" required>
-              </div>
-              <div class="form-group">
-                <label for="mediaOutlet" class="form-label">Media Outlet</label>
-                <input type="text" id="mediaOutlet" class="form-input" required>
-              </div>
-              <div class="form-group">
-                <label for="mediaEmail" class="form-label">Email</label>
-                <input type="email" id="mediaEmail" class="form-input" required>
-              </div>
-              <div class="form-group">
-                <label for="mediaInquiry" class="form-label">Inquiry Details</label>
-                <textarea id="mediaInquiry" class="form-textarea" placeholder="Describe your media request or interview topic."></textarea>
-              </div>
-              <button type="submit" class="btn btn--primary">Submit Inquiry</button>
-            </form>
-          </div>
+            <div class="form-group">
+              <label for="contactTitle" class="form-label">Job Title</label>
+              <input type="text" id="contactTitle" class="form-input" placeholder="e.g., CEO, Head of Expansion, Managing Director">
+            </div>
 
-          <!-- PARTNERSHIP FORM -->
-          <div class="tabs__panel" data-tab-id="tab-partnership" role="tabpanel" aria-hidden="true">
-            <h2 class="mt-lg mb-lg">Partnership Proposal</h2>
-            <form>
-              <div class="form-group">
-                <label for="partnerName" class="form-label">Full Name</label>
-                <input type="text" id="partnerName" class="form-input" required>
-              </div>
-              <div class="form-group">
-                <label for="partnerOrg" class="form-label">Organization</label>
-                <input type="text" id="partnerOrg" class="form-input" required>
-              </div>
-              <div class="form-group">
-                <label for="partnerEmail" class="form-label">Email</label>
-                <input type="email" id="partnerEmail" class="form-input" required>
-              </div>
-              <div class="form-group">
-                <label for="partnerProposal" class="form-label">Partnership Proposal</label>
-                <textarea id="partnerProposal" class="form-textarea" placeholder="Describe your partnership proposal and how it aligns with GCR operations."></textarea>
-              </div>
-              <button type="submit" class="btn btn--primary">Submit Proposal</button>
-            </form>
-            <p class="text-sm text-light mt-lg">For partnership inquiries or agent representation, please direct your proposal to: <a href="mailto:partners@gcr-boutique.com">partners@gcr-boutique.com</a></p>
+            <h3 style="margin-top:1.5rem;margin-bottom:0.5rem;">Contact Information</h3>
+
+            <div class="form-group">
+              <label for="contactEmail" class="form-label">Work Email *</label>
+              <input type="email" id="contactEmail" class="form-input" required aria-describedby="contactEmailError">
+              <p class="form-error" id="contactEmailError">Please use a valid corporate email address. We do not accept generic domains (gmail, yahoo) for initial inquiries.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="contactPhone" class="form-label">Phone Number <span class="text-sm text-light">(Optional)</span></label>
+              <input type="tel" id="contactPhone" class="form-input">
+              <p class="text-sm text-light" style="margin-top:0.25rem;">Used only for urgent scheduling regarding your inquiry.</p>
+            </div>
+
+            <h3 style="margin-top:1.5rem;margin-bottom:0.5rem;">Strategic Context</h3>
+
+            <div class="form-group">
+              <label for="contactInquiry" class="form-label">Nature of Inquiry *</label>
+              <select id="contactInquiry" class="form-input contact-form__select" required>
+                <option value="">Select inquiry type...</option>
+                <option value="market-entry">Strategic Market Entry &amp; Validation</option>
+                <option value="gov-relations">Government Relations (GR) &amp; High-Level Access</option>
+                <option value="ops-setup">Operational Setup &amp; Risk Mitigation</option>
+                <option value="partnership">Partnership Proposal</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contactOrg" class="form-label">Organization Profile *</label>
+              <select id="contactOrg" class="form-input contact-form__select" required>
+                <option value="">Select organization type...</option>
+                <option value="mnc">Multinational Corporation / Enterprise</option>
+                <option value="fund">Investment Fund / Private Equity / Family Office</option>
+                <option value="scaleup">Scale-up / High Growth Venture</option>
+                <option value="gov">Government Entity / NGO</option>
+              </select>
+            </div>
+
+            <h3 style="margin-top:1.5rem;margin-bottom:0.5rem;">The Brief</h3>
+
+            <div class="form-group">
+              <label for="contactMessage" class="form-label">Context &amp; Objectives *</label>
+              <textarea id="contactMessage" class="form-textarea" required aria-describedby="contactMessageError" placeholder="Briefly describe your strategic goals or the specific challenge you are facing in the Greater Caspian Region."></textarea>
+              <p class="form-error" id="contactMessageError"></p>
+            </div>
+
+            <!-- reCAPTCHA placeholder -->
+            <div class="form-group">
+              <div class="placeholder-img" style="width:304px;height:78px;background:#f9f9f9;border:1px solid #d3d3d3;border-radius:3px;font-size:0.75rem;display:flex;align-items:center;justify-content:center;color:#555;">reCAPTCHA placeholder</div>
+            </div>
+
+            <!-- Compliance Checkbox -->
+            <div class="contact-form__checkbox-group">
+              <input type="checkbox" id="contactConsent" required>
+              <label for="contactConsent">I acknowledge the <a href="page-09.html">Privacy Policy</a> and confirm that my inquiry aligns with GCR Consulting's ethical compliance standards. I understand that the firm strictly operates within legal frameworks and does not engage in gray schemes.</label>
+            </div>
+
+            <!-- Privacy text -->
+            <div class="form-group">
+              <p class="text-sm text-light">GCR Consulting is committed to protecting your information. Your information will be used in accordance with the applicable data privacy law, our internal policies and our <a href="page-09.html">privacy policy</a>. As GCR Consulting is a global organization, your information may be stored and processed by GCR Consulting and its affiliates in countries outside your country of residence, but wherever your information is processed, we will handle it with the same care and respect for your privacy.</p>
+            </div>
+
+            <button type="submit" class="btn btn--primary">Request Consultation</button>
+          </form>
+
+          <!-- Success Message -->
+          <div class="form-success" id="formSuccess" aria-live="polite">
+            <h3>Thank You</h3>
+            <p class="mt-md">Your inquiry has been received. A managing partner will review your request and respond within 48 business hours.</p>
           </div>
+        </div>
+
+        <!-- MEDIA TAB -->
+        <div class="tabs__panel" data-tab-id="tab-media" role="tabpanel" aria-hidden="true">
+          <form class="contact-form" novalidate>
+            <div class="form-group">
+              <label for="mediaName" class="form-label">Full Name *</label>
+              <input type="text" id="mediaName" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="mediaEmail" class="form-label">Work Email *</label>
+              <input type="email" id="mediaEmail" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="mediaOutlet" class="form-label">Media Outlet / Publication</label>
+              <input type="text" id="mediaOutlet" class="form-input">
+            </div>
+            <div class="form-group">
+              <label for="mediaTitle" class="form-label">Title / Role</label>
+              <input type="text" id="mediaTitle" class="form-input">
+            </div>
+            <div class="form-group">
+              <label for="mediaSubject" class="form-label">Subject *</label>
+              <input type="text" id="mediaSubject" class="form-input" required placeholder="Interview request, expert commentary, press inquiry...">
+            </div>
+            <div class="form-group">
+              <label for="mediaMessage" class="form-label">Message *</label>
+              <textarea id="mediaMessage" class="form-textarea" required placeholder="Please describe your media inquiry, including any deadlines."></textarea>
+            </div>
+            <div class="form-group">
+              <div class="placeholder-img" style="width:304px;height:78px;background:#f9f9f9;border:1px solid #d3d3d3;border-radius:3px;font-size:0.75rem;display:flex;align-items:center;justify-content:center;color:#555;">reCAPTCHA placeholder</div>
+            </div>
+            <div class="form-group">
+              <p class="text-sm text-light">GCR Consulting is committed to protecting your information. Your data will be used in accordance with our <a href="page-09.html">privacy policy</a>.</p>
+            </div>
+            <button type="submit" class="btn btn--primary">Submit</button>
+          </form>
+        </div>
+
+        <!-- PARTNERSHIP TAB -->
+        <div class="tabs__panel" data-tab-id="tab-other" role="tabpanel" aria-hidden="true">
+          <form class="contact-form" novalidate>
+            <div class="form-group">
+              <label for="otherName" class="form-label">Full Name *</label>
+              <input type="text" id="otherName" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="otherEmail" class="form-label">Work Email *</label>
+              <input type="email" id="otherEmail" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="otherCompany" class="form-label">Organization</label>
+              <input type="text" id="otherCompany" class="form-input">
+            </div>
+            <div class="form-group">
+              <label for="otherTitle" class="form-label">Title / Role</label>
+              <input type="text" id="otherTitle" class="form-input">
+            </div>
+            <div class="form-group">
+              <label for="otherSubject" class="form-label">Subject *</label>
+              <input type="text" id="otherSubject" class="form-input" required placeholder="Partnership proposal, agent representation, joint venture...">
+            </div>
+            <div class="form-group">
+              <label for="otherMessage" class="form-label">Proposal Details *</label>
+              <textarea id="otherMessage" class="form-textarea" required placeholder="Please outline your partnership proposal, including scope, geographic focus, and expected mutual value."></textarea>
+            </div>
+            <div class="form-group">
+              <div class="placeholder-img" style="width:304px;height:78px;background:#f9f9f9;border:1px solid #d3d3d3;border-radius:3px;font-size:0.75rem;display:flex;align-items:center;justify-content:center;color:#555;">reCAPTCHA placeholder</div>
+            </div>
+            <div class="form-group">
+              <p class="text-sm text-light">GCR Consulting is committed to protecting your information. Your data will be used in accordance with our <a href="page-09.html">privacy policy</a>.</p>
+            </div>
+            <button type="submit" class="btn btn--primary">Submit Proposal</button>
+          </form>
+          <p class="text-sm text-light" style="margin-top:1.5rem;">For partnership inquiries or agent representation, you may also direct your proposal to: <a href="mailto:partners@gcrconsulting.com">partners@gcrconsulting.com</a></p>
         </div>
 
       </div>
@@ -215,7 +235,6 @@
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer section--dark" role="contentinfo">
     <div class="container">
       <div class="footer__grid">
@@ -263,6 +282,6 @@
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
