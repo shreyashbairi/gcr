@@ -29,12 +29,15 @@
     initActiveNav();
     initSmoothScroll();
     initTabs();
+    initContactTabs();
     initRedirectHelper();
     initSlider();
     initStickyCTA();
     initCookieBanner();
     initQuiz();
     initContactForm();
+    initMorphCards();
+    initReadinessProgress();
   }
 
 
@@ -44,31 +47,59 @@
      ====================================================================== */
 
   function initMobileMenu() {
-    const burger = document.querySelector('.header__burger');
-    const menu = document.querySelector('.header__mobile-menu');
-    if (!burger || !menu) return;
+    /* Support both old (.header__burger) and new (.header-new__burger) header */
+    var burger = document.querySelector('.header-new__burger') || document.querySelector('.header__burger');
+    var nav = document.querySelector('.header-new__nav');
+    var menu = document.querySelector('.header__mobile-menu');
 
-    burger.addEventListener('click', function () {
-      const isOpen = menu.classList.toggle('is-open');
-      burger.classList.toggle('is-active');
-      burger.setAttribute('aria-expanded', String(isOpen));
-      menu.setAttribute('aria-hidden', String(!isOpen));
-      document.body.classList.toggle('menu-open', isOpen);
-    });
-
-    /* Close on ESC */
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && menu.classList.contains('is-open')) {
-        closeMenu(burger, menu);
-      }
-    });
-
-    /* Close when a mobile nav link is clicked */
-    menu.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        closeMenu(burger, menu);
+    if (burger && nav) {
+      /* New header: toggle nav visibility on mobile */
+      burger.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('is-open');
+        burger.classList.toggle('is-active');
+        burger.setAttribute('aria-expanded', String(isOpen));
+        document.body.classList.toggle('menu-open', isOpen);
       });
-    });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+          nav.classList.remove('is-open');
+          burger.classList.remove('is-active');
+          burger.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('menu-open');
+        }
+      });
+
+      nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          nav.classList.remove('is-open');
+          burger.classList.remove('is-active');
+          burger.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    } else if (burger && menu) {
+      /* Legacy header */
+      burger.addEventListener('click', function () {
+        var isOpen = menu.classList.toggle('is-open');
+        burger.classList.toggle('is-active');
+        burger.setAttribute('aria-expanded', String(isOpen));
+        menu.setAttribute('aria-hidden', String(!isOpen));
+        document.body.classList.toggle('menu-open', isOpen);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+          closeMenu(burger, menu);
+        }
+      });
+
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          closeMenu(burger, menu);
+        });
+      });
+    }
   }
 
   function closeMenu(burger, menu) {
@@ -94,16 +125,9 @@
       currentPage = 'index.html';
     }
 
-    /* Mark desktop nav links */
-    document.querySelectorAll('.header__nav-link').forEach(function (link) {
-      var href = link.getAttribute('href');
-      if (href === currentPage || (currentPage === 'index.html' && href === 'index.html')) {
-        link.classList.add('is-active');
-      }
-    });
-
-    /* Mark mobile nav links */
-    document.querySelectorAll('.header__mobile-link').forEach(function (link) {
+    /* Mark all nav links (both old and new header) */
+    var selectors = '.header__nav-link, .header__mobile-link, .header-new__nav-link';
+    document.querySelectorAll(selectors).forEach(function (link) {
       var href = link.getAttribute('href');
       if (href === currentPage || (currentPage === 'index.html' && href === 'index.html')) {
         link.classList.add('is-active');
@@ -673,6 +697,109 @@
       errorEl.textContent = message;
       errorEl.classList.add('is-visible');
     }
+  }
+
+
+  /* ======================================================================
+     11. CONTACT PAGE TABS (standalone, no [data-tabs] wrapper)
+     For the contact form tabs that use .contact-form__tab and .tabs__panel.
+     ====================================================================== */
+
+  function initContactTabs() {
+    var tabButtons = document.querySelectorAll('.contact-form__tab');
+    if (tabButtons.length === 0) return;
+
+    tabButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = btn.getAttribute('data-tab-target');
+
+        /* Deactivate all tabs and panels */
+        tabButtons.forEach(function (b) {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        document.querySelectorAll('.tabs__panel').forEach(function (p) {
+          p.classList.remove('is-active');
+          p.setAttribute('aria-hidden', 'true');
+        });
+
+        /* Activate selected */
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-selected', 'true');
+        var activePanel = document.querySelector('[data-tab-id="' + target + '"]');
+        if (activePanel) {
+          activePanel.classList.add('is-active');
+          activePanel.setAttribute('aria-hidden', 'false');
+        }
+      });
+    });
+  }
+
+
+  /* ======================================================================
+     12. MORPHING PROFILE CARDS — Touch support for mobile
+     On mobile (no hover), tap to expand the card info.
+     ====================================================================== */
+
+  function initMorphCards() {
+    var cards = document.querySelectorAll('.morph-card');
+    if (cards.length === 0) return;
+
+    /* Only add tap behavior on touch devices */
+    if (!('ontouchstart' in window)) return;
+
+    cards.forEach(function (card) {
+      card.addEventListener('touchstart', function (e) {
+        /* If card is not expanded, expand it; otherwise follow the link */
+        if (!card.classList.contains('is-touched')) {
+          e.preventDefault();
+          /* Close all other cards */
+          cards.forEach(function (c) { c.classList.remove('is-touched'); });
+          card.classList.add('is-touched');
+        }
+        /* If already touched, let the default link behavior happen */
+      }, { passive: false });
+    });
+
+    /* Close cards when tapping outside */
+    document.addEventListener('touchstart', function (e) {
+      if (!e.target.closest('.morph-card')) {
+        cards.forEach(function (c) { c.classList.remove('is-touched'); });
+      }
+    });
+  }
+
+
+  /* ======================================================================
+     13. READINESS PROGRESS BAR
+     Updates the progress bar on the readiness page as quiz progresses.
+     ====================================================================== */
+
+  function initReadinessProgress() {
+    var progressBar = document.getElementById('readinessProgress');
+    if (!progressBar) return;
+
+    /* Watch for quiz progress changes via MutationObserver on quiz container */
+    var quizContainer = document.getElementById('quizContainer');
+    if (!quizContainer) return;
+
+    var observer = new MutationObserver(function () {
+      var stepIndicator = quizContainer.querySelector('.quiz__step-indicator');
+      if (stepIndicator) {
+        var match = stepIndicator.textContent.match(/(\d+)\s+of\s+(\d+)/);
+        if (match) {
+          var current = parseInt(match[1]);
+          var total = parseInt(match[2]);
+          progressBar.style.width = ((current / total) * 100) + '%';
+        }
+      }
+      /* If result is showing, set to 100% */
+      if (quizContainer.querySelector('.quiz__result')) {
+        progressBar.style.width = '100%';
+      }
+    });
+
+    observer.observe(quizContainer, { childList: true, subtree: true });
   }
 
 })();

@@ -1,0 +1,49 @@
+﻿Page: Contact / Engage
+Block 1: Headline & Mindset (Type 1)
+Engage with GCR
+Discuss your market entry or expansion strategy directly with our partners. We prioritize dialogue with systemic businesses ready for scalable impact.
+
+
+Block 2: The Gatekeeper / Intent Selector (Type 1)
+Objective: UX pattern for separating flows. Clients should not see fields for press, and vice versa.
+UX-Specs:
+* Visual Toggle or Tabs.
+* Animation: Smooth transition of form fields without reloading the page.
+Content (Labels):
+[ I am a Client ] (State: Active / Selected) 
+[ Media & Press ] (State: Inactive) 
+[ Partnership Proposal ] (State: Inactive)
+Block 3: The Velvet Rope Form (Type 1)
+Objective: Lead qualification before they click "Send". The form must look like a VIP pass: strict, but polite. Fields are designed to filter out non-target inquiries (early-stage startups without budget, private individuals).
+Content (Form Fields):
+1. Personal Details
+   * Label: Full Name
+   * Label: Job Title
+   * Placeholder: e.g., CEO, Head of Expansion, Managing Director
+2. Contact Information
+   * Label: Work Email
+   * Validation Message (Error): Please use a valid corporate email address. We do not accept generic domains (gmail, yahoo) for initial inquiries.
+   * Label: Phone Number (Optional)
+   * Microcopy: Used only for urgent scheduling regarding your inquiry.
+3. Strategic Context (Segmentation)
+   * Label: Nature of Inquiry
+   * Dropdown Options:
+      * Strategic Market Entry & Validation
+      * Government Relations (GR) & High-Level Access
+      * Operational Setup & Risk Mitigation
+      * Partnership Proposal
+   * Label: Organization Profile
+   * Dropdown Options:
+      * Multinational Corporation / Enterprise
+      * Investment Fund / Private Equity / Family Office
+      * Scale-up / High Growth Venture
+      * Government Entity / NGO
+4. The Brief
+   * Label: Context & Objectives
+   * Placeholder: Briefly describe your strategic goals or the specific challenge you are facing in the Greater Caspian Region.
+5. The Trust Checkbox (Compliance)
+   * Checkbox: [ ] I acknowledge the Privacy Policy and confirm that my inquiry aligns with [Company Name]’s ethical compliance standards. I understand that the firm strictly operates within legal frameworks and does not engage in gray schemes.
+Call to Action (Button): [ Request Consultation ]
+
+
+(Optional Footer Note): For partnership inquiries or agent representation, please direct your proposal to: partners@[company-domain].com

@@ -1,0 +1,53 @@
+﻿Approximate design of the general page - https://chaoly.com/success-stories/ 
+
+Approximate design of each private page - https://chaoly.com/success-stories/nestle-think-globally-act-locally/ 
+
+Block 1. Hero-Section: Value Proposition — TYPE 1 (Auto-Pilot)
+UX/Design Note: Background — abstract, but “heavy” graphics (for example, a topographic map of the region or stylized data flows through the Caspian), symbolizing the complexity that you organize. Title font — large, with serifs (Serif) for status.
+Headline:
+Overcoming GCR Barriers: How We Help Global Business Scale in the CGR.
+Subheadline: We don’t just consult — we build the infrastructure for your success. From navigating the regulatory maze to shaking hands with key stakeholders: we turn the uncertainty of emerging markets into a predictable asset. Our cases are proof that the right connections and local expertise open any doors.
+________________
+
+
+Block 2. Navigator (The Selector) — TYPE 2 (Human-in-the-Loop)
+⏳ WAITING FOR DATA: I need to define filters that will actually work (there should be no empty filters). Based on the structure of your services and competitor analysis (Intralink, Chaoly), write to me which 3-4 Industries and 3-4 Task Types we should put in the filter. Example:
+* Industries: Energy & Renewables, Fintech, Logistics, Agrotech.
+* Tasks: Market Entry, GR & Crisis Mgmt, Partner Search, Operational Setup.
+________________
+
+
+Block 3. Featured Case (Anchor Case) — TYPE 2 (Human-in-the-Loop)
+⏳ WAITING FOR DATA: I need the "meat" for the most important case. Choose the most impressive project. Write to me:
+1. Industry/Client (can be descriptive, e.g. "Top-3 logistics operator in Europe").
+2. Headline-Result (What was done? e.g. "Hub launch in 4 months").
+3. 3 Key figures (ROI, Terms, Deal volume or saved fine).
+4. Brief context (What was the drama? Why was it difficult?).
+________________
+
+
+Block 4. Case Grid (The Grid) — TYPE 2 (Human-in-the-Loop)
+⏳ WAITING FOR DATA: I need inputs for 3 additional cases (so the grid looks filled). For each, write:
+1. Was (Problem): (e.g. "Client stuck in licensing for 8 months").
+2. Became (Solution): (e.g. "Obtaining license in 3 weeks via Fast-Track AIFC").
+3. Tags: (Industry, Service Type).
+4. One main metric: (e.g. "Speed to Market: 3 weeks").
+________________
+
+
+Block 5. Insight-Layer (Expertise Layer) — TYPE 3 (Wireframing / UX)
+Goal: To show that the project's success depended not on luck or standard procedures, but on the boutique's unique resource (personal connections, insider information, level of access). This is a psychological trigger "Trust & Authority".
+UX-Specs:
+* Placement:This block does not hang separately, it is integrated inside the Featured Case card or pops up when hovering over cases in the grid (Hover Effect).
+* Visual:  Looks like a "marginal note" or a quote. Use a visual marker — a handwritten text icon or signature. Font pair imitating a note in a diary or premium italic.
+* Element Title: "Partner’s Note" or "Inside the Deal".
+* Content Example (Generic): "The official path would have taken 12 months. We used partner status at WEF to verify the client's reputation directly through the ministerial level, reducing the compliance check to 14 days."
+________________
+
+
+Block 6. CTA (Call to Action) — TYPE 1 (Auto-Pilot)
+Headline:
+Faced with a similar challenge in the region?
+Body: Every case in the GCR is unique, but success patterns repeat. Do not risk time and reputation by acting blindly. Discuss your market entry scenario and get a preliminary risk assessment from a managing partner.
+Button: Discuss my project
+Subtext (under button): Confidentiality guaranteed. NDA is signed before the first call.
