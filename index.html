@@ -20,8 +20,7 @@
   <!-- HEADER -->
   <header class="header-new">
     <a href="index.html" class="header-new__logo">
-      <div class="placeholder-img"
-        style="width:48px;height:48px;background:var(--color-accent);font-size:0.6rem;border-radius:4px;">LOGO</div>
+      <div style="width:48px;height:48px;background:var(--color-accent);font-size:0.65rem;border-radius:4px;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--color-primary);letter-spacing:0.05em;">GCR</div>
     </a>
     <nav class="header-new__nav">
       <a href="index.html" class="active">Home</a>
@@ -55,24 +54,24 @@
     </section>
 
     <!-- SECTION 2: TRUST BAR -->
-    <section class="section" aria-label="Trusted by global institutions">
+    <section class="section section--compact" aria-label="Trusted by global institutions">
       <div class="container">
         <p class="trust-bar__surtitle">Insights and expertise trusted by global institutions:</p>
         <div class="trust-bar">
           <div class="trust-bar__logo" role="img" aria-label="World Economic Forum logo">
-            <div data-placeholder-img style="width:120px;height:40px;">WEF</div>
+            <div style="width:120px;height:40px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;color:var(--color-text-light);letter-spacing:0.05em;opacity:0.7;">WEF</div>
           </div>
           <div class="trust-bar__logo" role="img" aria-label="United Nations logo">
-            <div data-placeholder-img style="width:120px;height:40px;">UN</div>
+            <div style="width:120px;height:40px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;color:var(--color-text-light);letter-spacing:0.05em;opacity:0.7;">UN</div>
           </div>
           <div class="trust-bar__logo" role="img" aria-label="FIATA logo">
-            <div data-placeholder-img style="width:120px;height:40px;">FIATA</div>
+            <div style="width:120px;height:40px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;color:var(--color-text-light);letter-spacing:0.05em;opacity:0.7;">FIATA</div>
           </div>
           <div class="trust-bar__logo" role="img" aria-label="International Chamber of Commerce logo">
-            <div data-placeholder-img style="width:120px;height:40px;">ICC</div>
+            <div style="width:120px;height:40px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;color:var(--color-text-light);letter-spacing:0.05em;opacity:0.7;">ICC</div>
           </div>
           <div class="trust-bar__logo" role="img" aria-label="Forbes logo">
-            <div data-placeholder-img style="width:120px;height:40px;">Forbes</div>
+            <div style="width:120px;height:40px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;color:var(--color-text-light);letter-spacing:0.05em;opacity:0.7;">Forbes</div>
           </div>
         </div>
       </div>
@@ -231,77 +230,186 @@
       </div>
     </section>
 
-    <!-- SECTION 6: EXPERT MATERIALS FEED -->
+    <!-- SECTION 6: CASE STUDIES — EXPANDING SPLIT-SCREEN -->
     <section class="section section--alt">
       <div class="container">
-        <div class="grid grid--split">
-          <div class="expert-feed__slider">
-            <h3 class="mb-lg">Case Studies</h3>
-            <div class="expert-feed__slide is-active">
-              <div data-placeholder-img class="ratio-16-9" style="margin-bottom:1rem;">Case Study Image</div>
-              <h4>Market Entry via AIFC</h4>
-              <p>From zero to fully licensed fintech operation in Kazakhstan.</p>
-            </div>
-            <div class="expert-feed__slide">
-              <div data-placeholder-img class="ratio-16-9" style="margin-bottom:1rem;">Case Study Image</div>
-              <h4>Strategic Partnership</h4>
-              <p>Facilitated joint venture for a European Energy Major.</p>
-            </div>
-            <div class="expert-feed__dots">
-              <button class="expert-feed__dot is-active" aria-label="Show slide 1"></button>
-              <button class="expert-feed__dot" aria-label="Show slide 2"></button>
-            </div>
-            <a href="page-04.html" class="btn btn--primary mt-md">Learn More</a>
+        <div class="section-intro">
+          <h2>Case Studies</h2>
+        </div>
+      </div>
+      <div class="fancy-nav" id="caseStudyNav">
+        <div class="fancy-nav__imgs">
+          <div class="fancy-nav__img">
+            <div style="width:100%;height:100%;background:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop&q=80') center/cover no-repeat;display:flex;align-items:center;justify-content:center;color:#fff;font-size:2rem;font-family:var(--font-heading);text-shadow:0 2px 8px rgba(0,0,0,0.6);">Fintech Market Entry</div>
           </div>
-          <div>
-            <h3 class="mb-lg">Latest Insights</h3>
-            <div class="card card--insight mb-md">
-              <div class="card__image" data-placeholder-img>Insight Image</div>
-              <p class="card__meta">Regulation &bull; 3 min read</p>
-              <h4>Navigating AIFC Regulatory Sandboxes</h4>
+          <div class="fancy-nav__img">
+            <div style="width:100%;height:100%;background:url('https://images.unsplash.com/photo-1513828583688-c52646db42da?w=1200&h=800&fit=crop&q=80') center/cover no-repeat;display:flex;align-items:center;justify-content:center;color:#fff;font-size:2rem;font-family:var(--font-heading);text-shadow:0 2px 8px rgba(0,0,0,0.6);">Energy JV</div>
+          </div>
+          <div class="fancy-nav__img">
+            <div style="width:100%;height:100%;background:url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=800&fit=crop&q=80') center/cover no-repeat;display:flex;align-items:center;justify-content:center;color:#fff;font-size:2rem;font-family:var(--font-heading);text-shadow:0 2px 8px rgba(0,0,0,0.6);">Supply Chain</div>
+          </div>
+          <div class="fancy-nav__img">
+            <div style="width:100%;height:100%;background:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=800&fit=crop&q=80') center/cover no-repeat;display:flex;align-items:center;justify-content:center;color:#fff;font-size:2rem;font-family:var(--font-heading);text-shadow:0 2px 8px rgba(0,0,0,0.6);">Regulatory Access</div>
+          </div>
+        </div>
+
+        <div class="fancy-nav__list">
+          <div class="fancy-nav__item">
+            <div class="fancy-nav__item-details">
+              <h3 class="fancy-nav__title">Market Entry via AIFC</h3>
+              <div class="fancy-nav__description"><p>From zero to fully licensed fintech operation in Kazakhstan within 90 days.</p></div>
+              <button class="fancy-nav__more-btn">Read More</button>
             </div>
-            <div class="card card--insight mb-md">
-              <div class="card__image" data-placeholder-img>Insight Image</div>
-              <p class="card__meta">Logistics &bull; 5 min read</p>
-              <h4>Trans-Caspian Route: 2026 Outlook</h4>
+          </div>
+          <div class="fancy-nav__item">
+            <div class="fancy-nav__item-details">
+              <h3 class="fancy-nav__title">Strategic Energy Partnership</h3>
+              <div class="fancy-nav__description"><p>Facilitated a $120M joint venture for a European Energy Major in Turkmenistan.</p></div>
+              <button class="fancy-nav__more-btn">Read More</button>
             </div>
-            <a href="page-07.html" class="btn btn--primary mt-md">Learn More</a>
+          </div>
+          <div class="fancy-nav__item">
+            <div class="fancy-nav__item-details">
+              <h3 class="fancy-nav__title">Trans-Caspian Supply Chain</h3>
+              <div class="fancy-nav__description"><p>Established a resilient logistics corridor reducing transit time by 40%.</p></div>
+              <button class="fancy-nav__more-btn">Read More</button>
+            </div>
+          </div>
+          <div class="fancy-nav__item">
+            <div class="fancy-nav__item-details">
+              <h3 class="fancy-nav__title">Regulatory Green Corridor</h3>
+              <div class="fancy-nav__description"><p>Accelerated customs clearance for an industrial manufacturer across 5 GCR markets.</p></div>
+              <button class="fancy-nav__more-btn">Read More</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="fancy-nav__tabs">
+          <div class="fancy-nav__tab">
+            <div class="fancy-nav__tab-container">
+              <button class="fancy-nav__close-btn" aria-label="Close"></button>
+              <div class="fancy-nav__tab-img">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop&q=80" alt="Case study" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="fancy-nav__tab-description">
+                <h3 class="fancy-nav__tab-title">Market Entry via AIFC</h3>
+                <div class="fancy-nav__tab-content">
+                  <p>We guided a European fintech firm from initial consultation to a fully licensed operation within the Astana International Financial Centre (AIFC) in just 90 days. The engagement included regulatory navigation, local banking partnerships, and compliance framework setup.</p>
+                  <a href="page-04.html" class="btn btn--primary mt-md">View Full Case Study</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="fancy-nav__tab">
+            <div class="fancy-nav__tab-container">
+              <button class="fancy-nav__close-btn" aria-label="Close"></button>
+              <div class="fancy-nav__tab-img">
+                <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?w=1200&h=800&fit=crop&q=80" alt="Case study" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="fancy-nav__tab-description">
+                <h3 class="fancy-nav__tab-title">Strategic Energy Partnership</h3>
+                <div class="fancy-nav__tab-content">
+                  <p>We brokered and structured a $120M joint venture between a European energy major and a Turkmen state enterprise, managing stakeholder alignment, PSA negotiations, and compliance across multiple jurisdictions.</p>
+                  <a href="page-04.html" class="btn btn--primary mt-md">View Full Case Study</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="fancy-nav__tab">
+            <div class="fancy-nav__tab-container">
+              <button class="fancy-nav__close-btn" aria-label="Close"></button>
+              <div class="fancy-nav__tab-img">
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=800&fit=crop&q=80" alt="Case study" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="fancy-nav__tab-description">
+                <h3 class="fancy-nav__tab-title">Trans-Caspian Supply Chain</h3>
+                <div class="fancy-nav__tab-content">
+                  <p>We designed and implemented a multi-modal logistics corridor across the Trans-Caspian route, reducing transit times by 40% and establishing green corridor customs agreements in three countries.</p>
+                  <a href="page-04.html" class="btn btn--primary mt-md">View Full Case Study</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="fancy-nav__tab">
+            <div class="fancy-nav__tab-container">
+              <button class="fancy-nav__close-btn" aria-label="Close"></button>
+              <div class="fancy-nav__tab-img">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=800&fit=crop&q=80" alt="Case study" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="fancy-nav__tab-description">
+                <h3 class="fancy-nav__tab-title">Regulatory Green Corridor</h3>
+                <div class="fancy-nav__tab-content">
+                  <p>We secured accelerated customs clearance and regulatory fast-track approvals for an industrial manufacturer, enabling product registration and market access across five GCR jurisdictions simultaneously.</p>
+                  <a href="page-04.html" class="btn btn--primary mt-md">View Full Case Study</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 7: LEADERSHIP PREVIEW -->
+    <!-- SECTION 7: LEADERSHIP CAROUSEL -->
     <section class="section">
       <div class="container">
         <div class="section-intro">
           <h2>Leadership &amp; Access</h2>
           <p>Expertise grounded in decades of high-level diplomacy and business execution.</p>
         </div>
-        <div class="grid grid--3">
-          <div class="partner-card">
-            <div class="partner-card__photo" data-placeholder-img>Partner Photo</div>
-            <p class="partner-card__name">Partner Name</p>
-            <p class="partner-card__role">Founding Partner. Davos Participant. UN Expert.</p>
-            <a href="page-05.html" class="partner-card__link">Read Bio &rarr;</a>
+        <div class="leader-carousel">
+          <p class="leader-carousel__eyebrow">Our Leadership</p>
+          <div class="leader-carousel__track">
+            <!-- Slide 1 -->
+            <div class="leader-carousel__slide">
+              <div class="leader-carousel__photo">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=800&fit=crop&q=80" alt="GCR Partner" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="leader-carousel__info">
+                <p class="leader-carousel__quote">A visionary leader with deep connections across the GCR's corridors of power, driving strategic partnerships that open markets and build lasting alliances for Western capital.</p>
+                <p class="leader-carousel__name">Partner Name</p>
+                <p class="leader-carousel__role">Founding Partner &bull; Davos Participant &bull; UN Expert</p>
+                <a href="leader-01.html" class="leader-carousel__link">&rarr; Read Bio</a>
+              </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="leader-carousel__slide">
+              <div class="leader-carousel__photo">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop&q=80" alt="GCR Partner" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="leader-carousel__info">
+                <p class="leader-carousel__quote">Two decades navigating the complexities of Oil &amp; Gas in the Greater Caspian Region, from PSA negotiations to full-scale operational deployments across multiple jurisdictions.</p>
+                <p class="leader-carousel__name">Partner Name</p>
+                <p class="leader-carousel__role">Head of GCR Strategy &bull; 20 Years in Oil &amp; Gas</p>
+                <a href="leader-02.html" class="leader-carousel__link">&rarr; Read Bio</a>
+              </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="leader-carousel__slide">
+              <div class="leader-carousel__photo">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop&q=80" alt="GCR Partner" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="leader-carousel__info">
+                <p class="leader-carousel__quote">Former Big4 partner bringing world-class governance frameworks and operational excellence to emerging market deployments, ensuring transparency and fiduciary control at every level.</p>
+                <p class="leader-carousel__name">Partner Name</p>
+                <p class="leader-carousel__role">Head of Operations &bull; Ex-Big4 Partner</p>
+                <a href="leader-03.html" class="leader-carousel__link">&rarr; Read Bio</a>
+              </div>
+            </div>
           </div>
-          <div class="partner-card">
-            <div class="partner-card__photo" data-placeholder-img>Partner Photo</div>
-            <p class="partner-card__name">Partner Name</p>
-            <p class="partner-card__role">Head of GCR Strategy. 20 Years in Oil &amp; Gas.</p>
-            <a href="page-05.html" class="partner-card__link">Read Bio &rarr;</a>
-          </div>
-          <div class="partner-card">
-            <div class="partner-card__photo" data-placeholder-img>Partner Photo</div>
-            <p class="partner-card__name">Partner Name</p>
-            <p class="partner-card__role">Head of Operations. Ex-Big4 Partner.</p>
-            <a href="page-05.html" class="partner-card__link">Read Bio &rarr;</a>
+          <div class="leader-carousel__controls">
+            <button class="leader-carousel__btn" data-carousel-prev aria-label="Previous leader">&larr;</button>
+            <div class="leader-carousel__dots">
+              <button class="leader-carousel__dot is-active" aria-label="Go to leader 1"></button>
+              <button class="leader-carousel__dot" aria-label="Go to leader 2"></button>
+              <button class="leader-carousel__dot" aria-label="Go to leader 3"></button>
+            </div>
+            <button class="leader-carousel__btn" data-carousel-next aria-label="Next leader">&rarr;</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 8: SECTOR EXPERTISE -->
+    <!-- SECTION 8: SECTOR EXPERTISE — MORPHING CARDS -->
     <section class="section section--alt">
       <div class="container">
         <div class="section-intro">
@@ -309,41 +417,37 @@
           <p>We do not apply generic templates. Our expertise is deeply verticalized to address the unique regulatory
             and operational challenges of the GCR's dominant industries.</p>
         </div>
-        <div class="grid grid--4">
-          <div class="card card--sector">
-            <div class="card__visible">
-              <h3>Energy &amp; Resources</h3>
-              <p>Oil, Gas, Critical Minerals &amp; Renewables</p>
-            </div>
-            <div class="card__hover-content">
-              <p>Navigating PSAs, subsoil usage rights, and ESG compliance for the energy transition.</p>
-            </div>
-          </div>
-          <div class="card card--sector">
-            <div class="card__visible">
-              <h3>Transport &amp; Logistics</h3>
-              <p>BRI, Middle Corridor &amp; Supply Chain</p>
-            </div>
-            <div class="card__hover-content">
-              <p>Solving cross-border friction and customs bottlenecks across the Trans-Caspian routes.</p>
+        <div class="sector-morph-cards">
+          <div class="sector-morph-card">
+            <div class="sector-morph-card__visual" style="background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&h=400&fit=crop&q=80') center/cover no-repeat;">&#9878;</div>
+            <div class="sector-morph-card__content">
+              <h3 class="sector-morph-card__title">Energy &amp; Resources</h3>
+              <p class="sector-morph-card__subtitle">Oil, Gas, Critical Minerals &amp; Renewables</p>
+              <div class="sector-morph-card__hover-text">Navigating PSAs, subsoil usage rights, and ESG compliance for the energy transition.</div>
             </div>
           </div>
-          <div class="card card--sector">
-            <div class="card__visible">
-              <h3>Fintech &amp; Digital</h3>
-              <p>Market Entry &amp; Banking Infrastructure</p>
-            </div>
-            <div class="card__hover-content">
-              <p>Leveraging AIFC regulatory sandboxes and building banking partnerships for rapid scaling.</p>
+          <div class="sector-morph-card">
+            <div class="sector-morph-card__visual" style="background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop&q=80') center/cover no-repeat;">&#9992;</div>
+            <div class="sector-morph-card__content">
+              <h3 class="sector-morph-card__title">Transport &amp; Logistics</h3>
+              <p class="sector-morph-card__subtitle">BRI, Middle Corridor &amp; Supply Chain</p>
+              <div class="sector-morph-card__hover-text">Solving cross-border friction and customs bottlenecks across the Trans-Caspian routes.</div>
             </div>
           </div>
-          <div class="card card--sector">
-            <div class="card__visible">
-              <h3>FMCG &amp; Retail</h3>
-              <p>Distribution &amp; Localization</p>
+          <div class="sector-morph-card">
+            <div class="sector-morph-card__visual" style="background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80') center/cover no-repeat;">&#9000;</div>
+            <div class="sector-morph-card__content">
+              <h3 class="sector-morph-card__title">Fintech &amp; Digital</h3>
+              <p class="sector-morph-card__subtitle">Market Entry &amp; Banking Infrastructure</p>
+              <div class="sector-morph-card__hover-text">Leveraging AIFC regulatory sandboxes and building banking partnerships for rapid scaling.</div>
             </div>
-            <div class="card__hover-content">
-              <p>Accessing reliable distribution networks and adapting brands to local cultural codes.</p>
+          </div>
+          <div class="sector-morph-card">
+            <div class="sector-morph-card__visual" style="background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop&q=80') center/cover no-repeat;">&#9733;</div>
+            <div class="sector-morph-card__content">
+              <h3 class="sector-morph-card__title">FMCG &amp; Retail</h3>
+              <p class="sector-morph-card__subtitle">Distribution &amp; Localization</p>
+              <div class="sector-morph-card__hover-text">Accessing reliable distribution networks and adapting brands to local cultural codes.</div>
             </div>
           </div>
         </div>
@@ -354,12 +458,11 @@
     <section class="section section--dark">
       <div class="container text-center">
         <h2>Is Your Business Ready for the GCR Expansion?</h2>
-        <a href="page-06.html" class="btn btn--primary btn--lg">Start Readiness Assessment</a>
         <p class="hero__subhead" style="margin:0 auto var(--space-xl);max-width:60ch;">The Caspian region favors deep
           preparation over improvisation. Take our 10-minute preliminary assessment to evaluate your licensing
           eligibility and regulatory readiness for the GCR energy and minerals market. Receive a personalized risk
           profile and recommended entry strategy.</p>
-
+        <a href="page-06.html" class="readiness-btn">Start Readiness Assessment</a>
       </div>
     </section>
 
@@ -374,8 +477,7 @@
         <a href="page-08.html" class="footer-cta__btn">Contact Us &rarr;</a>
       </div>
       <div class="footer-cta__image">
-        <div class="placeholder-img placeholder-img--landscape" style="height:200px;background:var(--color-primary);">
-          Team Photo</div>
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop&q=80" alt="GCR Consulting team collaborating" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
       </div>
     </div>
   </section>

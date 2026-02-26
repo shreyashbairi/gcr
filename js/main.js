@@ -38,6 +38,8 @@
     initContactForm();
     initMorphCards();
     initReadinessProgress();
+    initFancyNav();
+    initLeaderCarousel();
   }
 
 
@@ -800,6 +802,117 @@
     });
 
     observer.observe(quizContainer, { childList: true, subtree: true });
+  }
+
+
+
+  /* ======================================================================
+     14. EXPANDING SPLIT-SCREEN NAV (Case Studies)
+     ====================================================================== */
+
+  function initFancyNav() {
+    var fancyItemList = document.querySelector('.fancy-nav__list');
+    if (!fancyItemList) return;
+
+    var fancyItems = fancyItemList.querySelectorAll('.fancy-nav__item');
+    var fancyTabList = document.querySelector('.fancy-nav__tabs');
+    var fancyTabs = fancyTabList ? fancyTabList.querySelectorAll('.fancy-nav__tab') : [];
+    var fancyImgs = document.querySelectorAll('.fancy-nav__img');
+
+    function changeMainImage(index) {
+      fancyImgs.forEach(function (img, i) {
+        img.style.opacity = i === index ? 1 : 0;
+      });
+    }
+
+    function openTab(index) {
+      fancyTabList.classList.add('is-visible');
+      var tab = fancyTabs[index];
+      tab.classList.add('is-visible');
+      var closeBtn = tab.querySelector('.fancy-nav__close-btn');
+      var tabImg = tab.querySelector('.fancy-nav__tab-img');
+      var tabDescr = tab.querySelector('.fancy-nav__tab-description');
+      if (closeBtn) closeBtn.classList.add('is-visible');
+      if (tabImg) tabImg.classList.add('is-visible');
+      if (tabDescr) tabDescr.classList.add('is-visible');
+    }
+
+    function closeTab(index) {
+      fancyTabList.classList.remove('is-visible');
+      var tab = fancyTabs[index];
+      tab.classList.remove('is-visible');
+      var closeBtn = tab.querySelector('.fancy-nav__close-btn');
+      var tabImg = tab.querySelector('.fancy-nav__tab-img');
+      var tabDescr = tab.querySelector('.fancy-nav__tab-description');
+      if (closeBtn) closeBtn.classList.remove('is-visible');
+      if (tabImg) tabImg.classList.remove('is-visible');
+      if (tabDescr) tabDescr.classList.remove('is-visible');
+    }
+
+    fancyItemList.addEventListener('mouseover', function (e) {
+      var item = e.target.closest('.fancy-nav__item');
+      if (item) {
+        var idx = Array.from(fancyItems).indexOf(item);
+        changeMainImage(idx);
+      }
+    });
+
+    fancyItemList.addEventListener('click', function (e) {
+      var item = e.target.closest('.fancy-nav__item');
+      if (item) {
+        var idx = Array.from(fancyItems).indexOf(item);
+        openTab(idx);
+      }
+    });
+
+    if (fancyTabList) {
+      fancyTabList.addEventListener('click', function (e) {
+        var closeBtn = e.target.closest('.fancy-nav__close-btn');
+        if (closeBtn) {
+          var tab = closeBtn.closest('.fancy-nav__tab');
+          var idx = Array.from(fancyTabs).indexOf(tab);
+          closeTab(idx);
+        }
+      });
+    }
+  }
+
+
+  /* ======================================================================
+     15. LEADERSHIP CAROUSEL
+     ====================================================================== */
+
+  function initLeaderCarousel() {
+    var carousel = document.querySelector('.leader-carousel');
+    if (!carousel) return;
+
+    var track = carousel.querySelector('.leader-carousel__track');
+    var slides = carousel.querySelectorAll('.leader-carousel__slide');
+    var prevBtn = carousel.querySelector('[data-carousel-prev]');
+    var nextBtn = carousel.querySelector('[data-carousel-next]');
+    var dots = carousel.querySelectorAll('.leader-carousel__dot');
+    var current = 0;
+    var total = slides.length;
+
+    function goTo(index) {
+      if (index < 0) index = total - 1;
+      if (index >= total) index = 0;
+      current = index;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle('is-active', i === current);
+      });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { goTo(i); });
+    });
+
+    /* Auto-advance every 6s */
+    setInterval(function () { goTo(current + 1); }, 6000);
   }
 
 })();
