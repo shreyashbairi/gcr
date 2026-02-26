@@ -10,35 +10,26 @@
 <body>
   <a href="#main-content" class="sr-only">Skip to main content</a>
 
-  <header class="header" role="banner">
-    <div class="container header__inner">
-      <a href="index.html" class="header__logo" aria-label="GCR Consulting Home">
-        <div data-placeholder-img style="width:160px;height:40px;font-size:0.75rem;">LOGO</div>
-      </a>
-      <nav class="header__nav" role="navigation" aria-label="Main navigation">
-        <a href="index.html" class="header__nav-link">Home</a>
-        <a href="page-02.html" class="header__nav-link">About</a>
-        <a href="page-03.html" class="header__nav-link">Services</a>
-        <a href="page-04.html" class="header__nav-link">Case Studies</a>
-        <a href="page-05.html" class="header__nav-link">Leadership</a>
-        <a href="page-07.html" class="header__nav-link">News</a>
-        <a href="page-08.html" class="header__nav-link">Contact</a>
-      </nav>
-      <a href="page-06.html" class="btn btn--primary header__cta">Readiness Check</a>
-      <button class="header__burger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+  <header class="header-new">
+    <a href="index.html" class="header-new__logo">
+      <div class="placeholder-img" style="width:48px;height:48px;background:var(--color-accent);font-size:0.6rem;border-radius:4px;">LOGO</div>
+    </a>
+    <nav class="header-new__nav">
+      <a href="index.html">Home</a>
+      <a href="page-02.html">About GCR</a>
+      <a href="page-03.html">Services</a>
+      <a href="page-04.html">Case Studies</a>
+      <a href="page-05.html">Leadership</a>
+      <a href="page-06.html">Readiness Check</a>
+      <a href="page-07.html">Blog</a>
+    </nav>
+    <div class="header-new__actions">
+      <a href="page-08.html" class="header-new__contact-btn">Contact us</a>
+      <div class="header-new__lang-toggle">
+        <a href="#" class="active">EN</a><span>|</span><a href="#">RU</a>
+      </div>
     </div>
-    <div class="header__mobile-menu" aria-hidden="true">
-      <a href="index.html" class="header__mobile-link">Home</a>
-      <a href="page-02.html" class="header__mobile-link">About</a>
-      <a href="page-03.html" class="header__mobile-link">Services</a>
-      <a href="page-04.html" class="header__mobile-link">Case Studies</a>
-      <a href="page-05.html" class="header__mobile-link">Leadership</a>
-      <a href="page-07.html" class="header__mobile-link">News</a>
-      <a href="page-08.html" class="header__mobile-link">Contact</a>
-      <a href="page-06.html" class="btn btn--primary header__mobile-cta">Readiness Check</a>
-    </div>
+    <button class="header-new__burger" aria-label="Open menu"><span></span><span></span><span></span></button>
   </header>
 
   <main id="main-content">
@@ -181,52 +172,64 @@
     </div></section>
   </main>
 
-  <footer class="footer section--dark" role="contentinfo">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__col">
-          <div data-placeholder-img style="width:140px;height:35px;font-size:0.7rem;margin-bottom:1rem;">LOGO (white)</div>
-          <p>Boutique Bridging Western Capital with Caspian Opportunity.</p>
+  <section class="footer-cta">
+    <div class="footer-cta__inner container">
+      <div class="footer-cta__content">
+        <h2>Talk to Us</h2>
+        <p>Discuss your Greater Caspian Region strategy directly with our team.</p>
+        <a href="page-08.html" class="footer-cta__btn">Contact Us &rarr;</a>
+      </div>
+      <div class="footer-cta__image">
+        <div class="placeholder-img placeholder-img--landscape" style="height:200px;background:var(--color-primary);">Team Photo</div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer-new">
+    <div class="footer-new__inner">
+      <div class="footer-new__grid">
+        <div class="footer-new__col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="service-01.html">Market Entry &amp; GTM</a></li>
+            <li><a href="service-02.html">Deployment Teams</a></li>
+            <li><a href="service-03.html">Strategic Alliances</a></li>
+            <li><a href="page-03.html">All Services</a></li>
+          </ul>
         </div>
-        <div class="footer__col">
-          <h4 class="footer__heading">Offices</h4>
-          <p>Geneva (HQ): By Appointment</p>
-          <p>Astana: AIFC, Mangilik Yel Ave.</p>
-          <p>Baku: Representative Office</p>
+        <div class="footer-new__col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="page-02.html">About Us</a></li>
+            <li><a href="page-05.html">Leadership</a></li>
+            <li><a href="page-04.html">Case Studies</a></li>
+          </ul>
         </div>
-        <div class="footer__col">
-          <h4 class="footer__heading">Navigate</h4>
-          <a href="page-03.html" class="footer__link">Services</a>
-          <a href="page-02.html" class="footer__link">About Us</a>
-          <a href="page-07.html" class="footer__link">Insights &amp; Reports</a>
-          <a href="page-06.html" class="footer__link">Readiness Check</a>
-        </div>
-        <div class="footer__col">
-          <h4 class="footer__heading">Connect</h4>
-          <a href="#" class="footer__link" aria-label="Follow GCR on LinkedIn">LinkedIn</a>
-          <a href="mailto:partners@gcr-boutique.com" class="footer__link">partners@gcr-boutique.com</a>
+        <div class="footer-new__col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="page-07.html">News &amp; Insights</a></li>
+            <li><a href="page-06.html">Readiness Check</a></li>
+            <li><a href="page-08.html">Contact</a></li>
+          </ul>
         </div>
       </div>
-      <div class="footer__legal">
-        <p>&copy; 2026 GCR Consulting. All Rights Reserved.</p>
-        <div class="footer__legal-links">
-          <a href="page-09.html#privacy">Privacy Policy</a>
-          <a href="page-09.html#terms">Terms of Engagement</a>
-          <a href="page-09.html#compliance">Compliance Statement</a>
+      <div class="footer-new__social">
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Twitter">X</a>
+      </div>
+      <div class="footer-new__cities">
+        <span>Geneva</span><span>Astana</span><span>Baku</span><span>Houston</span><span>Istanbul</span>
+      </div>
+      <div class="footer-new__copyright">
+        <span>&copy; 2026 GCR Consulting. All Rights Reserved.</span>
+        <div>
+          <a href="page-09.html#privacy">Privacy Policy</a> &nbsp;
+          <a href="page-09.html#terms">Terms</a> &nbsp;
+          <a href="page-09.html#compliance">Compliance</a>
         </div>
       </div>
     </div>
   </footer>
-
-  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent" hidden>
-    <div class="container cookie-banner__inner">
-      <p>We use cookies to improve your experience. See our <a href="page-09.html#privacy">Privacy Policy</a>.</p>
-      <div class="cookie-banner__actions">
-        <button class="btn btn--primary btn--sm" id="cookieAccept">Accept</button>
-        <button class="btn btn--secondary btn--sm" id="cookieDecline">Decline</button>
-      </div>
-    </div>
-  </div>
 
   <script src="js/main.js" defer></script>
 </body>

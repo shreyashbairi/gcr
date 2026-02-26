@@ -1,0 +1,535 @@
+1. CSS for Expanding Split-Screen Grid Navigation:
+
+.fancy-nav {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+  color: #393838;
+  overflow: hidden;
+}
+.fancy-nav:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+.fancy-nav__imgs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.fancy-nav__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition-property: opacity;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  width: 100%;
+  height: 100%;
+}
+.fancy-nav__img:not(:first-child) {
+  opacity: 0;
+}
+.fancy-nav__img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fancy-nav__list {
+  position: relative;
+  display: flex;
+  height: 100%;
+  z-index: 2;
+  flex-wrap: wrap;
+}
+
+.fancy-nav__item {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 25%;
+  flex-shrink: 0;
+  align-items: flex-end;
+  box-sizing: border-box;
+  cursor: pointer;
+  overflow: hidden;
+}
+.fancy-nav__item:not(:last-child) {
+  border-bottom: 2px solid #fff;
+}
+
+.fancy-nav__item-details {
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  transform: translateY(110px);
+}
+
+.fancy-nav__title,
+.fancy-nav__tab-title {
+  margin-top: 0;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  line-height: 1.2em;
+  font-size: 1rem;
+}
+
+.fancy-nav__title {
+  color: #fff;
+}
+
+.fancy-nav__description {
+  color: #fff;
+  line-height: 1.5rem;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  transform: translateY(20px);
+  transform-origin: top center;
+}
+.fancy-nav__description p {
+  margin: 0;
+}
+
+.fancy-nav__item:hover .fancy-nav__item-details {
+  transform: translateY(0);
+}
+.fancy-nav__item:hover:nth-child(1) .fancy-nav__item-details {
+  background-color: #304949;
+}
+.fancy-nav__item:hover:nth-child(2) .fancy-nav__item-details {
+  background-color: #954722;
+}
+.fancy-nav__item:hover:nth-child(3) .fancy-nav__item-details {
+  background-color: #ca4985;
+}
+.fancy-nav__item:hover:nth-child(4) .fancy-nav__item-details {
+  background-color: #5c7450;
+}
+.fancy-nav__item:hover .fancy-nav__description {
+  transition-property: transform;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+  transition-delay: 0.1s;
+  transform: translateY(0);
+}
+.fancy-nav__item:hover .fancy-nav__more-btn {
+  transition-property: transform;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+  transition-delay: 0.1s;
+  transform: translateY(0);
+}
+
+.fancy-nav__tabs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  opacity: 0;
+  visibility: hidden;
+}
+.fancy-nav__tabs.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.fancy-nav__tab {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  opacity: 0;
+  visibility: hidden;
+}
+.fancy-nav__tab:nth-child(1) {
+  background-color: #304949;
+}
+.fancy-nav__tab:nth-child(2) {
+  background-color: #954722;
+}
+.fancy-nav__tab:nth-child(3) {
+  background-color: #ca4985;
+}
+.fancy-nav__tab:nth-child(4) {
+  background-color: #5c7450;
+}
+.fancy-nav__tab.is-visible {
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  opacity: 1;
+  visibility: visible;
+}
+
+.fancy-nav__tab-container {
+  width: 100%;
+  max-width: 1220px;
+  margin: auto;
+}
+
+.fancy-nav__tab-img {
+  position: relative;
+  height: 250px;
+}
+.fancy-nav__tab-img:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-color: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+.fancy-nav__tab-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fancy-nav__tab-description {
+  position: relative;
+  padding: 15px;
+  margin: auto;
+  background-color: #fff;
+  box-sizing: border-box;
+  z-index: 6;
+}
+
+.fancy-nav__tab-content {
+  line-height: 1.5rem;
+}
+
+.fancy-nav__close-btn {
+  position: relative;
+  display: flex;
+  margin-left: auto;
+  width: 20px;
+  height: 20px;
+  margin-bottom: 15px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+.fancy-nav__close-btn:before, .fancy-nav__close-btn:after {
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 123%;
+  height: 3px;
+  content: "";
+  background-color: #fff;
+  border-radius: 5px;
+}
+.fancy-nav__close-btn:before {
+  left: 2px;
+  transform: rotate(45deg);
+  transform-origin: top left;
+}
+.fancy-nav__close-btn:after {
+  right: 3px;
+  transform: rotate(-45deg);
+  transform-origin: top right;
+}
+
+.fancy-nav__more-btn {
+  position: relative;
+  padding: 10px 25px;
+  margin-top: 20px;
+  transform: translateY(30px);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fff;
+  border: 2px solid #fff;
+  background-color: transparent;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.fancy-nav__more-btn:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: "";
+  transform: translateZ(0) scaleY(0);
+  transform-origin: bottom center;
+  background-color: #fff;
+  z-index: -1;
+}
+.fancy-nav__more-btn:hover {
+  color: #393838;
+}
+.fancy-nav__more-btn:hover:after {
+  transform: translateZ(0) scaleY(1);
+}
+
+@media (min-width: 750px) {
+  .fancy-nav__item {
+    width: 50%;
+    height: 50%;
+  }
+  .fancy-nav__item:not(:nth-child(2n)) {
+    border-right: 2px solid #fff;
+  }
+  .fancy-nav__item:last-child, .fancy-nav__item:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+  .fancy-nav__item-details {
+    transform: translateY(145px);
+  }
+  .fancy-nav__title {
+    line-height: 2rem;
+    font-size: 1.17rem;
+  }
+  .fancy-nav__description {
+    min-height: 48px;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+  .fancy-nav__tab-description {
+    width: 90%;
+    padding: 25px;
+    transform: translateY(-40px);
+  }
+  .fancy-nav__tab-description.is-visible {
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+    transition-delay: 0.4s;
+    transform: translateY(-80px);
+    opacity: 1;
+    visibility: visible;
+  }
+  .fancy-nav__tab-img {
+    height: 400px;
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  .fancy-nav__tab-img.is-visible {
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+    transition-delay: 0.2s;
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+  }
+  .fancy-nav__tab-title {
+    font-size: 1.5rem;
+  }
+  .fancy-nav__tab {
+    padding: 25px;
+  }
+  .fancy-nav__close-btn {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 25px;
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  .fancy-nav__close-btn:before, .fancy-nav__close-btn:after {
+    width: 130%;
+    height: 5px;
+  }
+  .fancy-nav__close-btn:before {
+    left: 3px;
+  }
+  .fancy-nav__close-btn.is-visible {
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+    transition-delay: 0.2s;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@media (min-width: 1400px) {
+  .fancy-nav__item {
+    width: 25%;
+    height: 100%;
+  }
+  .fancy-nav__item:not(:last-child) {
+    border-right: 2px solid #fff;
+  }
+  .fancy-nav__item:not(:nth-last-child(-n+2)) {
+    border-bottom: none;
+  }
+  .fancy-nav__item-details {
+    padding: 40px;
+  }
+  .fancy-nav__tab-title {
+    font-size: 2rem;
+  }
+  .fancy-nav__tab {
+    padding: 40px;
+  }
+  .fancy-nav__close-btn {
+    margin-bottom: 40px;
+  }
+  .fancy-nav__tab-description {
+    padding: 40px;
+  }
+}
+
+2. JS for Expanding Split-Screen Grid Navigation:
+
+const DOM = {
+  item: ".fancy-nav__item",
+  itemList: ".fancy-nav__list",
+  images: ".fancy-nav__img",
+  tabList: ".fancy-nav__tabs",
+  tab: ".fancy-nav__tab",
+  tabCloseBtn: ".fancy-nav__close-btn",
+  tabImg: ".fancy-nav__tab-img",
+  tabDescr: ".fancy-nav__tab-description",
+  isVisible: "is-visible"
+};
+const fancyItemList = document.querySelector(DOM.itemList);
+const fancyItems = document.querySelectorAll(DOM.item);
+const fancyTabList = document.querySelector(DOM.tabList);
+const fancyTabs = document.querySelectorAll(DOM.tab);
+
+function openFancyTab(currentIndex) {
+  fancyTabList.classList.add(DOM.isVisible);
+
+  const currentTab = fancyTabs[currentIndex];
+
+  currentTab.classList.add(DOM.isVisible);
+
+  addAnimationClassesOnTabOpen(currentTab);
+}
+
+function closeFancyTab(currentIndex) {
+  fancyTabList.classList.remove(DOM.isVisible);
+
+  const currentTab = fancyTabs[currentIndex];
+
+  currentTab.classList.remove(DOM.isVisible);
+
+  removeAnimationClassesOnTabClose(currentTab);
+}
+
+function addAnimationClassesOnTabOpen(currentTab) {
+  const currentTabCloseBtn = currentTab.querySelector(DOM.tabCloseBtn);
+
+  currentTabCloseBtn.classList.add(DOM.isVisible);
+
+  const currentTabImg = currentTab.querySelector(DOM.tabImg);
+
+  currentTabImg.classList.add(DOM.isVisible);
+
+  const currentTabDescr = currentTab.querySelector(DOM.tabDescr);
+
+  currentTabDescr.classList.add(DOM.isVisible);
+}
+
+function removeAnimationClassesOnTabClose(currentTab) {
+  const currentTabCloseBtn = currentTab.querySelector(DOM.tabCloseBtn);
+
+  currentTabCloseBtn.classList.remove(DOM.isVisible);
+
+  const currentTabImg = currentTab.querySelector(DOM.tabImg);
+
+  currentTabImg.classList.remove(DOM.isVisible);
+
+  const currentTabDescr = currentTab.querySelector(DOM.tabDescr);
+
+  currentTabDescr.classList.remove(DOM.isVisible);
+}
+
+function getCurrentElemIndex(list, item) {
+  const currentIndex = Array.from(list).indexOf(item);
+
+  return currentIndex;
+}
+
+function changeMainImage(currentIndex) {
+  const fancyImgs = document.querySelectorAll(DOM.images);
+
+  fancyImgs.forEach((imgElem, index) => {
+    imgElem.style.opacity = 0;
+
+    if (index === currentIndex) {
+      imgElem.style.opacity = 1;
+    }
+  });
+}
+
+fancyItemList.addEventListener("mouseover", (event) => {
+  const target = event.target;
+
+  if (target.closest(DOM.item)) {
+    const currentFancyItemIndex = getCurrentElemIndex(
+      fancyItems,
+      target.closest(DOM.item)
+    );
+
+    changeMainImage(currentFancyItemIndex);
+  }
+});
+
+fancyItemList.addEventListener("click", (event) => {
+  const target = event.target;
+
+  if (target.closest(DOM.item)) {
+    const currentFancyItemIndex = getCurrentElemIndex(
+      fancyItems,
+      target.closest(DOM.item)
+    );
+
+    openFancyTab(currentFancyItemIndex);
+  }
+});
+
+fancyTabList.addEventListener("click", (event) => {
+  const target = event.target;
+
+  if (target.closest(DOM.tabCloseBtn)) {
+    const currentFancyItemIndex = getCurrentElemIndex(
+      fancyTabs,
+      target.closest(DOM.tab)
+    );
+
+    closeFancyTab(currentFancyItemIndex);
+  }
+});
