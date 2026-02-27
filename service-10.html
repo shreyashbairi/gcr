@@ -8,23 +8,61 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header class="header-new"><div class="header-new__inner">
-    <a href="index.html" class="header-new__logo"><div style="width:50px;height:50px;background:var(--color-accent);font-size:0.65rem;border-radius:4px;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--color-primary);letter-spacing:0.05em;">GCR</div></a>
-    <nav class="header-new__nav"><a href="index.html" class="header-new__nav-link">Home</a><a href="page-02.html" class="header-new__nav-link">About GCR</a><a href="page-03.html" class="header-new__nav-link">Services</a><a href="page-04.html" class="header-new__nav-link">Case Studies</a><a href="page-05.html" class="header-new__nav-link">Leadership</a><a href="page-06.html" class="header-new__nav-link">Readiness Check</a><a href="page-07.html" class="header-new__nav-link">Blog</a></nav>
-    <div class="header-new__actions"><a href="page-08.html" class="header-new__contact-btn">Contact us</a><div class="header-new__lang-toggle"><a href="#" class="header-new__lang-toggle-link active">EN</a><span>|</span><a href="#" class="header-new__lang-toggle-link">RU</a></div></div>
-    <button class="header-new__burger" aria-label="Open menu"><span></span><span></span><span></span></button>
-  </div></header>
+  <a href="#main-content" class="sr-only">Skip to main content</a>
+
+  <header class="header-new">
+    <div class="header-new__inner">
+      <a href="index.html" class="header-new__logo">
+        <span class="header-new__logo-text">GCR</span>
+      </a>
+      <nav class="header-new__nav">
+        <a href="index.html">Home</a>
+        <a href="page-02.html">About GCR</a>
+        <div class="header-new__menu-trigger">
+          <a href="page-03.html">Services</a>
+          <div class="header-new__mega-menu">
+            <div class="header-new__mega-menu-grid">
+              <a href="service-01.html">Market Entry &amp; GTM</a>
+              <a href="service-02.html">Deployment Teams</a>
+              <a href="service-03.html">Strategic Alliances</a>
+              <a href="service-04.html">Negotiation &amp; Channels</a>
+              <a href="service-05.html">Fiscal Architecture</a>
+              <a href="service-06.html">Industrial Assets</a>
+              <a href="service-07.html">Regulatory Access</a>
+              <a href="service-08.html">M&amp;A &amp; Capital</a>
+              <a href="service-09.html">Digital &amp; Innovation</a>
+              <a href="service-10.html">Corporate Governance</a>
+              <a href="service-11.html">Risk &amp; Asset Protection</a>
+              <a href="service-12.html">Legal Defense &amp; Crisis</a>
+            </div>
+            <div class="header-new__mega-menu-footer">
+              <a href="page-03.html">View All Services &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="page-04.html">Case Studies</a>
+        <a href="page-05.html">Leadership</a>
+        <a href="page-06.html">Readiness Check</a>
+        <a href="page-07.html">Blog</a>
+      </nav>
+      <div class="header-new__actions">
+        <a href="page-08.html" class="header-new__contact-btn">Contact us</a>
+        <div class="header-new__lang-toggle">
+          <a href="#" class="active">EN</a><span>|</span><a href="#">RU</a>
+        </div>
+      </div>
+      <button class="header-new__burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
 
   <main id="main-content">
     <!-- Hero -->
-    <section class="hero-section hero-section--short">
-      <div class="hero-section__bg" style="background:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&h=900&fit=crop&q=80') center/cover no-repeat;"></div>
-      <div class="hero-section__overlay"></div>
-      <div class="hero-section__content container">
-        <p style="font-size:0.85rem;text-transform:uppercase;letter-spacing:2px;color:var(--color-accent);margin-bottom:0.5rem;">Business Services in GCR and Worldwide</p>
-        <h1 class="hero-section__title">Digital Ecosystem Integration &amp; GCR Innovation Scouting</h1>
-        <p class="hero-section__subtitle">Navigate the "Mobile-First" economies of the East. From dominating local SuperApps to sourcing Deep Tech for industrial giants.</p>
-        <p style="margin-top:1rem;font-size:0.95rem;opacity:0.9;">Designed for: CDOs/CTOs, E-commerce Directors, and Heads of R&amp;D who understand that Western playbooks don't work on GCR platforms.</p>
+    <section class="hero">
+      <div class="container">
+        <p class="hero__surtitle">Business Services in GCR and Worldwide</p>
+        <h1 class="hero__headline">Digital Ecosystem Integration &amp; GCR Innovation Scouting</h1>
+        <p class="hero__subhead">Navigate the "Mobile-First" economies of the East. From dominating local SuperApps to sourcing Deep Tech for industrial giants.</p>
+        <p class="text-sm" style="opacity:0.9;margin-top:var(--space-md);">Designed for: CDOs/CTOs, E-commerce Directors, and Heads of R&amp;D who understand that Western playbooks don't work on GCR platforms.</p>
       </div>
     </section>
 
@@ -97,8 +135,8 @@
     <section class="section section--dark"><div class="container" style="display:flex;gap:3rem;align-items:center;flex-wrap:wrap;">
       <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop&q=80" alt="Service partner" style="width:200px;height:250px;border-radius:8px;object-fit:cover;flex-shrink:0;">
       <div style="flex:1;min-width:300px;">
-        <blockquote style="font-size:1.25rem;font-style:italic;color:var(--color-text-inverse);margin:0 0 1rem 0;line-height:1.6;">"In the East, innovations are born not in garages, but inside SuperApps. We give you the keys to these walled gardens."</blockquote>
-        <p style="color:var(--color-accent);">— [Partner Name], Head of Digital Ecosystems &amp; Innovation</p>
+        <blockquote style="font-size:1.25rem;font-style:italic;color:#fff;margin:0 0 1rem 0;line-height:1.6;">"In the East, innovations are born not in garages, but inside SuperApps. We give you the keys to these walled gardens."</blockquote>
+        <p class="hero__surtitle">— [Partner Name], Head of Digital Ecosystems &amp; Innovation</p>
       </div>
     </div></section>
 
@@ -159,8 +197,64 @@
     </div></section>
   </main>
 
-  <section class="footer-cta"><div class="footer-cta__inner container"><div class="footer-cta__content"><h3>Talk to Us</h3><p>Discuss your strategy directly with our team.</p><a href="page-08.html" class="btn btn--primary">Contact Us</a></div><div class="footer-cta__image"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop&q=80" alt="GCR Consulting team collaborating" style="width:100%;height:200px;object-fit:cover;border-radius:8px;"></div></div></section>
-  <footer class="footer-new"><div class="footer-new__main container"><div class="footer-new__col"><h4>Solutions</h4><a href="service-01.html">Private Sector</a><a href="service-02.html">Public Sector</a></div><div class="footer-new__col"><h4>About</h4><a href="page-02.html">About Us</a><a href="page-05.html">People</a></div><div class="footer-new__col"><h4>More</h4><a href="page-07.html">News</a><a href="page-08.html">Contact</a></div></div><div class="footer-new__cities">HOUSTON | WASHINGTON D.C. | ISTANBUL | BRUSSELS | TIRANA | KUALA LUMPUR</div><div class="footer-new__bottom"><div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;"><span>&copy; 2026 GCR Consulting</span><a href="page-09.html">Privacy Policy</a></div></div></footer>
+  <section class="footer-cta">
+    <div class="footer-cta__inner container">
+      <div class="footer-cta__content">
+        <h2>Talk to Us</h2>
+        <p>Discuss your Greater Caspian Region strategy directly with our team.</p>
+        <a href="page-08.html" class="footer-cta__btn">Contact Us &rarr;</a>
+      </div>
+      <div class="footer-cta__image">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop&q=80" alt="GCR Consulting team collaborating" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
+      </div>
+    </div>
+  </section>
+  <footer class="footer-new">
+    <div class="footer-new__inner">
+      <div class="footer-new__grid">
+        <div class="footer-new__col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="service-01.html">Market Entry &amp; GTM</a></li>
+            <li><a href="service-02.html">Deployment Teams</a></li>
+            <li><a href="service-03.html">Strategic Alliances</a></li>
+            <li><a href="page-03.html">All Services</a></li>
+          </ul>
+        </div>
+        <div class="footer-new__col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="page-02.html">About Us</a></li>
+            <li><a href="page-05.html">Leadership</a></li>
+            <li><a href="page-04.html">Case Studies</a></li>
+          </ul>
+        </div>
+        <div class="footer-new__col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="page-07.html">News &amp; Insights</a></li>
+            <li><a href="page-06.html">Readiness Check</a></li>
+            <li><a href="page-08.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-new__social">
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Twitter">X</a>
+      </div>
+      <div class="footer-new__cities">
+        <span>Geneva</span><span>Astana</span><span>Baku</span><span>Houston</span><span>Istanbul</span>
+      </div>
+      <div class="footer-new__copyright">
+        <span>&copy; 2026 GCR Consulting. All Rights Reserved.</span>
+        <div>
+          <a href="page-09.html#privacy">Privacy Policy</a> &nbsp;
+          <a href="page-09.html#terms">Terms</a> &nbsp;
+          <a href="page-09.html#compliance">Compliance</a>
+        </div>
+      </div>
+    </div>
+  </footer>
   <script src="js/main.js" defer></script>
 </body>
 </html>
