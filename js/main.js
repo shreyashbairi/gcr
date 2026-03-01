@@ -25,6 +25,8 @@
   document.addEventListener('DOMContentLoaded', init);
 
   function init() {
+    initPreloader();
+    initLenisScroll();
     initMobileMenu();
     initActiveNav();
     initSmoothScroll();
@@ -41,6 +43,11 @@
     initFancyNav();
     initLeaderCarousel();
     initGlassHeader();
+    initScrollRevealAnimations();
+    initHeroAnimations();
+    initCounterAnimations();
+    initHeroCursorGlow();
+    initFooterReveals();
   }
 
 
@@ -937,5 +944,481 @@
     /* Auto-advance every 6s */
     setInterval(function () { goTo(current + 1); }, 6000);
   }
+
+
+
+  /* ======================================================================
+     16. PRELOADER
+     Progress bar animation, then reveal page content.
+     ====================================================================== */
+
+  function initPreloader() {
+    var preloader = document.getElementById('preloader');
+    var fill = document.getElementById('preloaderFill');
+    if (!preloader) return;
+
+    var progress = 0;
+    var interval = setInterval(function () {
+      progress += Math.random() * 15 + 5;
+      if (progress > 90) progress = 90;
+      if (fill) fill.style.width = progress + '%';
+    }, 150);
+
+    function finishPreloader() {
+      clearInterval(interval);
+      if (fill) fill.style.width = '100%';
+      setTimeout(function () {
+        preloader.classList.add('is-done');
+        document.body.classList.remove('is-loading');
+        /* Add page reveal animation to main content */
+        var main = document.getElementById('main-content');
+        if (main) main.classList.add('page-reveal');
+      }, 400);
+    }
+
+    /* Wait for fonts + window load */
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () {
+        window.addEventListener('load', finishPreloader);
+        /* Fallback if load already fired */
+        if (document.readyState === 'complete') finishPreloader();
+      });
+    } else {
+      window.addEventListener('load', finishPreloader);
+      if (document.readyState === 'complete') finishPreloader();
+    }
+  }
+
+
+  /* ======================================================================
+     17. LENIS SMOOTH SCROLL
+     Silky smooth scrolling via Lenis library.
+     ====================================================================== */
+
+  function initLenisScroll() {
+    if (typeof Lenis === 'undefined') return;
+
+    var lenis = new Lenis({
+      duration: 1.2,
+      easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      syncTouch: false
+    });
+
+    /* Connect Lenis to GSAP ScrollTrigger */
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add(function (time) {
+        lenis.raf(time * 1000);
+      });
+      gsap.ticker.lagSmoothing(0);
+    } else {
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    }
+
+    /* Store on window for access in other functions */
+    window.__lenis = lenis;
+  }
+
+
+  /* ======================================================================
+     18. HERO ANIMATIONS
+     Staggered reveal of hero headline, subhead, and CTA.
+     ====================================================================== */
+
+  function initHeroAnimations() {
+    if (typeof gsap === 'undefined') return;
+
+    var heroElements = document.querySelectorAll('[data-hero-anim]');
+    if (heroElements.length === 0) return;
+
+    /* Delay until preloader finishes */
+    setTimeout(function () {
+      gsap.to(heroElements, {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        stagger: 0.15,
+        ease: 'power3.out'
+      });
+    }, 800);
+  }
+
+
+  /* ======================================================================
+     19. SCROLL-TRIGGERED REVEAL ANIMATIONS
+     Fade-up sections, staggered cards, and other scroll reveals.
+     ====================================================================== */
+
+  function initScrollRevealAnimations() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* ── Reveal each section's heading & intro ── */
+    var sectionIntros = document.querySelectorAll('.section-intro');
+    sectionIntros.forEach(function (intro) {
+      gsap.from(intro, {
+        scrollTrigger: {
+          trigger: intro,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+    });
+
+    /* ── Staggered service cards ── */
+    var serviceCards = document.querySelectorAll('.service-card');
+    if (serviceCards.length > 0) {
+      gsap.from(serviceCards, {
+        scrollTrigger: {
+          trigger: '.service-cards',
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 50,
+        duration: 0.6,
+        stagger: 0.08,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Staggered metrics ── */
+    var metricsItems = document.querySelectorAll('.metrics__item');
+    if (metricsItems.length > 0) {
+      gsap.from(metricsItems, {
+        scrollTrigger: {
+          trigger: '.metrics',
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 30,
+        scale: 0.95,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Stats row ── */
+    var statsItems = document.querySelectorAll('.stats-row__item');
+    if (statsItems.length > 0) {
+      gsap.from(statsItems, {
+        scrollTrigger: {
+          trigger: '.stats-row',
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Sector morph cards ── */
+    var sectorCards = document.querySelectorAll('.sector-morph-card');
+    if (sectorCards.length > 0) {
+      gsap.from(sectorCards, {
+        scrollTrigger: {
+          trigger: '.sector-morph-cards',
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Leader carousel ── */
+    var leaderCarousel = document.querySelector('.leader-carousel');
+    if (leaderCarousel) {
+      gsap.from(leaderCarousel, {
+        scrollTrigger: {
+          trigger: leaderCarousel,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Fancy nav (case studies) ── */
+    var fancyNav = document.querySelector('.fancy-nav');
+    if (fancyNav) {
+      gsap.from(fancyNav, {
+        scrollTrigger: {
+          trigger: fancyNav,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Readiness CTA section ── */
+    var readinessCTA = document.querySelector('.readiness-btn');
+    if (readinessCTA) {
+      gsap.from(readinessCTA, {
+        scrollTrigger: {
+          trigger: readinessCTA,
+          start: 'top 90%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        scale: 0.9,
+        duration: 0.6,
+        ease: 'back.out(1.7)'
+      });
+    }
+
+    /* ── Footer CTA ── */
+    var footerCTA = document.querySelector('.footer-cta__content');
+    if (footerCTA) {
+      gsap.from(footerCTA, {
+        scrollTrigger: {
+          trigger: '.footer-cta',
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 30,
+        duration: 0.7,
+        ease: 'power3.out'
+      });
+    }
+
+    var footerImg = document.querySelector('.footer-cta__image');
+    if (footerImg) {
+      gsap.from(footerImg, {
+        scrollTrigger: {
+          trigger: '.footer-cta',
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        x: 40,
+        duration: 0.7,
+        delay: 0.2,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── General sections fade-in ── */
+    var sections = document.querySelectorAll('.section');
+    sections.forEach(function (section) {
+      var children = section.querySelectorAll('h2, > .container > p');
+      if (children.length === 0) return;
+      gsap.from(children, {
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 25,
+        duration: 0.7,
+        stagger: 0.1,
+        ease: 'power3.out'
+      });
+    });
+
+    /* ── Trust bar surtitle ── */
+    var trustSurtitle = document.querySelector('.trust-bar__surtitle');
+    if (trustSurtitle) {
+      gsap.from(trustSurtitle, {
+        scrollTrigger: {
+          trigger: trustSurtitle,
+          start: 'top 90%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 15,
+        duration: 0.5,
+        ease: 'power2.out'
+      });
+    }
+  }
+
+
+  /* ======================================================================
+     20. COUNTER ANIMATIONS
+     Animate stats numbers when they scroll into view.
+     ====================================================================== */
+
+  function initCounterAnimations() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    /* ── Animate stat numbers ── */
+    var statNumbers = document.querySelectorAll('.stats-row__number');
+    statNumbers.forEach(function (el) {
+      var text = el.textContent.trim();
+      var match = text.match(/^([+$]?)([\d,.]+)([A-Za-z%+]*)/);
+      if (!match) return; /* Skip non-numeric like "Energy" */
+
+      var prefix = match[1];
+      var numStr = match[2].replace(/,/g, '');
+      var suffix = match[3];
+      var targetNum = parseFloat(numStr);
+      if (isNaN(targetNum)) return;
+
+      var isDecimal = numStr.indexOf('.') !== -1;
+      var decimals = isDecimal ? (numStr.split('.')[1] || '').length : 0;
+
+      el.textContent = prefix + '0' + suffix;
+
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 85%',
+        once: true,
+        onEnter: function () {
+          el.classList.add('is-counting');
+          gsap.to({ val: 0 }, {
+            val: targetNum,
+            duration: 1.8,
+            ease: 'power2.out',
+            onUpdate: function () {
+              var current = this.targets()[0].val;
+              var formatted = isDecimal ? current.toFixed(decimals) : Math.round(current).toLocaleString();
+              el.textContent = prefix + formatted + suffix;
+            }
+          });
+        }
+      });
+    });
+
+    /* ── Animate metric values ── */
+    var metricValues = document.querySelectorAll('.metrics__value');
+    metricValues.forEach(function (el) {
+      var text = el.textContent.trim();
+      var match = text.match(/^([+$]?)([\d,.]+)([A-Za-z%+]*)/);
+      if (!match) return;
+
+      var prefix = match[1];
+      var numStr = match[2].replace(/,/g, '');
+      var suffix = match[3];
+      var targetNum = parseFloat(numStr);
+      if (isNaN(targetNum)) return;
+
+      el.textContent = prefix + '0' + suffix;
+
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 85%',
+        once: true,
+        onEnter: function () {
+          el.classList.add('is-counting');
+          gsap.to({ val: 0 }, {
+            val: targetNum,
+            duration: 2,
+            ease: 'power2.out',
+            onUpdate: function () {
+              var current = this.targets()[0].val;
+              var formatted = Math.round(current).toLocaleString();
+              el.textContent = prefix + formatted + suffix;
+            }
+          });
+        }
+      });
+    });
+  }
+
+
+  /* ======================================================================
+     21. HERO CURSOR GLOW
+     Radial gradient follows mouse on hero section.
+     ====================================================================== */
+
+  function initHeroCursorGlow() {
+    var hero = document.querySelector('.hero--home');
+    var glow = document.getElementById('heroCursorGlow');
+    if (!hero || !glow) return;
+
+    hero.addEventListener('mousemove', function (e) {
+      var rect = hero.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      glow.style.background = 'radial-gradient(circle 350px at ' + x + 'px ' + y + 'px, rgba(200, 169, 81, 0.07), transparent 70%)';
+    });
+
+    hero.addEventListener('mouseleave', function () {
+      glow.style.opacity = '0';
+    });
+
+    hero.addEventListener('mouseenter', function () {
+      glow.style.opacity = '1';
+    });
+  }
+
+
+  /* ======================================================================
+     22. FOOTER COLUMN REVEALS
+     Stagger footer columns into view.
+     ====================================================================== */
+
+  function initFooterReveals() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    var footerCols = document.querySelectorAll('.footer-new__col');
+    if (footerCols.length === 0) return;
+
+    gsap.from(footerCols, {
+      scrollTrigger: {
+        trigger: '.footer-new',
+        start: 'top 90%',
+        toggleActions: 'play none none none'
+      },
+      opacity: 0,
+      y: 25,
+      duration: 0.5,
+      stagger: 0.1,
+      ease: 'power3.out',
+      onComplete: function () {
+        footerCols.forEach(function (col) {
+          col.classList.add('is-revealed');
+        });
+      }
+    });
+
+    /* Footer cities stagger */
+    var cities = document.querySelectorAll('.footer-new__cities span');
+    if (cities.length > 0) {
+      gsap.from(cities, {
+        scrollTrigger: {
+          trigger: '.footer-new__cities',
+          start: 'top 95%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 10,
+        duration: 0.4,
+        stagger: 0.08,
+        ease: 'power2.out'
+      });
+    }
+  }
+
 
 })();
