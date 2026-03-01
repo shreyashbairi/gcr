@@ -1260,6 +1260,410 @@
         ease: 'power2.out'
       });
     }
+
+    /* ── Generic card stagger within grids ── */
+    var grids = document.querySelectorAll('.grid');
+    grids.forEach(function (grid) {
+      var cards = grid.querySelectorAll('.card, .card--case');
+      if (cards.length === 0) return;
+      gsap.from(cards, {
+        scrollTrigger: {
+          trigger: grid,
+          start: 'top 82%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.6,
+        stagger: 0.09,
+        ease: 'power3.out'
+      });
+    });
+
+    /* ── Timeline phases ── */
+    var timelinePhases = document.querySelectorAll('.timeline__phase');
+    if (timelinePhases.length > 0) {
+      gsap.from(timelinePhases, {
+        scrollTrigger: {
+          trigger: '.timeline',
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Partner notes ── */
+    var partnerNotes = document.querySelectorAll('.partner-note');
+    partnerNotes.forEach(function (note) {
+      gsap.from(note, {
+        scrollTrigger: {
+          trigger: note,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        x: -30,
+        duration: 0.7,
+        ease: 'power3.out'
+      });
+    });
+
+    /* ── Case study grid cards ── */
+    var caseCards = document.querySelectorAll('.case-study-grid__card');
+    if (caseCards.length > 0) {
+      gsap.from(caseCards, {
+        scrollTrigger: {
+          trigger: '.case-study-grid',
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 40,
+        scale: 0.97,
+        duration: 0.5,
+        stagger: 0.06,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Case filter buttons ── */
+    var caseFilters = document.querySelectorAll('.case-filter__btn');
+    if (caseFilters.length > 0) {
+      gsap.from(caseFilters, {
+        scrollTrigger: {
+          trigger: '.case-filter',
+          start: 'top 90%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 15,
+        duration: 0.4,
+        stagger: 0.05,
+        ease: 'power2.out'
+      });
+    }
+
+    /* ── Featured case ── */
+    var featuredCase = document.querySelector('.featured-case');
+    if (featuredCase) {
+      gsap.from(featuredCase, {
+        scrollTrigger: {
+          trigger: featuredCase,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Morph cards (leadership page) ── */
+    var morphCards = document.querySelectorAll('.morph-card');
+    if (morphCards.length > 0) {
+      gsap.from(morphCards, {
+        scrollTrigger: {
+          trigger: '.morph-cards',
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 50,
+        scale: 0.95,
+        duration: 0.6,
+        stagger: 0.08,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── News grid cards ── */
+    var newsCards = document.querySelectorAll('.news-grid__card');
+    if (newsCards.length > 0) {
+      gsap.from(newsCards, {
+        scrollTrigger: {
+          trigger: '.news-grid',
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.5,
+        stagger: 0.06,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Methodology flow steps ── */
+    var methodSteps = document.querySelectorAll('.methodology-flow__step');
+    if (methodSteps.length > 0) {
+      gsap.from(methodSteps, {
+        scrollTrigger: {
+          trigger: '.methodology-flow',
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 35,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Deliver phases (service pages) ── */
+    var deliverPhases = document.querySelectorAll('.deliver-phase');
+    deliverPhases.forEach(function (phase) {
+      var items = phase.querySelectorAll('.grid > div');
+      if (items.length === 0) return;
+      gsap.from(items, {
+        scrollTrigger: {
+          trigger: phase,
+          start: 'top 82%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 35,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power3.out'
+      });
+    });
+
+    /* ── Spotlight cards ── */
+    var spotlightCards = document.querySelectorAll('.spotlight-card');
+    if (spotlightCards.length > 0) {
+      gsap.from(spotlightCards, {
+        scrollTrigger: {
+          trigger: spotlightCards[0],
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Insight cards ── */
+    var insightCards = document.querySelectorAll('.insight-card');
+    if (insightCards.length > 0) {
+      gsap.from(insightCards, {
+        scrollTrigger: {
+          trigger: '.insights-grid',
+          start: 'top 82%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Next step cards ── */
+    var nextStepCards = document.querySelectorAll('.next-step-card');
+    if (nextStepCards.length > 0) {
+      gsap.from(nextStepCards, {
+        scrollTrigger: {
+          trigger: '.next-steps',
+          start: 'top 82%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        x: -30,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Leader hero (leader pages) ── */
+    var leaderPhoto = document.querySelector('.leader-hero__photo');
+    var leaderDetails = document.querySelector('.leader-hero__details');
+    if (leaderPhoto) {
+      gsap.from(leaderPhoto, {
+        opacity: 0,
+        x: -40,
+        duration: 0.9,
+        delay: 0.8,
+        ease: 'power3.out'
+      });
+    }
+    if (leaderDetails) {
+      gsap.from(leaderDetails, {
+        opacity: 0,
+        x: 40,
+        duration: 0.9,
+        delay: 1,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Leader sidebar & bio ── */
+    var leaderSidebar = document.querySelector('.leader-sidebar');
+    var leaderBio = document.querySelector('.leader-bio');
+    if (leaderSidebar) {
+      gsap.from(leaderSidebar, {
+        scrollTrigger: {
+          trigger: '.leader-content',
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        x: -30,
+        duration: 0.7,
+        ease: 'power3.out'
+      });
+    }
+    if (leaderBio) {
+      gsap.from(leaderBio, {
+        scrollTrigger: {
+          trigger: '.leader-content',
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 30,
+        duration: 0.7,
+        delay: 0.15,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Blog article ── */
+    var blogTitle = document.querySelector('.blog-article__title');
+    if (blogTitle) {
+      gsap.from(blogTitle, {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        delay: 0.6,
+        ease: 'power3.out'
+      });
+    }
+    var blogBody = document.querySelector('.blog-article__body');
+    if (blogBody) {
+      gsap.from(blogBody, {
+        scrollTrigger: {
+          trigger: blogBody,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 25,
+        duration: 0.7,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Blog related cards ── */
+    var blogRelated = document.querySelectorAll('.blog-related-card');
+    if (blogRelated.length > 0) {
+      gsap.from(blogRelated, {
+        scrollTrigger: {
+          trigger: '.blog-related__grid',
+          start: 'top 82%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 35,
+        duration: 0.5,
+        stagger: 0.08,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Blockquotes ── */
+    var quotes = document.querySelectorAll('blockquote');
+    quotes.forEach(function (q) {
+      gsap.from(q, {
+        scrollTrigger: {
+          trigger: q,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        x: -20,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+    });
+
+    /* ── Landscape bullets ── */
+    var landscapeBullets = document.querySelectorAll('.landscape-bullets li');
+    if (landscapeBullets.length > 0) {
+      gsap.from(landscapeBullets, {
+        scrollTrigger: {
+          trigger: '.landscape-bullets',
+          start: 'top 82%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        x: -20,
+        duration: 0.4,
+        stagger: 0.06,
+        ease: 'power2.out'
+      });
+    }
+
+    /* ── Contact form tabs ── */
+    var contactTabs = document.querySelector('.contact-form__tabs');
+    if (contactTabs) {
+      gsap.from(contactTabs, {
+        scrollTrigger: {
+          trigger: contactTabs,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 25,
+        duration: 0.6,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Featured case metrics ── */
+    var featuredMetrics = document.querySelectorAll('.featured-case__metric');
+    if (featuredMetrics.length > 0) {
+      gsap.from(featuredMetrics, {
+        scrollTrigger: {
+          trigger: '.featured-case__metrics',
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 20,
+        scale: 0.9,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: 'back.out(1.7)'
+      });
+    }
+
+    /* ── Section images (parallax-lite) ── */
+    var sectionImages = document.querySelectorAll('.section img, .section .ratio-16-9');
+    sectionImages.forEach(function (img) {
+      gsap.from(img, {
+        scrollTrigger: {
+          trigger: img,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        scale: 0.96,
+        duration: 0.8,
+        ease: 'power2.out'
+      });
+    });
   }
 
 
