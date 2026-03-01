@@ -344,59 +344,102 @@ p:last-child {
   padding: 0.75rem 1.75rem;
   font-family: var(--font-body);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  border: 2px solid transparent;
-  border-radius: var(--border-radius);
+  letter-spacing: 0.12em;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+  transition: color 800ms, transform 800ms, box-shadow 800ms, outline-color 800ms;
   text-align: center;
   line-height: 1.4;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-decoration: none;
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--color-accent);
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: width 800ms;
+}
+
+.btn:hover::before {
+  width: 250%;
 }
 
 .btn--primary {
-  background-color: var(--color-accent);
-  color: var(--color-primary);
-  border-color: var(--color-accent);
+  background-color: transparent;
+  color: var(--color-accent);
 }
 
 .btn--primary:hover {
-  background-color: var(--color-accent-dark);
-  border-color: var(--color-accent-dark);
   color: var(--color-primary);
+  outline-color: var(--color-accent);
+  box-shadow: 4px 5px 17px -4px rgba(200, 169, 81, 0.6);
 }
 
 .btn--secondary {
   background-color: transparent;
   color: var(--color-accent);
-  border-color: var(--color-accent);
+  outline-color: var(--color-accent);
 }
 
 .btn--secondary:hover {
-  background-color: var(--color-accent);
   color: var(--color-primary);
+  background-color: transparent;
+  outline-color: var(--color-accent);
+  box-shadow: 4px 5px 17px -4px rgba(200, 169, 81, 0.5);
 }
 
 .btn--dark {
-  background-color: var(--color-primary);
+  background-color: transparent;
   color: var(--color-text-inverse);
-  border-color: var(--color-primary);
+  outline-color: var(--color-text-inverse);
+}
+
+.btn--dark::before {
+  background-color: var(--color-text-inverse);
 }
 
 .btn--dark:hover {
-  background-color: var(--color-primary-light);
-  border-color: var(--color-primary-light);
+  color: var(--color-primary);
+  outline-color: var(--color-text-inverse);
+  box-shadow: 4px 5px 17px -4px rgba(255, 255, 255, 0.3);
 }
 
 .btn--lg {
-  padding: 1rem 2.5rem;
+  padding: 1em 2.5em;
   font-size: var(--text-base);
+  letter-spacing: 0.15em;
 }
 
 .btn--sm {
   padding: 0.5rem 1rem;
   font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+}
+
+/* Buttons on dark backgrounds — visible gold outline + white text */
+.section--dark .btn,
+.footer-cta .btn {
+  color: #fff;
+  outline-color: var(--color-accent);
+}
+
+.section--dark .btn:hover,
+.footer-cta .btn:hover {
+  color: var(--color-primary);
 }
 
 
@@ -1722,21 +1765,46 @@ p:last-child {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.875rem 2rem;
-  background: var(--color-accent);
-  color: var(--color-primary);
+  padding: 1em 2em;
+  background: transparent;
+  color: var(--color-accent);
   font-family: var(--font-body);
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
-  border-radius: 100px;
-  transition: background var(--transition-fast), transform var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-radius: 5px;
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+  transition: color 800ms, transform 800ms, box-shadow 800ms;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.footer-cta__btn::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--color-accent);
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: width 800ms;
 }
 
 .footer-cta__btn:hover {
-  background: var(--color-accent-dark);
   color: var(--color-primary);
-  transform: translateY(-2px);
+  transform: scale(1.04);
+  box-shadow: 4px 5px 17px -4px rgba(200, 169, 81, 0.6);
+}
+
+.footer-cta__btn:hover::before {
+  width: 250%;
 }
 
 /* ── Footer Main ── */
@@ -3684,22 +3752,47 @@ p:last-child {
 
 .readiness-start-btn {
   display: inline-block;
-  font-size: 1.25rem;
-  padding: 1.25rem 3.5rem;
-  background: var(--color-accent);
-  color: var(--color-text-inverse);
+  font-size: 1.15rem;
+  padding: 1.1em 2.5em;
+  background: transparent;
+  color: var(--color-accent);
   border: none;
-  border-radius: var(--border-radius-lg);
+  border-radius: 5px;
   font-weight: 700;
   text-decoration: none;
-  transition: background var(--transition-fast), transform var(--transition-fast);
-  box-shadow: 0 4px 15px rgba(200, 169, 81, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: var(--font-body);
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+  transition: color 800ms, transform 800ms, box-shadow 800ms;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.readiness-start-btn::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--color-accent);
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: width 800ms;
 }
 
 .readiness-start-btn:hover {
-  background: var(--color-accent-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(200, 169, 81, 0.4);
+  color: var(--color-primary);
+  transform: scale(1.06);
+  box-shadow: 4px 5px 17px -4px rgba(200, 169, 81, 0.6);
+}
+
+.readiness-start-btn:hover::before {
+  width: 250%;
 }
 
 
@@ -4473,19 +4566,20 @@ p:last-child {
 }
 
 .readiness-btn {
-  padding: 1em 2em;
+  padding: 1.1em 2.5em;
   border: none;
   border-radius: 5px;
-  font-weight: bold;
-  letter-spacing: 5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   cursor: pointer;
-  color: var(--color-accent);
-  transition: all 800ms;
-  font-size: 1rem;
+  color: #fff;
+  transition: color 800ms, transform 800ms, box-shadow 800ms;
+  font-size: 1.05rem;
   position: relative;
   overflow: hidden;
   outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
   background: transparent;
   display: inline-block;
   text-decoration: none;
@@ -4495,8 +4589,8 @@ p:last-child {
 
 .readiness-btn:hover {
   color: var(--color-primary);
-  transform: scale(1.05);
-  outline: 2px solid var(--color-accent);
+  transform: scale(1.06);
+  outline-color: var(--color-accent);
   box-shadow: 4px 5px 17px -4px rgba(200, 169, 81, 0.6);
 }
 
@@ -4652,30 +4746,15 @@ h2 {
 
 /* --------------------------------------------------------------------------
    11d. ENHANCED BUTTON HOVER MICRO-INTERACTIONS
+   Skewed sweep animation + scale on all buttons.
    -------------------------------------------------------------------------- */
 
-.btn {
-  position: relative;
-  overflow: hidden;
-  transition: background-color var(--transition-fast),
-              color var(--transition-fast),
-              border-color var(--transition-fast),
-              transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.3s ease;
-}
-
-.btn--primary:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 6px 20px rgba(200, 169, 81, 0.35);
-}
-
-.btn--secondary:hover {
-  transform: translateY(-2px);
+.btn:hover {
+  transform: scale(1.04);
 }
 
 .btn--lg:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 25px rgba(200, 169, 81, 0.4);
+  transform: scale(1.06);
 }
 
 /* Arrow slide on explore/read-more links */
@@ -4695,8 +4774,7 @@ h2 {
 }
 
 /* Text link underline slide-in */
-.footer-new__grid a,
-.footer-cta__btn {
+.footer-new__grid a {
   position: relative;
 }
 
@@ -4865,15 +4943,14 @@ h2 {
   z-index: 1;
 }
 
-/* Animated gradient border on readiness CTA */
-.readiness-btn {
-  background-size: 200% 200%;
-  animation: gradient-shift 4s ease infinite;
+/* Animated outline shimmer on readiness CTA */
+@keyframes outline-shimmer {
+  0%, 100% { outline-color: var(--color-accent); }
+  50% { outline-color: rgba(200, 169, 81, 0.5); }
 }
 
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+.readiness-btn {
+  animation: outline-shimmer 3s ease infinite;
 }
 
 
@@ -5010,6 +5087,332 @@ html.lenis, html.lenis body {
 
 .lenis.lenis-stopped {
   overflow: hidden;
+}
+
+
+/* --------------------------------------------------------------------------
+   11p. ENHANCED CARD HOVERS (ALL PAGE TYPES)
+   Glassmorphism, glow, smooth transforms across all card variants.
+   -------------------------------------------------------------------------- */
+
+/* Case study grid cards */
+.case-study-grid__card {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease,
+              border-color 0.3s ease;
+}
+
+.case-study-grid__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.2);
+}
+
+/* News grid cards */
+.news-grid__card {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease;
+}
+
+.news-grid__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.15);
+}
+
+.news-grid__card:hover .news-grid__read-more {
+  gap: 0.7em;
+}
+
+.news-grid__read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  transition: gap 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Morph card hovers */
+.morph-card {
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease;
+}
+
+.morph-card:hover {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(200, 169, 81, 0.2);
+}
+
+/* Insight cards (service pages) */
+.insight-card {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease;
+}
+
+.insight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.15);
+}
+
+/* Next step cards (service pages) */
+.next-step-card {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease,
+              border-color 0.3s ease;
+}
+
+.next-step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(200, 169, 81, 0.15);
+}
+
+/* Spotlight card (service pages) */
+.spotlight-card {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease;
+}
+
+.spotlight-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Blog related cards */
+.blog-related-card {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease;
+}
+
+.blog-related-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.15);
+}
+
+/* Card case variant */
+.card--case {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease;
+}
+
+.card--case:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.15);
+}
+
+/* Featured case metrics pulse */
+.featured-case__metric {
+  transition: transform 0.3s ease;
+}
+
+.featured-case__metric:hover {
+  transform: scale(1.05);
+}
+
+/* Card metric values accent glow */
+.card__metric {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.card--case:hover .card__metric {
+  text-shadow: 0 0 20px rgba(200, 169, 81, 0.3);
+}
+
+
+/* --------------------------------------------------------------------------
+   11q. METHODOLOGY & TIMELINE ENHANCEMENTS
+   -------------------------------------------------------------------------- */
+
+/* Methodology flow steps */
+.methodology-flow__step {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease;
+}
+
+.methodology-flow__step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Timeline phases */
+.timeline__phase {
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.timeline__phase:hover {
+  transform: translateX(4px);
+}
+
+/* Deliver phase items */
+.deliver-phase {
+  position: relative;
+}
+
+.deliver-phase__title {
+  transition: color 0.3s ease;
+}
+
+
+/* --------------------------------------------------------------------------
+   11r. LEADER PAGE ENHANCEMENTS
+   -------------------------------------------------------------------------- */
+
+.leader-hero__photo {
+  transition: transform 0.6s ease;
+}
+
+.leader-hero:hover .leader-hero__photo {
+  transform: scale(1.02);
+}
+
+.leader-hero__name,
+.leader-hero__title {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: hero-fallback 0.8s ease forwards 1.5s;
+}
+
+.leader-hero__name[style],
+.leader-hero__title[style] {
+  animation: none;
+}
+
+.leader-sidebar__articles a,
+.leader-sidebar__list li {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.leader-sidebar__articles a:hover {
+  transform: translateX(4px);
+  color: var(--color-accent);
+}
+
+
+/* --------------------------------------------------------------------------
+   11s. BLOG PAGE ENHANCEMENTS
+   -------------------------------------------------------------------------- */
+
+.blog-hero {
+  transition: transform 0.6s ease;
+}
+
+.blog-article__title {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: hero-fallback 0.8s ease forwards 1.5s;
+}
+
+.blog-article__title[style] {
+  animation: none;
+}
+
+.blog-article__date {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: hero-fallback 0.8s ease forwards 1.2s;
+}
+
+.blog-article__date[style] {
+  animation: none;
+}
+
+.blog-article__body blockquote {
+  border-left: 4px solid var(--color-accent);
+  padding-left: 1.5rem;
+  transition: border-color 0.3s ease;
+}
+
+
+/* --------------------------------------------------------------------------
+   11t. PARTNER NOTE SLIDE-IN
+   -------------------------------------------------------------------------- */
+
+.partner-note {
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.partner-note:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+
+/* --------------------------------------------------------------------------
+   11u. SECTION IMAGE PARALLAX-LITE
+   Subtle scale on images as they enter view (set by GSAP).
+   -------------------------------------------------------------------------- */
+
+.section img {
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+
+.section img:hover {
+  transform: scale(1.02);
+}
+
+
+/* --------------------------------------------------------------------------
+   11v. CONTACT FORM ENHANCEMENTS
+   -------------------------------------------------------------------------- */
+
+.form-input,
+.contact-form__select,
+.form-textarea {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus,
+.contact-form__select:focus,
+.form-textarea:focus {
+  box-shadow: 0 0 0 3px rgba(200, 169, 81, 0.15);
+}
+
+
+/* --------------------------------------------------------------------------
+   11w. CASE FILTER BUTTON ENHANCEMENTS
+   -------------------------------------------------------------------------- */
+
+.case-filter__btn {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.case-filter__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+/* --------------------------------------------------------------------------
+   11x. ENHANCED SECTION TRANSITIONS
+   Gradient separators between dark/light sections for seamless flow.
+   -------------------------------------------------------------------------- */
+
+.section--dark + .section {
+  position: relative;
+}
+
+.section--dark + .section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, var(--color-bg-dark), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section + .section--dark {
+  position: relative;
+}
+
+.section + .section--dark::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, var(--color-bg), transparent);
+  pointer-events: none;
+  z-index: 0;
 }
 
 
