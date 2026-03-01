@@ -7,11 +7,18 @@
   <title>Fresh Approach to EU-Central Asia Digital Commerce | GCR Consulting</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="is-loading">
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__inner">
+      <span class="preloader__logo">GCR</span>
+      <div class="preloader__bar"><div class="preloader__bar-fill" id="preloaderFill"></div></div>
+    </div>
+  </div>
   <header class="header-new">
     <div class="header-new__inner">
       <a href="index.html" class="header-new__logo">
-        <span class="header-new__logo-text">GCR</span>
+        <img src="assets/logos/SPDC-Logo-Color.svg" alt="SPDC Logo">
       </a>
       <nav class="header-new__nav">
         <a href="index.html">Home</a>
@@ -115,6 +122,12 @@
 
   <section class="footer-cta"><div class="footer-cta__inner container"><div class="footer-cta__content"><h3>Talk to Us</h3><p>Discuss your strategy directly with our team.</p><a href="page-08.html" class="btn btn--primary">Contact Us</a></div><div class="footer-cta__image"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop&q=80" alt="GCR Consulting team collaborating" style="width:100%;height:200px;object-fit:cover;border-radius:8px;"></div></div></section>
   <footer class="footer-new"><div class="footer-new__main container"><div class="footer-new__col"><h4>Solutions</h4><a href="service-01.html">Private Sector</a><a href="service-02.html">Public Sector</a></div><div class="footer-new__col"><h4>About</h4><a href="page-02.html">About Us</a><a href="page-05.html">People</a><a href="#">Careers</a></div><div class="footer-new__col"><h4>More</h4><a href="page-07.html">News</a><a href="page-08.html">Contact</a></div></div><div class="footer-new__social container"><div class="footer-new__social-icons"><a href="#">&#9654;</a><a href="#">&#9635;</a><a href="#">in</a></div></div><div class="footer-new__cities">HOUSTON &nbsp;|&nbsp; WASHINGTON D.C. &nbsp;|&nbsp; ISTANBUL &nbsp;|&nbsp; BRUSSELS &nbsp;|&nbsp; TIRANA &nbsp;|&nbsp; KUALA LUMPUR</div><div class="footer-new__bottom"><div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;"><span>&copy; 2026 GCR Consulting</span><div><a href="page-09.html">Privacy Policy</a> | <a href="#">Manage Cookie Preferences</a></div></div></div></footer>
+  <!-- Smooth Scroll (Lenis) -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
   <script src="js/main.js" defer></script>
 </body>
 </html>
