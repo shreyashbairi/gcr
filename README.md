@@ -1,5 +1,7 @@
 # GCR Consulting — Static MVP Website
 
+access at shreyashbairi.github.io/gcr
+
 A clean, minimal, dependency-free static website for GCR Consulting. Built with vanilla HTML5, CSS3, and JavaScript. Ready to deploy on any static host.
 
 ## Page Mapping
