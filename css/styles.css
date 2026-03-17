@@ -256,6 +256,8 @@ p:last-child {
   background-color: var(--color-primary);
   color: var(--color-text-inverse);
   padding: var(--space-4xl) 0;
+  padding-top: calc(var(--header-height) + var(--space-4xl));
+  margin-top: calc(-1 * var(--header-height));
   overflow: hidden;
 }
 
@@ -263,6 +265,7 @@ p:last-child {
 .hero--home {
   min-height: 100vh;
   padding: var(--space-3xl) 0;
+  padding-top: calc(var(--header-height) + var(--space-3xl));
   background: url('https://images.unsplash.com/photo-1596306499398-8d88944a5ec4?q=80&w=2224&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=1920&h=1080&fit=crop&q=80') center/cover no-repeat;
   background-attachment: fixed;
 }
@@ -2441,6 +2444,8 @@ p:last-child {
   display: flex;
   align-items: center;
   overflow: hidden;
+  margin-top: calc(-1 * var(--header-height));
+  padding-top: var(--header-height);
 }
 
 .hero-new--full {
@@ -4693,9 +4698,7 @@ h2 {
 
 /* 11h. SECTION GRADIENT DIVIDERS — Smooth gradient transitions between alternating sections. */
 
-.section--alt + .section--dark::before,
-.section + .section--alt::before,
-.section--dark + .section::before {
+.section + .section--alt::before {
   content: '';
   display: block;
   height: 80px;
@@ -4715,6 +4718,11 @@ h2 {
   right: 0;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+}
+
+/* No divider line when alt section is followed by dark section (same bg color) */
+.section--alt:has(+ .section--dark)::after {
+  display: none;
 }
 
 /* 11i. DARK SECTION ENHANCEMENTS — Radial gradient overlay for richer dark sections. */
@@ -4866,20 +4874,13 @@ html.lenis, html.lenis body {
   position: relative;
 }
 
-.section--dark + .section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(to bottom, #F1F5F6, transparent);
-  pointer-events: none;
-  z-index: 0;
-}
-
 .section + .section--dark {
   position: relative;
+}
+
+/* No gradient when alt (same bg) precedes dark */
+.section--alt + .section--dark::after {
+  display: none;
 }
 
 .section + .section--dark::after {
@@ -4904,6 +4905,8 @@ html.lenis, html.lenis body {
   align-items: center;
   background: url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=1600&h=900&fit=crop&q=80') center/cover no-repeat;
   overflow: hidden;
+  margin-top: calc(-1 * var(--header-height));
+  padding-top: var(--header-height);
 }
 
 .about-hero--full {
