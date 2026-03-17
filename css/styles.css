@@ -1,36 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* ==========================================================================
-   GCR CONSULTING — MASTER STYLESHEET
-   ==========================================================================
-   Single stylesheet for the entire site.
-   Organized top-to-bottom: Variables → Reset → Base → Layout → Components →
-   Page-specific → Utilities → Media Queries.
+/* GCR CONSULTING — MASTER STYLESHEET — Single stylesheet for the entire site. */
 
-   TOOLBOX — QUICK EDIT (Designer: start here)
-   ──────────────────────────────────────────
-   1. Brand colors     → :root  (line ~20)
-   2. Fonts            → :root  (line ~35)
-   3. Type scale       → :root  (line ~45)
-   4. Spacing          → :root  (line ~60)
-   5. Hero heights     → .hero  (search "HERO")
-   6. Breakpoints      → @media (search "BREAKPOINT")
-   7. Card styles      → .card  (search "CARD")
-   ========================================================================== */
-
-
-/* ==========================================================================
-   1. CSS CUSTOM PROPERTIES  (:root)
-   Change these variables to update the entire site's look.
-   ========================================================================== */
+/* 1. CSS CUSTOM PROPERTIES  (:root) — Change these variables to update the entire site's look. */
 
 :root {
-  /* ── Brand Colors ── */
+  /* Brand Colors */
   --color-primary: #1B2A4A;        /* Deep navy — headings, nav bg      */
   --color-primary-light: #2C4070;  /* Navy hover state                  */
   --color-primary-medium: #2a4a6a; /* Navy gradient mid-tone            */
-  --color-accent: #C8A951;         /* Gold — CTAs, highlights           */
-  --color-accent-dark: #A88B3D;    /* Gold hover / active               */
+  --color-accent: #2C4070;         /* Gold — CTAs, highlights           */
+  --color-accent-dark: #2a4a6a;    /* Gold hover / active               */
   --color-bg: #FFFFFF;             /* Page background                   */
   --color-bg-alt: #F1F5F6;        /* Alternating section bg             */
   --color-bg-dark: #F1F5F6;       /* Light sections, footer              */
@@ -42,13 +22,13 @@
   --color-success: #2E7D32;       /* Form success messages              */
   --color-error: #C62828;         /* Form error messages                */
 
-  /* ── Typography ── */
+  /* Typography */
   /* Replace these with your brand fonts after Figma handoff */
   --font-heading: 'DM Sans', 'Inter', 'Helvetica Neue', sans-serif;
   --font-body: 'DM Sans', 'Inter', 'Helvetica Neue', sans-serif;
   --font-mono: 'Courier New', monospace;
 
-  /* ── Type Scale (rem-based, mobile-first) ── */
+  /* Type Scale (rem-based, mobile-first) */
   --text-xs: 0.75rem;    /* 12px */
   --text-sm: 0.875rem;   /* 14px */
   --text-base: 1rem;     /* 16px */
@@ -59,7 +39,7 @@
   --text-4xl: 2.5rem;    /* 40px */
   --text-5xl: 3.5rem;    /* 56px */
 
-  /* ── Spacing Scale ── */
+  /* Spacing Scale */
   --space-xs: 0.25rem;   /* 4px  */
   --space-sm: 0.5rem;    /* 8px  */
   --space-md: 1rem;      /* 16px */
@@ -69,28 +49,25 @@
   --space-3xl: 4rem;     /* 64px */
   --space-4xl: 6rem;     /* 96px */
 
-  /* ── Layout ── */
+  /* Layout */
   --container-max: 1200px;
   --container-narrow: 800px;
   --header-height: 80px;
   --border-radius: 4px;
   --border-radius-lg: 8px;
 
-  /* ── Transitions ── */
+  /* Transitions */
   --transition-fast: 150ms ease;
   --transition-base: 300ms ease;
   --transition-slow: 500ms ease;
 
-  /* ── Shadows ── */
+  /* Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
-
-/* ==========================================================================
-   2. RESET & BASE
-   ========================================================================== */
+/* 2. RESET & BASE */
 
 *,
 *::before,
@@ -166,7 +143,6 @@ ul, ol {
   list-style: none;
 }
 
-
 /* ── Heading Hierarchy ──
    Designer: adjust sizes here. Mobile sizes are base;
    desktop overrides are in the BREAKPOINT section below. */
@@ -193,12 +169,9 @@ p:last-child {
   margin-bottom: 0;
 }
 
+/* 3. LAYOUT */
 
-/* ==========================================================================
-   3. LAYOUT
-   ========================================================================== */
-
-/* ── Container ── */
+/* Container */
 .container {
   width: 100%;
   max-width: var(--container-max);
@@ -210,7 +183,7 @@ p:last-child {
   max-width: var(--container-narrow);
 }
 
-/* ── Section ── */
+/* Section */
 .section {
   padding: var(--space-3xl) 0;
 }
@@ -244,6 +217,14 @@ p:last-child {
   color: var(--color-text);
 }
 
+.section img {
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+
+.section img:hover {
+  transform: scale(1.02);
+}
+
 /* ── Grid System (mobile-first: single column) ──
    Columns expand at tablet/desktop breakpoints. */
 
@@ -261,17 +242,11 @@ p:last-child {
   grid-template-columns: 1fr;
 }
 
+/* 4. COMPONENTS */
 
-/* ==========================================================================
-   4. COMPONENTS
-   ========================================================================== */
+/* 4a. HEADER & NAVIGATION */
 
-/* ── 4a. HEADER & NAVIGATION ──────────────────────────────────────────── */
-/* Old .header styles removed — site uses .header-new (section 10a) */
-
-
-/* ── 4b. HERO ──────────────────────────────────────────────────────────── */
-/* Designer: adjust min-height and background overlay opacity here. */
+/* 4b. HERO */
 
 .hero {
   position: relative;
@@ -336,9 +311,7 @@ p:last-child {
   margin-bottom: var(--space-sm);
 }
 
-
-/* ── 4c. BUTTONS ───────────────────────────────────────────────────────── */
-/* Designer: change border-radius, padding, and colors here. */
+/* 4c. BUTTONS */
 
 .btn {
   display: inline-block;
@@ -379,14 +352,35 @@ p:last-child {
   width: 250%;
 }
 
+.footer-cta__btn::before,
+.readiness-start-btn::before,
+.readiness-btn::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--color-accent);
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: width 800ms;
+}
+
+.footer-cta__btn:hover::before,
+.readiness-start-btn:hover::before,
+.readiness-btn:hover::before {
+  width: 250%;
+}
+
 .btn--primary {
   background-color: transparent;
-  color: var(--color-accent);
+  color: var(--color-text-inverse);
 }
 
 .btn--primary:hover {
-  color: var(--color-primary);
-  outline-color: var(--color-accent);
+  color: var(--color-text-inverse);
+  outline-color: var(--color-text-inverse);
   box-shadow: 4px 5px 17px -4px rgba(200, 169, 81, 0.6);
 }
 
@@ -451,8 +445,7 @@ p:last-child {
   color: var(--color-primary);
 }
 
-
-/* ── 4d. CARDS ─────────────────────────────────────────────────────────── */
+/* 4d. CARDS */
 
 .card {
   background-color: var(--color-bg);
@@ -463,15 +456,32 @@ p:last-child {
 }
 
 .card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card--case {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+}
+
+.card--case:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.15);
+}
+
+/* Card metric values accent glow */
+.card__metric {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.card--case:hover .card__metric {
+  text-shadow: 0 0 20px rgba(200, 169, 81, 0.3);
 }
 
 /* Old card--service, card--sector, card--case, card--insight, card--engagement
    variants removed — site uses .service-card, .sector-morph-card, etc. (section 10f+) */
 
-
-/* ── 4e. TRUST BAR ─────────────────────────────────────────────────────── */
+/* 4e. TRUST BAR */
 
 .trust-bar {
   display: flex;
@@ -512,8 +522,7 @@ p:last-child {
   opacity: 1;
 }
 
-
-/* ── 4f. METRICS ROW ───────────────────────────────────────────────────── */
+/* 4f. METRICS ROW */
 
 .metrics {
   display: grid;
@@ -540,8 +549,7 @@ p:last-child {
   color: var(--color-text-light);
 }
 
-
-/* ── 4g. TABS ──────────────────────────────────────────────────────────── */
+/* 4g. TABS */
 
 .tabs {
   display: flex;
@@ -583,8 +591,7 @@ p:last-child {
   display: block;
 }
 
-
-/* ── 4h. TIMELINE / ROADMAP ────────────────────────────────────────────── */
+/* 4h. TIMELINE / ROADMAP */
 
 .timeline {
   position: relative;
@@ -607,6 +614,11 @@ p:last-child {
   margin-bottom: var(--space-2xl);
   padding-bottom: var(--space-xl);
   border-bottom: 1px solid var(--color-border);
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.timeline__phase:hover {
+  transform: translateX(4px);
 }
 
 .timeline__phase:last-child {
@@ -664,8 +676,7 @@ p:last-child {
   margin-top: var(--space-sm);
 }
 
-
-/* ── 4i. FORMS ─────────────────────────────────────────────────────────── */
+/* 4i. FORMS */
 
 .form-group {
   margin-bottom: var(--space-lg);
@@ -766,8 +777,7 @@ p:last-child {
   color: var(--color-success);
 }
 
-
-/* ── 4j. QUIZ (Readiness Check) ────────────────────────────────────────── */
+/* 4j. QUIZ (Readiness Check) */
 
 .quiz {
   max-width: 700px;
@@ -881,12 +891,9 @@ p:last-child {
   line-height: 1.7;
 }
 
+/* 4k. FOOTER */
 
-/* ── 4k. FOOTER ────────────────────────────────────────────────────────── */
-/* Old .footer styles removed — site uses .footer-new (section 10b) */
-
-
-/* ── 4l. STICKY CTA BAR ───────────────────────────────────────────────── */
+/* 4l. STICKY CTA BAR */
 
 .sticky-cta {
   position: fixed;
@@ -925,8 +932,7 @@ p:last-child {
   align-items: center;
 }
 
-
-/* ── 4m. COOKIE BANNER ─────────────────────────────────────────────────── */
+/* 4m. COOKIE BANNER */
 
 .cookie-banner {
   position: fixed;
@@ -963,9 +969,7 @@ p:last-child {
   gap: var(--space-sm);
 }
 
-
-/* ── 4n. PLACEHOLDER IMAGES ────────────────────────────────────────────── */
-/* Used during development. Remove this block after designer delivers assets. */
+/* 4n. PLACEHOLDER IMAGES */
 
 [data-placeholder-img] {
   background-color: var(--color-bg-alt);
@@ -996,7 +1000,6 @@ p:last-child {
   aspect-ratio: 3 / 4;
 }
 
-/* Pending data blocks — remove after content is populated */
 .placeholder-block {
   padding: var(--space-xl);
   border: 2px dashed var(--color-accent);
@@ -1005,8 +1008,7 @@ p:last-child {
   text-align: center;
 }
 
-
-/* ── 4o. PROCESS FLOW (Horizontal steps) ───────────────────────────────── */
+/* 4o. PROCESS FLOW (Horizontal steps) */
 
 .process-flow {
   display: grid;
@@ -1048,8 +1050,7 @@ p:last-child {
   color: var(--color-text-light);
 }
 
-
-/* ── 4p. EXPERT FEED (60/40 split on Home) ─────────────────────────────── */
+/* 4p. EXPERT FEED (60/40 split on Home) */
 
 .expert-feed__slider {
   background-color: var(--color-primary);
@@ -1102,8 +1103,7 @@ p:last-child {
   background-color: var(--color-accent);
 }
 
-
-/* ── 4q. PARTNER CARDS ─────────────────────────────────────────────────── */
+/* 4q. PARTNER CARDS */
 
 .partner-card {
   text-align: center;
@@ -1142,8 +1142,7 @@ p:last-child {
   color: var(--color-accent);
 }
 
-
-/* ── 4r. SECTION INTRO (for pages with intro text) ─────────────────────── */
+/* 4r. SECTION INTRO (for pages with intro text) */
 
 .section-intro {
   max-width: var(--container-narrow);
@@ -1157,8 +1156,7 @@ p:last-child {
   line-height: 1.7;
 }
 
-
-/* ── 4s. BLOCKQUOTE / PARTNER NOTE ─────────────────────────────────────── */
+/* 4s. BLOCKQUOTE / PARTNER NOTE */
 
 .partner-note {
   background-color: var(--color-bg-alt);
@@ -1166,6 +1164,12 @@ p:last-child {
   padding: var(--space-lg) var(--space-xl);
   margin: var(--space-xl) 0;
   border-radius: 0 var(--border-radius-lg) var(--border-radius-lg) 0;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.partner-note:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
 .partner-note__label {
@@ -1193,8 +1197,7 @@ p:last-child {
   margin-top: var(--space-sm);
 }
 
-
-/* ── 4t. CASE FILTER / NAVIGATOR ───────────────────────────────────────── */
+/* 4t. CASE FILTER / NAVIGATOR */
 
 .case-filter {
   display: flex;
@@ -1215,7 +1218,7 @@ p:last-child {
   border: 1px solid var(--color-border);
   border-radius: 100px;
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .case-filter__btn:hover,
@@ -1223,10 +1226,23 @@ p:last-child {
   color: var(--color-primary);
   border-color: var(--color-accent);
   background-color: rgba(200, 169, 81, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
+/* Case study grid card hovers */
+.case-study-grid__card {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease,
+              border-color 0.3s ease;
+}
 
-/* ── 4u. FEATURED CASE (large card) ────────────────────────────────────── */
+.case-study-grid__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.2);
+}
+
+/* 4u. FEATURED CASE (large card) */
 
 .featured-case {
   display: grid;
@@ -1247,6 +1263,11 @@ p:last-child {
 
 .featured-case__metric {
   text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.featured-case__metric:hover {
+  transform: scale(1.05);
 }
 
 .featured-case__metric-value {
@@ -1261,42 +1282,7 @@ p:last-child {
   color: var(--color-text-light);
 }
 
-
-/* ── 4v. LEGAL PAGE ────────────────────────────────────────────────────── */
-
-.legal-content {
-  max-width: var(--container-narrow);
-  margin: 0 auto;
-}
-
-.legal-content h2 {
-  padding-top: var(--space-2xl);
-  border-top: 1px solid var(--color-border);
-  margin-top: var(--space-2xl);
-}
-
-.legal-content h2:first-child {
-  border-top: none;
-  margin-top: 0;
-  padding-top: 0;
-}
-
-.legal-content p,
-.legal-content li {
-  font-size: var(--text-sm);
-  line-height: 1.7;
-}
-
-.legal-content ul {
-  list-style: disc;
-  padding-left: var(--space-lg);
-  margin-bottom: var(--space-md);
-}
-
-
-/* ==========================================================================
-   5. UTILITIES
-   ========================================================================== */
+/* 5. UTILITIES */
 
 .text-center { text-align: center; }
 .text-left   { text-align: left; }
@@ -1309,7 +1295,7 @@ p:last-child {
 .font-heading { font-family: var(--font-heading); }
 .font-bold    { font-weight: 700; }
 
-/* ── Spacing Helpers ── */
+/* Spacing Helpers */
 .mt-0   { margin-top: 0; }
 .mt-sm  { margin-top: var(--space-sm); }
 .mt-md  { margin-top: var(--space-md); }
@@ -1328,7 +1314,7 @@ p:last-child {
 .py-lg  { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
 .py-xl  { padding-top: var(--space-xl); padding-bottom: var(--space-xl); }
 
-/* ── Visibility ── */
+/* Visibility */
 .hidden { display: none !important; }
 
 /* Screen-reader only — visible to assistive tech, hidden visually */
@@ -1362,13 +1348,9 @@ p:last-child {
   border-radius: var(--border-radius);
 }
 
+/* 6. RESPONSIVE BREAKPOINTS — Designer: adjust breakpoint values and overrides here. */
 
-/* ==========================================================================
-   6. RESPONSIVE BREAKPOINTS
-   Designer: adjust breakpoint values and overrides here.
-   ========================================================================== */
-
-/* ── BREAKPOINT: Tablet (768px+) ── */
+/* BREAKPOINT: Tablet (768px+) */
 @media (min-width: 768px) {
   h1 { font-size: var(--text-4xl); }
   h2 { font-size: var(--text-3xl); }
@@ -1395,7 +1377,7 @@ p:last-child {
   }
 }
 
-/* ── BREAKPOINT: Desktop (1024px+) ── */
+/* BREAKPOINT: Desktop (1024px+) */
 @media (min-width: 1024px) {
   h1 { font-size: var(--text-5xl); }
 
@@ -1411,16 +1393,9 @@ p:last-child {
   }
 }
 
+/* 10. NEW COMPONENT STYLES (Redesign v2) */
 
-/* ==========================================================================
-   10. NEW COMPONENT STYLES (Redesign v2)
-   ========================================================================== */
-
-
-/* --------------------------------------------------------------------------
-   10a. NEW HEADER — Frosted Glass (.header-new)
-   Fixed position, frosted glass effect, mega menu for Services
-   -------------------------------------------------------------------------- */
+/* 10a. NEW HEADER — Frosted Glass (.header-new) — Fixed position, frosted glass effect, mega menu for Services */
 
 .header-new {
   position: fixed;
@@ -1518,7 +1493,7 @@ p:last-child {
   opacity: 0.7;
 }
 
-/* ── Services Mega Menu ── */
+/* Services Mega Menu */
 .header-new__menu-trigger {
   position: relative;
 }
@@ -1584,7 +1559,7 @@ p:last-child {
   background: rgba(27, 42, 74, 0.06);
 }
 
-/* ── Actions (Contact + Lang) ── */
+/* Actions (Contact + Lang) */
 .header-new__actions {
   display: flex;
   align-items: center;
@@ -1716,13 +1691,9 @@ p:last-child {
   }
 }
 
+/* 10b. NEW FOOTER (Straife.com style) — "Talk to Us" CTA → 3-column links → social icons → cities → copyright */
 
-/* --------------------------------------------------------------------------
-   10b. NEW FOOTER (Straife.com style)
-   "Talk to Us" CTA → 3-column links → social icons → cities → copyright
-   -------------------------------------------------------------------------- */
-
-/* ── Talk to Us CTA ── */
+/* Talk to Us CTA */
 .footer-cta {
   background: var(--color-bg-alt);
   padding: var(--space-4xl) 0;
@@ -1792,18 +1763,6 @@ p:last-child {
   cursor: pointer;
 }
 
-.footer-cta__btn::before {
-  content: "";
-  position: absolute;
-  left: -50px;
-  top: 0;
-  width: 0;
-  height: 100%;
-  background-color: var(--color-accent);
-  transform: skewX(45deg);
-  z-index: -1;
-  transition: width 800ms;
-}
 
 .footer-cta__btn:hover {
   color: var(--color-primary);
@@ -1811,11 +1770,8 @@ p:last-child {
   box-shadow: 4px 5px 17px -4px rgba(200, 169, 81, 0.6);
 }
 
-.footer-cta__btn:hover::before {
-  width: 250%;
-}
 
-/* ── Footer Main ── */
+/* Footer Main */
 .footer-new {
   background: var(--color-bg-dark);
   color: var(--color-text);
@@ -1865,7 +1821,7 @@ p:last-child {
   color: var(--color-primary);
 }
 
-/* ── Footer Social ── */
+/* Footer Social */
 .footer-new__social {
   display: flex;
   align-items: center;
@@ -1894,7 +1850,7 @@ p:last-child {
   transform: translateY(-2px);
 }
 
-/* ── Footer Cities ── */
+/* Footer Cities */
 .footer-new__cities {
   display: flex;
   flex-wrap: wrap;
@@ -1915,7 +1871,7 @@ p:last-child {
   color: var(--color-border);
 }
 
-/* ── Footer Copyright ── */
+/* Footer Copyright */
 .footer-new__copyright {
   display: flex;
   align-items: center;
@@ -1963,20 +1919,13 @@ p:last-child {
   }
 }
 
-
 /* 10c. MORPHING PROFILE CARD — removed, site uses .morph-card (section 11) */
-
 
 /* 10d. FANCY NAVIGATION — see section 11 below for actual implementation */
 
-
 /* 10e. TRUST BAR — see section 4e above for styles */
 
-
-/* --------------------------------------------------------------------------
-   10f. SERVICE CARDS — 4x3 grid with hover effects
-   Hover changes bg to brand blue, shows "Explore" button
-   -------------------------------------------------------------------------- */
+/* 10f. SERVICE CARDS — 4x3 grid with hover effects — Hover changes bg to brand blue, shows "Explore" button */
 
 .service-cards {
   display: grid;
@@ -1991,15 +1940,14 @@ p:last-child {
   padding: var(--space-xl);
   position: relative;
   overflow: hidden;
-  transition: background var(--transition-base), border-color var(--transition-base),
-              transform var(--transition-fast), box-shadow var(--transition-base);
+  transition: box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease;
 }
 
 .service-card:hover {
   background: var(--color-primary);
   border-color: var(--color-primary);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.2);
 }
 
 .service-card__icon {
@@ -2088,10 +2036,7 @@ p:last-child {
   }
 }
 
-
-/* --------------------------------------------------------------------------
-   10g. CASE STUDY GRID — 3-column for Services General page
-   -------------------------------------------------------------------------- */
+/* 10g. CASE STUDY GRID — 3-column for Services General page */
 
 .case-study-grid {
   display: grid;
@@ -2187,10 +2132,7 @@ p:last-child {
   }
 }
 
-
-/* --------------------------------------------------------------------------
-   10h. LEADERSHIP GRID — Circular photos for board members
-   -------------------------------------------------------------------------- */
+/* 10h. LEADERSHIP GRID — Circular photos for board members */
 
 .leadership-grid {
   display: grid;
@@ -2255,10 +2197,7 @@ p:last-child {
   }
 }
 
-
-/* --------------------------------------------------------------------------
-   10i. NEWS GRID — 3x4 responsive image card grid
-   -------------------------------------------------------------------------- */
+/* 10i. NEWS GRID — 3x4 responsive image card grid */
 
 .news-grid {
   display: grid;
@@ -2336,10 +2275,7 @@ p:last-child {
   }
 }
 
-
-/* --------------------------------------------------------------------------
-   10j. CONTACT FORM — With role tabs
-   -------------------------------------------------------------------------- */
+/* 10j. CONTACT FORM — With role tabs */
 
 .contact-form-section {
   padding: var(--space-4xl) 0;
@@ -2418,7 +2354,7 @@ p:last-child {
 .contact-form__select:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(27, 42, 74, 0.1); /* --color-primary @ 10% */
+  box-shadow: 0 0 0 3px rgba(27, 42, 74, 0.1);
 }
 
 .contact-form__textarea {
@@ -2468,10 +2404,7 @@ p:last-child {
   }
 }
 
-
-/* --------------------------------------------------------------------------
-   10k. PLACEHOLDER IMAGE STYLES
-   -------------------------------------------------------------------------- */
+/* 10k. PLACEHOLDER IMAGE STYLES */
 
 .placeholder-img {
   background: var(--color-border);
@@ -2501,13 +2434,7 @@ p:last-child {
   min-height: 300px;
 }
 
-
-/* --------------------------------------------------------------------------
-   10l. SECTION-SPECIFIC STYLES
-   Hero variants, split layouts, timeline, methodology flow
-   -------------------------------------------------------------------------- */
-
-/* ── Hero Variants ── */
+/* Hero Variants */
 .hero-new {
   position: relative;
   min-height: 80vh;
@@ -2624,7 +2551,7 @@ p:last-child {
   transform: translateY(-2px);
 }
 
-/* ── Split Layout ── */
+/* Split Layout */
 .split-layout {
   display: grid;
   grid-template-columns: 1fr;
@@ -2688,57 +2615,12 @@ p:last-child {
   }
 }
 
-/* ── Methodology Flow ── */
+/* Methodology Flow */
 .methodology-flow {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-xl);
   counter-reset: method-step;
-}
-
-.methodology-step {
-  position: relative;
-  padding: var(--space-xl);
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius-lg);
-  counter-increment: method-step;
-  transition: box-shadow var(--transition-base), transform var(--transition-fast);
-}
-
-.methodology-step:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
-
-.methodology-step::before {
-  content: counter(method-step, decimal-leading-zero);
-  font-family: var(--font-body);
-  font-size: var(--text-4xl);
-  font-weight: 700;
-  color: rgba(200, 169, 81, 0.15);
-  line-height: 1;
-  margin-bottom: var(--space-md);
-  display: block;
-}
-
-.methodology-step__title {
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
-  font-weight: 700;
-  color: var(--color-text);
-  margin-bottom: var(--space-sm);
-}
-
-.methodology-step__desc {
-  font-size: var(--text-sm);
-  color: var(--color-text-light);
-  line-height: 1.6;
-}
-
-/* Connecting arrows between steps */
-.methodology-step__arrow {
-  display: none;
 }
 
 @media (min-width: 768px) {
@@ -2751,24 +2633,9 @@ p:last-child {
   .methodology-flow {
     grid-template-columns: repeat(4, 1fr);
   }
-
-  .methodology-step__arrow {
-    display: block;
-    position: absolute;
-    right: -1.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--color-border);
-    font-size: var(--text-xl);
-    z-index: 1;
-  }
-
-  .methodology-step:last-child .methodology-step__arrow {
-    display: none;
-  }
 }
 
-/* ── Stats Row ── */
+/* Stats Row */
 .stats-row {
   display: grid;
   grid-template-columns: 1fr;
@@ -2804,7 +2671,7 @@ p:last-child {
   }
 }
 
-/* ── Section Headings (Redesign) ── */
+/* Section Headings (Redesign) */
 .section-heading {
   text-align: center;
   margin-bottom: var(--space-3xl);
@@ -2837,16 +2704,13 @@ p:last-child {
   margin: 0 auto;
 }
 
-/* ── Utility: Red Accent Color ── */
+/* Utility: Red Accent Color */
 .text-red { color: var(--color-accent); }
 .bg-red { background-color: var(--color-accent); }
 
+/* SERVICE PAGE COMPONENTS */
 
-/* ==========================================================================
-   SERVICE PAGE COMPONENTS
-   ========================================================================== */
-
-/* ── Methodology Flow Steps (BEM alias) ── */
+/* Methodology Flow Steps (BEM alias) */
 .methodology-flow__step {
   position: relative;
   padding: var(--space-xl);
@@ -2854,12 +2718,12 @@ p:last-child {
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-lg);
   counter-increment: method-step;
-  transition: box-shadow var(--transition-base), transform var(--transition-fast);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
 }
 
 .methodology-flow__step:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .methodology-flow__step::before {
@@ -2888,7 +2752,7 @@ p:last-child {
   margin: 0;
 }
 
-/* ── Strategic Landscape Bullets ── */
+/* Strategic Landscape Bullets */
 .landscape-bullets {
   list-style: none;
   padding: 0;
@@ -2922,7 +2786,7 @@ p:last-child {
   margin-bottom: var(--space-xs);
 }
 
-/* ── Deliver Section Phase Headers ── */
+/* Deliver Section Phase Headers */
 .deliver-phase {
   margin-bottom: var(--space-xl);
 }
@@ -2936,15 +2800,22 @@ p:last-child {
   letter-spacing: 0.05em;
   margin-bottom: var(--space-lg);
   padding-bottom: var(--space-sm);
-  border-bottom: 2px solid rgba(200, 169, 81, 0.3); /* --color-accent @ 30% */
+  border-bottom: 2px solid rgba(200, 169, 81, 0.3);
+  transition: color 0.3s ease;
 }
 
-/* ── Project Spotlight Card (Expanded) ── */
+/* Project Spotlight Card */
 .spotlight-card {
   background: var(--color-bg);
   padding: var(--space-2xl);
   border-radius: var(--border-radius-lg);
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+}
+
+.spotlight-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .spotlight-card__label {
@@ -2972,7 +2843,7 @@ p:last-child {
   margin: var(--space-lg) 0;
 }
 
-/* ── Related Insights Grid ── */
+/* Related Insights Grid */
 .insights-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -2984,12 +2855,12 @@ p:last-child {
   border-radius: var(--border-radius-lg);
   border: 1px solid var(--color-border);
   overflow: hidden;
-  transition: box-shadow var(--transition-base), transform var(--transition-fast);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
 }
 
 .insight-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.15);
 }
 
 .insight-card__image {
@@ -3033,7 +2904,7 @@ p:last-child {
   }
 }
 
-/* ── Next Steps / Related Services ── */
+/* Next Steps / Related Services */
 .next-steps {
   display: grid;
   grid-template-columns: 1fr;
@@ -3050,19 +2921,19 @@ p:last-child {
   border-radius: var(--border-radius-lg);
   text-decoration: none;
   color: var(--color-text);
-  transition: box-shadow var(--transition-base), transform var(--transition-fast), border-color var(--transition-fast);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.3s ease;
 }
 
 .next-step-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
   border-color: var(--color-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(200, 169, 81, 0.15);
 }
 
 .next-step-card__icon {
   width: 48px;
   height: 48px;
-  background: rgba(200, 169, 81, 0.15); /* --color-accent @ 15% */
+  background: rgba(200, 169, 81, 0.15);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -3092,7 +2963,7 @@ p:last-child {
   }
 }
 
-/* ── Service Hero Short ── */
+/* Service Hero Short */
 .hero-section--short {
   position: relative;
   min-height: 50vh;
@@ -3134,9 +3005,7 @@ p:last-child {
   }
 }
 
-/* --------------------------------------------------------------------------
-   11. MORPHING PROFILE CARDS — Leadership hover cards
-   -------------------------------------------------------------------------- */
+/* 11. MORPHING PROFILE CARDS */
 
 .morph-cards {
   display: grid;
@@ -3171,11 +3040,11 @@ p:last-child {
   text-decoration: none;
   display: block;
   box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition-base);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
 }
 
 .morph-card:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(200, 169, 81, 0.2);
 }
 
 .morph-card::before {
@@ -3306,12 +3175,16 @@ p:last-child {
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition-base), transform var(--transition-fast);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
 }
 
 .news-grid__card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.15);
+}
+
+.news-grid__card:hover .news-grid__read-more {
+  gap: 0.7em;
 }
 
 .news-grid__image {
@@ -3352,6 +3225,10 @@ p:last-child {
   font-size: var(--text-sm);
   font-weight: 600;
   color: var(--color-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  transition: gap 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* Leadership grid item styling for links */
@@ -3380,10 +3257,7 @@ p:last-child {
   color: var(--color-text-light);
 }
 
-
-/* --------------------------------------------------------------------------
-   12. LEADER INDIVIDUAL PAGE
-   -------------------------------------------------------------------------- */
+/* 12. LEADER INDIVIDUAL PAGE */
 
 .leader-hero {
   padding: var(--space-4xl) 0 var(--space-2xl);
@@ -3407,6 +3281,11 @@ p:last-child {
   justify-content: center;
   font-size: 0.9rem;
   color: var(--color-text-inverse);
+  transition: transform 0.6s ease;
+}
+
+.leader-hero:hover .leader-hero__photo {
+  transform: scale(1.02);
 }
 
 .leader-hero__details {
@@ -3419,12 +3298,26 @@ p:last-child {
   font-size: var(--text-4xl);
   font-weight: 700;
   margin-bottom: var(--space-sm);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: hero-fallback 0.8s ease forwards 1.5s;
+}
+
+.leader-hero__name[style] {
+  animation: none;
 }
 
 .leader-hero__title {
   font-size: var(--text-lg);
   color: var(--color-text-light);
   margin-bottom: var(--space-sm);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: hero-fallback 0.8s ease forwards 1.5s;
+}
+
+.leader-hero__title[style] {
+  animation: none;
 }
 
 .leader-hero__meta {
@@ -3489,6 +3382,7 @@ p:last-child {
   font-size: var(--text-sm);
   color: var(--color-text-light);
   border-bottom: 1px solid var(--color-border);
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .leader-sidebar__articles {
@@ -3505,11 +3399,12 @@ p:last-child {
   font-size: var(--text-sm);
   color: var(--color-accent);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .leader-sidebar__articles a:hover {
-  color: var(--color-text);
+  transform: translateX(4px);
+  color: var(--color-accent);
 }
 
 .leader-bio p {
@@ -3519,10 +3414,7 @@ p:last-child {
   margin-bottom: var(--space-lg);
 }
 
-
-/* --------------------------------------------------------------------------
-   13. BLOG INDIVIDUAL PAGE
-   -------------------------------------------------------------------------- */
+/* 13. BLOG INDIVIDUAL PAGE */
 
 .blog-hero {
   width: 100%;
@@ -3534,6 +3426,7 @@ p:last-child {
   justify-content: center;
   font-size: 0.9rem;
   color: var(--color-text-inverse);
+  transition: transform 0.6s ease;
 }
 
 .blog-article {
@@ -3548,6 +3441,13 @@ p:last-child {
   letter-spacing: 0.04em;
   color: var(--color-text-light);
   margin-bottom: var(--space-sm);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: hero-fallback 0.8s ease forwards 1.2s;
+}
+
+.blog-article__date[style] {
+  animation: none;
 }
 
 .blog-article__title {
@@ -3556,6 +3456,13 @@ p:last-child {
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: var(--space-lg);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: hero-fallback 0.8s ease forwards 1.5s;
+}
+
+.blog-article__title[style] {
+  animation: none;
 }
 
 .blog-article__body p {
@@ -3581,6 +3488,7 @@ p:last-child {
   color: var(--color-text-light);
   background: var(--color-bg-alt);
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  transition: border-color 0.3s ease;
 }
 
 .blog-related {
@@ -3613,12 +3521,12 @@ p:last-child {
   text-decoration: none;
   display: block;
   box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition-base), transform var(--transition-fast);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
 }
 
 .blog-related-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.15);
 }
 
 .blog-related-card__image {
@@ -3651,10 +3559,7 @@ p:last-child {
   line-height: 1.4;
 }
 
-
-/* --------------------------------------------------------------------------
-   14. CONTACT FORM ENHANCED — Dropdowns and compliance
-   -------------------------------------------------------------------------- */
+/* 14. CONTACT FORM ENHANCED — Dropdowns and compliance */
 
 .contact-form__select {
   appearance: none;
@@ -3682,10 +3587,7 @@ p:last-child {
   line-height: 1.5;
 }
 
-
-/* --------------------------------------------------------------------------
-   15. LEGAL CONTENT — Structured legal page
-   -------------------------------------------------------------------------- */
+/* 15. LEGAL CONTENT — Structured legal page */
 
 .legal-content {
   max-width: 800px;
@@ -3733,10 +3635,7 @@ p:last-child {
   margin-bottom: var(--space-xs);
 }
 
-
-/* --------------------------------------------------------------------------
-   16. READINESS CHECK ENHANCED
-   -------------------------------------------------------------------------- */
+/* 16. READINESS CHECK ENHANCED */
 
 .readiness-hero {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-medium) 50%, var(--color-primary) 100%);
@@ -3781,18 +3680,6 @@ p:last-child {
   cursor: pointer;
 }
 
-.readiness-start-btn::before {
-  content: "";
-  position: absolute;
-  left: -50px;
-  top: 0;
-  width: 0;
-  height: 100%;
-  background-color: var(--color-accent);
-  transform: skewX(45deg);
-  z-index: -1;
-  transition: width 800ms;
-}
 
 .readiness-start-btn:hover {
   color: var(--color-primary);
@@ -3800,14 +3687,8 @@ p:last-child {
   box-shadow: 4px 5px 17px -4px rgba(200, 169, 81, 0.6);
 }
 
-.readiness-start-btn:hover::before {
-  width: 250%;
-}
 
-
-/* --------------------------------------------------------------------------
-   17. RESPONSIVE POLISH — New components
-   -------------------------------------------------------------------------- */
+/* 17. RESPONSIVE POLISH — New components */
 
 /* Morph cards: single column on very small screens */
 @media (max-width: 479px) {
@@ -3871,10 +3752,7 @@ p:last-child {
   }
 }
 
-/* ==========================================================================
-   11. EXPANDING SPLIT-SCREEN CASE STUDIES (.fancy-nav)
-   Adapted from CodePen nat-davydova/zYPBRbm
-   ========================================================================== */
+/* 11. EXPANDING SPLIT-SCREEN CASE STUDIES (.fancy-nav) — Adapted from CodePen nat-davydova/zYPBRbm */
 
 .fancy-nav {
   position: relative;
@@ -4261,10 +4139,7 @@ p:last-child {
   }
 }
 
-
-/* ==========================================================================
-   12. LEADERSHIP CAROUSEL
-   ========================================================================== */
+/* 12. LEADERSHIP CAROUSEL */
 
 .leader-carousel {
   position: relative;
@@ -4425,10 +4300,7 @@ p:last-child {
   margin-bottom: var(--space-lg);
 }
 
-
-/* ==========================================================================
-   13. SECTOR MORPHING CARDS (Section 8)
-   ========================================================================== */
+/* 13. SECTOR MORPHING CARDS (Section 8) */
 
 .sector-morph-cards {
   display: grid;
@@ -4461,8 +4333,11 @@ p:last-child {
   position: relative;
   margin: 0 auto;
   box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition-base);
-  /* Prevent jitter by adding invisible hover buffer */
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+}
+
+.sector-morph-card:hover {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(200, 169, 81, 0.15);
 }
 
 .sector-morph-card::after {
@@ -4470,10 +4345,6 @@ p:last-child {
   position: absolute;
   inset: -10px;
   z-index: -1;
-}
-
-.sector-morph-card:hover {
-  box-shadow: var(--shadow-lg);
 }
 
 .sector-morph-card::before {
@@ -4565,10 +4436,7 @@ p:last-child {
   transition: translate 0.25s 0.25s, opacity 0.5s 0.25s;
 }
 
-
-/* ==========================================================================
-   14. READINESS CHECK ANIMATED BUTTON
-   ========================================================================== */
+/* 14. READINESS CHECK ANIMATED BUTTON */
 
 .readiness-cta__desc {
   margin: 0 auto var(--space-xl);
@@ -4604,33 +4472,11 @@ p:last-child {
   box-shadow: 4px 5px 17px -4px rgba(200, 169, 81, 0.6);
 }
 
-.readiness-btn::before {
-  content: "";
-  position: absolute;
-  left: -50px;
-  top: 0;
-  width: 0;
-  height: 100%;
-  background-color: var(--color-accent);
-  transform: skewX(45deg);
-  z-index: -1;
-  transition: width 800ms;
-}
-
-.readiness-btn:hover::before {
-  width: 250%;
-}
 
 
-/* ==========================================================================
-   11. HARK-INSPIRED ENHANCEMENTS
-   Preloader, scroll animations, enhanced hovers, parallax, marquee, etc.
-   ========================================================================== */
+/* 11. HARK-INSPIRED ENHANCEMENTS — Preloader, scroll animations, enhanced hovers, parallax, marquee, etc. */
 
-
-/* --------------------------------------------------------------------------
-   11a. PRELOADER
-   -------------------------------------------------------------------------- */
+/* 11a. PRELOADER */
 
 .preloader {
   position: fixed;
@@ -4686,11 +4532,7 @@ body.is-loading {
   overflow: hidden;
 }
 
-
-/* --------------------------------------------------------------------------
-   11b. SCROLL REVEAL ANIMATION BASE CLASSES
-   Elements start hidden, GSAP animates them in.
-   -------------------------------------------------------------------------- */
+/* 11b. SCROLL REVEAL ANIMATION BASE CLASSES — Elements start hidden, GSAP animates them in. */
 
 /* Hero elements start hidden, GSAP animates them in.
    Fallback: if GSAP fails to load, CSS animation kicks in after 1.5s */
@@ -4733,11 +4575,7 @@ body.is-loading {
   transform: translateX(40px);
 }
 
-
-/* --------------------------------------------------------------------------
-   11c. TYPOGRAPHY REFINEMENTS
-   Tighter letter-spacing on headings for a premium look.
-   -------------------------------------------------------------------------- */
+/* 11c. TYPOGRAPHY REFINEMENTS — Tighter letter-spacing on headings for a premium look. */
 
 h1 {
   letter-spacing: -0.02em;
@@ -4753,11 +4591,7 @@ h2 {
   letter-spacing: -0.025em;
 }
 
-
-/* --------------------------------------------------------------------------
-   11d. ENHANCED BUTTON HOVER MICRO-INTERACTIONS
-   Skewed sweep animation + scale on all buttons.
-   -------------------------------------------------------------------------- */
+/* 11d. ENHANCED BUTTON HOVER MICRO-INTERACTIONS — Skewed sweep animation + scale on all buttons. */
 
 .btn:hover {
   transform: scale(1.04);
@@ -4804,41 +4638,7 @@ h2 {
 }
 
 
-/* --------------------------------------------------------------------------
-   11e. ENHANCED CARD HOVERS
-   -------------------------------------------------------------------------- */
-
-.service-card {
-  transition: box-shadow 0.4s ease,
-              transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              border-color 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.2);
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* Sector morph card glow */
-.sector-morph-card {
-  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.4s ease;
-}
-
-.sector-morph-card:hover {
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(200, 169, 81, 0.15);
-}
-
-
-/* --------------------------------------------------------------------------
-   11f. NAV HOVER DIMMING (Hark-style)
-   When hovering a nav link, others dim to 50%.
-   -------------------------------------------------------------------------- */
+/* 11f. NAV HOVER DIMMING (Hark-style) — When hovering a nav link, others dim to 50%. */
 
 .header-new__nav:has(> a:hover) > a:not(:hover),
 .header-new__nav:has(> a:hover) > .header-new__menu-trigger > a {
@@ -4854,11 +4654,7 @@ h2 {
   transition: opacity 0.35s ease, color var(--transition-fast);
 }
 
-
-/* --------------------------------------------------------------------------
-   11g. TRUST BAR MARQUEE
-   Infinite horizontal scroll animation.
-   -------------------------------------------------------------------------- */
+/* 11g. TRUST BAR MARQUEE — Infinite horizontal scroll animation. */
 
 .trust-bar--marquee {
   overflow: hidden;
@@ -4895,11 +4691,7 @@ h2 {
   opacity: 1;
 }
 
-
-/* --------------------------------------------------------------------------
-   11h. SECTION GRADIENT DIVIDERS
-   Smooth gradient transitions between alternating sections.
-   -------------------------------------------------------------------------- */
+/* 11h. SECTION GRADIENT DIVIDERS — Smooth gradient transitions between alternating sections. */
 
 .section--alt + .section--dark::before,
 .section + .section--alt::before,
@@ -4925,11 +4717,7 @@ h2 {
   background: linear-gradient(90deg, transparent, var(--color-border), transparent);
 }
 
-
-/* --------------------------------------------------------------------------
-   11i. DARK SECTION ENHANCEMENTS
-   Radial gradient overlay for richer dark sections.
-   -------------------------------------------------------------------------- */
+/* 11i. DARK SECTION ENHANCEMENTS — Radial gradient overlay for richer dark sections. */
 
 .section--dark {
   position: relative;
@@ -4951,11 +4739,7 @@ h2 {
   animation: outline-shimmer 3s ease infinite;
 }
 
-
-/* --------------------------------------------------------------------------
-   11j. HERO CURSOR GLOW
-   Subtle radial gradient that follows cursor on hero section.
-   -------------------------------------------------------------------------- */
+/* 11j. HERO CURSOR GLOW — Subtle radial gradient that follows cursor on hero section. */
 
 .hero__cursor-glow {
   position: absolute;
@@ -4972,7 +4756,7 @@ h2 {
   z-index: 3;
 }
 
-/* ── Trust bar overlaid at bottom of hero ── */
+/* Trust bar overlaid at bottom of hero */
 .hero__trust-bar {
   position: absolute;
   bottom: 0;
@@ -5003,12 +4787,7 @@ h2 {
   opacity: 1;
 }
 
-
-/* --------------------------------------------------------------------------
-   11k. HERO PARALLAX
-   Background attachment for simple parallax effect.
-   Merged into existing .hero--home (line ~287) — adding attachment only.
-   -------------------------------------------------------------------------- */
+/* 11k. HERO PARALLAX — Background attachment for simple parallax effect. */
 
 /* Disable fixed attachment on mobile (performance) */
 @media (max-width: 768px) {
@@ -5017,11 +4796,7 @@ h2 {
   }
 }
 
-
-/* --------------------------------------------------------------------------
-   11l. METRICS COUNTER ANIMATION
-   Visual indicator that numbers will animate.
-   -------------------------------------------------------------------------- */
+/* 11l. METRICS COUNTER ANIMATION — Visual indicator that numbers will animate. */
 
 .metrics__value,
 .stats-row__number {
@@ -5033,10 +4808,7 @@ h2 {
   color: var(--color-accent);
 }
 
-
-/* --------------------------------------------------------------------------
-   11m. FOOTER REVEAL ENHANCEMENTS
-   -------------------------------------------------------------------------- */
+/* 11m. FOOTER REVEAL ENHANCEMENTS */
 
 .footer-cta {
   overflow: hidden;
@@ -5045,11 +4817,7 @@ h2 {
 /* Footer columns animated by GSAP inline styles.
    No CSS opacity:0 — ensures content visible even if GSAP fails. */
 
-
-/* --------------------------------------------------------------------------
-   11n. PAGE CLIP-PATH REVEAL
-   Body content slides in after preloader.
-   -------------------------------------------------------------------------- */
+/* 11n. PAGE CLIP-PATH REVEAL — Body content slides in after preloader. */
 
 .page-reveal {
   animation: page-clip-in 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
@@ -5066,10 +4834,7 @@ h2 {
   }
 }
 
-
-/* --------------------------------------------------------------------------
-   11o. SMOOTH SCROLL BODY (Lenis)
-   -------------------------------------------------------------------------- */
+/* 11o. SMOOTH SCROLL BODY (Lenis) */
 
 html.lenis, html.lenis body {
   height: auto;
@@ -5088,298 +4853,14 @@ html.lenis, html.lenis body {
 }
 
 
-/* --------------------------------------------------------------------------
-   11p. ENHANCED CARD HOVERS (ALL PAGE TYPES)
-   Glassmorphism, glow, smooth transforms across all card variants.
-   -------------------------------------------------------------------------- */
 
-/* Case study grid cards */
-.case-study-grid__card {
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.4s ease,
-              border-color 0.3s ease;
-}
 
-.case-study-grid__card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.2);
-}
 
-/* News grid cards */
-.news-grid__card {
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.4s ease;
-}
 
-.news-grid__card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.15);
-}
 
-.news-grid__card:hover .news-grid__read-more {
-  gap: 0.7em;
-}
 
-.news-grid__read-more {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35em;
-  transition: gap 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
 
-/* Morph card hovers */
-.morph-card {
-  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.4s ease;
-}
-
-.morph-card:hover {
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(200, 169, 81, 0.2);
-}
-
-/* Insight cards (service pages) */
-.insight-card {
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.4s ease;
-}
-
-.insight-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.15);
-}
-
-/* Next step cards (service pages) */
-.next-step-card {
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.4s ease,
-              border-color 0.3s ease;
-}
-
-.next-step-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(200, 169, 81, 0.15);
-}
-
-/* Spotlight card (service pages) */
-.spotlight-card {
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.4s ease;
-}
-
-.spotlight-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-/* Blog related cards */
-.blog-related-card {
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.4s ease;
-}
-
-.blog-related-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.15);
-}
-
-/* Card case variant */
-.card--case {
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.4s ease;
-}
-
-.card--case:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.15);
-}
-
-/* Featured case metrics pulse */
-.featured-case__metric {
-  transition: transform 0.3s ease;
-}
-
-.featured-case__metric:hover {
-  transform: scale(1.05);
-}
-
-/* Card metric values accent glow */
-.card__metric {
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.card--case:hover .card__metric {
-  text-shadow: 0 0 20px rgba(200, 169, 81, 0.3);
-}
-
-
-/* --------------------------------------------------------------------------
-   11q. METHODOLOGY & TIMELINE ENHANCEMENTS
-   -------------------------------------------------------------------------- */
-
-/* Methodology flow steps */
-.methodology-flow__step {
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.3s ease;
-}
-
-.methodology-flow__step:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-/* Timeline phases */
-.timeline__phase {
-  transition: transform 0.4s ease, box-shadow 0.3s ease;
-  position: relative;
-}
-
-.timeline__phase:hover {
-  transform: translateX(4px);
-}
-
-/* Deliver phase items */
-.deliver-phase {
-  position: relative;
-}
-
-.deliver-phase__title {
-  transition: color 0.3s ease;
-}
-
-
-/* --------------------------------------------------------------------------
-   11r. LEADER PAGE ENHANCEMENTS
-   -------------------------------------------------------------------------- */
-
-.leader-hero__photo {
-  transition: transform 0.6s ease;
-}
-
-.leader-hero:hover .leader-hero__photo {
-  transform: scale(1.02);
-}
-
-.leader-hero__name,
-.leader-hero__title {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: hero-fallback 0.8s ease forwards 1.5s;
-}
-
-.leader-hero__name[style],
-.leader-hero__title[style] {
-  animation: none;
-}
-
-.leader-sidebar__articles a,
-.leader-sidebar__list li {
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.leader-sidebar__articles a:hover {
-  transform: translateX(4px);
-  color: var(--color-accent);
-}
-
-
-/* --------------------------------------------------------------------------
-   11s. BLOG PAGE ENHANCEMENTS
-   -------------------------------------------------------------------------- */
-
-.blog-hero {
-  transition: transform 0.6s ease;
-}
-
-.blog-article__title {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: hero-fallback 0.8s ease forwards 1.5s;
-}
-
-.blog-article__title[style] {
-  animation: none;
-}
-
-.blog-article__date {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: hero-fallback 0.8s ease forwards 1.2s;
-}
-
-.blog-article__date[style] {
-  animation: none;
-}
-
-.blog-article__body blockquote {
-  border-left: 4px solid var(--color-accent);
-  padding-left: 1.5rem;
-  transition: border-color 0.3s ease;
-}
-
-
-/* --------------------------------------------------------------------------
-   11t. PARTNER NOTE SLIDE-IN
-   -------------------------------------------------------------------------- */
-
-.partner-note {
-  transition: transform 0.4s ease, box-shadow 0.3s ease;
-}
-
-.partner-note:hover {
-  transform: translateX(4px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-}
-
-
-/* --------------------------------------------------------------------------
-   11u. SECTION IMAGE PARALLAX-LITE
-   Subtle scale on images as they enter view (set by GSAP).
-   -------------------------------------------------------------------------- */
-
-.section img {
-  transition: transform 0.6s ease, filter 0.4s ease;
-}
-
-.section img:hover {
-  transform: scale(1.02);
-}
-
-
-/* --------------------------------------------------------------------------
-   11v. CONTACT FORM ENHANCEMENTS
-   -------------------------------------------------------------------------- */
-
-.form-input,
-.contact-form__select,
-.form-textarea {
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.form-input:focus,
-.contact-form__select:focus,
-.form-textarea:focus {
-  box-shadow: 0 0 0 3px rgba(200, 169, 81, 0.15);
-}
-
-
-/* --------------------------------------------------------------------------
-   11w. CASE FILTER BUTTON ENHANCEMENTS
-   -------------------------------------------------------------------------- */
-
-.case-filter__btn {
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.case-filter__btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-
-/* --------------------------------------------------------------------------
-   11x. ENHANCED SECTION TRANSITIONS
-   Gradient separators between dark/light sections for seamless flow.
-   -------------------------------------------------------------------------- */
+/* 11x. ENHANCED SECTION TRANSITIONS — Gradient separators between dark/light sections for seamless flow. */
 
 .section--dark + .section {
   position: relative;
@@ -5413,12 +4894,9 @@ html.lenis, html.lenis body {
   z-index: 0;
 }
 
+/* ABOUT PAGE (page-02) — Custom Sections */
 
-/* --------------------------------------------------------------------------
-   ABOUT PAGE (page-02) — Custom Sections
-   -------------------------------------------------------------------------- */
-
-/* ── About Hero ── */
+/* About Hero */
 .about-hero {
   position: relative;
   min-height: 70vh;
@@ -5462,723 +4940,7 @@ html.lenis, html.lenis body {
 }
 
 
-/* ── About Market Stats ── */
-.about-market__text {
-  max-width: 800px;
-  margin-bottom: var(--space-2xl);
-}
-
-.about-market__text h2 {
-  line-height: 1.25;
-}
-
-.about-market__stats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-lg);
-  margin-bottom: var(--space-xl);
-}
-
-.about-stat {
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius-lg);
-  padding: var(--space-lg);
-  text-align: center;
-  transition: box-shadow var(--transition-base), transform var(--transition-fast);
-}
-
-.about-stat:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
-
-.about-stat__value {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: clamp(var(--text-xl), 3vw, var(--text-3xl));
-  font-weight: 700;
-  color: var(--color-accent);
-  line-height: 1.1;
-  margin-bottom: var(--space-xs);
-}
-
-.about-stat__label {
-  display: block;
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--color-primary);
-  margin-bottom: 0.25rem;
-}
-
-.about-stat__desc {
-  display: block;
-  font-size: var(--text-xs);
-  color: var(--color-text-light);
-}
-
-.about-market__formerly {
-  font-size: var(--text-sm);
-  font-style: italic;
-  color: var(--color-text-light);
-  border-left: 3px solid var(--color-accent);
-  padding-left: var(--space-md);
-}
-
-@media (min-width: 768px) {
-  .about-market__stats {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-
-/* ── About Reality Check ── */
-.about-reality {
-  background: var(--color-bg);
-}
-
-.about-reality__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-2xl);
-  align-items: start;
-}
-
-.about-reality__intro {
-  font-size: var(--text-lg);
-  color: var(--color-text-light);
-  line-height: 1.7;
-  margin-bottom: var(--space-2xl);
-}
-
-.about-reality__friction-title {
-  font-size: var(--text-2xl);
-  color: var(--color-primary);
-  margin-bottom: var(--space-lg);
-  padding-bottom: var(--space-sm);
-  border-bottom: 2px solid var(--color-accent);
-  display: inline-block;
-}
-
-.about-reality__cards {
-  display: grid;
-  gap: var(--space-md);
-  margin-bottom: var(--space-2xl);
-}
-
-.about-reality__card {
-  background: var(--color-bg-alt);
-  border-radius: var(--border-radius-lg);
-  padding: var(--space-lg);
-  border-left: 4px solid var(--color-accent);
-  transition: box-shadow var(--transition-base);
-}
-
-.about-reality__card:hover {
-  box-shadow: var(--shadow-md);
-}
-
-.about-reality__card h4 {
-  font-size: var(--text-base);
-  font-weight: 700;
-  color: var(--color-primary);
-  margin-bottom: var(--space-xs);
-}
-
-.about-reality__card p {
-  font-size: var(--text-sm);
-  color: var(--color-text-light);
-  line-height: 1.6;
-}
-
-.about-value-prop {
-  background: var(--color-primary);
-  border-radius: var(--border-radius-lg);
-  padding: var(--space-xl);
-  color: var(--color-text-inverse);
-}
-
-.about-value-prop__label {
-  font-size: var(--text-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-accent);
-  margin-bottom: var(--space-sm);
-}
-
-.about-value-prop p:last-child {
-  font-size: var(--text-base);
-  color: var(--color-text);
-  line-height: 1.7;
-}
-
-.about-reality__right {
-  border-radius: var(--border-radius-lg);
-  overflow: hidden;
-}
-
-.about-reality__right img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  display: block;
-  border-radius: var(--border-radius-lg);
-}
-
-@media (min-width: 1024px) {
-  .about-reality__grid {
-    grid-template-columns: 1.2fr 0.8fr;
-  }
-
-  .about-reality__right img {
-    height: 100%;
-    min-height: 600px;
-  }
-}
-
-
-/* ── About Sectors ── */
-.about-sectors__intro {
-  font-size: var(--text-lg);
-  color: var(--color-text-light);
-  max-width: 680px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
-
-.about-sectors__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-xl);
-}
-
-.about-sector-card {
-  background: var(--color-bg);
-  border-radius: var(--border-radius-lg);
-  padding: var(--space-xl);
-  border: 1px solid var(--color-border);
-  transition: box-shadow var(--transition-base), transform var(--transition-fast);
-}
-
-.about-sector-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
-}
-
-.about-sector-card__icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-bottom: var(--space-md);
-}
-
-.about-sector-card__icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.about-sector-card h3 {
-  font-size: var(--text-lg);
-  margin-bottom: var(--space-sm);
-}
-
-.about-sector-card p {
-  font-size: var(--text-sm);
-  color: var(--color-text-light);
-  line-height: 1.6;
-}
-
-@media (min-width: 768px) {
-  .about-sectors__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .about-sectors__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-
-/* ── About Access (Quote Section) ── */
-.about-access {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-2xl);
-  align-items: center;
-}
-
-.about-access__subtitle {
-  font-size: var(--text-lg);
-  color: var(--color-text);
-  line-height: 1.7;
-  margin-bottom: var(--space-xl);
-}
-
-.about-access__quote {
-  font-family: var(--font-heading);
-  font-size: var(--text-2xl);
-  line-height: 1.5;
-  border-left: 4px solid var(--color-accent);
-  padding-left: var(--space-lg);
-  margin-bottom: var(--space-md);
-  color: var(--color-primary);
-  font-style: italic;
-}
-
-.about-access__author {
-  font-size: var(--text-sm);
-  color: var(--color-text-light);
-}
-
-.about-access__image {
-  border-radius: var(--border-radius-lg);
-  overflow: hidden;
-}
-
-.about-access__image img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  border-radius: var(--border-radius-lg);
-}
-
-@media (min-width: 768px) {
-  .about-access {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-
-/* ── About Leader (Profile Card + Mountain Image) ── */
-.about-leader {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-2xl);
-  align-items: center;
-}
-
-.about-leader__image-wrap {
-  position: relative;
-  border-radius: var(--border-radius-lg);
-  overflow: hidden;
-}
-
-.about-leader__bg-image {
-  width: 100%;
-  height: 380px;
-  object-fit: cover;
-  display: block;
-}
-
-.about-leader__profile-card {
-  position: absolute;
-  bottom: var(--space-lg);
-  left: var(--space-lg);
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: var(--border-radius-lg);
-  padding: var(--space-lg);
-  max-width: 260px;
-  box-shadow: var(--shadow-lg);
-}
-
-.about-leader__profile-photo {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: var(--color-bg-alt);
-  margin-bottom: var(--space-sm);
-}
-
-.about-leader__profile-card h3 {
-  font-size: var(--text-lg);
-  color: var(--color-primary);
-  margin-bottom: 0.25rem;
-}
-
-.about-leader__profile-role {
-  font-size: var(--text-sm);
-  color: var(--color-text-light);
-  margin-bottom: var(--space-sm);
-}
-
-.about-leader__profile-bio {
-  font-size: var(--text-xs);
-  color: var(--color-text-light);
-  line-height: 1.5;
-  margin-bottom: var(--space-sm);
-}
-
-.about-leader__profile-link {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--color-accent);
-}
-
-.about-leader__content h2 {
-  margin-bottom: var(--space-md);
-}
-
-.about-leader__content p {
-  font-size: var(--text-lg);
-  color: var(--color-text-light);
-  line-height: 1.7;
-}
-
-@media (min-width: 768px) {
-  .about-leader {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-
-/* ── About Deployment Teams ── */
-.about-deploy-section h2 {
-  line-height: 1.25;
-  max-width: 700px;
-}
-
-.about-deploy__intro {
-  font-size: var(--text-lg);
-  color: var(--color-text);
-  line-height: 1.7;
-  max-width: 700px;
-  margin-bottom: var(--space-2xl);
-}
-
-.about-deploy__value-strip {
-  background: rgba(27, 42, 74, 0.04);
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius-lg);
-  padding: var(--space-lg) var(--space-xl);
-  text-align: center;
-  margin-bottom: var(--space-2xl);
-}
-
-.about-deploy__value-strip p {
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
-  color: var(--color-primary);
-}
-
-.about-deploy__value-strip strong {
-  color: var(--color-accent);
-}
-
-.about-deploy__features {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-lg);
-  margin-bottom: var(--space-2xl);
-}
-
-.about-deploy__feature {
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius-lg);
-  padding: var(--space-xl);
-  text-align: center;
-  transition: background var(--transition-base), border-color var(--transition-base);
-}
-
-.about-deploy__feature:hover {
-  box-shadow: var(--shadow-md);
-  border-color: rgba(200, 169, 81, 0.4);
-}
-
-.about-deploy__feature-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: rgba(200, 169, 81, 0.15);
-  color: var(--color-accent);
-  margin-bottom: var(--space-md);
-}
-
-.about-deploy__feature h4 {
-  font-size: var(--text-base);
-  color: var(--color-primary);
-  margin-bottom: var(--space-sm);
-}
-
-.about-deploy__feature p {
-  font-size: var(--text-sm);
-  color: var(--color-text);
-  line-height: 1.6;
-}
-
-.about-deploy__process {
-  margin-bottom: var(--space-2xl);
-}
-
-.about-deploy__process h3 {
-  font-size: var(--text-lg);
-  color: var(--color-accent);
-  margin-bottom: var(--space-lg);
-  text-align: center;
-}
-
-.about-deploy__process-steps {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-md);
-  flex-wrap: wrap;
-}
-
-.about-deploy__process-step {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: 100px;
-  padding: var(--space-sm) var(--space-lg);
-  color: var(--color-primary);
-  font-size: var(--text-sm);
-  font-weight: 500;
-}
-
-.about-deploy__process-num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--color-accent);
-  color: var(--color-primary);
-  font-weight: 700;
-  font-size: var(--text-sm);
-  flex-shrink: 0;
-}
-
-.about-deploy__process-arrow {
-  color: var(--color-border);
-  font-size: var(--text-xl);
-}
-
-.about-deploy__ownership {
-  font-size: var(--text-base);
-  color: var(--color-text);
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.7;
-  border-top: 1px solid var(--color-border);
-  padding-top: var(--space-xl);
-}
-
-.about-deploy__ownership strong {
-  color: var(--color-accent);
-}
-
-@media (min-width: 768px) {
-  .about-deploy__features {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-
-/* ── About Start (Where do you start?) ── */
-.about-start {
-  text-align: center;
-  margin-bottom: var(--space-3xl);
-  padding: var(--space-2xl);
-  background: var(--color-bg);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-md);
-}
-
-.about-start__title {
-  font-size: var(--text-2xl);
-  color: var(--color-primary);
-  margin-bottom: var(--space-xl);
-}
-
-.about-start__title span {
-  font-weight: 400;
-  font-size: var(--text-lg);
-  color: var(--color-text-light);
-  display: block;
-  margin-top: var(--space-xs);
-}
-
-.about-start__options {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-lg);
-}
-
-.about-start__option {
-  background: var(--color-bg-alt);
-  border-radius: var(--border-radius-lg);
-  padding: var(--space-xl);
-  border: 2px solid transparent;
-  transition: border-color var(--transition-base), box-shadow var(--transition-base);
-}
-
-.about-start__option:hover {
-  border-color: var(--color-accent);
-  box-shadow: var(--shadow-md);
-}
-
-.about-start__option-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(200, 169, 81, 0.12);
-  color: var(--color-accent);
-  margin-bottom: var(--space-md);
-}
-
-.about-start__option h4 {
-  font-size: var(--text-lg);
-  color: var(--color-primary);
-  margin-bottom: var(--space-xs);
-}
-
-.about-start__option p {
-  font-size: var(--text-sm);
-  color: var(--color-text-light);
-  margin-bottom: var(--space-sm);
-}
-
-.about-start__option-tag {
-  display: inline-block;
-  font-size: var(--text-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--color-accent);
-  background: rgba(200, 169, 81, 0.1);
-  padding: 0.25rem 0.75rem;
-  border-radius: 100px;
-}
-
-@media (min-width: 768px) {
-  .about-start__options {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-
-/* ── About Phase Cards (Roadmap) ── */
-.about-phase {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-xl);
-  align-items: center;
-  margin-bottom: var(--space-2xl);
-  background: var(--color-bg);
-  border-radius: var(--border-radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-}
-
-.about-phase:last-of-type {
-  margin-bottom: 0;
-}
-
-.about-phase__image {
-  position: relative;
-  overflow: hidden;
-}
-
-.about-phase__image img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-  display: block;
-}
-
-.about-phase__badge {
-  position: absolute;
-  top: var(--space-md);
-  left: var(--space-md);
-  background: var(--color-accent);
-  color: var(--color-primary);
-  font-size: var(--text-xs);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0.375rem 0.875rem;
-  border-radius: 100px;
-}
-
-.about-phase__content {
-  padding: var(--space-xl);
-}
-
-.about-phase__content h3 {
-  font-size: var(--text-xl);
-  color: var(--color-primary);
-  margin-bottom: var(--space-sm);
-}
-
-.about-phase__tagline {
-  font-size: var(--text-sm);
-  color: var(--color-text-light);
-  font-style: italic;
-  margin-bottom: var(--space-md);
-  line-height: 1.6;
-}
-
-.about-phase__content ul {
-  list-style: disc;
-  padding-left: var(--space-lg);
-  margin-bottom: var(--space-md);
-}
-
-.about-phase__content li {
-  font-size: var(--text-sm);
-  color: var(--color-text);
-  margin-bottom: var(--space-xs);
-  line-height: 1.5;
-}
-
-.about-phase__deliverable {
-  font-size: var(--text-sm);
-  color: var(--color-primary);
-  background: rgba(200, 169, 81, 0.08);
-  padding: var(--space-md);
-  border-radius: var(--border-radius);
-  border-left: 3px solid var(--color-accent);
-  line-height: 1.6;
-}
-
-@media (min-width: 768px) {
-  .about-phase {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .about-phase__image img {
-    height: 100%;
-    min-height: 280px;
-  }
-
-  .about-phase--reverse {
-    direction: rtl;
-  }
-
-  .about-phase--reverse > * {
-    direction: ltr;
-  }
-}
-
-
-/* ── About CTA Section ── */
+/* About CTA Section */
 .about-cta-section {
   padding: var(--space-3xl) 0;
   position: relative;
@@ -6259,20 +5021,10 @@ html.lenis, html.lenis body {
   transform: translateY(-1px);
 }
 
-.about-roadmap__intro {
-  font-size: var(--text-lg);
-  color: var(--color-text-light);
-  max-width: 680px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
 
+/* ABOUT PAGE V2 — Redesigned Sections */
 
-/* ==========================================================================
-   ABOUT PAGE V2 — Redesigned Sections
-   ========================================================================== */
-
-/* ── Market V2 (Two-column layout) ── */
+/* Market V2 (Two-column layout) */
 .about-market-v2 {
   display: grid;
   grid-template-columns: 1fr;
@@ -6400,8 +5152,7 @@ html.lenis, html.lenis body {
   }
 }
 
-
-/* ── Reality Check V2 ── */
+/* Reality Check V2 */
 .about-reality-v2 {
   background: var(--color-bg-alt);
 }
@@ -6551,8 +5302,7 @@ html.lenis, html.lenis body {
   }
 }
 
-
-/* ── Sectors V2 ── */
+/* Sectors V2 */
 .about-sectors-v2__header {
   display: grid;
   grid-template-columns: 1fr;
@@ -6658,8 +5408,7 @@ html.lenis, html.lenis body {
   }
 }
 
-
-/* ── Network V2 (Logo Grid) ── */
+/* Network V2 (Logo Grid) */
 .about-network-v2 {
   padding: var(--space-3xl) 0;
 }
@@ -6713,8 +5462,7 @@ html.lenis, html.lenis body {
   }
 }
 
-
-/* ── Leader V2 ── */
+/* Leader V2 */
 .about-leader-v2__top {
   padding: var(--space-3xl) 0 var(--space-2xl);
 }
@@ -6824,8 +5572,7 @@ html.lenis, html.lenis body {
   }
 }
 
-
-/* ── Deployment Teams V2 (Light) ── */
+/* Deployment Teams V2 (Light) */
 .about-deploy-v2 {
   background: var(--color-bg-alt);
 }
@@ -7009,8 +5756,7 @@ html.lenis, html.lenis body {
   }
 }
 
-
-/* ── Roadmap V2 ── */
+/* Roadmap V2 */
 .about-roadmap-v2 {
   padding: var(--space-3xl) 0;
 }
@@ -7049,8 +5795,7 @@ html.lenis, html.lenis body {
   margin-bottom: var(--space-2xl);
 }
 
-
-/* ── Start V2 (Where do you start?) ── */
+/* Start V2 (Where do you start?) */
 .about-start-v2 {
   text-align: center;
   margin-bottom: var(--space-3xl);
@@ -7128,8 +5873,7 @@ html.lenis, html.lenis body {
   }
 }
 
-
-/* ── Timeline V2 (Phase Cards) ── */
+/* Timeline V2 (Phase Cards) */
 .about-timeline {
   position: relative;
 }
@@ -7270,7 +6014,4 @@ html.lenis, html.lenis body {
   }
 }
 
-
-/* ==========================================================================
-   END OF STYLESHEET
-   ========================================================================== */
+/* END OF STYLESHEET */
