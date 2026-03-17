@@ -384,7 +384,7 @@ p:last-child {
 .btn--primary:hover {
   color: var(--color-text-inverse);
   outline-color: var(--color-text-inverse);
-  box-shadow: 4px 5px 17px -4px rgba(200, 169, 81, 0.6);
+  box-shadow: 4px 5px 17px -4px rgba(255, 255, 255, 0.6);
 }
 
 .btn--secondary {
@@ -397,7 +397,7 @@ p:last-child {
   color: var(--color-primary);
   background-color: transparent;
   outline-color: var(--color-accent);
-  box-shadow: 4px 5px 17px -4px rgba(200, 169, 81, 0.5);
+  box-shadow: 4px 5px 17px -4px rgba(0, 0, 0, 0.5);
 }
 
 .btn--dark {
@@ -469,7 +469,7 @@ p:last-child {
 
 .card--case:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.15);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(254, 254, 252, 0.15);
 }
 
 /* Card metric values accent glow */
@@ -478,7 +478,7 @@ p:last-child {
 }
 
 .card--case:hover .card__metric {
-  text-shadow: 0 0 20px rgba(200, 169, 81, 0.3);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 /* Old card--service, card--sector, card--case, card--insight, card--engagement
@@ -711,7 +711,7 @@ p:last-child {
 .form-select:focus,
 .form-textarea:focus {
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(200, 169, 81, 0.15);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
   outline: none;
 }
 
@@ -833,7 +833,7 @@ p:last-child {
 
 .quiz__option.is-selected {
   border-color: var(--color-accent);
-  background-color: rgba(200, 169, 81, 0.05);
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .quiz__option input[type="radio"] {
@@ -1001,7 +1001,7 @@ p:last-child {
   padding: var(--space-xl);
   border: 2px dashed var(--color-accent);
   border-radius: var(--border-radius-lg);
-  background-color: rgba(200, 169, 81, 0.05);
+  background-color: rgba(255, 255, 255, 0.05);
   text-align: center;
 }
 
@@ -1222,7 +1222,7 @@ p:last-child {
 .case-filter__btn.is-active {
   color: var(--color-primary);
   border-color: var(--color-accent);
-  background-color: rgba(200, 169, 81, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
@@ -1236,7 +1236,7 @@ p:last-child {
 
 .case-study-grid__card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.2);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 255, 254, 0.2);
 }
 
 /* 4u. FEATURED CASE (large card) */
@@ -1764,7 +1764,7 @@ p:last-child {
 .footer-cta__btn:hover {
   color: var(--color-primary);
   transform: scale(1.04);
-  box-shadow: 4px 5px 17px -4px rgba(200, 169, 81, 0.6);
+  box-shadow: 4px 5px 17px -4px rgba(255, 255, 255, 0.6);
 }
 
 
@@ -1944,7 +1944,7 @@ p:last-child {
   background: var(--color-primary);
   border-color: var(--color-primary);
   transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
 .service-card__icon {
@@ -2730,7 +2730,7 @@ p:last-child {
   font-family: var(--font-body);
   font-size: var(--text-4xl);
   font-weight: 700;
-  color: rgba(200, 169, 81, 0.15);
+  color: rgba(255, 255, 255, 0.15);
   line-height: 1;
   margin-bottom: var(--space-md);
   display: block;
@@ -3043,7 +3043,7 @@ p:last-child {
 }
 
 .morph-card:hover {
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(200, 169, 81, 0.2);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
 .morph-card::before {
@@ -3525,7 +3525,7 @@ p:last-child {
 
 .blog-related-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 169, 81, 0.15);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
 .blog-related-card__image {
@@ -3683,7 +3683,7 @@ p:last-child {
 .readiness-start-btn:hover {
   color: var(--color-primary);
   transform: scale(1.06);
-  box-shadow: 4px 5px 17px -4px rgba(200, 169, 81, 0.6);
+  box-shadow: 4px 5px 17px -4px rgba(255, 255, 255, 0.6);
 }
 
 
@@ -4177,7 +4177,7 @@ p:last-child {
   flex-shrink: 0;
   border-radius: var(--border-radius-lg);
   overflow: hidden;
-  border: 3px solid rgba(200, 169, 81, 0.3);
+  border: 3px solid rgba(255, 255, 255, 0.3);
 }
 
 .leader-carousel__photo img,
@@ -4266,7 +4266,7 @@ p:last-child {
 
 .leader-carousel__btn:hover {
   border-color: var(--color-accent);
-  background-color: rgba(200, 169, 81, 0.15);
+  background-color: rgba(251, 251, 251, 0.15);
 }
 
 .leader-carousel__dots {
@@ -4336,7 +4336,7 @@ p:last-child {
 }
 
 .sector-morph-card:hover {
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(200, 169, 81, 0.15);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.15);
 }
 
 .sector-morph-card::after {
@@ -4468,7 +4468,7 @@ p:last-child {
   color: var(--color-primary);
   transform: scale(1.06);
   outline-color: var(--color-accent);
-  box-shadow: 4px 5px 17px -4px rgba(200, 169, 81, 0.6);
+  /* box-shadow: 4px 5px 17px -4px rgba(234, 228, 228, 0.6); */
 }
 
 
@@ -4738,7 +4738,7 @@ h2 {
 /* Animated outline shimmer on readiness CTA */
 @keyframes outline-shimmer {
   0%, 100% { outline-color: var(--color-accent); }
-  50% { outline-color: rgba(200, 169, 81, 0.5); }
+  50% { outline-color: rgba(0, 0, 0, 0.5); }
 }
 
 .readiness-btn {
@@ -4754,7 +4754,7 @@ h2 {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.5s ease;
-  background: radial-gradient(circle 300px at 50% 50%, rgba(200, 169, 81, 0.08), transparent 70%);
+  background: radial-gradient(circle 300px at 50% 50%, rgba(0, 0, 0, 0.08), transparent 70%);
 }
 
 /* Ensure hero content sits above cursor glow and overlay */
