@@ -1825,4 +1825,73 @@
   }
 
 
+  /* ─── SERVICE SIDEBAR ─── */
+  function initServiceSidebar() {
+    var page = window.location.pathname.split('/').pop() || 'index.html';
+    if (!/^service-\d+\.html$/.test(page)) return;
+
+    var services = [
+      { href: 'service-01.html', label: 'Market Entry & GTM' },
+      { href: 'service-02.html', label: 'Deployment Teams' },
+      { href: 'service-03.html', label: 'Strategic Alliances' },
+      { href: 'service-04.html', label: 'Negotiation & Channels' },
+      { href: 'service-05.html', label: 'Fiscal Architecture' },
+      { href: 'service-06.html', label: 'Industrial Assets' },
+      { href: 'service-07.html', label: 'Regulatory Access' },
+      { href: 'service-08.html', label: 'M&A & Capital' },
+      { href: 'service-09.html', label: 'Digital & Innovation' },
+      { href: 'service-10.html', label: 'Corporate Governance' },
+      { href: 'service-11.html', label: 'Risk & Asset Protection' },
+      { href: 'service-12.html', label: 'Legal Defense & Crisis' }
+    ];
+
+    document.body.classList.add('has-service-sidebar');
+
+    var sidebar = document.createElement('nav');
+    sidebar.className = 'service-sidebar';
+    sidebar.setAttribute('aria-label', 'Service navigation');
+
+    var title = document.createElement('p');
+    title.className = 'service-sidebar__title';
+    title.textContent = 'Services';
+    sidebar.appendChild(title);
+
+    var ul = document.createElement('ul');
+    ul.className = 'service-sidebar__list';
+
+    services.forEach(function (svc) {
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = svc.href;
+      a.textContent = svc.label;
+      if (svc.href === page) {
+        a.classList.add('active');
+      }
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+
+    sidebar.appendChild(ul);
+
+    /* Vertical label visible when minimized */
+    var barLabel = document.createElement('span');
+    barLabel.className = 'service-sidebar__bar-label';
+    barLabel.textContent = 'Services';
+    sidebar.appendChild(barLabel);
+    document.body.appendChild(sidebar);
+
+    /* Start minimized (user has already selected a service to arrive here) */
+    sidebar.classList.add('is-minimized');
+
+    /* Mobile toggle */
+    title.addEventListener('click', function () {
+      if (window.innerWidth <= 768) {
+        sidebar.classList.toggle('is-expanded');
+      }
+    });
+  }
+
+  initServiceSidebar();
+
+
 })();
