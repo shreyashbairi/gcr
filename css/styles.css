@@ -6033,64 +6033,6 @@ html.lenis, html.lenis body {
   overflow-y: auto;
   overflow-x: hidden;
   box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);
-  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-              padding 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.35s ease;
-}
-
-/* Minimized state — thin vertical bar */
-.service-sidebar.is-minimized {
-  width: 52px;
-  padding: var(--space-lg) 0;
-  cursor: pointer;
-  overflow: hidden;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.04);
-}
-
-.service-sidebar.is-minimized .service-sidebar__title,
-.service-sidebar.is-minimized .service-sidebar__list {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s ease;
-}
-
-/* Minimized vertical label */
-.service-sidebar__bar-label {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-90deg);
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--color-primary);
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-.service-sidebar.is-minimized .service-sidebar__bar-label {
-  opacity: 1;
-}
-
-/* Expand on hover when minimized */
-.service-sidebar.is-minimized:hover {
-  width: 230px;
-  padding: var(--space-lg) 0;
-  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);
-}
-
-.service-sidebar.is-minimized:hover .service-sidebar__title,
-.service-sidebar.is-minimized:hover .service-sidebar__list {
-  opacity: 1;
-  pointer-events: auto;
-  transition: opacity 0.25s ease 0.1s;
-}
-
-.service-sidebar.is-minimized:hover .service-sidebar__bar-label {
-  opacity: 0;
 }
 
 .service-sidebar__title {
@@ -6149,20 +6091,6 @@ html.lenis, html.lenis body {
     border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
     transition: transform 0.3s ease;
     padding-bottom: env(safe-area-inset-bottom, 0);
-  }
-
-  .service-sidebar.is-minimized {
-    width: 100% !important;
-    cursor: default;
-  }
-
-  .service-sidebar.is-minimized .service-sidebar__bar-label {
-    display: none;
-  }
-
-  .service-sidebar.is-minimized .service-sidebar__title {
-    opacity: 1;
-    pointer-events: auto;
   }
 
   .service-sidebar.is-expanded {

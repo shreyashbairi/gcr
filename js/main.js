@@ -1873,15 +1873,7 @@
 
     sidebar.appendChild(ul);
 
-    /* Vertical label visible when minimized */
-    var barLabel = document.createElement('span');
-    barLabel.className = 'service-sidebar__bar-label';
-    barLabel.textContent = 'Services';
-    sidebar.appendChild(barLabel);
     document.body.appendChild(sidebar);
-
-    /* Start minimized (user has already selected a service to arrive here) */
-    sidebar.classList.add('is-minimized');
 
     /* Mobile toggle */
     title.addEventListener('click', function () {
