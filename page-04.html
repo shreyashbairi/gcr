@@ -95,60 +95,42 @@
       </div>
     </section>
 
-    <!-- NAVIGATOR / FILTER -->
-    <!-- TODO: PENDING DATA — Filter categories (industries, task types) -->
-    <section class="section">
-      <div class="container">
-        <h2 class="mb-lg">Browse Case Studies</h2>
-
-        <div class="case-filter" role="group" aria-label="Filter case studies">
-          <button class="case-filter__btn is-active">All</button>
-          <button class="case-filter__btn">Energy &amp; Renewables</button>
-          <button class="case-filter__btn">Fintech</button>
-          <button class="case-filter__btn">Logistics</button>
-          <button class="case-filter__btn">Market Entry</button>
-          <button class="case-filter__btn">GR &amp; Crisis</button>
-          <button class="case-filter__btn">Operational Setup</button>
-        </div>
-      </div>
-    </section>
-
     <!-- FEATURED CASE -->
-    <!-- TODO: PENDING DATA — Full case study content -->
     <section class="section section--alt">
       <div class="container">
         <h2>Featured Case</h2>
         <div class="featured-case">
           <div>
             <span class="card__tag">Energy &amp; Renewables</span>
-            <h3 class="mt-sm">Placeholder: Hub Launch in 4 Months</h3>
-            <p>PENDING DATA: Brief context about the drama and why it was difficult. This section will describe the
-              client challenge, the regulatory barriers encountered, and the strategic approach taken.</p>
+            <h3 class="mt-sm">Strategic Energy Partnership: $120M Joint Venture in Turkmenistan</h3>
+            <p>A European energy major sought to establish a joint venture with a Turkmen state enterprise but faced
+              complex PSA negotiations, multi-jurisdictional compliance requirements, and stakeholder alignment
+              challenges that had stalled progress for over a year.</p>
 
             <div class="partner-note mt-lg">
               <p class="partner-note__label">Partner's Note</p>
               <p>"The official path would have taken 12 months. We used partner status at WEF to verify the client's
                 reputation directly through the ministerial level, reducing the compliance check to 14 days."</p>
             </div>
+            <a href="case-02.html" class="btn btn--primary mt-lg">Read Full Case Study</a>
           </div>
           <div>
             <div class="featured-case__metrics">
               <div class="featured-case__metric">
-                <p class="featured-case__metric-value">4 Mo.</p>
-                <p class="featured-case__metric-label">Time to Launch</p>
-              </div>
-              <div class="featured-case__metric">
-                <p class="featured-case__metric-value">$X M</p>
+                <p class="featured-case__metric-value">$120M</p>
                 <p class="featured-case__metric-label">Deal Volume</p>
               </div>
               <div class="featured-case__metric">
-                <p class="featured-case__metric-value">XX%</p>
-                <p class="featured-case__metric-label">ROI</p>
+                <p class="featured-case__metric-value">4 Mo.</p>
+                <p class="featured-case__metric-label">Negotiation</p>
+              </div>
+              <div class="featured-case__metric">
+                <p class="featured-case__metric-value">3</p>
+                <p class="featured-case__metric-label">Jurisdictions</p>
               </div>
             </div>
-            <!-- TODO: replace by Figma asset -->
             <div class="ratio-16-9 mt-lg"
-              style="background:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=450&fit=crop&q=80') center/cover no-repeat;border-radius:8px;">
+              style="background:url('https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800&h=450&fit=crop&q=80') center/cover no-repeat;border-radius:8px;">
             </div>
           </div>
         </div>
@@ -156,38 +138,75 @@
     </section>
 
     <!-- CASE GRID -->
-    <!-- TODO: PENDING DATA — 3 additional case studies -->
     <section class="section">
       <div class="container">
         <h2 class="mb-2xl">More Results</h2>
-        <div class="grid grid--3">
+        <div class="case-grid">
 
-          <div class="card card--case">
-            <span class="card__tag">Fintech</span>
-            <h3>Placeholder Case #1</h3>
-            <p class="text-sm"><strong>Was:</strong> Client stuck in licensing for 8 months.</p>
-            <p class="text-sm"><strong>Became:</strong> Obtaining license in 3 weeks via Fast-Track AIFC.</p>
-            <p class="card__metric mt-md">3 Weeks</p>
-            <p class="text-sm text-light">Speed to Market</p>
-          </div>
+          <a href="case-01.html" class="case-grid__card">
+            <img class="case-grid__img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop&q=80" alt="Fintech Market Entry">
+            <div class="case-grid__content">
+              <span class="card__tag">Fintech</span>
+              <h3>Market Entry via AIFC</h3>
+              <p>From zero to fully licensed fintech operation in Kazakhstan within 90 days.</p>
+              <div class="case-grid__stat">
+                <span class="case-grid__stat-value">90 Days</span>
+                <span class="case-grid__stat-label">Time to License</span>
+              </div>
+            </div>
+          </a>
 
-          <div class="card card--case">
-            <span class="card__tag">Logistics</span>
-            <h3>Placeholder Case #2</h3>
-            <p class="text-sm"><strong>Was:</strong> Supply chain disruption across 3 GCR jurisdictions.</p>
-            <p class="text-sm"><strong>Became:</strong> Streamlined corridor with 40% cost reduction.</p>
-            <p class="card__metric mt-md">40%</p>
-            <p class="text-sm text-light">Cost Reduction</p>
-          </div>
+          <a href="case-03.html" class="case-grid__card">
+            <img class="case-grid__img" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=450&fit=crop&q=80" alt="Supply Chain">
+            <div class="case-grid__content">
+              <span class="card__tag">Logistics</span>
+              <h3>Trans-Caspian Supply Chain</h3>
+              <p>Resilient logistics corridor reducing transit time by 40% across the Trans-Caspian route.</p>
+              <div class="case-grid__stat">
+                <span class="case-grid__stat-value">40%</span>
+                <span class="case-grid__stat-label">Time Reduction</span>
+              </div>
+            </div>
+          </a>
 
-          <div class="card card--case">
-            <span class="card__tag">Market Entry</span>
-            <h3>Placeholder Case #3</h3>
-            <p class="text-sm"><strong>Was:</strong> Zero market presence in Central Asia.</p>
-            <p class="text-sm"><strong>Became:</strong> Operational office and first revenue in 6 months.</p>
-            <p class="card__metric mt-md">6 Months</p>
-            <p class="text-sm text-light">First Revenue</p>
-          </div>
+          <a href="case-04.html" class="case-grid__card">
+            <img class="case-grid__img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=450&fit=crop&q=80" alt="Regulatory Access">
+            <div class="case-grid__content">
+              <span class="card__tag">GR &amp; Crisis</span>
+              <h3>Regulatory Green Corridor</h3>
+              <p>Accelerated customs clearance for an industrial manufacturer across 5 GCR markets.</p>
+              <div class="case-grid__stat">
+                <span class="case-grid__stat-value">14 Days</span>
+                <span class="case-grid__stat-label">Avg Approval</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="case-05.html" class="case-grid__card">
+            <img class="case-grid__img" src="https://images.unsplash.com/photo-1563986768609-322da13575f2?w=800&h=450&fit=crop&q=80" alt="Digital Banking">
+            <div class="case-grid__content">
+              <span class="card__tag">Digital &amp; Fintech</span>
+              <h3>Digital Banking Platform Launch</h3>
+              <p>Launched a digital banking platform integrating with local SuperApps across 3 GCR nations.</p>
+              <div class="case-grid__stat">
+                <span class="case-grid__stat-value">500K+</span>
+                <span class="case-grid__stat-label">Users in Year 1</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="case-06.html" class="case-grid__card">
+            <img class="case-grid__img" src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&h=450&fit=crop&q=80" alt="Crisis Resolution">
+            <div class="case-grid__content">
+              <span class="card__tag">Risk &amp; Protection</span>
+              <h3>Crisis Resolution &amp; Asset Protection</h3>
+              <p>Protected $85M in assets during a sudden regulatory shift in Uzbekistan mining operations.</p>
+              <div class="case-grid__stat">
+                <span class="case-grid__stat-value">$85M</span>
+                <span class="case-grid__stat-label">Assets Protected</span>
+              </div>
+            </div>
+          </a>
 
         </div>
       </div>
