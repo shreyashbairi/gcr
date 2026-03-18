@@ -41,6 +41,7 @@
     initMorphCards();
     initReadinessProgress();
     initFancyNav();
+    initCaseGallery();
     initLeaderCarousel();
     initGlassHeader();
     initScrollRevealAnimations();
@@ -909,6 +910,28 @@
 
 
   /* ======================================================================
+     14b. EXPANDING IMAGE GALLERY (Case Studies)
+     ====================================================================== */
+
+  function initCaseGallery() {
+    var gallery = document.getElementById('caseGallery');
+    if (!gallery) return;
+
+    var items = gallery.querySelectorAll('.case-gallery__item');
+    items.forEach(function (item) {
+      item.addEventListener('click', function (e) {
+        if (!item.classList.contains('is-active')) {
+          e.preventDefault();
+          items.forEach(function (i) { i.classList.remove('is-active'); });
+          item.classList.add('is-active');
+        }
+        // If already active, the <a> link navigates normally
+      });
+    });
+  }
+
+
+  /* ======================================================================
      15. LEADERSHIP CAROUSEL
      ====================================================================== */
 
@@ -1168,6 +1191,22 @@
       gsap.from(fancyNav, {
         scrollTrigger: {
           trigger: fancyNav,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+    }
+
+    /* ── Case gallery (expanding image gallery) ── */
+    var caseGallery = document.querySelector('.case-gallery');
+    if (caseGallery) {
+      gsap.from(caseGallery, {
+        scrollTrigger: {
+          trigger: caseGallery,
           start: 'top 80%',
           toggleActions: 'play none none none'
         },
