@@ -372,102 +372,103 @@
   var QUIZ_DATA = [
     {
       id: 1,
-      question: 'Has your organization previously operated in the Greater Caspian Region or CIS markets?',
+      question: 'What is your organization\'s experience with the GCR or similar markets?',
       options: [
-        { text: 'Yes, we have active operations in the region', score: 3 },
-        { text: 'We have explored the region but not established operations', score: 2 },
-        { text: 'We have operated in similar emerging markets', score: 1 },
-        { text: 'No, this would be our first emerging market entry', score: 0 }
+        { text: 'We have no prior experience with emerging markets \u2014 this would be our first entry of this kind', score: 0 },
+        { text: 'We have operated in other emerging markets (Eastern Europe, MENA, Southeast Asia), but not in the GCR specifically', score: 1 },
+        { text: 'We have explored the GCR \u2014 visited, attended events, or had early conversations \u2014 but have not established operations', score: 2 },
+        { text: 'We are already operating in the region, but results are below what we expected', score: 3 }
       ]
     },
     {
       id: 2,
-      question: 'How familiar is your team with the regulatory environments across GCR jurisdictions?',
+      question: 'What is your primary objective in the GCR?',
       options: [
-        { text: 'We have in-house regulatory expertise for the GCR', score: 3 },
-        { text: 'We have general knowledge but lack jurisdiction-specific expertise', score: 2 },
-        { text: 'We rely on external advisors for regulatory guidance', score: 1 },
-        { text: 'We have limited awareness of GCR regulations', score: 0 }
+        { text: 'Full market entry \u2014 we want a registered presence, a local team, and direct sales operations', score: 3 },
+        { text: 'A joint venture or strategic partnership with a strong local player', score: 3 },
+        { text: 'Export or distribution \u2014 we want to sell through local channels without setting up an entity', score: 2 },
+        { text: 'Research and validation \u2014 we need hard data before committing to any direction', score: 1 }
       ]
     },
     {
       id: 3,
-      question: 'Do you have established local partnerships or stakeholder relationships in the GCR?',
+      question: 'What does your company offer?',
       options: [
-        { text: 'Yes, we have vetted, long-term local partners', score: 3 },
-        { text: 'We have some initial contacts but no formal partnerships', score: 2 },
-        { text: 'We are actively seeking local partners', score: 1 },
-        { text: 'No, we would need to build our network from scratch', score: 0 }
+        { text: 'Physical goods \u2014 manufacturing, industrial equipment, or consumer products', score: 2 },
+        { text: 'Technology or software \u2014 SaaS, IT platforms, or digital solutions', score: 3 },
+        { text: 'Professional services \u2014 consulting, engineering, financial, or legal services', score: 3 },
+        { text: 'Energy, infrastructure, or large-scale project work', score: 2 }
       ]
     },
     {
       id: 4,
-      question: 'What is your allocated budget range for GCR market entry?',
+      question: 'When do you expect to see meaningful results from this market?',
       options: [
-        { text: '$1M+ with board-approved expansion budget', score: 3 },
-        { text: '$250K–$1M earmarked for exploratory phase', score: 2 },
-        { text: 'Under $250K — testing the waters', score: 1 },
-        { text: 'Budget has not yet been defined', score: 0 }
+        { text: 'Within 6 months \u2014 early revenue is important to us', score: 0 },
+        { text: '12 to 18 months \u2014 we\'re prepared to invest before reaching breakeven', score: 3 },
+        { text: '2 to 3 years or more \u2014 we\'re building a long-term presence', score: 3 },
+        { text: 'It depends on how the first conversations and deals develop', score: 2 }
       ]
     },
     {
       id: 5,
-      question: 'What is your target timeline for establishing GCR operations?',
+      question: 'What budget have you set aside for market entry this year?',
+      subtitle: 'Consulting, legal, travel, and local operations \u2014 not the cost of goods or services.',
       options: [
-        { text: 'Within 3 months — we need to move quickly', score: 3 },
-        { text: '3–6 months — structured but timely approach', score: 2 },
-        { text: '6–12 months — methodical long-term planning', score: 1 },
-        { text: 'No firm timeline — still in research phase', score: 0 }
+        { text: '$20,000 \u2013 $50,000', score: 1 },
+        { text: '$50,000 \u2013 $150,000', score: 2 },
+        { text: 'Over $150,000', score: 3 },
+        { text: 'No defined budget yet \u2014 we plan to allocate as early results come in', score: 0 }
       ]
     },
     {
       id: 6,
-      question: 'Does your organization have international compliance infrastructure (FCPA, UK Bribery Act, ESG)?',
+      question: 'Who is leading this initiative inside your organization?',
       options: [
-        { text: 'Yes, robust compliance program with dedicated team', score: 3 },
-        { text: 'Basic compliance policies in place', score: 2 },
-        { text: 'We rely on group-level compliance guidelines', score: 1 },
-        { text: 'Compliance infrastructure is minimal or non-existent', score: 0 }
+        { text: 'The founder or owner \u2014 this is a personal strategic priority', score: 3 },
+        { text: 'The CEO or a board-level executive \u2014 it has been formally approved at the top', score: 3 },
+        { text: 'A regional or export director \u2014 they are building the internal case for budget approval', score: 1 },
+        { text: 'A small founding team \u2014 decisions are made collectively and move quickly', score: 2 }
       ]
     },
     {
       id: 7,
-      question: 'What best describes your risk tolerance for emerging market entry?',
+      question: 'Do you have people available to work in the region?',
       options: [
-        { text: 'Calculated risk-taker with emerging market experience', score: 3 },
-        { text: 'Open to risk with proper mitigation strategies', score: 2 },
-        { text: 'Conservative — need strong guarantees before proceeding', score: 1 },
-        { text: 'Very risk-averse — require near-certainty of returns', score: 0 }
+        { text: 'Yes \u2014 we have staff ready to travel regularly or relocate', score: 3 },
+        { text: 'Not yet \u2014 we would need to hire locally, but haven\'t started', score: 2 },
+        { text: 'No \u2014 we have no available capacity and would need a fully external operational solution', score: 1 },
+        { text: 'We plan to manage everything remotely from headquarters', score: 0 }
       ]
     },
     {
       id: 8,
-      question: 'Which sector best describes your primary business interest in the GCR?',
+      question: 'What does your current network in the region look like?',
       options: [
-        { text: 'Energy, Oil & Gas, or Critical Minerals', score: 3 },
-        { text: 'Logistics, Supply Chain, or Infrastructure', score: 2 },
-        { text: 'Technology, Fintech, or Digital Services', score: 2 },
-        { text: 'FMCG, Retail, or Manufacturing', score: 1 }
+        { text: 'We\'re starting from zero \u2014 no direct contacts at this stage', score: 0 },
+        { text: 'We have some connections from events or online outreach, but nothing established', score: 1 },
+        { text: 'We have direct access to decision-makers in relevant businesses', score: 3 },
+        { text: 'We have working relationships with government bodies or regulators', score: 3 }
       ]
     },
     {
       id: 9,
-      question: 'Does your organization have experience with Production Sharing Agreements (PSAs) or government concessions?',
+      question: 'Does your product or service fall into any of these categories?',
       options: [
-        { text: 'Yes, we actively manage PSAs or concession agreements', score: 3 },
-        { text: 'We have some exposure through partnerships', score: 2 },
-        { text: 'We understand the concept but have no direct experience', score: 1 },
-        { text: 'This is unfamiliar territory for us', score: 0 }
+        { text: 'No \u2014 standard commercial goods or services with no special restrictions', score: 3 },
+        { text: 'High-tech equipment, electronics, or technology with dual-use potential', score: 2 },
+        { text: 'Financial products, crypto assets, or regulated digital platforms', score: 1 },
+        { text: 'Pharmaceuticals, food products, or heavily certified consumer goods', score: 2 }
       ]
     },
     {
       id: 10,
-      question: 'How would you describe your organization\'s strategic objective in the GCR?',
+      question: 'What is driving your decision to enter the GCR right now?',
       options: [
-        { text: 'Full market entry with physical presence and local entity', score: 3 },
-        { text: 'Joint venture or strategic partnership with local player', score: 2 },
-        { text: 'Export / distribution through local channels', score: 1 },
-        { text: 'Feasibility study or market intelligence gathering', score: 0 }
+        { text: 'We\'ve hit our targets at home and are ready for the next stage of growth', score: 3 },
+        { text: 'We\'re receiving inbound interest from the region and want to act on it properly', score: 2 },
+        { text: 'We want to reduce dependence on current markets and build a new revenue base', score: 2 },
+        { text: 'We see a window of opportunity and want to move before it closes', score: 1 }
       ]
     }
   ];
@@ -475,22 +476,34 @@
   /* ── Quiz Result Tiers ── */
   var QUIZ_TIERS = [
     {
-      min: 0, max: 10,
+      minPct: 0, maxPct: 39,
       label: 'Early Stage',
-      color: '#C62828',
-      recommendation: 'Your organization is at the beginning of its GCR journey. We recommend starting with a Strategic Market Entry consultation to build a solid foundation, conduct proper due diligence, and develop a phased entry roadmap before committing capital.'
+      headline: 'Your GCR Readiness Score: Early Stage',
+      color: '#2C4070',
+      body: 'Your organization is at the beginning of its GCR journey. The region has real opportunity, but a steep learning curve. Companies that enter without validated assumptions and a realistic cost picture tend to lose time and money on things that could have been resolved before the first trip.',
+      recommendedStep: 'A Strategic Market Entry consultation \u2014 one focused session to answer what matters most before any capital is committed: Is there real demand? What does entry actually require? Where do we start?',
+      ctaPrimary: 'Request a Strategic Consultation',
+      ctaSecondary: 'Receive Full Report by Email'
     },
     {
-      min: 11, max: 20,
-      label: 'Developing Readiness',
-      color: '#F57C00',
-      recommendation: 'You have some building blocks in place, but gaps remain in regulatory readiness, local networks, or operational infrastructure. An Operational Sprint engagement can help you close these gaps efficiently while testing market demand through our GCR Deployment Teams.'
+      minPct: 40, maxPct: 69,
+      label: 'Building Momentum',
+      headline: 'Your GCR Readiness Score: Developing',
+      color: '#D4880F',
+      body: 'You have clear intent and the right approach. There are gaps \u2014 in data, in network, or in internal alignment \u2014 that if left unaddressed will cost you time once you commit capital. The most common mistake at your stage is skipping validation and jumping straight to operations. The groundwork for market understanding and partner identification should start now.',
+      recommendedStep: 'A Market Entry consultation that gives you a data-backed starting point \u2014 realistic entry scenarios and a phased roadmap you can take to your leadership with confidence.',
+      ctaPrimary: 'Request a Market Entry Consultation',
+      ctaSecondary: 'Receive Full Report by Email'
     },
     {
-      min: 21, max: 30,
-      label: 'High Readiness',
+      minPct: 70, maxPct: 100,
+      label: 'Market Ready',
+      headline: 'Your GCR Readiness Score: Strong',
       color: '#2E7D32',
-      recommendation: 'Your organization demonstrates strong readiness for GCR expansion. You have the compliance infrastructure, risk appetite, and strategic clarity to move quickly. We recommend a direct Executive Briefing to align on deployment timelines and governance frameworks.'
+      body: 'Your organization has the foundations in place for a serious market entry \u2014 a defined objective, a realistic timeline, and the financial commitment the region requires. What you need now is precise execution: the right local infrastructure, vetted partners, and operational support that keeps pace with how decisions are made here.',
+      recommendedStep: 'A focused 45-minute call with one of our regional directors. We\'ll map your specific gaps against what we have on the ground \u2014 and tell you honestly where we can help and where you don\'t need us.',
+      ctaPrimary: 'Schedule a Strategy Call',
+      ctaSecondary: 'Receive Full Report by Email'
     }
   ];
 
@@ -500,7 +513,8 @@
 
     var state = {
       currentStep: 0,
-      answers: {}
+      answers: {},
+      contactInfo: {}
     };
 
     renderQuizStep(quizContainer, state);
@@ -510,12 +524,17 @@
     var total = QUIZ_DATA.length;
     var step = state.currentStep;
     var q = QUIZ_DATA[step];
-    var progress = ((step) / total) * 100;
+    /* Progress includes contact form as step 11 */
+    var totalSteps = total + 1;
+    var progress = ((step) / totalSteps) * 100;
 
     var html = '';
     html += '<div class="quiz__progress"><div class="quiz__progress-bar" style="width: ' + progress + '%"></div></div>';
     html += '<p class="quiz__step-indicator">Question ' + (step + 1) + ' of ' + total + '</p>';
     html += '<h3 class="quiz__question">' + q.question + '</h3>';
+    if (q.subtitle) {
+      html += '<p class="quiz__subtitle">' + q.subtitle + '</p>';
+    }
     html += '<div class="quiz__options">';
 
     q.options.forEach(function (opt, i) {
@@ -539,7 +558,7 @@
     if (step < total - 1) {
       html += '<button class="btn btn--primary" data-quiz-next>Next</button>';
     } else {
-      html += '<button class="btn btn--primary" data-quiz-submit>See Results</button>';
+      html += '<button class="btn btn--primary" data-quiz-next-contact>Next</button>';
     }
 
     html += '</div>';
@@ -552,7 +571,6 @@
         var radio = opt.querySelector('input[type="radio"]');
         radio.checked = true;
         state.answers[q.id] = parseInt(radio.value);
-        /* Update selected state */
         container.querySelectorAll('.quiz__option').forEach(function (o) {
           o.classList.remove('is-selected');
         });
@@ -580,16 +598,77 @@
       });
     }
 
-    var submitBtn = container.querySelector('[data-quiz-submit]');
-    if (submitBtn) {
-      submitBtn.addEventListener('click', function () {
+    var nextContactBtn = container.querySelector('[data-quiz-next-contact]');
+    if (nextContactBtn) {
+      nextContactBtn.addEventListener('click', function () {
         if (state.answers[q.id] === undefined) {
           alert('Please select an answer before continuing.');
           return;
         }
-        renderQuizResult(container, state);
+        renderContactForm(container, state);
       });
     }
+  }
+
+  function renderContactForm(container, state) {
+    var total = QUIZ_DATA.length;
+    var totalSteps = total + 1;
+    var progress = (total / totalSteps) * 100;
+
+    var html = '';
+    html += '<div class="quiz__progress"><div class="quiz__progress-bar" style="width: ' + progress + '%"></div></div>';
+    html += '<p class="quiz__step-indicator">Almost there</p>';
+    html += '<h3 class="quiz__question">Tell us about yourself</h3>';
+    html += '<p class="quiz__subtitle">We\'ll use this to personalise your results and send you a detailed report.</p>';
+    html += '<form class="quiz__contact-form" id="quizContactForm">';
+    html += '<div class="quiz__form-grid">';
+    html += '<div class="quiz__form-field"><label for="qcf-fname">First name <span class="required">*</span></label><input type="text" id="qcf-fname" name="firstName" required value="' + (state.contactInfo.firstName || '') + '"></div>';
+    html += '<div class="quiz__form-field"><label for="qcf-lname">Last name <span class="required">*</span></label><input type="text" id="qcf-lname" name="lastName" required value="' + (state.contactInfo.lastName || '') + '"></div>';
+    html += '<div class="quiz__form-field"><label for="qcf-title">Job title <span class="required">*</span></label><input type="text" id="qcf-title" name="jobTitle" required value="' + (state.contactInfo.jobTitle || '') + '"></div>';
+    html += '<div class="quiz__form-field"><label for="qcf-company">Company name <span class="required">*</span></label><input type="text" id="qcf-company" name="companyName" required value="' + (state.contactInfo.companyName || '') + '"></div>';
+    html += '<div class="quiz__form-field"><label for="qcf-email">Work email <span class="required">*</span></label><input type="email" id="qcf-email" name="workEmail" required value="' + (state.contactInfo.workEmail || '') + '"></div>';
+    html += '<div class="quiz__form-field"><label for="qcf-country">Country <span class="required">*</span></label><input type="text" id="qcf-country" name="country" required value="' + (state.contactInfo.country || '') + '"></div>';
+    html += '</div>';
+    html += '<div class="quiz__nav">';
+    html += '<button type="button" class="btn btn--secondary" data-quiz-back-to-questions>Previous</button>';
+    html += '<button type="submit" class="btn btn--primary">See Results</button>';
+    html += '</div>';
+    html += '</form>';
+
+    container.innerHTML = html;
+
+    var backBtn = container.querySelector('[data-quiz-back-to-questions]');
+    if (backBtn) {
+      backBtn.addEventListener('click', function () {
+        saveContactFields(state, container);
+        state.currentStep = QUIZ_DATA.length - 1;
+        renderQuizStep(container, state);
+      });
+    }
+
+    var form = document.getElementById('quizContactForm');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      saveContactFields(state, container);
+      renderQuizResult(container, state);
+    });
+  }
+
+  function saveContactFields(state, container) {
+    var form = container.querySelector('.quiz__contact-form');
+    if (!form) return;
+    state.contactInfo = {
+      firstName: form.querySelector('[name="firstName"]').value,
+      lastName: form.querySelector('[name="lastName"]').value,
+      jobTitle: form.querySelector('[name="jobTitle"]').value,
+      companyName: form.querySelector('[name="companyName"]').value,
+      workEmail: form.querySelector('[name="workEmail"]').value,
+      country: form.querySelector('[name="country"]').value
+    };
+  }
+
+  function getSelectedOptionIndex(state, questionId) {
+    return state.answers[questionId];
   }
 
   function renderQuizResult(container, state) {
@@ -602,25 +681,59 @@
       }
     });
 
-    var maxScore = QUIZ_DATA.length * 3;
+    var maxScore = 30;
     var percentage = Math.round((totalScore / maxScore) * 100);
 
-    /* Find tier */
+    /* Find tier by percentage */
     var tier = QUIZ_TIERS.find(function (t) {
-      return totalScore >= t.min && totalScore <= t.max;
+      return percentage >= t.minPct && percentage <= t.maxPct;
     }) || QUIZ_TIERS[0];
+
+    /* Internal trigger logic */
+    var triggerMessages = [];
+    var overridePrimaryCTA = null;
+
+    /* Q7=C (index 2) and Q8=A (index 0) */
+    var q7Answer = getSelectedOptionIndex(state, 7);
+    var q8Answer = getSelectedOptionIndex(state, 8);
+    if (q7Answer === 2 && q8Answer === 0) {
+      triggerMessages.push('Your profile suggests no available internal capacity and no local network. A dedicated GCR Deployment Team would remove 6\u20139 months of setup time and allow you to operate from day one.');
+    }
+
+    /* Q9=B(1), C(2), or D(3) */
+    var q9Answer = getSelectedOptionIndex(state, 9);
+    if (q9Answer === 1 || q9Answer === 2 || q9Answer === 3) {
+      triggerMessages.push('Your product or service category requires a compliance review before entry. We recommend starting with a direct conversation rather than a standard report.');
+      overridePrimaryCTA = 'Schedule a Compliance Review Call';
+    }
+
+    /* Q6=C (index 2) */
+    var q6Answer = getSelectedOptionIndex(state, 6);
+    if (q6Answer === 2) {
+      triggerMessages.push('If you need to build an internal business case for budget approval, our written report is structured to serve exactly that purpose.');
+    }
+
+    var primaryCTAText = overridePrimaryCTA || tier.ctaPrimary;
 
     var html = '';
     html += '<div class="quiz__result" aria-live="polite">';
-    html += '<h3>Your GCR Readiness Score</h3>';
+    html += '<h3>' + tier.headline + '</h3>';
     html += '<p class="quiz__score-label" style="color: ' + tier.color + '">' + percentage + '%</p>';
-    html += '<div class="quiz__score-bar"><div class="quiz__score-fill" style="width: ' + percentage + '%; background-color: ' + tier.color + '"></div></div>';
-    html += '<p class="text-lg font-bold mt-lg" style="color: ' + tier.color + '">' + tier.label + '</p>';
-    html += '<p class="quiz__recommendation">' + tier.recommendation + '</p>';
-    html += '<div class="mt-2xl">';
-    html += '<a href="page-08.html" class="btn btn--primary btn--lg">Schedule a Consultation</a>';
+    html += '<div class="quiz__score-bar"><div class="quiz__score-fill" style="width: 0%; background-color: ' + tier.color + '"></div></div>';
+    html += '<p class="quiz__recommendation">' + tier.body + '</p>';
+
+    if (triggerMessages.length > 0) {
+      triggerMessages.forEach(function (msg) {
+        html += '<p class="quiz__trigger-note">' + msg + '</p>';
+      });
+    }
+
+    html += '<p class="quiz__recommended-step"><strong>Recommended next step:</strong> ' + tier.recommendedStep + '</p>';
+    html += '<div class="quiz__result-ctas">';
+    html += '<a href="page-08.html" class="btn btn--primary btn--lg">' + primaryCTAText + '</a>';
+    html += '<a href="page-08.html" class="btn btn--secondary btn--lg">' + tier.ctaSecondary + '</a>';
     html += '</div>';
-    html += '<button class="btn btn--secondary mt-lg" data-quiz-restart>Retake Assessment</button>';
+    html += '<button class="btn btn--outline mt-lg" data-quiz-restart>Retake Assessment</button>';
     html += '</div>';
 
     container.innerHTML = html;
@@ -635,7 +748,7 @@
     var restartBtn = container.querySelector('[data-quiz-restart]');
     if (restartBtn) {
       restartBtn.addEventListener('click', function () {
-        var newState = { currentStep: 0, answers: {} };
+        var newState = { currentStep: 0, answers: {}, contactInfo: {} };
         renderQuizStep(container, newState);
       });
     }
