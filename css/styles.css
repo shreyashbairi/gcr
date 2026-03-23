@@ -9,8 +9,8 @@
   --color-primary: #1B2A4A;        /* Deep navy — headings, nav bg      */
   --color-primary-light: #2C4070;  /* Navy hover state                  */
   --color-primary-medium: #2a4a6a; /* Navy gradient mid-tone            */
-  --color-accent: #2C4070;         /* Gold — CTAs, highlights           */
-  --color-accent-dark: #2a4a6a;    /* Gold hover / active               */
+  --color-accent: #2C4070;         /* Dark blue — CTAs, highlights      */
+  --color-accent-dark: #2a4a6a;    /* Dark blue hover / active          */
   --color-bg: #FFFFFF;             /* Page background                   */
   --color-bg-alt: #F1F5F6;        /* Alternating section bg             */
   --color-bg-dark: #F1F5F6;       /* Light sections, footer              */
@@ -360,44 +360,25 @@ p:last-child {
 
 .btn {
   display: inline-block;
-  padding: 0.75rem 1.75rem;
   font-family: var(--font-body);
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: color 800ms, transform 800ms, box-shadow 800ms, outline-color 800ms;
-  text-align: center;
-  line-height: 1.4;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
+  color: var(--color-primary);
   text-decoration: none;
-  outline: 2px solid var(--color-accent);
-  outline-offset: -2px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-primary);
+  padding: 0 0 2px 0;
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+  line-height: 1.4;
 }
 
-.btn::before {
-  content: "";
-  position: absolute;
-  left: -50px;
-  top: 0;
-  width: 0;
-  height: 100%;
-  background-color: var(--color-accent);
-  transform: skewX(45deg);
-  z-index: -1;
-  transition: width 800ms;
+.btn:hover {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
 }
 
-.btn:hover::before {
-  width: 250%;
-}
-
-.footer-cta__btn::before,
 .readiness-start-btn::before,
 .readiness-btn::before {
   content: "";
@@ -412,82 +393,80 @@ p:last-child {
   transition: width 800ms;
 }
 
-.footer-cta__btn:hover::before,
 .readiness-start-btn:hover::before,
 .readiness-btn:hover::before {
   width: 250%;
 }
 
 .btn--primary {
-  background-color: transparent;
-  color: var(--color-text-inverse);
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
 }
 
 .btn--primary:hover {
-  color: var(--color-text-inverse);
-  outline-color: var(--color-text-inverse);
-  box-shadow: 4px 5px 17px -4px rgba(255, 255, 255, 0.6);
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
 }
 
 .btn--secondary {
-  background-color: transparent;
-  color: var(--color-accent);
-  outline-color: var(--color-accent);
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
 }
 
 .btn--secondary:hover {
-  color: var(--color-primary);
-  background-color: transparent;
-  outline-color: var(--color-accent);
-  box-shadow: 4px 5px 17px -4px rgba(0, 0, 0, 0.5);
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
 }
 
 .btn--dark {
-  background-color: transparent;
   color: var(--color-text-inverse);
-  outline-color: var(--color-text-inverse);
-}
-
-.btn--dark::before {
-  background-color: var(--color-text-inverse);
+  border-bottom-color: var(--color-text-inverse);
 }
 
 .btn--dark:hover {
-  color: var(--color-primary);
-  outline-color: var(--color-text-inverse);
-  box-shadow: 4px 5px 17px -4px rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.7);
+  border-bottom-color: rgba(255, 255, 255, 0.7);
 }
 
 .btn--lg {
-  padding: 1em 2.5em;
-  font-size: var(--text-base);
-  letter-spacing: 0.15em;
+  font-size: var(--text-lg);
 }
 
 .btn--sm {
-  padding: 0.5rem 1rem;
-  font-size: var(--text-xs);
-  letter-spacing: 0.08em;
+  font-size: var(--text-sm);
 }
 
 /* Buttons on light-themed "dark" sections */
 .section--dark .btn {
-  color: var(--color-accent);
-  outline-color: var(--color-accent);
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
 }
 
 .section--dark .btn:hover {
-  color: var(--color-primary);
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
 }
 
-/* Buttons on actual dark backgrounds (footer) */
+/* Buttons on actual dark backgrounds (footer CTA) */
 .footer-cta .btn {
-  color: #fff;
-  outline-color: var(--color-accent);
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
 }
 
 .footer-cta .btn:hover {
-  color: var(--color-primary);
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+/* Buttons inside hero sections (dark background) */
+.hero .btn {
+  color: var(--color-text-inverse);
+  border-bottom-color: var(--color-text-inverse);
+}
+
+.hero .btn:hover {
+  color: rgba(255, 255, 255, 0.7);
+  border-bottom-color: rgba(255, 255, 255, 0.7);
 }
 
 /* 4d. CARDS */
@@ -1863,33 +1842,23 @@ p:last-child {
 }
 
 .footer-cta__btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1em 2em;
-  background: transparent;
-  color: var(--color-accent);
+  display: inline-block;
   font-family: var(--font-body);
   font-size: var(--text-base);
   font-weight: 700;
+  color: var(--color-primary);
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  border-radius: 5px;
-  outline: 2px solid var(--color-accent);
-  outline-offset: -2px;
-  transition: color 800ms, transform 800ms, box-shadow 800ms;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-primary);
+  padding: 0 0 2px 0;
   cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
 }
 
-
 .footer-cta__btn:hover {
-  color: var(--color-primary);
-  transform: scale(1.04);
-  box-shadow: 4px 5px 17px -4px rgba(255, 255, 255, 0.6);
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
 }
 
 
@@ -1948,6 +1917,26 @@ p:last-child {
   color: var(--color-text);
   opacity: 0.7;
   margin-top: var(--space-sm);
+}
+
+.footer-new__company-info {
+  text-align: center;
+  padding: var(--space-xl) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.footer-new__company-info h4 {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-xs);
+}
+
+.footer-new__company-info .footer-new__address {
+  margin-top: var(--space-xs);
 }
 
 /* Footer Social */
@@ -2024,7 +2013,9 @@ p:last-child {
 
 @media (min-width: 768px) {
   .footer-new__grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, auto);
+    justify-content: center;
+    gap: var(--space-4xl);
   }
 
   .footer-cta__inner {
@@ -3265,7 +3256,8 @@ p:last-child {
 
 .morph-card__action .btn {
   font-size: 0.8rem;
-  padding: 0.4rem 1rem;
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
 }
 
 .morph-card:hover::before,
@@ -4745,15 +4737,7 @@ h2 {
   letter-spacing: -0.025em;
 }
 
-/* 11d. ENHANCED BUTTON HOVER MICRO-INTERACTIONS — Skewed sweep animation + scale on all buttons. */
-
-.btn:hover {
-  transform: scale(1.04);
-}
-
-.btn--lg:hover {
-  transform: scale(1.06);
-}
+/* 11d. ENHANCED BUTTON HOVER — Underline style buttons use color transition only. */
 
 /* Arrow slide on explore/read-more links */
 .service-card__explore,
@@ -5147,34 +5131,22 @@ html.lenis, html.lenis body {
 
 .about-cta-buttons__shiny-btn {
   display: inline-block;
-  padding: 0.85em 2.5em;
   font-family: var(--font-body);
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  color: var(--color-primary);
   text-decoration: none;
-  color: #e0e0e0;
-  background: linear-gradient(180deg, #3a3a3a 0%, #1a1a1a 50%, #0d0d0d 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-primary);
+  padding: 0 0 2px 0;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
 }
 
 .about-cta-buttons__shiny-btn:hover {
-  background: linear-gradient(180deg, #4a4a4a 0%, #2a2a2a 50%, #1a1a1a 100%);
-  color: #fff;
-  box-shadow:
-    0 4px 16px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
-  transform: translateY(-1px);
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
 }
 
 
