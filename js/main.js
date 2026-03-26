@@ -489,7 +489,7 @@
       minPct: 40, maxPct: 69,
       label: 'Building Momentum',
       headline: 'Your GCR Readiness Score: Developing',
-      color: '#D4880F',
+      color: '#2C4070',
       body: 'You have clear intent and the right approach. There are gaps \u2014 in data, in network, or in internal alignment \u2014 that if left unaddressed will cost you time once you commit capital. The most common mistake at your stage is skipping validation and jumping straight to operations. The groundwork for market understanding and partner identification should start now.',
       recommendedStep: 'A Market Entry consultation that gives you a data-backed starting point \u2014 realistic entry scenarios and a phased roadmap you can take to your leadership with confidence.',
       ctaPrimary: 'Request a Market Entry Consultation',
@@ -556,9 +556,9 @@
     }
 
     if (step < total - 1) {
-      html += '<button class="btn btn--primary" data-quiz-next>Next</button>';
+      html += '<button class="btn btn--primary btn--lg" data-quiz-next>Next &rsaquo;</button>';
     } else {
-      html += '<button class="btn btn--primary" data-quiz-next-contact>Next</button>';
+      html += '<button class="btn btn--primary btn--lg" data-quiz-next-contact>Next &rsaquo;</button>';
     }
 
     html += '</div>';
@@ -1031,16 +1031,57 @@
     if (!gallery) return;
 
     var items = gallery.querySelectorAll('.case-gallery__item');
-    items.forEach(function (item) {
+    var currentIndex = 0;
+    var autoInterval = null;
+    var isHovering = false;
+
+    function activateItem(index) {
+      items.forEach(function (i) { i.classList.remove('is-active'); });
+      items[index].classList.add('is-active');
+      currentIndex = index;
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      autoInterval = setInterval(function () {
+        if (!isHovering) {
+          currentIndex = (currentIndex + 1) % items.length;
+          activateItem(currentIndex);
+        }
+      }, 4000);
+    }
+
+    function stopAutoPlay() {
+      if (autoInterval) {
+        clearInterval(autoInterval);
+        autoInterval = null;
+      }
+    }
+
+    items.forEach(function (item, idx) {
       item.addEventListener('click', function (e) {
         if (!item.classList.contains('is-active')) {
           e.preventDefault();
-          items.forEach(function (i) { i.classList.remove('is-active'); });
-          item.classList.add('is-active');
+          activateItem(idx);
         }
-        // If already active, the <a> link navigates normally
+      });
+
+      item.addEventListener('mouseenter', function () {
+        isHovering = true;
+        item.classList.add('is-hovered');
+      });
+
+      item.addEventListener('mouseleave', function () {
+        item.classList.remove('is-hovered');
+        isHovering = false;
       });
     });
+
+    gallery.addEventListener('mouseleave', function () {
+      isHovering = false;
+    });
+
+    startAutoPlay();
   }
 
 
@@ -2003,6 +2044,11 @@
     sidebar.className = 'service-sidebar';
     sidebar.setAttribute('aria-label', 'Service navigation');
 
+    var tab = document.createElement('span');
+    tab.className = 'service-sidebar__tab';
+    tab.textContent = 'Services';
+    sidebar.appendChild(tab);
+
     var title = document.createElement('p');
     title.className = 'service-sidebar__title';
     title.textContent = 'Services';
@@ -2026,6 +2072,21 @@
     sidebar.appendChild(ul);
 
     document.body.appendChild(sidebar);
+
+    /* Desktop drawer: open on load, collapse after 5s, reopen on hover */
+    if (window.innerWidth > 768) {
+      setTimeout(function () {
+        sidebar.classList.add('is-collapsed');
+      }, 5000);
+
+      sidebar.addEventListener('mouseenter', function () {
+        sidebar.classList.remove('is-collapsed');
+      });
+
+      sidebar.addEventListener('mouseleave', function () {
+        sidebar.classList.add('is-collapsed');
+      });
+    }
 
     /* Mobile toggle */
     title.addEventListener('click', function () {
