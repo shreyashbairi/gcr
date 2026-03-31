@@ -80,78 +80,100 @@
      ====================================================================== */
 
   function initMobileMenu() {
-    /* Support both old (.header__burger) and new (.header-new__burger) header */
-    var burger = document.querySelector('.header-new__burger') || document.querySelector('.header__burger');
-    var nav = document.querySelector('.header-new__nav');
-    var menu = document.querySelector('.header__mobile-menu');
+    var burger = document.querySelector('.header-new__burger');
+    if (!burger) return;
 
-    if (burger && nav) {
-      /* New header: toggle nav visibility on mobile */
-      burger.addEventListener('click', function () {
-        var isOpen = nav.classList.toggle('is-open');
-        burger.classList.toggle('is-active');
-        burger.setAttribute('aria-expanded', String(isOpen));
-        document.body.classList.toggle('menu-open', isOpen);
-      });
+    /* Build a fully independent mobile drawer — avoids all desktop mega-menu CSS conflicts */
+    var drawer = document.createElement('div');
+    drawer.className = 'mobile-drawer';
+    drawer.setAttribute('role', 'dialog');
+    drawer.setAttribute('aria-modal', 'true');
+    drawer.setAttribute('aria-label', 'Navigation menu');
 
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && nav.classList.contains('is-open')) {
-          nav.classList.remove('is-open');
-          burger.classList.remove('is-active');
-          burger.setAttribute('aria-expanded', 'false');
-          document.body.classList.remove('menu-open');
-        }
-      });
+    drawer.innerHTML = [
+      '<div class="mobile-drawer__backdrop"></div>',
+      '<div class="mobile-drawer__panel">',
+      '  <div class="mobile-drawer__head">',
+      '    <a href="index.html" class="mobile-drawer__logo-link">',
+      '      <img src="assets/logo.png" alt="GCR Consulting">',
+      '    </a>',
+      '    <button class="mobile-drawer__close" aria-label="Close menu">',
+      '      <span></span><span></span>',
+      '    </button>',
+      '  </div>',
+      '  <nav class="mobile-drawer__nav">',
+      '    <a href="index.html" class="mobile-drawer__link">Home</a>',
+      '    <a href="page-02.html" class="mobile-drawer__link">About GCR</a>',
+      '    <div class="mobile-drawer__group">',
+      '      <button class="mobile-drawer__group-btn" aria-expanded="false">',
+      '        Services',
+      '        <svg class="mobile-drawer__chevron" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      '      </button>',
+      '      <div class="mobile-drawer__sub" aria-hidden="true">',
+      '        <a href="service-01.html">Market Entry &amp; GTM</a>',
+      '        <a href="service-02.html">Deployment Teams</a>',
+      '        <a href="service-03.html">Strategic Alliances</a>',
+      '        <a href="service-04.html">Negotiation &amp; Channels</a>',
+      '        <a href="service-05.html">Fiscal Architecture</a>',
+      '        <a href="service-06.html">Industrial Assets</a>',
+      '        <a href="service-07.html">Regulatory Access</a>',
+      '        <a href="service-08.html">M&amp;A &amp; Capital</a>',
+      '        <a href="service-09.html">Digital &amp; Innovation</a>',
+      '        <a href="service-10.html">Corporate Governance</a>',
+      '        <a href="service-11.html">Risk &amp; Asset Protection</a>',
+      '        <a href="service-12.html">Legal Defense &amp; Crisis</a>',
+      '      </div>',
+      '    </div>',
+      '    <a href="page-06.html" class="mobile-drawer__link">Readiness Check</a>',
+      '  </nav>',
+      '  <div class="mobile-drawer__footer">',
+      '    <a href="page-08.html" class="mobile-drawer__cta">Contact us</a>',
+      '  </div>',
+      '</div>'
+    ].join('\n');
 
-      /* Services accordion: intercept trigger link click on mobile */
-      var menuTrigger = nav.querySelector('.header-new__menu-trigger');
-      if (menuTrigger) {
-        var triggerLink = menuTrigger.querySelector(':scope > a');
-        if (triggerLink) {
-          triggerLink.addEventListener('click', function (e) {
-            if (window.innerWidth <= 768) {
-              e.preventDefault();
-              menuTrigger.classList.toggle('is-mobile-open');
-            }
-          });
-        }
-      }
+    document.body.appendChild(drawer);
 
-      /* Close menu on any nav link click — exclude the services trigger on mobile */
-      nav.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-          if (window.innerWidth <= 768 && link === (menuTrigger && menuTrigger.querySelector(':scope > a'))) {
-            return; /* handled by accordion above */
-          }
-          nav.classList.remove('is-open');
-          if (menuTrigger) menuTrigger.classList.remove('is-mobile-open');
-          burger.classList.remove('is-active');
-          burger.setAttribute('aria-expanded', 'false');
-          document.body.classList.remove('menu-open');
-        });
-      });
-    } else if (burger && menu) {
-      /* Legacy header */
-      burger.addEventListener('click', function () {
-        var isOpen = menu.classList.toggle('is-open');
-        burger.classList.toggle('is-active');
-        burger.setAttribute('aria-expanded', String(isOpen));
-        menu.setAttribute('aria-hidden', String(!isOpen));
-        document.body.classList.toggle('menu-open', isOpen);
-      });
+    var backdrop  = drawer.querySelector('.mobile-drawer__backdrop');
+    var closeBtn  = drawer.querySelector('.mobile-drawer__close');
+    var groupBtn  = drawer.querySelector('.mobile-drawer__group-btn');
+    var sub       = drawer.querySelector('.mobile-drawer__sub');
 
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && menu.classList.contains('is-open')) {
-          closeMenu(burger, menu);
-        }
-      });
-
-      menu.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-          closeMenu(burger, menu);
-        });
-      });
+    function openDrawer() {
+      drawer.classList.add('is-open');
+      document.body.classList.add('menu-open');
+      burger.classList.add('is-active');
+      burger.setAttribute('aria-expanded', 'true');
     }
+
+    function closeDrawer() {
+      drawer.classList.remove('is-open');
+      document.body.classList.remove('menu-open');
+      burger.classList.remove('is-active');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+
+    burger.addEventListener('click', function () {
+      drawer.classList.contains('is-open') ? closeDrawer() : openDrawer();
+    });
+    backdrop.addEventListener('click', closeDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeDrawer();
+    });
+
+    /* Services accordion — max-height transition, no display toggle = no glitch */
+    groupBtn.addEventListener('click', function () {
+      var open = sub.classList.toggle('is-open');
+      groupBtn.setAttribute('aria-expanded', String(open));
+      sub.setAttribute('aria-hidden', String(!open));
+    });
+
+    /* Close drawer on any link click */
+    drawer.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeDrawer);
+    });
   }
 
   function closeMenu(burger, menu) {
