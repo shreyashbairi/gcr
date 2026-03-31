@@ -102,10 +102,7 @@ body {
   padding-top: var(--header-height);
 }
 
-/* Prevent body scroll when mobile menu is open */
-body.menu-open {
-  overflow: hidden;
-}
+/* Body scroll lock handled inline by JS (position:fixed trick for iOS Safari) */
 
 img {
   max-width: 100%;
@@ -5265,10 +5262,31 @@ h2 {
 
 /* 11k. HERO PARALLAX — Background attachment for simple parallax effect. */
 
-/* Disable fixed attachment on mobile (performance) */
+/* Disable fixed attachment on mobile (performance + iOS compat) */
 @media (max-width: 768px) {
   .hero--home {
     background-attachment: scroll;
+    /* Extra bottom padding so content never slides under the absolute trust bar */
+    padding-bottom: 150px;
+  }
+
+  /* Move trust bar out of the hero content flow on mobile */
+  .hero__trust-bar {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    margin-top: var(--space-lg);
+    padding: var(--space-md) 0;
+    background: rgba(0, 0, 0, 0.25);
+  }
+
+  /* Service/sub-page hero: disable fixed bg, center the image so full frame shows */
+  .hero--bg {
+    background-attachment: scroll;
+    background-position: center center;
+    min-height: 45vh;
+    align-items: center;
   }
 }
 
