@@ -5270,15 +5270,9 @@ h2 {
     padding-bottom: 150px;
   }
 
-  /* Move trust bar out of the hero content flow on mobile */
+  /* Trust bar stays absolute — padding-bottom above keeps content clear of it */
   .hero__trust-bar {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    right: auto;
-    margin-top: var(--space-lg);
-    padding: var(--space-md) 0;
-    background: rgba(0, 0, 0, 0.25);
+    position: absolute;
   }
 
   /* Service/sub-page hero: disable fixed bg, center the image so full frame shows */
