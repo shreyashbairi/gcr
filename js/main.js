@@ -103,9 +103,28 @@
         }
       });
 
+      /* Services accordion: intercept trigger link click on mobile */
+      var menuTrigger = nav.querySelector('.header-new__menu-trigger');
+      if (menuTrigger) {
+        var triggerLink = menuTrigger.querySelector(':scope > a');
+        if (triggerLink) {
+          triggerLink.addEventListener('click', function (e) {
+            if (window.innerWidth <= 768) {
+              e.preventDefault();
+              menuTrigger.classList.toggle('is-mobile-open');
+            }
+          });
+        }
+      }
+
+      /* Close menu on any nav link click — exclude the services trigger on mobile */
       nav.querySelectorAll('a').forEach(function (link) {
         link.addEventListener('click', function () {
+          if (window.innerWidth <= 768 && link === (menuTrigger && menuTrigger.querySelector(':scope > a'))) {
+            return; /* handled by accordion above */
+          }
           nav.classList.remove('is-open');
+          if (menuTrigger) menuTrigger.classList.remove('is-mobile-open');
           burger.classList.remove('is-active');
           burger.setAttribute('aria-expanded', 'false');
           document.body.classList.remove('menu-open');
