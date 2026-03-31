@@ -139,16 +139,28 @@
     var groupBtn  = drawer.querySelector('.mobile-drawer__group-btn');
     var sub       = drawer.querySelector('.mobile-drawer__sub');
 
+    var _scrollY = 0;
+
     function openDrawer() {
+      /* iOS-safe scroll lock: position:fixed prevents body scroll without
+         blocking touch events inside the drawer panel */
+      _scrollY = window.scrollY;
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top = '-' + _scrollY + 'px';
+      document.body.style.width = '100%';
       drawer.classList.add('is-open');
-      document.body.classList.add('menu-open');
       burger.classList.add('is-active');
       burger.setAttribute('aria-expanded', 'true');
     }
 
     function closeDrawer() {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, _scrollY);
       drawer.classList.remove('is-open');
-      document.body.classList.remove('menu-open');
       burger.classList.remove('is-active');
       burger.setAttribute('aria-expanded', 'false');
     }
