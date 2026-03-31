@@ -1756,7 +1756,7 @@ p:last-child {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Hide mobile-only contact link on desktop */
+/* Hide mobile-only contact link (added via Python) — not used by new drawer */
 .header-new__mobile-contact {
   display: none !important;
 }
@@ -1765,105 +1765,212 @@ p:last-child {
   .header-new__nav {
     display: none;
   }
-
   .header-new__actions {
     display: none;
   }
-
   .header-new__burger {
     display: flex;
   }
+  .header-new__mega-menu {
+    display: none !important;
+  }
+}
 
-  .header-new__nav.is-open {
+/* =====================================================================
+   MOBILE DRAWER — fully independent from desktop nav, no CSS conflicts
+   ===================================================================== */
+
+.mobile-drawer {
+  display: none; /* hidden on desktop */
+}
+
+@media (max-width: 768px) {
+  .mobile-drawer {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .mobile-drawer.is-open {
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* Dim backdrop */
+  .mobile-drawer__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 20, 40, 0.45);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .mobile-drawer.is-open .mobile-drawer__backdrop {
+    opacity: 1;
+  }
+
+  /* Slide-in panel from right */
+  .mobile-drawer__panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: min(320px, 88vw);
+    height: 100%;
+    background: #fff;
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.97);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: var(--space-xl);
-    border-bottom: 1px solid var(--color-border);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-    z-index: 999;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mobile-drawer.is-open .mobile-drawer__panel {
+    transform: translateX(0);
   }
 
-  .header-new__nav.is-open a {
-    color: var(--color-primary);
-    padding: var(--space-sm) 0;
-  }
-
-  /* Mobile-only Contact Us button at bottom of open nav */
-  .header-new__nav.is-open .header-new__mobile-contact {
-    display: block !important;
-    margin-top: var(--space-md);
-    padding: var(--space-sm) var(--space-md) !important;
-    background: var(--color-primary);
-    color: #fff !important;
-    border-radius: var(--border-radius);
-    text-align: center;
-    font-weight: 600;
-    text-decoration: none;
-  }
-
-  /* Services trigger — show chevron arrow on mobile */
-  .header-new__menu-trigger > a {
+  /* Header row: logo + close */
+  .mobile-drawer__head {
     display: flex;
     align-items: center;
-    gap: 0.35rem;
+    justify-content: space-between;
+    padding: 1.1rem 1.4rem;
+    border-bottom: 1px solid #e8eaed;
+    flex-shrink: 0;
   }
-  .header-new__menu-trigger > a::after {
-    content: '›';
-    display: inline-block;
-    font-size: 1.1em;
-    transition: transform 0.2s ease;
+  .mobile-drawer__logo-link img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
   }
-  .header-new__menu-trigger.is-mobile-open > a::after {
-    transform: rotate(90deg);
+  .mobile-drawer__close {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    flex-shrink: 0;
+  }
+  .mobile-drawer__close span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: 2px;
+    transform-origin: center;
+  }
+  .mobile-drawer__close span:nth-child(1) {
+    transform: translateY(5px) rotate(45deg);
+  }
+  .mobile-drawer__close span:nth-child(2) {
+    transform: translateY(-5px) rotate(-45deg);
   }
 
-  /* Services sub-menu: static accordion on mobile */
-  .header-new__mega-menu {
-    display: none;
-    position: static;
-    min-width: 0;
-    width: 100%;
-    background: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border: none;
-    border-radius: 0;
-    padding: 0 0 var(--space-sm) var(--space-md);
-    opacity: 1;
-    pointer-events: auto;
-    transform: none;
-    box-shadow: none;
-    z-index: auto;
-    transition: none;
+  /* Nav links */
+  .mobile-drawer__nav {
+    flex: 1;
+    padding: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
   }
-  .header-new__menu-trigger.is-mobile-open .header-new__mega-menu {
+  .mobile-drawer__link {
     display: block;
+    padding: 0.85rem 1.4rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    text-decoration: none;
+    border-bottom: 1px solid #f0f2f4;
+    transition: background 0.15s ease;
   }
-  .header-new__mega-menu-grid {
-    grid-template-columns: 1fr;
-    gap: 0;
+  .mobile-drawer__link:hover {
+    background: rgba(27, 42, 74, 0.04);
   }
-  .header-new__mega-menu a {
-    padding: 0.4rem 0.5rem;
-    font-size: var(--text-sm);
-    border-bottom: 1px solid var(--color-border);
+
+  /* Services accordion group */
+  .mobile-drawer__group {
+    border-bottom: 1px solid #f0f2f4;
   }
-  .header-new__mega-menu a:last-child {
+  .mobile-drawer__group-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.85rem 1.4rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+  }
+  .mobile-drawer__group-btn:hover {
+    background: rgba(27, 42, 74, 0.04);
+  }
+  .mobile-drawer__chevron {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+    color: var(--color-primary);
+  }
+  .mobile-drawer__group-btn[aria-expanded="true"] .mobile-drawer__chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Services sub-list — max-height accordion (no display toggle = no glitch) */
+  .mobile-drawer__sub {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #f7f8fa;
+  }
+  .mobile-drawer__sub.is-open {
+    max-height: 800px;
+  }
+  .mobile-drawer__sub a {
+    display: block;
+    padding: 0.65rem 1.4rem 0.65rem 2rem;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--color-text);
+    text-decoration: none;
+    border-bottom: 1px solid #eceef1;
+    transition: background 0.15s ease;
+  }
+  .mobile-drawer__sub a:last-child {
     border-bottom: none;
   }
-  .header-new__mega-menu-footer {
-    display: none;
+  .mobile-drawer__sub a:hover {
+    background: rgba(27, 42, 74, 0.05);
   }
 
-  .header-new__nav.is-open .header-new__menu-trigger > a {
-    color: var(--color-primary);
+  /* Footer: Contact Us CTA */
+  .mobile-drawer__footer {
+    padding: 1.1rem 1.4rem;
+    border-top: 1px solid #e8eaed;
+    flex-shrink: 0;
+  }
+  .mobile-drawer__cta {
+    display: block;
+    text-align: center;
+    padding: 0.8rem 1rem;
+    background: var(--color-primary);
+    color: #fff;
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+  .mobile-drawer__cta:hover {
+    background: var(--color-primary-light);
   }
 }
 
