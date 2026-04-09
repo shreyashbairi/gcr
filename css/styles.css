@@ -1696,14 +1696,14 @@ p:last-child {
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--color-text-light);
+  color: #fff;
   display: flex;
   align-items: center;
   gap: 0.25rem;
 }
 
 .header-new__lang-toggle a {
-  color: var(--color-text-light);
+  color: #fff;
   text-decoration: none;
   padding: 0.25rem 0.375rem;
   border-radius: var(--border-radius);
@@ -1712,12 +1712,12 @@ p:last-child {
 
 .header-new__lang-toggle a:hover,
 .header-new__lang-toggle a.active {
-  color: var(--color-primary);
-  background: rgba(27, 42, 74, 0.06);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .header-new__lang-toggle span {
-  color: var(--color-border);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 /* Header mobile burger */
