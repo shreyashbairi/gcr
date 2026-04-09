@@ -90,18 +90,10 @@
     drawer.setAttribute('aria-modal', 'true');
     drawer.setAttribute('aria-label', 'Navigation menu');
 
-    drawer.innerHTML = [
-      '<div class="mobile-drawer__backdrop"></div>',
-      '<div class="mobile-drawer__panel">',
-      '  <div class="mobile-drawer__head">',
-      '    <a href="index.html" class="mobile-drawer__logo-link">',
-      '      <img src="assets/logo.png" alt="GCR Consulting">',
-      '    </a>',
-      '    <button class="mobile-drawer__close" aria-label="Close menu">',
-      '      <span></span><span></span>',
-      '    </button>',
-      '  </div>',
-      '  <nav class="mobile-drawer__nav">',
+    var isZh = window.location.pathname.indexOf('/zh/') !== -1;
+    var logoSrc = isZh ? '../assets/logo.png' : 'assets/logo.png';
+
+    var menuEN = [
       '    <a href="index.html" class="mobile-drawer__link">Home</a>',
       '    <a href="page-02.html" class="mobile-drawer__link">About GCR</a>',
       '    <div class="mobile-drawer__group">',
@@ -124,13 +116,57 @@
       '        <a href="service-12.html">Legal Defense &amp; Crisis</a>',
       '      </div>',
       '    </div>',
-      '    <a href="page-06.html" class="mobile-drawer__link">Readiness Check</a>',
+      '    <a href="page-06.html" class="mobile-drawer__link">Readiness Check</a>'
+    ];
+
+    var menuZH = [
+      '    <a href="index.html" class="mobile-drawer__link">首页</a>',
+      '    <a href="page-02.html" class="mobile-drawer__link">关于 GCR</a>',
+      '    <div class="mobile-drawer__group">',
+      '      <button class="mobile-drawer__group-btn" aria-expanded="false">',
+      '        服务',
+      '        <svg class="mobile-drawer__chevron" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      '      </button>',
+      '      <div class="mobile-drawer__sub" aria-hidden="true">',
+      '        <a href="service-01.html">市场进入与推广策略</a>',
+      '        <a href="service-02.html">本地运营基础设施</a>',
+      '        <a href="service-03.html">战略合作伙伴搜寻</a>',
+      '        <a href="service-04.html">资本对接与全球扩张</a>',
+      '        <a href="service-05.html">谈判掌控与渠道效能</a>',
+      '        <a href="service-06.html">公司架构与财税治理</a>',
+      '        <a href="service-07.html">产业落地与供应链</a>',
+      '        <a href="service-08.html">市场准入与合规管理</a>',
+      '        <a href="service-09.html">并购全周期与资本配置</a>',
+      '        <a href="service-10.html">数字生态与创新对接</a>',
+      '        <a href="service-11.html">公司治理与合规操守</a>',
+      '        <a href="service-12.html">争议解决与危机应对</a>',
+      '      </div>',
+      '    </div>',
+      '    <a href="page-06.html" class="mobile-drawer__link">准备度评估</a>'
+    ];
+
+    var menuItems = isZh ? menuZH : menuEN;
+    var ctaText = isZh ? '联系我们' : 'Contact us';
+
+    drawer.innerHTML = [
+      '<div class="mobile-drawer__backdrop"></div>',
+      '<div class="mobile-drawer__panel">',
+      '  <div class="mobile-drawer__head">',
+      '    <a href="index.html" class="mobile-drawer__logo-link">',
+      '      <img src="' + logoSrc + '" alt="GCR Consulting">',
+      '    </a>',
+      '    <button class="mobile-drawer__close" aria-label="Close menu">',
+      '      <span></span><span></span>',
+      '    </button>',
+      '  </div>',
+      '  <nav class="mobile-drawer__nav">'
+    ].concat(menuItems).concat([
       '  </nav>',
       '  <div class="mobile-drawer__footer">',
-      '    <a href="page-08.html" class="mobile-drawer__cta">Contact us</a>',
+      '    <a href="page-08.html" class="mobile-drawer__cta">' + ctaText + '</a>',
       '  </div>',
       '</div>'
-    ].join('\n');
+    ]).join('\n');
 
     document.body.appendChild(drawer);
 
@@ -560,6 +596,156 @@
     }
   ];
 
+  /* ── Chinese Quiz Data ── */
+  var QUIZ_DATA_ZH = [
+    { id: 1, question: '贵机构在 GCR 或类似市场方面有怎样的经验？', options: [
+      { text: '我们没有新兴市场的相关经验，这是我们首次进行此类市场进入', score: 0 },
+      { text: '我们曾在其他新兴市场开展业务，例如东欧、中东及北非、东南亚，但尚未进入 GCR 市场', score: 1 },
+      { text: '我们曾接触过 GCR 市场，例如实地访问、参加活动或进行过初步沟通，但尚未建立实际业务', score: 2 },
+      { text: '我们已经在该地区开展业务，但结果低于预期', score: 3 }
+    ]},
+    { id: 2, question: '贵机构在 GCR 市场的主要目标是什么？', options: [
+      { text: '全面进入市场，我们希望设立注册实体、本地团队，并直接开展销售业务', score: 3 },
+      { text: '与实力较强的本地合作方建立合资企业或战略合作关系', score: 3 },
+      { text: '出口或分销，我们希望通过本地渠道销售，而不设立本地实体', score: 2 },
+      { text: '研究与验证，在决定具体方向之前，我们需要扎实的数据支持', score: 1 }
+    ]},
+    { id: 3, question: '贵公司提供的是什么类型的产品或服务？', options: [
+      { text: '实体产品，例如制造业产品、工业设备或消费品', score: 2 },
+      { text: '技术或软件，例如 SaaS、信息技术平台或数字化解决方案', score: 3 },
+      { text: '专业服务，例如咨询、工程、金融或法律服务', score: 3 },
+      { text: '能源、基础设施或大型项目类业务', score: 2 }
+    ]},
+    { id: 4, question: '您预计多久能从这一市场看到实质性成果？', options: [
+      { text: '6个月内，我们非常重视尽早实现收入', score: 0 },
+      { text: '12至18个月，我们愿意在达到盈亏平衡前先行投入', score: 3 },
+      { text: '2至3年或更久，我们是在建立长期市场布局', score: 3 },
+      { text: '取决于首轮沟通和交易推进的情况', score: 2 }
+    ]},
+    { id: 5, question: '贵公司今年为市场进入预留了多少预算？', subtitle: '包括咨询、法律、差旅和本地运营费用，不包括产品或服务本身的成本。', options: [
+      { text: '20,000 至 50,000 美元', score: 1 },
+      { text: '50,000 至 150,000 美元', score: 2 },
+      { text: '超过 150,000 美元', score: 3 },
+      { text: '目前尚未设定明确预算，我们计划根据前期成果再进行投入', score: 0 }
+    ]},
+    { id: 6, question: '贵机构内部由谁主导这一项目？', options: [
+      { text: '创始人或所有者，这是其个人层面的战略重点', score: 3 },
+      { text: '首席执行官或董事会层级高管，该事项已正式获得最高层批准', score: 3 },
+      { text: '区域负责人或出口负责人，他们目前正在为预算审批建立内部论证依据', score: 1 },
+      { text: '一个小型创始团队，相关决策由团队共同作出，推进速度较快', score: 2 }
+    ]},
+    { id: 7, question: '贵机构是否有人手可投入该地区的相关工作？', options: [
+      { text: '有，我们已有员工可以定期出差或常驻当地', score: 3 },
+      { text: '目前还没有，我们需要在当地招聘，但尚未开始', score: 2 },
+      { text: '没有，我们目前没有可投入的人力，需要一套完全外部化的运营解决方案', score: 1 },
+      { text: '我们计划由总部远程管理所有工作', score: 0 }
+    ]},
+    { id: 8, question: '贵机构目前在该地区的人脉网络情况如何？', options: [
+      { text: '我们完全从零开始，目前没有任何直接联系', score: 0 },
+      { text: '我们通过活动或线上接触建立了一些联系，但还未形成稳定关系', score: 1 },
+      { text: '我们可以直接接触到相关企业中的关键决策人', score: 3 },
+      { text: '我们与政府部门或监管机构已建立工作层面的关系', score: 3 }
+    ]},
+    { id: 9, question: '贵机构的产品或服务是否属于以下类别？', options: [
+      { text: '否，属于没有特殊限制的常规商业产品或服务', score: 3 },
+      { text: '高科技设备、电子产品，或具有军民两用潜力的技术', score: 2 },
+      { text: '金融产品、加密资产，或受监管的数字平台', score: 1 },
+      { text: '药品、食品，或需要较多认证的消费品', score: 2 }
+    ]},
+    { id: 10, question: '是什么驱动您当前决定进入 GCR 市场？', options: [
+      { text: '我们已完成本土市场目标，准备进入下一阶段增长', score: 3 },
+      { text: '我们正收到来自该地区的主动合作意向，希望以合适方式推进', score: 2 },
+      { text: '我们希望降低对现有市场的依赖，建立新的收入来源', score: 2 },
+      { text: '我们看到一个机会窗口，希望在其关闭前尽快行动', score: 1 }
+    ]}
+  ];
+
+  var QUIZ_TIERS_ZH = [
+    {
+      minPct: 0, maxPct: 39,
+      label: '早期阶段',
+      headline: '您的 GCR 准备度评分：早期阶段',
+      color: '#2C4070',
+      body: '贵机构目前仍处于进入泛里海市场的初期阶段。这个地区确实存在真实的发展机会，但同时也有较高的认知门槛。许多企业在尚未验证关键假设、也未充分了解实际成本的情况下就贸然进入，往往会在原本可以在前期解决的问题上耗费大量时间和资金。',
+      recommendedStep: '进行一次战略市场进入咨询。通过一场聚焦式沟通，优先回答在任何资金投入之前最关键的几个问题：市场是否确实存在真实需求？进入这一市场实际需要具备哪些条件？我们应该从哪里开始？',
+      ctaPrimary: '申请战略咨询',
+      ctaSecondary: '通过邮件接收完整报告'
+    },
+    {
+      minPct: 40, maxPct: 69,
+      label: '进入推进阶段',
+      headline: '您的 GCR 准备度评分：发展中',
+      color: '#2C4070',
+      body: '贵机构已具备明确意向，也采取了正确的思路。但目前仍存在一些不足，例如信息数据不充分、关系网络不完善，或内部协调尚未完全到位。这些问题如果在投入资金前未得到解决，后续都会转化为时间成本和执行成本。处于这一阶段的机构最常见的错误，就是跳过验证环节，直接进入实际操作。',
+      recommendedStep: '进行一次市场进入咨询，为您提供一个有数据支撑的起点，包括更现实的进入路径判断，以及一份可分阶段推进的路线图，帮助您更有把握地向管理层提出下一步建议。',
+      ctaPrimary: '申请市场进入咨询',
+      ctaSecondary: '通过邮件接收完整报告'
+    },
+    {
+      minPct: 70, maxPct: 100,
+      label: '已具备市场进入条件',
+      headline: '您的 GCR 准备度评分：较强',
+      color: '#2E7D32',
+      body: '贵机构已具备开展实质性市场进入工作的基础条件，包括明确的目标、现实可行的时间安排，以及进入该地区所需的资金投入意愿。您当前需要的，是精准到位的执行支持：包括合适的本地落地资源、经过筛选和核实的合作伙伴，以及能够匹配当地决策方式和推进节奏的运营支持。',
+      recommendedStep: '与我们的一位区域负责人进行一次为时45分钟的聚焦沟通。我们将结合您当前的具体情况，明确指出您目前的关键缺口，并坦率告知哪些方面我们可以提供支持，哪些方面您暂时并不需要我们介入。',
+      ctaPrimary: '预约战略沟通',
+      ctaSecondary: '通过邮件接收完整报告'
+    }
+  ];
+
+  var _quizIsZh = window.location.pathname.indexOf('/zh/') !== -1;
+  var _quizData = _quizIsZh ? QUIZ_DATA_ZH : QUIZ_DATA;
+  var _quizTiers = _quizIsZh ? QUIZ_TIERS_ZH : QUIZ_TIERS;
+  var _quizUI = _quizIsZh ? {
+    stepIndicator: function (n, t) { return '第 ' + n + ' 题，共 ' + t + ' 题'; },
+    prev: '上一题',
+    next: '下一步 \u203a',
+    alertSelect: '请先选择一个答案，再继续。',
+    almostThere: '即将完成',
+    tellUs: '请告知您的信息',
+    tellUsSubtitle: '我们将据此为您个性化结果，并发送详细报告。',
+    firstName: '名字',
+    lastName: '姓氏',
+    jobTitle: '职位',
+    companyName: '公司名称',
+    workEmail: '工作邮箱',
+    country: '国家',
+    required: '必填',
+    prevBtn: '上一步',
+    seeResults: '查看结果',
+    recommendedStep: '建议下一步：',
+    retake: '重新测评',
+    ctaHref: 'zh/page-08.html',
+    triggerNoCapacity: '您的情况显示，贵机构目前没有可投入的内部人力，且在当地也尚无关系网络。配备专属的 GCR 落地运营团队，可为您节省 6 至 9 个月的搭建时间，让您从第一天起就能实质性地开展工作。',
+    triggerCompliance: '您的产品或服务类别在进入市场前需要进行合规审查。我们建议直接进行一对一沟通，而非获取标准报告。',
+    triggerComplianceCTA: '预约合规审查通话',
+    triggerBusinessCase: '如果您需要为预算审批建立内部商业论证，我们的书面报告正是为此目的而设计的。'
+  } : {
+    stepIndicator: function (n, t) { return 'Question ' + n + ' of ' + t; },
+    prev: 'Previous',
+    next: 'Next \u203a',
+    alertSelect: 'Please select an answer before continuing.',
+    almostThere: 'Almost there',
+    tellUs: 'Tell us about yourself',
+    tellUsSubtitle: 'We\'ll use this to personalise your results and send you a detailed report.',
+    firstName: 'First name',
+    lastName: 'Last name',
+    jobTitle: 'Job title',
+    companyName: 'Company name',
+    workEmail: 'Work email',
+    country: 'Country',
+    required: '*',
+    prevBtn: 'Previous',
+    seeResults: 'See Results',
+    recommendedStep: 'Recommended next step:',
+    retake: 'Retake Assessment',
+    ctaHref: 'page-08.html',
+    triggerNoCapacity: 'Your profile suggests no available internal capacity and no local network. A dedicated GCR Deployment Team would remove 6\u20139 months of setup time and allow you to operate from day one.',
+    triggerCompliance: 'Your product or service category requires a compliance review before entry. We recommend starting with a direct conversation rather than a standard report.',
+    triggerComplianceCTA: 'Schedule a Compliance Review Call',
+    triggerBusinessCase: 'If you need to build an internal business case for budget approval, our written report is structured to serve exactly that purpose.'
+  };
+
   function initQuiz() {
     var quizContainer = document.getElementById('quizContainer');
     if (!quizContainer) return;
@@ -574,16 +760,16 @@
   }
 
   function renderQuizStep(container, state) {
-    var total = QUIZ_DATA.length;
+    var total = _quizData.length;
     var step = state.currentStep;
-    var q = QUIZ_DATA[step];
+    var q = _quizData[step];
     /* Progress includes contact form as step 11 */
     var totalSteps = total + 1;
     var progress = ((step) / totalSteps) * 100;
 
     var html = '';
     html += '<div class="quiz__progress"><div class="quiz__progress-bar" style="width: ' + progress + '%"></div></div>';
-    html += '<p class="quiz__step-indicator">Question ' + (step + 1) + ' of ' + total + '</p>';
+    html += '<p class="quiz__step-indicator" data-quiz-step="' + (step + 1) + '" data-quiz-total="' + total + '">' + _quizUI.stepIndicator(step + 1, total) + '</p>';
     html += '<h3 class="quiz__question">' + q.question + '</h3>';
     if (q.subtitle) {
       html += '<p class="quiz__subtitle">' + q.subtitle + '</p>';
@@ -603,15 +789,15 @@
     html += '<div class="quiz__nav">';
 
     if (step > 0) {
-      html += '<button class="btn btn--secondary" data-quiz-prev>Previous</button>';
+      html += '<button class="btn btn--secondary" data-quiz-prev>' + _quizUI.prev + '</button>';
     } else {
       html += '<span></span>';
     }
 
     if (step < total - 1) {
-      html += '<button class="btn btn--primary btn--lg" data-quiz-next>Next &rsaquo;</button>';
+      html += '<button class="btn btn--primary btn--lg" data-quiz-next>' + _quizUI.next + '</button>';
     } else {
-      html += '<button class="btn btn--primary btn--lg" data-quiz-next-contact>Next &rsaquo;</button>';
+      html += '<button class="btn btn--primary btn--lg" data-quiz-next-contact>' + _quizUI.next + '</button>';
     }
 
     html += '</div>';
@@ -643,7 +829,7 @@
     if (nextBtn) {
       nextBtn.addEventListener('click', function () {
         if (state.answers[q.id] === undefined) {
-          alert('Please select an answer before continuing.');
+          alert(_quizUI.alertSelect);
           return;
         }
         state.currentStep++;
@@ -655,7 +841,7 @@
     if (nextContactBtn) {
       nextContactBtn.addEventListener('click', function () {
         if (state.answers[q.id] === undefined) {
-          alert('Please select an answer before continuing.');
+          alert(_quizUI.alertSelect);
           return;
         }
         renderContactForm(container, state);
@@ -664,27 +850,28 @@
   }
 
   function renderContactForm(container, state) {
-    var total = QUIZ_DATA.length;
+    var total = _quizData.length;
     var totalSteps = total + 1;
     var progress = (total / totalSteps) * 100;
+    var req = '<span class="required">' + _quizUI.required + '</span>';
 
     var html = '';
     html += '<div class="quiz__progress"><div class="quiz__progress-bar" style="width: ' + progress + '%"></div></div>';
-    html += '<p class="quiz__step-indicator">Almost there</p>';
-    html += '<h3 class="quiz__question">Tell us about yourself</h3>';
-    html += '<p class="quiz__subtitle">We\'ll use this to personalise your results and send you a detailed report.</p>';
+    html += '<p class="quiz__step-indicator" data-quiz-step="' + total + '" data-quiz-total="' + total + '">' + _quizUI.almostThere + '</p>';
+    html += '<h3 class="quiz__question">' + _quizUI.tellUs + '</h3>';
+    html += '<p class="quiz__subtitle">' + _quizUI.tellUsSubtitle + '</p>';
     html += '<form class="quiz__contact-form" id="quizContactForm">';
     html += '<div class="quiz__form-grid">';
-    html += '<div class="quiz__form-field"><label for="qcf-fname">First name <span class="required">*</span></label><input type="text" id="qcf-fname" name="firstName" required value="' + (state.contactInfo.firstName || '') + '"></div>';
-    html += '<div class="quiz__form-field"><label for="qcf-lname">Last name <span class="required">*</span></label><input type="text" id="qcf-lname" name="lastName" required value="' + (state.contactInfo.lastName || '') + '"></div>';
-    html += '<div class="quiz__form-field"><label for="qcf-title">Job title <span class="required">*</span></label><input type="text" id="qcf-title" name="jobTitle" required value="' + (state.contactInfo.jobTitle || '') + '"></div>';
-    html += '<div class="quiz__form-field"><label for="qcf-company">Company name <span class="required">*</span></label><input type="text" id="qcf-company" name="companyName" required value="' + (state.contactInfo.companyName || '') + '"></div>';
-    html += '<div class="quiz__form-field"><label for="qcf-email">Work email <span class="required">*</span></label><input type="email" id="qcf-email" name="workEmail" required value="' + (state.contactInfo.workEmail || '') + '"></div>';
-    html += '<div class="quiz__form-field"><label for="qcf-country">Country <span class="required">*</span></label><input type="text" id="qcf-country" name="country" required value="' + (state.contactInfo.country || '') + '"></div>';
+    html += '<div class="quiz__form-field"><label for="qcf-fname">' + _quizUI.firstName + ' ' + req + '</label><input type="text" id="qcf-fname" name="firstName" required value="' + (state.contactInfo.firstName || '') + '"></div>';
+    html += '<div class="quiz__form-field"><label for="qcf-lname">' + _quizUI.lastName + ' ' + req + '</label><input type="text" id="qcf-lname" name="lastName" required value="' + (state.contactInfo.lastName || '') + '"></div>';
+    html += '<div class="quiz__form-field"><label for="qcf-title">' + _quizUI.jobTitle + ' ' + req + '</label><input type="text" id="qcf-title" name="jobTitle" required value="' + (state.contactInfo.jobTitle || '') + '"></div>';
+    html += '<div class="quiz__form-field"><label for="qcf-company">' + _quizUI.companyName + ' ' + req + '</label><input type="text" id="qcf-company" name="companyName" required value="' + (state.contactInfo.companyName || '') + '"></div>';
+    html += '<div class="quiz__form-field"><label for="qcf-email">' + _quizUI.workEmail + ' ' + req + '</label><input type="email" id="qcf-email" name="workEmail" required value="' + (state.contactInfo.workEmail || '') + '"></div>';
+    html += '<div class="quiz__form-field"><label for="qcf-country">' + _quizUI.country + ' ' + req + '</label><input type="text" id="qcf-country" name="country" required value="' + (state.contactInfo.country || '') + '"></div>';
     html += '</div>';
     html += '<div class="quiz__nav">';
-    html += '<button type="button" class="btn btn--secondary" data-quiz-back-to-questions>Previous</button>';
-    html += '<button type="submit" class="btn btn--primary">See Results</button>';
+    html += '<button type="button" class="btn btn--secondary" data-quiz-back-to-questions>' + _quizUI.prevBtn + '</button>';
+    html += '<button type="submit" class="btn btn--primary">' + _quizUI.seeResults + '</button>';
     html += '</div>';
     html += '</form>';
 
@@ -694,7 +881,7 @@
     if (backBtn) {
       backBtn.addEventListener('click', function () {
         saveContactFields(state, container);
-        state.currentStep = QUIZ_DATA.length - 1;
+        state.currentStep = _quizData.length - 1;
         renderQuizStep(container, state);
       });
     }
@@ -728,7 +915,7 @@
     /* Calculate total score */
     var totalScore = 0;
     Object.keys(state.answers).forEach(function (qId) {
-      var question = QUIZ_DATA.find(function (q) { return q.id === parseInt(qId); });
+      var question = _quizData.find(function (q) { return q.id === parseInt(qId); });
       if (question) {
         totalScore += question.options[state.answers[qId]].score;
       }
@@ -738,9 +925,9 @@
     var percentage = Math.round((totalScore / maxScore) * 100);
 
     /* Find tier by percentage */
-    var tier = QUIZ_TIERS.find(function (t) {
+    var tier = _quizTiers.find(function (t) {
       return percentage >= t.minPct && percentage <= t.maxPct;
-    }) || QUIZ_TIERS[0];
+    }) || _quizTiers[0];
 
     /* Internal trigger logic */
     var triggerMessages = [];
@@ -750,20 +937,20 @@
     var q7Answer = getSelectedOptionIndex(state, 7);
     var q8Answer = getSelectedOptionIndex(state, 8);
     if (q7Answer === 2 && q8Answer === 0) {
-      triggerMessages.push('Your profile suggests no available internal capacity and no local network. A dedicated GCR Deployment Team would remove 6\u20139 months of setup time and allow you to operate from day one.');
+      triggerMessages.push(_quizUI.triggerNoCapacity);
     }
 
     /* Q9=B(1), C(2), or D(3) */
     var q9Answer = getSelectedOptionIndex(state, 9);
     if (q9Answer === 1 || q9Answer === 2 || q9Answer === 3) {
-      triggerMessages.push('Your product or service category requires a compliance review before entry. We recommend starting with a direct conversation rather than a standard report.');
-      overridePrimaryCTA = 'Schedule a Compliance Review Call';
+      triggerMessages.push(_quizUI.triggerCompliance);
+      overridePrimaryCTA = _quizUI.triggerComplianceCTA;
     }
 
     /* Q6=C (index 2) */
     var q6Answer = getSelectedOptionIndex(state, 6);
     if (q6Answer === 2) {
-      triggerMessages.push('If you need to build an internal business case for budget approval, our written report is structured to serve exactly that purpose.');
+      triggerMessages.push(_quizUI.triggerBusinessCase);
     }
 
     var primaryCTAText = overridePrimaryCTA || tier.ctaPrimary;
@@ -781,12 +968,12 @@
       });
     }
 
-    html += '<p class="quiz__recommended-step"><strong>Recommended next step:</strong> ' + tier.recommendedStep + '</p>';
+    html += '<p class="quiz__recommended-step"><strong>' + _quizUI.recommendedStep + '</strong> ' + tier.recommendedStep + '</p>';
     html += '<div class="quiz__result-ctas">';
-    html += '<a href="page-08.html" class="btn btn--primary btn--lg">' + primaryCTAText + '</a>';
-    html += '<a href="page-08.html" class="btn btn--secondary btn--lg">' + tier.ctaSecondary + '</a>';
+    html += '<a href="' + _quizUI.ctaHref + '" class="btn btn--primary btn--lg">' + primaryCTAText + '</a>';
+    html += '<a href="' + _quizUI.ctaHref + '" class="btn btn--secondary btn--lg">' + tier.ctaSecondary + '</a>';
     html += '</div>';
-    html += '<button class="btn btn--outline mt-lg" data-quiz-restart>Retake Assessment</button>';
+    html += '<button class="btn btn--outline mt-lg" data-quiz-restart>' + _quizUI.retake + '</button>';
     html += '</div>';
 
     container.innerHTML = html;
@@ -984,13 +1171,10 @@
 
     var observer = new MutationObserver(function () {
       var stepIndicator = quizContainer.querySelector('.quiz__step-indicator');
-      if (stepIndicator) {
-        var match = stepIndicator.textContent.match(/(\d+)\s+of\s+(\d+)/);
-        if (match) {
-          var current = parseInt(match[1]);
-          var total = parseInt(match[2]);
-          progressBar.style.width = ((current / total) * 100) + '%';
-        }
+      if (stepIndicator && stepIndicator.dataset.quizStep) {
+        var current = parseInt(stepIndicator.dataset.quizStep);
+        var total = parseInt(stepIndicator.dataset.quizTotal);
+        progressBar.style.width = ((current / total) * 100) + '%';
       }
       /* If result is showing, set to 100% */
       if (quizContainer.querySelector('.quiz__result')) {
@@ -2076,7 +2260,22 @@
     var page = window.location.pathname.split('/').pop() || 'index.html';
     if (!/^service-\d+\.html$/.test(page)) return;
 
-    var services = [
+    var _sidebarIsZh = window.location.pathname.indexOf('/zh/') !== -1;
+
+    var services = _sidebarIsZh ? [
+      { href: 'service-01.html', label: '市场进入与市场推广' },
+      { href: 'service-02.html', label: '驻地运营团队' },
+      { href: 'service-03.html', label: '战略联盟' },
+      { href: 'service-04.html', label: '谈判与渠道' },
+      { href: 'service-05.html', label: '财税架构' },
+      { href: 'service-06.html', label: '工业资产' },
+      { href: 'service-07.html', label: '监管准入' },
+      { href: 'service-08.html', label: '并购与资本' },
+      { href: 'service-09.html', label: '数字化与创新' },
+      { href: 'service-10.html', label: '公司治理' },
+      { href: 'service-11.html', label: '风险与资产保护' },
+      { href: 'service-12.html', label: '法律辩护与危机管理' }
+    ] : [
       { href: 'service-01.html', label: 'Market Entry & GTM' },
       { href: 'service-02.html', label: 'Deployment Teams' },
       { href: 'service-03.html', label: 'Strategic Alliances' },
@@ -2091,20 +2290,22 @@
       { href: 'service-12.html', label: 'Legal Defense & Crisis' }
     ];
 
+    var _sidebarTitle = _sidebarIsZh ? '服务' : 'Services';
+
     document.body.classList.add('has-service-sidebar');
 
     var sidebar = document.createElement('nav');
     sidebar.className = 'service-sidebar';
-    sidebar.setAttribute('aria-label', 'Service navigation');
+    sidebar.setAttribute('aria-label', _sidebarIsZh ? '服务导航' : 'Service navigation');
 
     var tab = document.createElement('span');
     tab.className = 'service-sidebar__tab';
-    tab.textContent = 'Services';
+    tab.textContent = _sidebarTitle;
     sidebar.appendChild(tab);
 
     var title = document.createElement('p');
     title.className = 'service-sidebar__title';
-    title.textContent = 'Services';
+    title.textContent = _sidebarTitle;
     sidebar.appendChild(title);
 
     var ul = document.createElement('ul');
@@ -2150,6 +2351,43 @@
   }
 
   initServiceSidebar();
+
+
+  /* ======================================================================
+     LANGUAGE SWITCHER
+     Sets correct href on lang-link elements based on current page location.
+     EN pages live at root, ZH pages live under /zh/.
+     ====================================================================== */
+  function initLangSwitcher() {
+    var links = document.querySelectorAll('.lang-link');
+    if (!links.length) return;
+
+    var path = window.location.pathname;
+    var filename = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
+    var inZh = path.indexOf('/zh/') !== -1;
+
+    links.forEach(function (link) {
+      var lang = link.getAttribute('data-lang');
+      if (lang === 'zh') {
+        if (inZh) {
+          link.classList.add('active');
+          link.href = '#';
+        } else {
+          link.classList.remove('active');
+          link.href = 'zh/' + filename;
+        }
+      } else if (lang === 'en') {
+        if (inZh) {
+          link.classList.remove('active');
+          link.href = '../' + filename;
+        } else {
+          link.classList.add('active');
+          link.href = '#';
+        }
+      }
+    });
+  }
+  initLangSwitcher();
 
 
 })();
