@@ -2429,7 +2429,7 @@
   /* ─── SERVICE SIDEBAR ─── */
   function initServiceSidebar() {
     var page = window.location.pathname.split('/').pop() || 'index.html';
-    if (!/^service-\d+\.html$/.test(page)) return;
+    if (!/^service-\d+(\.html)?$/.test(page)) return;
 
     var _sidebarIsZh = window.location.pathname.indexOf('/zh/') !== -1;
     var _sidebarIsRu = window.location.pathname.indexOf('/ru/') !== -1;
