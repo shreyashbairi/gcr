@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Оценка готовности к рынку ВКР - Готов ли ваш бизнес к выходу на Великий Каспийский Регион?">
+  <meta property="og:title" content="Оценка готовности к ВКР | GCR Consulting">
+  <meta property="og:description" content="Оцените свою готовность к выходу на рынок ВКР с помощью нашего инструмента оценки.">
+  <meta property="og:type" content="website">
+  <title>Оценка готовности к ВКР | GCR Consulting</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body class="is-loading">
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__inner">
+      <span class="preloader__logo">GCR</span>
+      <div class="preloader__bar">
+        <div class="preloader__bar-fill" id="preloaderFill"></div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#main-content" class="sr-only">Перейти к основному содержанию</a>
+
+  <!-- HEADER -->
+  <header class="header-new">
+    <div class="header-new__inner">
+      <a href="index.html" class="header-new__logo">
+        <img src="../assets/logo.png" alt="SPDC Logo">
+      </a>
+      <nav class="header-new__nav">
+        <a href="index.html">Главная</a>
+        <a href="page-02.html">О ВКР</a>
+        <div class="header-new__menu-trigger">
+          <a href="service-01.html">Услуги</a>
+          <div class="header-new__mega-menu">
+            <div class="header-new__mega-menu-grid">
+              <a href="service-01.html">Стратегия выхода на рынок</a>
+              <a href="service-02.html">Команды развёртывания</a>
+              <a href="service-03.html">Стратегические альянсы</a>
+              <a href="service-04.html">Доступ к капиталу</a>
+              <a href="service-05.html">Управление переговорами</a>
+              <a href="service-06.html">Корпоративное структурирование</a>
+              <a href="service-07.html">Промышленные активы</a>
+              <a href="service-08.html">Доступ на рынок</a>
+              <a href="service-09.html">Слияния и поглощения</a>
+              <a href="service-10.html">Цифровые экосистемы</a>
+              <a href="service-11.html">Корпоративное управление</a>
+              <a href="service-12.html">Урегулирование споров</a>
+            </div>
+            <div class="header-new__mega-menu-footer">
+              <a href="service-01.html">Все услуги &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="page-06.html">Оценка готовности</a>
+        <!-- TEMPORARILY HIDDEN — uncomment to restore:
+        <a href="page-04.html">Кейсы</a>
+        <a href="page-05.html">Руководство</a>
+        <a href="page-07.html">Новости</a>
+        -->
+        <a href="page-08.html" class="header-new__mobile-contact">Связаться с нами</a>
+      </nav>
+      <div class="header-new__actions">
+        <a href="page-08.html" class="header-new__contact-btn">Связаться с нами</a>
+        <div class="header-new__lang-toggle">
+          <a href="#" class="lang-link" data-lang="en">EN</a><span>|</span><a href="#" class="lang-link" data-lang="zh">中文</a><span>|</span><a href="#" class="lang-link active" data-lang="ru">РУ</a>
+        </div>
+      </div>
+      <button class="header-new__burger" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- HERO — Gradient background -->
+    <section class="hero hero--bg" style="background-image:url('../assets/images/hero/readiness-check.webp');">
+      <div class="container">
+        <h1 data-hero-anim>Оценка готовности к рынку ВКР</h1>
+        <p class="hero__subhead" data-hero-anim>Каспийский регион отдаёт предпочтение основательной подготовке, а не импровизации.</p>
+      </div>
+    </section>
+
+    <!-- INTRO TEXT -->
+    <section class="section">
+      <div class="container container--narrow">
+        <!-- Large CTA Button -->
+        <div style="text-align:center;margin:3rem 0;">
+          <a href="#quiz-section" class="readiness-start-btn">Начать оценку готовности ВКР</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ASSESSMENT DESCRIPTION -->
+    <section class="section section--alt">
+      <div class="container container--narrow">
+        <p class="text-lg">Эта 10-минутная оценка охватывает пять ключевых направлений, которые чаще всего определяют успех или провал экспансии: соответствие рынку, регуляторная готовность, операционные возможности, доступ к партнёрам и структура корпоративного управления.</p>
+        <p class="text-lg" style="margin-top:1.5rem;">На основе ваших ответов мы формируем персональный профиль рисков и рекомендуемую отправную точку — будь то исследование рынка, правовой структурный анализ или прямой разговор с одним из наших партнёров.</p>
+      </div>
+    </section>
+
+    <!-- QUIZ SECTION -->
+    <section class="section section--alt" id="quiz-section">
+      <div class="container">
+        <h2 style="text-align:center;margin-bottom:0.75rem;border:none;">Оцените свою готовность</h2>
+
+        <!-- Quiz container — JS renders quiz steps here -->
+        <div id="quizContainer" class="quiz" aria-live="polite">
+          <!-- Quiz is rendered by js/main.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTTOM SECTION -->
+    <section class="section">
+      <div class="container container--narrow" style="text-align:center;">
+        <h2>Ваш персональный профиль рисков</h2>
+        <p>На основе ваших ответов мы формируем персональный профиль рисков и рекомендуемую отправную точку. Завершите оценку выше, чтобы сразу получить результаты.</p>
+        <a href="page-08.html" class="btn btn--primary" style="margin-top:1.5rem;">Поговорить с нашей командой &rsaquo;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <section class="footer-cta">
+    <div class="footer-cta__inner container">
+      <div class="footer-cta__content">
+        <h2>Свяжитесь с нами</h2>
+        <p>Обсудите вашу стратегию в ВКР напрямую с нашей командой.</p>
+        <a href="page-08.html" class="footer-cta__btn">Связаться с нами &rarr;</a>
+      </div>
+      <div class="footer-cta__image">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop&q=80"
+          alt="Команда GCR Consulting за работой" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-new">
+    <div class="footer-new__inner">
+      <div class="footer-new__grid">
+      </div>
+      <div class="footer-new__company-info">
+        <h4>Швейцарская компания по развитию проектов АО</h4>
+        <p class="footer-new__address">Виа Пико 12, 6900 Лугано, Швейцария</p>
+      </div>
+      <div class="footer-new__social">
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Twitter">X</a>
+      </div>
+      <div class="footer-new__copyright">
+        <span>&copy; 2026 Swiss Project Development Company SA. Все права защищены.</span>
+        <div>
+          <a href="privacy-policy.html">Политика конфиденциальности</a> &nbsp;
+          <a href="terms-of-use.html">Условия использования</a> &nbsp;
+          <a href="impressum.html">Импрессум</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Согласие на использование cookie" hidden>
+    <div class="container cookie-banner__inner">
+      <p>Мы используем файлы cookie для улучшения вашего опыта. Ознакомьтесь с нашей <a href="privacy-policy.html">Политикой конфиденциальности</a>.</p>
+      <div class="cookie-banner__actions">
+        <button class="btn btn--primary btn--sm" id="cookieAccept">Принять</button>
+        <button class="btn btn--secondary btn--sm" id="cookieDecline">Отклонить</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Smooth Scroll (Lenis) -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script src="../js/main.js" defer></script>
+</body>
+
+</html>

@@ -91,7 +91,8 @@
     drawer.setAttribute('aria-label', 'Navigation menu');
 
     var isZh = window.location.pathname.indexOf('/zh/') !== -1;
-    var logoSrc = isZh ? '../assets/logo.png' : 'assets/logo.png';
+    var isRu = window.location.pathname.indexOf('/ru/') !== -1;
+    var logoSrc = (isZh || isRu) ? '../assets/logo.png' : 'assets/logo.png';
 
     var menuEN = [
       '    <a href="index.html" class="mobile-drawer__link">Home</a>',
@@ -145,8 +146,54 @@
       '    <a href="page-06.html" class="mobile-drawer__link">准备度评估</a>'
     ];
 
-    var menuItems = isZh ? menuZH : menuEN;
-    var ctaText = isZh ? '联系我们' : 'Contact us';
+    var menuRU = [
+      '    <a href="index.html" class="mobile-drawer__link">Главная</a>',
+      '    <a href="page-02.html" class="mobile-drawer__link">О ВКР</a>',
+      '    <div class="mobile-drawer__group">',
+      '      <button class="mobile-drawer__group-btn" aria-expanded="false">',
+      '        Услуги',
+      '        <svg class="mobile-drawer__chevron" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      '      </button>',
+      '      <div class="mobile-drawer__sub" aria-hidden="true">',
+      '        <a href="service-01.html">Стратегия выхода на рынок</a>',
+      '        <a href="service-02.html">Команды развёртывания</a>',
+      '        <a href="service-03.html">Стратегические альянсы</a>',
+      '        <a href="service-04.html">Доступ к капиталу</a>',
+      '        <a href="service-05.html">Управление переговорами</a>',
+      '        <a href="service-06.html">Корпоративное структурирование</a>',
+      '        <a href="service-07.html">Промышленное присутствие</a>',
+      '        <a href="service-08.html">Доступ на рынок</a>',
+      '        <a href="service-09.html">Слияния и поглощения</a>',
+      '        <a href="service-10.html">Цифровые экосистемы</a>',
+      '        <a href="service-11.html">Корпоративное управление</a>',
+      '        <a href="service-12.html">Урегулирование споров</a>',
+      '      </div>',
+      '    </div>',
+      '    <a href="page-06.html" class="mobile-drawer__link">Оценка готовности</a>'
+    ];
+
+    var menuItems = isRu ? menuRU : (isZh ? menuZH : menuEN);
+    var ctaText = isRu ? 'Связаться с нами' : (isZh ? '联系我们' : 'Contact us');
+
+    /* Language switcher links for mobile drawer */
+    var path = window.location.pathname;
+    var filename = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
+    var enHref = (isZh || isRu) ? '../' + filename : '#';
+    var zhHref = isZh ? '#' : (isRu ? '../zh/' + filename : 'zh/' + filename);
+    var ruHref = isRu ? '#' : (isZh ? '../ru/' + filename : 'ru/' + filename);
+    var enActive = (!isZh && !isRu) ? ' active' : '';
+    var zhActive = isZh ? ' active' : '';
+    var ruActive = isRu ? ' active' : '';
+
+    var langToggleHTML = [
+      '  <div class="mobile-drawer__lang">',
+      '    <a href="' + enHref + '" class="lang-link' + enActive + '" data-lang="en">EN</a>',
+      '    <span>|</span>',
+      '    <a href="' + zhHref + '" class="lang-link' + zhActive + '" data-lang="zh">中文</a>',
+      '    <span>|</span>',
+      '    <a href="' + ruHref + '" class="lang-link' + ruActive + '" data-lang="ru">РУ</a>',
+      '  </div>'
+    ].join('\n');
 
     drawer.innerHTML = [
       '<div class="mobile-drawer__backdrop"></div>',
@@ -162,6 +209,7 @@
       '  <nav class="mobile-drawer__nav">'
     ].concat(menuItems).concat([
       '  </nav>',
+      langToggleHTML,
       '  <div class="mobile-drawer__footer">',
       '    <a href="page-08.html" class="mobile-drawer__cta">' + ctaText + '</a>',
       '  </div>',
@@ -693,10 +741,132 @@
     }
   ];
 
+  /* ── Russian Quiz Data ── */
+  var QUIZ_DATA_RU = [
+    { id: 1, question: 'Какой опыт работы на рынке ВКР или аналогичных рынках имеет ваша организация?', options: [
+      { text: 'У нас нет опыта работы на развивающихся рынках - это был бы наш первый выход такого рода.', score: 0 },
+      { text: 'Мы работали на других развивающихся рынках (Восточная Европа, БВСА, ЮВА), но в ВКР - нет.', score: 1 },
+      { text: 'Мы изучали ВКР - посещали регион, участвовали в мероприятиях или проводили предварительные переговоры - но операционной деятельности не вели.', score: 2 },
+      { text: 'Мы уже работаем в регионе, но результаты ниже ожидаемых.', score: 3 }
+    ]},
+    { id: 2, question: 'Какова основная цель вашей организации на рынке ВКР?', options: [
+      { text: 'Полноценный выход на рынок - мы хотим зарегистрированное присутствие, местную команду и прямые продажи.', score: 3 },
+      { text: 'Совместное предприятие или стратегическое партнёрство с сильным местным игроком.', score: 3 },
+      { text: 'Экспорт или дистрибуция - мы хотим продавать через местные каналы, не создавая юридического лица.', score: 2 },
+      { text: 'Исследование и проверка - нам нужны конкретные данные, прежде чем выбрать направление.', score: 1 }
+    ]},
+    { id: 3, question: 'Что предлагает ваша компания?', options: [
+      { text: 'Физические товары - производственная продукция, промышленное оборудование или потребительские товары.', score: 2 },
+      { text: 'Технологии или программное обеспечение - облачные сервисы, информационные платформы или цифровые решения.', score: 3 },
+      { text: 'Профессиональные услуги - консалтинг, инжиниринг, финансовые или юридические услуги.', score: 3 },
+      { text: 'Энергетика, инфраструктура или крупномасштабные проектные работы.', score: 2 }
+    ]},
+    { id: 4, question: 'Когда вы ожидаете получить ощутимые результаты от этого рынка?', options: [
+      { text: 'В течение 6 месяцев - для нас важно получить выручку как можно раньше.', score: 0 },
+      { text: 'От 12 до 18 месяцев - мы готовы инвестировать до выхода на окупаемость.', score: 3 },
+      { text: 'От 2 до 3 лет и более - мы выстраиваем долгосрочное присутствие.', score: 3 },
+      { text: 'Зависит от того, как пройдут первые переговоры и сделки.', score: 2 }
+    ]},
+    { id: 5, question: 'Какой бюджет вы выделили на выход на рынок в этом году?', subtitle: 'Консалтинг, юридические услуги, командировки и местные операции - без учёта стоимости товаров или услуг.', options: [
+      { text: 'От $20 000 до $50 000', score: 1 },
+      { text: 'От $50 000 до $150 000', score: 2 },
+      { text: 'Свыше $150 000', score: 3 },
+      { text: 'Бюджет пока не определён - планируем выделять средства по мере первых результатов.', score: 0 }
+    ]},
+    { id: 6, question: 'Кто внутри вашей организации руководит этой инициативой?', options: [
+      { text: 'Основатель или владелец - для него это личный стратегический приоритет.', score: 3 },
+      { text: 'Генеральный директор или член совета директоров - решение официально одобрено на высшем уровне.', score: 3 },
+      { text: 'Региональный или экспортный директор - он формирует внутреннее обоснование для утверждения бюджета.', score: 1 },
+      { text: 'Небольшая команда основателей - решения принимаются коллективно и оперативно.', score: 2 }
+    ]},
+    { id: 7, question: 'Есть ли у вас сотрудники, готовые работать в регионе?', options: [
+      { text: 'Да - у нас есть сотрудники, готовые регулярно выезжать или переехать.', score: 3 },
+      { text: 'Пока нет - нам нужно нанять людей на месте, но мы ещё не начали.', score: 2 },
+      { text: 'Нет - у нас нет свободных ресурсов, нам нужно полностью внешнее операционное решение.', score: 1 },
+      { text: 'Мы планируем управлять всем удалённо из головного офиса.', score: 0 }
+    ]},
+    { id: 8, question: 'Каков ваш текущий круг контактов в регионе?', options: [
+      { text: 'Мы начинаем с нуля - прямых контактов пока нет.', score: 0 },
+      { text: 'Есть некоторые связи через мероприятия или переписку, но ничего устойчивого.', score: 1 },
+      { text: 'У нас есть прямой доступ к лицам, принимающим решения, в профильных компаниях.', score: 3 },
+      { text: 'У нас есть рабочие отношения с государственными органами или регуляторами.', score: 3 }
+    ]},
+    { id: 9, question: 'Относятся ли ваши продукты или услуги к одной из следующих категорий?', options: [
+      { text: 'Нет - стандартные коммерческие товары или услуги без особых ограничений.', score: 3 },
+      { text: 'Высокотехнологичное оборудование, электроника или технологии с потенциалом двойного использования.', score: 2 },
+      { text: 'Финансовые продукты, криптоактивы или регулируемые цифровые платформы.', score: 1 },
+      { text: 'Фармацевтика, продукты питания или потребительские товары с высокими требованиями к сертификации.', score: 2 }
+    ]},
+    { id: 10, question: 'Что побуждает вас принять решение о выходе на рынок ВКР именно сейчас?', options: [
+      { text: 'Мы достигли своих целей на внутреннем рынке и готовы к следующему этапу роста.', score: 3 },
+      { text: 'Мы получаем входящие запросы из региона и хотим правильно на них отреагировать.', score: 2 },
+      { text: 'Мы хотим снизить зависимость от текущих рынков и сформировать новую базу доходов.', score: 2 },
+      { text: 'Мы видим окно возможностей и хотим действовать, пока оно не закрылось.', score: 1 }
+    ]}
+  ];
+
+  var QUIZ_TIERS_RU = [
+    {
+      minPct: 0, maxPct: 39,
+      label: 'Начальный этап',
+      headline: 'Ваша оценка: Начальный этап',
+      color: '#2C4070',
+      body: 'Ваша организация находится в начале пути к ВКР. В регионе есть реальные возможности, но порог входа высок. Компании, которые входят без проверенных предположений и чёткого понимания затрат, как правило, теряют время и деньги на вещах, которые можно было решить ещё до первой поездки.',
+      recommendedStep: 'Стратегическая консультация по выходу на рынок - одна целевая встреча, чтобы ответить на главные вопросы до того, как будут вложены какие-либо средства: есть ли реальный спрос? Что в действительности требует выход на этот рынок? С чего начать?',
+      ctaPrimary: 'Запросить стратегическую консультацию',
+      ctaSecondary: 'Получить полный отчёт на email'
+    },
+    {
+      minPct: 40, maxPct: 69,
+      label: 'В процессе подготовки',
+      headline: 'Ваша оценка: В развитии',
+      color: '#2C4070',
+      body: 'У вас есть чёткое намерение и правильный подход. Однако есть пробелы - в данных, в контактах или во внутренней согласованности - которые, если не устранить их сейчас, обернутся потерей времени после вложения средств. Самая распространённая ошибка на вашем этапе - пропустить проверку гипотез и сразу перейти к операционной деятельности.',
+      recommendedStep: 'Консультация по выходу на рынок, которая даст вам отправную точку, основанную на данных: реалистичные сценарии входа и поэтапный план действий, с которым вы сможете уверенно выйти к руководству.',
+      ctaPrimary: 'Запросить консультацию по выходу на рынок',
+      ctaSecondary: 'Получить полный отчёт на email'
+    },
+    {
+      minPct: 70, maxPct: 100,
+      label: 'Готов к выходу на рынок',
+      headline: 'Ваша оценка: Высокая',
+      color: '#2E7D32',
+      body: 'Ваша организация располагает необходимой базой для серьёзного выхода на рынок: чёткая цель, реалистичные сроки и готовность к финансовым вложениям, которых требует регион. Сейчас вам нужна точная реализация: подходящая местная инфраструктура, проверенные партнёры и операционная поддержка, соответствующая темпу и логике принятия решений в регионе.',
+      recommendedStep: 'Целевой звонок на 45 минут с одним из наших региональных директоров. Мы сопоставим ваши конкретные пробелы с тем, что у нас есть на месте, и честно скажем, где мы можем помочь, а где вы справитесь без нас.',
+      ctaPrimary: 'Записаться на стратегический звонок',
+      ctaSecondary: 'Получить полный отчёт на email'
+    }
+  ];
+
   var _quizIsZh = window.location.pathname.indexOf('/zh/') !== -1;
-  var _quizData = _quizIsZh ? QUIZ_DATA_ZH : QUIZ_DATA;
-  var _quizTiers = _quizIsZh ? QUIZ_TIERS_ZH : QUIZ_TIERS;
-  var _quizUI = _quizIsZh ? {
+  var _quizIsRu = window.location.pathname.indexOf('/ru/') !== -1;
+  var _quizData = _quizIsRu ? QUIZ_DATA_RU : (_quizIsZh ? QUIZ_DATA_ZH : QUIZ_DATA);
+  var _quizTiers = _quizIsRu ? QUIZ_TIERS_RU : (_quizIsZh ? QUIZ_TIERS_ZH : QUIZ_TIERS);
+  var _quizUI = _quizIsRu ? {
+    stepIndicator: function (n, t) { return 'Вопрос ' + n + ' из ' + t; },
+    prev: 'Назад',
+    next: 'Далее \u203a',
+    alertSelect: 'Пожалуйста, выберите ответ перед тем как продолжить.',
+    almostThere: 'Почти готово',
+    tellUs: 'Расскажите о себе',
+    tellUsSubtitle: 'Мы используем эти данные для персонализации ваших результатов и отправки подробного отчёта.',
+    firstName: 'Имя',
+    lastName: 'Фамилия',
+    jobTitle: 'Должность',
+    companyName: 'Название компании',
+    workEmail: 'Рабочая электронная почта',
+    country: 'Страна',
+    required: '*',
+    prevBtn: 'Назад',
+    seeResults: 'Посмотреть результаты',
+    recommendedStep: 'Рекомендуемый следующий шаг:',
+    retake: 'Пройти оценку повторно',
+    ctaHref: 'page-08.html',
+    triggerNoCapacity: 'Ваш профиль показывает отсутствие свободных внутренних ресурсов и местных контактов. Специализированная команда развёртывания ВКР сэкономит вам 6–9 месяцев на подготовку и позволит начать операционную деятельность с первого дня.',
+    triggerCompliance: 'Ваша категория продуктов или услуг требует проверки на соответствие нормативным требованиям перед выходом на рынок. Мы рекомендуем начать с прямого разговора, а не со стандартного отчёта.',
+    triggerComplianceCTA: 'Записаться на звонок по вопросам комплаенса',
+    triggerBusinessCase: 'Если вам нужно подготовить внутреннее обоснование для утверждения бюджета, наш письменный отчёт структурирован именно для этой цели.'
+  } : (_quizIsZh ? {
     stepIndicator: function (n, t) { return '第 ' + n + ' 题，共 ' + t + ' 题'; },
     prev: '上一题',
     next: '下一步 \u203a',
@@ -744,7 +914,7 @@
     triggerCompliance: 'Your product or service category requires a compliance review before entry. We recommend starting with a direct conversation rather than a standard report.',
     triggerComplianceCTA: 'Schedule a Compliance Review Call',
     triggerBusinessCase: 'If you need to build an internal business case for budget approval, our written report is structured to serve exactly that purpose.'
-  };
+  });
 
   function initQuiz() {
     var quizContainer = document.getElementById('quizContainer');
@@ -1378,7 +1548,10 @@
       if (fill) fill.style.width = progress + '%';
     }, 150);
 
+    var finished = false;
     function finishPreloader() {
+      if (finished) return;
+      finished = true;
       clearInterval(interval);
       if (fill) fill.style.width = '100%';
       setTimeout(function () {
@@ -1390,17 +1563,15 @@
       }, 400);
     }
 
-    /* Wait for fonts + window load */
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(function () {
-        window.addEventListener('load', finishPreloader);
-        /* Fallback if load already fired */
-        if (document.readyState === 'complete') finishPreloader();
-      });
+    /* Dismiss on window load, or immediately if already loaded */
+    if (document.readyState === 'complete') {
+      finishPreloader();
     } else {
       window.addEventListener('load', finishPreloader);
-      if (document.readyState === 'complete') finishPreloader();
     }
+
+    /* Hard timeout — ensures preloader never blocks the page */
+    setTimeout(finishPreloader, 6000);
   }
 
 
@@ -2261,8 +2432,22 @@
     if (!/^service-\d+\.html$/.test(page)) return;
 
     var _sidebarIsZh = window.location.pathname.indexOf('/zh/') !== -1;
+    var _sidebarIsRu = window.location.pathname.indexOf('/ru/') !== -1;
 
-    var services = _sidebarIsZh ? [
+    var services = _sidebarIsRu ? [
+      { href: 'service-01.html', label: 'Стратегия выхода на рынок' },
+      { href: 'service-02.html', label: 'Команды развёртывания' },
+      { href: 'service-03.html', label: 'Стратегические альянсы' },
+      { href: 'service-04.html', label: 'Управление переговорами' },
+      { href: 'service-05.html', label: 'Фискальная архитектура' },
+      { href: 'service-06.html', label: 'Промышленные активы' },
+      { href: 'service-07.html', label: 'Доступ на рынок' },
+      { href: 'service-08.html', label: 'Слияния и поглощения' },
+      { href: 'service-09.html', label: 'Цифровые экосистемы' },
+      { href: 'service-10.html', label: 'Корпоративное управление' },
+      { href: 'service-11.html', label: 'Риски и защита активов' },
+      { href: 'service-12.html', label: 'Урегулирование споров' }
+    ] : _sidebarIsZh ? [
       { href: 'service-01.html', label: '市场进入与市场推广' },
       { href: 'service-02.html', label: '驻地运营团队' },
       { href: 'service-03.html', label: '战略联盟' },
@@ -2290,13 +2475,13 @@
       { href: 'service-12.html', label: 'Legal Defense & Crisis' }
     ];
 
-    var _sidebarTitle = _sidebarIsZh ? '服务' : 'Services';
+    var _sidebarTitle = _sidebarIsRu ? 'Услуги' : (_sidebarIsZh ? '服务' : 'Services');
 
     document.body.classList.add('has-service-sidebar');
 
     var sidebar = document.createElement('nav');
     sidebar.className = 'service-sidebar';
-    sidebar.setAttribute('aria-label', _sidebarIsZh ? '服务导航' : 'Service navigation');
+    sidebar.setAttribute('aria-label', _sidebarIsRu ? 'Навигация по услугам' : (_sidebarIsZh ? '服务导航' : 'Service navigation'));
 
     var tab = document.createElement('span');
     tab.className = 'service-sidebar__tab';
@@ -2356,7 +2541,7 @@
   /* ======================================================================
      LANGUAGE SWITCHER
      Sets correct href on lang-link elements based on current page location.
-     EN pages live at root, ZH pages live under /zh/.
+     EN pages live at root, ZH pages live under /zh/, RU pages under /ru/.
      ====================================================================== */
   function initLangSwitcher() {
     var links = document.querySelectorAll('.lang-link');
@@ -2365,6 +2550,7 @@
     var path = window.location.pathname;
     var filename = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
     var inZh = path.indexOf('/zh/') !== -1;
+    var inRu = path.indexOf('/ru/') !== -1;
 
     links.forEach(function (link) {
       var lang = link.getAttribute('data-lang');
@@ -2374,15 +2560,23 @@
           link.href = '#';
         } else {
           link.classList.remove('active');
-          link.href = 'zh/' + filename;
+          link.href = (inRu ? '../zh/' : 'zh/') + filename;
         }
       } else if (lang === 'en') {
-        if (inZh) {
-          link.classList.remove('active');
-          link.href = '../' + filename;
-        } else {
+        if (!inZh && !inRu) {
           link.classList.add('active');
           link.href = '#';
+        } else {
+          link.classList.remove('active');
+          link.href = '../' + filename;
+        }
+      } else if (lang === 'ru') {
+        if (inRu) {
+          link.classList.add('active');
+          link.href = '#';
+        } else {
+          link.classList.remove('active');
+          link.href = (inZh ? '../ru/' : 'ru/') + filename;
         }
       }
     });
