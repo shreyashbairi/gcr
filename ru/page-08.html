@@ -104,36 +104,39 @@
           <h3 style="margin-bottom:0.5rem;">Стратегия и Партнёрство</h3>
           <p style="margin-bottom:1.5rem;">Обсудите стратегию выхода на рынок или расширения бизнеса напрямую с нашими партнёрами. Мы отдаём приоритет диалогу с системными компаниями, готовыми к масштабному росту.</p>
 
-          <form id="contactForm" class="contact-form" novalidate>
+          <form id="contactForm" class="contact-form" name="client-contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" data-form-type="client" novalidate>
+            <input type="hidden" name="form-name" value="client-contact">
+            <input type="hidden" name="language" value="ru">
+            <p class="hp-field" hidden><label>Не заполняйте это поле: <input name="bot-field"></label></p>
 
             <div class="form-group">
               <label for="contactName" class="form-label">Полное имя *</label>
-              <input type="text" id="contactName" class="form-input" required aria-describedby="contactNameError">
+              <input type="text" id="contactName" name="full_name" class="form-input" required aria-describedby="contactNameError">
               <p class="form-error" id="contactNameError"></p>
             </div>
 
             <div class="form-group">
               <label for="contactTitle" class="form-label">Должность</label>
-              <input type="text" id="contactTitle" class="form-input"
+              <input type="text" id="contactTitle" name="job_title" class="form-input"
                 placeholder="например, Генеральный директор, Руководитель отдела экспансии, Управляющий директор">
             </div>
 
             <div class="form-group">
               <label for="contactEmail" class="form-label">Рабочая электронная почта *</label>
-              <input type="email" id="contactEmail" class="form-input" required aria-describedby="contactEmailError">
+              <input type="email" id="contactEmail" name="email" class="form-input" required aria-describedby="contactEmailError">
               <p class="form-error" id="contactEmailError">Пожалуйста, используйте действительный корпоративный адрес электронной почты. Для первоначальных запросов мы не принимаем общие домены (gmail, yahoo).</p>
             </div>
 
             <div class="form-group">
               <label for="contactPhone" class="form-label">Номер телефона <span
                   class="text-sm text-light">(необязательно)</span></label>
-              <input type="tel" id="contactPhone" class="form-input">
+              <input type="tel" id="contactPhone" name="phone" class="form-input">
               <p class="text-sm text-light" style="margin-top:0.25rem;">Используется только для срочного согласования времени в связи с вашим запросом.</p>
             </div>
 
             <div class="form-group" style="margin-top:1.5rem;">
               <label for="contactInquiry" class="form-label">Характер запроса *</label>
-              <select id="contactInquiry" class="form-input contact-form__select" required>
+              <select id="contactInquiry" name="inquiry_type" class="form-input contact-form__select" required>
                 <option value="">Выберите тип запроса...</option>
                 <option value="market-entry">Стратегический выход на рынок и валидация</option>
                 <option value="gov-relations">Государственные отношения и доступ на высшем уровне</option>
@@ -144,7 +147,7 @@
 
             <div class="form-group">
               <label for="contactOrg" class="form-label">Профиль организации *</label>
-              <select id="contactOrg" class="form-input contact-form__select" required>
+              <select id="contactOrg" name="org_type" class="form-input contact-form__select" required>
                 <option value="">Выберите тип организации...</option>
                 <option value="mnc">Транснациональная корпорация / Крупное предприятие</option>
                 <option value="fund">Инвестиционный фонд / Частный капитал / Семейный офис</option>
@@ -155,21 +158,14 @@
 
             <div class="form-group" style="margin-top:1.5rem;">
               <label for="contactMessage" class="form-label">Контекст и цели *</label>
-              <textarea id="contactMessage" class="form-textarea" required aria-describedby="contactMessageError"
+              <textarea id="contactMessage" name="message" class="form-textarea" required aria-describedby="contactMessageError"
                 placeholder="Кратко опишите ваши стратегические цели или конкретный вызов, с которым вы столкнулись в Великом Каспийском Регионе."></textarea>
               <p class="form-error" id="contactMessageError"></p>
             </div>
 
-            <!-- reCAPTCHA placeholder -->
-            <div class="form-group">
-              <div class="placeholder-img"
-                style="width:304px;height:78px;background:#f9f9f9;border:1px solid #d3d3d3;border-radius:3px;font-size:0.75rem;display:flex;align-items:center;justify-content:center;color:#555;">
-                reCAPTCHA placeholder</div>
-            </div>
-
             <!-- Compliance Checkbox -->
             <div class="contact-form__checkbox-group">
-              <input type="checkbox" id="contactConsent" required>
+              <input type="checkbox" id="contactConsent" name="consent" value="yes" required>
               <label for="contactConsent">Я ознакомился(-лась) с <a href="privacy-policy.html">Политикой конфиденциальности</a> и подтверждаю, что мой запрос соответствует стандартам этической compliance GCR Consulting. Я понимаю, что компания строго работает в правовых рамках и не участвует в серых схемах.</label>
             </div>
 
@@ -190,84 +186,88 @@
 
         <!-- MEDIA TAB -->
         <div class="tabs__panel" data-tab-id="tab-media" role="tabpanel" aria-hidden="true">
-          <form class="contact-form" novalidate>
+          <form id="contactFormMedia" class="contact-form" name="media-contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" data-form-type="media" novalidate>
+            <input type="hidden" name="form-name" value="media-contact">
+            <input type="hidden" name="language" value="ru">
+            <p class="hp-field" hidden><label>Не заполняйте это поле: <input name="bot-field"></label></p>
             <div class="form-group">
               <label for="mediaName" class="form-label">Полное имя *</label>
-              <input type="text" id="mediaName" class="form-input" required>
+              <input type="text" id="mediaName" name="full_name" class="form-input" required>
             </div>
             <div class="form-group">
               <label for="mediaEmail" class="form-label">Рабочая электронная почта *</label>
-              <input type="email" id="mediaEmail" class="form-input" required>
+              <input type="email" id="mediaEmail" name="email" class="form-input" required>
             </div>
             <div class="form-group">
               <label for="mediaOutlet" class="form-label">СМИ / Издание</label>
-              <input type="text" id="mediaOutlet" class="form-input">
+              <input type="text" id="mediaOutlet" name="outlet" class="form-input">
             </div>
             <div class="form-group">
               <label for="mediaTitle" class="form-label">Должность / Роль</label>
-              <input type="text" id="mediaTitle" class="form-input">
+              <input type="text" id="mediaTitle" name="job_title" class="form-input">
             </div>
             <div class="form-group">
               <label for="mediaSubject" class="form-label">Тема *</label>
-              <input type="text" id="mediaSubject" class="form-input" required
+              <input type="text" id="mediaSubject" name="subject" class="form-input" required
                 placeholder="Запрос на интервью, экспертный комментарий, запрос от прессы...">
             </div>
             <div class="form-group">
               <label for="mediaMessage" class="form-label">Сообщение *</label>
-              <textarea id="mediaMessage" class="form-textarea" required
+              <textarea id="mediaMessage" name="message" class="form-textarea" required
                 placeholder="Пожалуйста, опишите ваш запрос от СМИ, включая любые сроки."></textarea>
-            </div>
-            <div class="form-group">
-              <div class="placeholder-img"
-                style="width:304px;height:78px;background:#f9f9f9;border:1px solid #d3d3d3;border-radius:3px;font-size:0.75rem;display:flex;align-items:center;justify-content:center;color:#555;">
-                reCAPTCHA placeholder</div>
             </div>
             <div class="form-group">
               <p class="text-sm text-light">GCR Consulting обязуется защищать ваши данные. Ваша информация будет использоваться в соответствии с нашей <a href="privacy-policy.html">политикой конфиденциальности</a>.</p>
             </div>
             <button type="submit" class="btn btn--primary">Отправить</button>
           </form>
+          <div class="form-success" id="formSuccessMedia" aria-live="polite">
+            <h3>Благодарим вас</h3>
+            <p class="mt-md">Ваш запрос получен. Мы ответим в течение 1–2 рабочих дней.</p>
+          </div>
         </div>
 
         <!-- PARTNERSHIP TAB -->
         <div class="tabs__panel" data-tab-id="tab-other" role="tabpanel" aria-hidden="true">
-          <form class="contact-form" novalidate>
+          <form id="contactFormPartner" class="contact-form" name="partnership-contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" data-form-type="partnership" novalidate>
+            <input type="hidden" name="form-name" value="partnership-contact">
+            <input type="hidden" name="language" value="ru">
+            <p class="hp-field" hidden><label>Не заполняйте это поле: <input name="bot-field"></label></p>
             <div class="form-group">
               <label for="otherName" class="form-label">Полное имя *</label>
-              <input type="text" id="otherName" class="form-input" required>
+              <input type="text" id="otherName" name="full_name" class="form-input" required>
             </div>
             <div class="form-group">
               <label for="otherEmail" class="form-label">Рабочая электронная почта *</label>
-              <input type="email" id="otherEmail" class="form-input" required>
+              <input type="email" id="otherEmail" name="email" class="form-input" required>
             </div>
             <div class="form-group">
               <label for="otherCompany" class="form-label">Организация</label>
-              <input type="text" id="otherCompany" class="form-input">
+              <input type="text" id="otherCompany" name="organization" class="form-input">
             </div>
             <div class="form-group">
               <label for="otherTitle" class="form-label">Должность / Роль</label>
-              <input type="text" id="otherTitle" class="form-input">
+              <input type="text" id="otherTitle" name="job_title" class="form-input">
             </div>
             <div class="form-group">
               <label for="otherSubject" class="form-label">Тема *</label>
-              <input type="text" id="otherSubject" class="form-input" required
+              <input type="text" id="otherSubject" name="subject" class="form-input" required
                 placeholder="Партнёрское предложение, представительство агента, совместное предприятие...">
             </div>
             <div class="form-group">
               <label for="otherMessage" class="form-label">Детали предложения *</label>
-              <textarea id="otherMessage" class="form-textarea" required
+              <textarea id="otherMessage" name="message" class="form-textarea" required
                 placeholder="Пожалуйста, изложите ваше партнёрское предложение, включая масштаб, географический фокус и ожидаемую взаимную ценность."></textarea>
-            </div>
-            <div class="form-group">
-              <div class="placeholder-img"
-                style="width:304px;height:78px;background:#f9f9f9;border:1px solid #d3d3d3;border-radius:3px;font-size:0.75rem;display:flex;align-items:center;justify-content:center;color:#555;">
-                reCAPTCHA placeholder</div>
             </div>
             <div class="form-group">
               <p class="text-sm text-light">GCR Consulting обязуется защищать ваши данные. Ваша информация будет использоваться в соответствии с нашей <a href="privacy-policy.html">политикой конфиденциальности</a>.</p>
             </div>
             <button type="submit" class="btn btn--primary">Отправить предложение</button>
           </form>
+          <div class="form-success" id="formSuccessPartner" aria-live="polite">
+            <h3>Благодарим вас</h3>
+            <p class="mt-md">Ваше предложение получено. Наш партнёр рассмотрит его и ответит в течение 1–2 рабочих дней.</p>
+          </div>
           <p class="text-sm text-light" style="margin-top:1.5rem;">По вопросам партнёрства или агентского представительства вы также можете направить своё предложение по адресу: <a
               href="mailto:partners@gcrconsulting.com">partners@gcrconsulting.com</a></p>
         </div>
@@ -329,6 +329,12 @@
   <!-- GSAP + ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    (function(){ if (window.emailjs) emailjs.init({ publicKey: '9-FpPuoy3VV2bxbH0' }); })();
+  </script>
 
   <script src="../js/main.js" defer></script>
 </body>

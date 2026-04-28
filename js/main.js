@@ -933,8 +933,7 @@
     var total = _quizData.length;
     var step = state.currentStep;
     var q = _quizData[step];
-    /* Progress includes contact form as step 11 */
-    var totalSteps = total + 1;
+    var totalSteps = total;
     var progress = ((step) / totalSteps) * 100;
 
     var html = '';
@@ -1014,7 +1013,7 @@
           alert(_quizUI.alertSelect);
           return;
         }
-        renderContactForm(container, state);
+        renderQuizResult(container, state);
       });
     }
   }
@@ -1141,7 +1140,6 @@
     html += '<p class="quiz__recommended-step"><strong>' + _quizUI.recommendedStep + '</strong> ' + tier.recommendedStep + '</p>';
     html += '<div class="quiz__result-ctas">';
     html += '<a href="' + _quizUI.ctaHref + '" class="btn btn--primary btn--lg">' + primaryCTAText + '</a>';
-    html += '<a href="' + _quizUI.ctaHref + '" class="btn btn--secondary btn--lg">' + tier.ctaSecondary + '</a>';
     html += '</div>';
     html += '<button class="btn btn--outline mt-lg" data-quiz-restart>' + _quizUI.retake + '</button>';
     html += '</div>';
@@ -1170,29 +1168,76 @@
      Client-side only. Shows success message on valid submit.
      ====================================================================== */
 
-  /* Generic email domains that trigger a warning */
+  /* Generic email domains that trigger a warning (client form only) */
   var GENERIC_DOMAINS = [
     'gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com',
     'aol.com', 'icloud.com', 'mail.com', 'protonmail.com',
     'yandex.com', 'mail.ru'
   ];
 
-  function initContactForm() {
-    var form = document.getElementById('contactForm');
-    if (!form) return;
+  /* EmailJS configuration. Update EMAILJS_TEMPLATE_ID after creating the template in EmailJS. */
+  var EMAILJS_SERVICE_ID = 'service_sf4jl9t';
+  var EMAILJS_TEMPLATE_ID = 'template_lgz94kl';
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var isValid = validateContactForm(form);
-      if (isValid) {
-        /* Hide form, show success */
-        form.style.display = 'none';
-        var success = document.getElementById('formSuccess');
-        if (success) {
-          success.classList.add('is-visible');
+  function initContactForm() {
+    ['contactForm', 'contactFormMedia', 'contactFormPartner'].forEach(function (formId) {
+      var form = document.getElementById(formId);
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!validateContactForm(form)) return;
+
+        var submitBtn = form.querySelector('button[type="submit"]');
+        var originalLabel = submitBtn ? submitBtn.textContent : '';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = '…';
         }
-      }
+
+        var data = collectContactFormData(form);
+
+        var emailJsPromise = window.emailjs
+          ? window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, data)
+          : Promise.resolve();
+
+        var netlifyPromise = fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: encodeContactFormData(data)
+        });
+
+        Promise.allSettled([emailJsPromise, netlifyPromise]).then(function () {
+          showContactFormSuccess(form);
+        });
+      });
     });
+  }
+
+  function collectContactFormData(form) {
+    var fd = new FormData(form);
+    var obj = {};
+    fd.forEach(function (val, key) { obj[key] = val; });
+    obj.form_type = form.getAttribute('data-form-type') || 'client';
+    obj.form_name = obj['form-name'] || form.getAttribute('name') || '';
+    obj.submitted_at = new Date().toISOString();
+    obj.page_url = window.location.href;
+    return obj;
+  }
+
+  function encodeContactFormData(data) {
+    return Object.keys(data).map(function (k) {
+      return encodeURIComponent(k) + '=' + encodeURIComponent(data[k] == null ? '' : data[k]);
+    }).join('&');
+  }
+
+  function showContactFormSuccess(form) {
+    var successId = form.id === 'contactFormMedia' ? 'formSuccessMedia'
+                  : form.id === 'contactFormPartner' ? 'formSuccessPartner'
+                  : 'formSuccess';
+    form.style.display = 'none';
+    var success = document.getElementById(successId);
+    if (success) success.classList.add('is-visible');
   }
 
   function validateContactForm(form) {
@@ -1227,8 +1272,8 @@
       if (!emailPattern.test(emailField.value)) {
         showFieldError(emailField, 'Please enter a valid email address.');
         isValid = false;
-      } else {
-        /* Check for generic domain */
+      } else if (form.id === 'contactForm') {
+        /* Strict corporate-email check only on the client inquiry form */
         var domain = emailField.value.split('@')[1].toLowerCase();
         if (GENERIC_DOMAINS.indexOf(domain) !== -1) {
           showFieldError(emailField, 'Please use a corporate email address. Generic domains (Gmail, Yahoo) are not accepted for initial inquiries.');
