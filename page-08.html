@@ -102,23 +102,26 @@
 
         <!-- CLIENT TAB -->
         <div class="tabs__panel is-active" data-tab-id="tab-client" role="tabpanel" aria-hidden="false">
-          <form id="contactForm" class="contact-form" novalidate>
+          <form id="contactForm" class="contact-form" name="client-contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" data-form-type="client" novalidate>
+            <input type="hidden" name="form-name" value="client-contact">
+            <input type="hidden" name="language" value="en">
+            <p class="hp-field" hidden><label>Don't fill this out: <input name="bot-field"></label></p>
 
             <div class="form-group">
               <label for="contactName" class="form-label">Full Name *</label>
-              <input type="text" id="contactName" class="form-input" required aria-describedby="contactNameError">
+              <input type="text" id="contactName" name="full_name" class="form-input" required aria-describedby="contactNameError">
               <p class="form-error" id="contactNameError"></p>
             </div>
 
             <div class="form-group">
               <label for="contactTitle" class="form-label">Job Title</label>
-              <input type="text" id="contactTitle" class="form-input"
+              <input type="text" id="contactTitle" name="job_title" class="form-input"
                 placeholder="e.g., CEO, Head of Expansion, Managing Director">
             </div>
 
             <div class="form-group">
               <label for="contactEmail" class="form-label">Work Email *</label>
-              <input type="email" id="contactEmail" class="form-input" required aria-describedby="contactEmailError">
+              <input type="email" id="contactEmail" name="email" class="form-input" required aria-describedby="contactEmailError">
               <p class="form-error" id="contactEmailError">Please use a valid corporate email address. We do not accept
                 generic domains (gmail, yahoo) for initial inquiries.</p>
             </div>
@@ -126,14 +129,14 @@
             <div class="form-group">
               <label for="contactPhone" class="form-label">Phone Number <span
                   class="text-sm text-light">(Optional)</span></label>
-              <input type="tel" id="contactPhone" class="form-input">
+              <input type="tel" id="contactPhone" name="phone" class="form-input">
               <p class="text-sm text-light" style="margin-top:0.25rem;">Used only for urgent scheduling regarding your
                 inquiry.</p>
             </div>
 
             <div class="form-group" style="margin-top:1.5rem;">
               <label for="contactInquiry" class="form-label">Nature of Inquiry *</label>
-              <select id="contactInquiry" class="form-input contact-form__select" required>
+              <select id="contactInquiry" name="inquiry_type" class="form-input contact-form__select" required>
                 <option value="">Select inquiry type...</option>
                 <option value="market-entry">Strategic Market Entry &amp; Validation</option>
                 <option value="gov-relations">Government Relations (GR) &amp; High-Level Access</option>
@@ -144,7 +147,7 @@
 
             <div class="form-group">
               <label for="contactOrg" class="form-label">Organization Profile *</label>
-              <select id="contactOrg" class="form-input contact-form__select" required>
+              <select id="contactOrg" name="org_type" class="form-input contact-form__select" required>
                 <option value="">Select organization type...</option>
                 <option value="mnc">Multinational Corporation / Enterprise</option>
                 <option value="fund">Investment Fund / Private Equity / Family Office</option>
@@ -155,21 +158,14 @@
 
             <div class="form-group" style="margin-top:1.5rem;">
               <label for="contactMessage" class="form-label">Context &amp; Objectives *</label>
-              <textarea id="contactMessage" class="form-textarea" required aria-describedby="contactMessageError"
+              <textarea id="contactMessage" name="message" class="form-textarea" required aria-describedby="contactMessageError"
                 placeholder="Briefly describe your strategic goals or the specific challenge you are facing in the Greater Caspian Region."></textarea>
               <p class="form-error" id="contactMessageError"></p>
             </div>
 
-            <!-- reCAPTCHA placeholder -->
-            <div class="form-group">
-              <div class="placeholder-img"
-                style="width:304px;height:78px;background:#f9f9f9;border:1px solid #d3d3d3;border-radius:3px;font-size:0.75rem;display:flex;align-items:center;justify-content:center;color:#555;">
-                reCAPTCHA placeholder</div>
-            </div>
-
             <!-- Compliance Checkbox -->
             <div class="contact-form__checkbox-group">
-              <input type="checkbox" id="contactConsent" required>
+              <input type="checkbox" id="contactConsent" name="consent" value="yes" required>
               <label for="contactConsent">I acknowledge the <a href="privacy-policy.html">Privacy Policy</a> and confirm
                 that
                 my inquiry aligns with GCR Consulting's ethical compliance standards. I understand that the firm
@@ -200,37 +196,35 @@
 
         <!-- MEDIA TAB -->
         <div class="tabs__panel" data-tab-id="tab-media" role="tabpanel" aria-hidden="true">
-          <form class="contact-form" novalidate>
+          <form id="contactFormMedia" class="contact-form" name="media-contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" data-form-type="media" novalidate>
+            <input type="hidden" name="form-name" value="media-contact">
+            <input type="hidden" name="language" value="en">
+            <p class="hp-field" hidden><label>Don't fill this out: <input name="bot-field"></label></p>
             <div class="form-group">
               <label for="mediaName" class="form-label">Full Name *</label>
-              <input type="text" id="mediaName" class="form-input" required>
+              <input type="text" id="mediaName" name="full_name" class="form-input" required>
             </div>
             <div class="form-group">
               <label for="mediaEmail" class="form-label">Work Email *</label>
-              <input type="email" id="mediaEmail" class="form-input" required>
+              <input type="email" id="mediaEmail" name="email" class="form-input" required>
             </div>
             <div class="form-group">
               <label for="mediaOutlet" class="form-label">Media Outlet / Publication</label>
-              <input type="text" id="mediaOutlet" class="form-input">
+              <input type="text" id="mediaOutlet" name="outlet" class="form-input">
             </div>
             <div class="form-group">
               <label for="mediaTitle" class="form-label">Title / Role</label>
-              <input type="text" id="mediaTitle" class="form-input">
+              <input type="text" id="mediaTitle" name="job_title" class="form-input">
             </div>
             <div class="form-group">
               <label for="mediaSubject" class="form-label">Subject *</label>
-              <input type="text" id="mediaSubject" class="form-input" required
+              <input type="text" id="mediaSubject" name="subject" class="form-input" required
                 placeholder="Interview request, expert commentary, press inquiry...">
             </div>
             <div class="form-group">
               <label for="mediaMessage" class="form-label">Message *</label>
-              <textarea id="mediaMessage" class="form-textarea" required
+              <textarea id="mediaMessage" name="message" class="form-textarea" required
                 placeholder="Please describe your media inquiry, including any deadlines."></textarea>
-            </div>
-            <div class="form-group">
-              <div class="placeholder-img"
-                style="width:304px;height:78px;background:#f9f9f9;border:1px solid #d3d3d3;border-radius:3px;font-size:0.75rem;display:flex;align-items:center;justify-content:center;color:#555;">
-                reCAPTCHA placeholder</div>
             </div>
             <div class="form-group">
               <p class="text-sm text-light">GCR Consulting is committed to protecting your information. Your data will
@@ -238,41 +232,43 @@
             </div>
             <button type="submit" class="btn btn--primary">Submit</button>
           </form>
+          <div class="form-success" id="formSuccessMedia" aria-live="polite">
+            <h3>Thank You</h3>
+            <p class="mt-md">Your media inquiry has been received. We will respond within 48 business hours.</p>
+          </div>
         </div>
 
         <!-- PARTNERSHIP TAB -->
         <div class="tabs__panel" data-tab-id="tab-other" role="tabpanel" aria-hidden="true">
-          <form class="contact-form" novalidate>
+          <form id="contactFormPartner" class="contact-form" name="partnership-contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" data-form-type="partnership" novalidate>
+            <input type="hidden" name="form-name" value="partnership-contact">
+            <input type="hidden" name="language" value="en">
+            <p class="hp-field" hidden><label>Don't fill this out: <input name="bot-field"></label></p>
             <div class="form-group">
               <label for="otherName" class="form-label">Full Name *</label>
-              <input type="text" id="otherName" class="form-input" required>
+              <input type="text" id="otherName" name="full_name" class="form-input" required>
             </div>
             <div class="form-group">
               <label for="otherEmail" class="form-label">Work Email *</label>
-              <input type="email" id="otherEmail" class="form-input" required>
+              <input type="email" id="otherEmail" name="email" class="form-input" required>
             </div>
             <div class="form-group">
               <label for="otherCompany" class="form-label">Organization</label>
-              <input type="text" id="otherCompany" class="form-input">
+              <input type="text" id="otherCompany" name="organization" class="form-input">
             </div>
             <div class="form-group">
               <label for="otherTitle" class="form-label">Title / Role</label>
-              <input type="text" id="otherTitle" class="form-input">
+              <input type="text" id="otherTitle" name="job_title" class="form-input">
             </div>
             <div class="form-group">
               <label for="otherSubject" class="form-label">Subject *</label>
-              <input type="text" id="otherSubject" class="form-input" required
+              <input type="text" id="otherSubject" name="subject" class="form-input" required
                 placeholder="Partnership proposal, agent representation, joint venture...">
             </div>
             <div class="form-group">
               <label for="otherMessage" class="form-label">Proposal Details *</label>
-              <textarea id="otherMessage" class="form-textarea" required
+              <textarea id="otherMessage" name="message" class="form-textarea" required
                 placeholder="Please outline your partnership proposal, including scope, geographic focus, and expected mutual value."></textarea>
-            </div>
-            <div class="form-group">
-              <div class="placeholder-img"
-                style="width:304px;height:78px;background:#f9f9f9;border:1px solid #d3d3d3;border-radius:3px;font-size:0.75rem;display:flex;align-items:center;justify-content:center;color:#555;">
-                reCAPTCHA placeholder</div>
             </div>
             <div class="form-group">
               <p class="text-sm text-light">GCR Consulting is committed to protecting your information. Your data will
@@ -280,6 +276,10 @@
             </div>
             <button type="submit" class="btn btn--primary">Submit Proposal</button>
           </form>
+          <div class="form-success" id="formSuccessPartner" aria-live="polite">
+            <h3>Thank You</h3>
+            <p class="mt-md">Your proposal has been received. A managing partner will review and respond within 48 business hours.</p>
+          </div>
           <p class="text-sm text-light" style="margin-top:1.5rem;">For partnership inquiries or agent representation,
             you may also direct your proposal to: <a
               href="mailto:partners@gcrconsulting.com">partners@gcrconsulting.com</a></p>
@@ -361,6 +361,12 @@
   <!-- GSAP + ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    (function(){ if (window.emailjs) emailjs.init({ publicKey: '9-FpPuoy3VV2bxbH0' }); })();
+  </script>
 
   <script src="js/main.js" defer></script>
 </body>
