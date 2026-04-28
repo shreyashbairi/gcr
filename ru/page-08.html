@@ -68,7 +68,8 @@
       <div class="header-new__actions">
         <a href="page-08.html" class="header-new__contact-btn">Связаться с нами</a>
         <div class="header-new__lang-toggle">
-          <a href="#" class="lang-link" data-lang="en">EN</a><span>|</span><a href="#" class="lang-link" data-lang="zh">中文</a><span>|</span><a href="#" class="lang-link active" data-lang="ru">РУ</a>
+          <a href="#" class="lang-link" data-lang="en">EN</a><span>|</span><a href="#" class="lang-link"
+            data-lang="zh">中文</a><span>|</span><a href="#" class="lang-link active" data-lang="ru">РУ</a>
         </div>
       </div>
       <button class="header-new__burger" aria-label="Открыть меню"><span></span><span></span><span></span></button>
@@ -81,9 +82,11 @@
     <section class="hero hero--bg" style="background-image:url('../assets/images/hero/contact.webp');">
       <div class="container">
         <h1 class="hero__headline" data-hero-anim>Взаимодействуйте с ВКР</h1>
-        <p class="hero__subhead" data-hero-anim>Обсудите стратегию выхода на рынок или расширения бизнеса напрямую с нашими партнёрами. Мы отдаём приоритет диалогу с системными компаниями, готовыми к масштабному росту.</p>
+        <p class="hero__subhead" data-hero-anim>Обсудите стратегию выхода на рынок или расширения бизнеса напрямую с
+          нашими партнёрами. Мы отдаём приоритет диалогу с системными компаниями, готовыми к масштабному росту.</p>
         <p class="hero__subhead" data-hero-anim style="font-style:italic;font-size:0.95em;margin-top:0.5rem;">
-          Великий Каспийский Регион (GCR) — это территория с центром в Каспийском море, охватывающая 18 государств: пять прикаспийских стран, Кавказ, Центральную Азию и черноморское побережье Восточной Европы.</p>
+          Великий Каспийский Регион (GCR) — это территория с центром в Каспийском море, охватывающая 18 государств: пять
+          прикаспийских стран, Кавказ, Центральную Азию и черноморское побережье Восточной Европы.</p>
       </div>
     </section>
 
@@ -93,25 +96,31 @@
 
         <!-- Role Tabs -->
         <div class="contact-form__tabs" role="tablist">
-          <button class="contact-form__tab is-active" data-tab-target="tab-client" role="tab" aria-selected="true">Я клиент</button>
-          <button class="contact-form__tab" data-tab-target="tab-media" role="tab" aria-selected="false">СМИ и пресса</button>
-          <button class="contact-form__tab" data-tab-target="tab-other" role="tab" aria-selected="false">Партнёрское предложение</button>
+          <button class="contact-form__tab is-active" data-tab-target="tab-client" role="tab" aria-selected="true">Я
+            клиент</button>
+          <button class="contact-form__tab" data-tab-target="tab-media" role="tab" aria-selected="false">СМИ и
+            пресса</button>
+          <button class="contact-form__tab" data-tab-target="tab-other" role="tab" aria-selected="false">Партнёрское
+            предложение</button>
         </div>
 
         <!-- CLIENT TAB -->
         <div class="tabs__panel is-active" data-tab-id="tab-client" role="tabpanel" aria-hidden="false">
 
           <h3 style="margin-bottom:0.5rem;">Стратегия и Партнёрство</h3>
-          <p style="margin-bottom:1.5rem;">Обсудите стратегию выхода на рынок или расширения бизнеса напрямую с нашими партнёрами. Мы отдаём приоритет диалогу с системными компаниями, готовыми к масштабному росту.</p>
+          <p style="margin-bottom:1.5rem;">Обсудите стратегию выхода на рынок или расширения бизнеса напрямую с нашими
+            партнёрами. Мы отдаём приоритет диалогу с системными компаниями, готовыми к масштабному росту.</p>
 
-          <form id="contactForm" class="contact-form" name="client-contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" data-form-type="client" novalidate>
+          <form id="contactForm" class="contact-form" name="client-contact" method="POST" data-netlify="true"
+            data-netlify-honeypot="bot-field" data-form-type="client" novalidate>
             <input type="hidden" name="form-name" value="client-contact">
             <input type="hidden" name="language" value="ru">
             <p class="hp-field" hidden><label>Не заполняйте это поле: <input name="bot-field"></label></p>
 
             <div class="form-group">
               <label for="contactName" class="form-label">Полное имя *</label>
-              <input type="text" id="contactName" name="full_name" class="form-input" required aria-describedby="contactNameError">
+              <input type="text" id="contactName" name="full_name" class="form-input" required
+                aria-describedby="contactNameError">
               <p class="form-error" id="contactNameError"></p>
             </div>
 
@@ -123,15 +132,18 @@
 
             <div class="form-group">
               <label for="contactEmail" class="form-label">Рабочая электронная почта *</label>
-              <input type="email" id="contactEmail" name="email" class="form-input" required aria-describedby="contactEmailError">
-              <p class="form-error" id="contactEmailError">Пожалуйста, используйте действительный корпоративный адрес электронной почты. Для первоначальных запросов мы не принимаем общие домены (gmail, yahoo).</p>
+              <input type="email" id="contactEmail" name="email" class="form-input" required
+                aria-describedby="contactEmailError">
+              <p class="form-error" id="contactEmailError">Пожалуйста, используйте действительный корпоративный адрес
+                электронной почты. Для первоначальных запросов мы не принимаем общие домены (gmail, yahoo).</p>
             </div>
 
             <div class="form-group">
               <label for="contactPhone" class="form-label">Номер телефона <span
                   class="text-sm text-light">(необязательно)</span></label>
               <input type="tel" id="contactPhone" name="phone" class="form-input">
-              <p class="text-sm text-light" style="margin-top:0.25rem;">Используется только для срочного согласования времени в связи с вашим запросом.</p>
+              <p class="text-sm text-light" style="margin-top:0.25rem;">Используется только для срочного согласования
+                времени в связи с вашим запросом.</p>
             </div>
 
             <div class="form-group" style="margin-top:1.5rem;">
@@ -158,7 +170,8 @@
 
             <div class="form-group" style="margin-top:1.5rem;">
               <label for="contactMessage" class="form-label">Контекст и цели *</label>
-              <textarea id="contactMessage" name="message" class="form-textarea" required aria-describedby="contactMessageError"
+              <textarea id="contactMessage" name="message" class="form-textarea" required
+                aria-describedby="contactMessageError"
                 placeholder="Кратко опишите ваши стратегические цели или конкретный вызов, с которым вы столкнулись в Великом Каспийском Регионе."></textarea>
               <p class="form-error" id="contactMessageError"></p>
             </div>
@@ -166,12 +179,21 @@
             <!-- Compliance Checkbox -->
             <div class="contact-form__checkbox-group">
               <input type="checkbox" id="contactConsent" name="consent" value="yes" required>
-              <label for="contactConsent">Я ознакомился(-лась) с <a href="privacy-policy.html">Политикой конфиденциальности</a> и подтверждаю, что мой запрос соответствует стандартам этической compliance GCR Consulting. Я понимаю, что компания строго работает в правовых рамках и не участвует в серых схемах.</label>
+              <label for="contactConsent">Я ознакомился(-лась) с <a href="privacy-policy.html">Политикой
+                  конфиденциальности</a> и подтверждаю, что мой запрос соответствует стандартам этической compliance GCR
+                Consulting. Я понимаю, что компания строго работает в правовых рамках и не участвует в серых
+                схемах.</label>
             </div>
 
             <!-- Privacy text -->
             <div class="form-group">
-              <p class="text-sm text-light">GCR Consulting обязуется защищать ваши данные. Ваша информация будет использоваться в соответствии с применимым законодательством о защите персональных данных, нашими внутренними политиками и нашей <a href="privacy-policy.html">политикой конфиденциальности</a>. Поскольку GCR Consulting является глобальной организацией, ваша информация может храниться и обрабатываться GCR Consulting и её аффилированными лицами в странах за пределами вашей страны проживания, однако где бы ни обрабатывалась ваша информация, мы будем обращаться с ней с одинаковой тщательностью и уважением к вашей конфиденциальности.</p>
+              <p class="text-sm text-light">GCR Consulting обязуется защищать ваши данные. Ваша информация будет
+                использоваться в соответствии с применимым законодательством о защите персональных данных, нашими
+                внутренними политиками и нашей <a href="privacy-policy.html">политикой конфиденциальности</a>. Поскольку
+                GCR Consulting является глобальной организацией, ваша информация может храниться и обрабатываться GCR
+                Consulting и её аффилированными лицами в странах за пределами вашей страны проживания, однако где бы ни
+                обрабатывалась ваша информация, мы будем обращаться с ней с одинаковой тщательностью и уважением к вашей
+                конфиденциальности.</p>
             </div>
 
             <button type="submit" class="btn btn--primary">Запросить консультацию</button>
@@ -186,7 +208,8 @@
 
         <!-- MEDIA TAB -->
         <div class="tabs__panel" data-tab-id="tab-media" role="tabpanel" aria-hidden="true">
-          <form id="contactFormMedia" class="contact-form" name="media-contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" data-form-type="media" novalidate>
+          <form id="contactFormMedia" class="contact-form" name="media-contact" method="POST" data-netlify="true"
+            data-netlify-honeypot="bot-field" data-form-type="media" novalidate>
             <input type="hidden" name="form-name" value="media-contact">
             <input type="hidden" name="language" value="ru">
             <p class="hp-field" hidden><label>Не заполняйте это поле: <input name="bot-field"></label></p>
@@ -217,7 +240,9 @@
                 placeholder="Пожалуйста, опишите ваш запрос от СМИ, включая любые сроки."></textarea>
             </div>
             <div class="form-group">
-              <p class="text-sm text-light">GCR Consulting обязуется защищать ваши данные. Ваша информация будет использоваться в соответствии с нашей <a href="privacy-policy.html">политикой конфиденциальности</a>.</p>
+              <p class="text-sm text-light">GCR Consulting обязуется защищать ваши данные. Ваша информация будет
+                использоваться в соответствии с нашей <a href="privacy-policy.html">политикой конфиденциальности</a>.
+              </p>
             </div>
             <button type="submit" class="btn btn--primary">Отправить</button>
           </form>
@@ -229,7 +254,8 @@
 
         <!-- PARTNERSHIP TAB -->
         <div class="tabs__panel" data-tab-id="tab-other" role="tabpanel" aria-hidden="true">
-          <form id="contactFormPartner" class="contact-form" name="partnership-contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" data-form-type="partnership" novalidate>
+          <form id="contactFormPartner" class="contact-form" name="partnership-contact" method="POST"
+            data-netlify="true" data-netlify-honeypot="bot-field" data-form-type="partnership" novalidate>
             <input type="hidden" name="form-name" value="partnership-contact">
             <input type="hidden" name="language" value="ru">
             <p class="hp-field" hidden><label>Не заполняйте это поле: <input name="bot-field"></label></p>
@@ -260,16 +286,20 @@
                 placeholder="Пожалуйста, изложите ваше партнёрское предложение, включая масштаб, географический фокус и ожидаемую взаимную ценность."></textarea>
             </div>
             <div class="form-group">
-              <p class="text-sm text-light">GCR Consulting обязуется защищать ваши данные. Ваша информация будет использоваться в соответствии с нашей <a href="privacy-policy.html">политикой конфиденциальности</a>.</p>
+              <p class="text-sm text-light">GCR Consulting обязуется защищать ваши данные. Ваша информация будет
+                использоваться в соответствии с нашей <a href="privacy-policy.html">политикой конфиденциальности</a>.
+              </p>
             </div>
             <button type="submit" class="btn btn--primary">Отправить предложение</button>
           </form>
           <div class="form-success" id="formSuccessPartner" aria-live="polite">
             <h3>Благодарим вас</h3>
-            <p class="mt-md">Ваше предложение получено. Наш партнёр рассмотрит его и ответит в течение 1–2 рабочих дней.</p>
+            <p class="mt-md">Ваше предложение получено. Наш партнёр рассмотрит его и ответит в течение 1–2 рабочих дней.
+            </p>
           </div>
-          <p class="text-sm text-light" style="margin-top:1.5rem;">По вопросам партнёрства или агентского представительства вы также можете направить своё предложение по адресу: <a
-              href="mailto:partners@gcrconsulting.com">partners@gcrconsulting.com</a></p>
+          <p class="text-sm text-light" style="margin-top:1.5rem;">По вопросам партнёрства или агентского
+            представительства вы также можете направить своё предложение по адресу: <a
+              href="mailto:info@tethys-gcr.com">info@tethys-gcr.com</a></p>
         </div>
 
       </div>
@@ -316,7 +346,8 @@
 
   <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Согласие на использование cookie" hidden>
     <div class="container cookie-banner__inner">
-      <p>Мы используем файлы cookie для улучшения вашего опыта. Ознакомьтесь с нашей <a href="privacy-policy.html">Политикой конфиденциальности</a>.</p>
+      <p>Мы используем файлы cookie для улучшения вашего опыта. Ознакомьтесь с нашей <a
+          href="privacy-policy.html">Политикой конфиденциальности</a>.</p>
       <div class="cookie-banner__actions">
         <button class="btn btn--primary btn--sm" id="cookieAccept">Принять</button>
         <button class="btn btn--secondary btn--sm" id="cookieDecline">Отклонить</button>
@@ -333,7 +364,7 @@
   <!-- EmailJS SDK -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
-    (function(){ if (window.emailjs) emailjs.init({ publicKey: '9-FpPuoy3VV2bxbH0' }); })();
+    (function () { if (window.emailjs) emailjs.init({ publicKey: '9-FpPuoy3VV2bxbH0' }); })();
   </script>
 
   <script src="../js/main.js" defer></script>

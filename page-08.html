@@ -102,14 +102,16 @@
 
         <!-- CLIENT TAB -->
         <div class="tabs__panel is-active" data-tab-id="tab-client" role="tabpanel" aria-hidden="false">
-          <form id="contactForm" class="contact-form" name="client-contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" data-form-type="client" novalidate>
+          <form id="contactForm" class="contact-form" name="client-contact" method="POST" data-netlify="true"
+            data-netlify-honeypot="bot-field" data-form-type="client" novalidate>
             <input type="hidden" name="form-name" value="client-contact">
             <input type="hidden" name="language" value="en">
             <p class="hp-field" hidden><label>Don't fill this out: <input name="bot-field"></label></p>
 
             <div class="form-group">
               <label for="contactName" class="form-label">Full Name *</label>
-              <input type="text" id="contactName" name="full_name" class="form-input" required aria-describedby="contactNameError">
+              <input type="text" id="contactName" name="full_name" class="form-input" required
+                aria-describedby="contactNameError">
               <p class="form-error" id="contactNameError"></p>
             </div>
 
@@ -121,7 +123,8 @@
 
             <div class="form-group">
               <label for="contactEmail" class="form-label">Work Email *</label>
-              <input type="email" id="contactEmail" name="email" class="form-input" required aria-describedby="contactEmailError">
+              <input type="email" id="contactEmail" name="email" class="form-input" required
+                aria-describedby="contactEmailError">
               <p class="form-error" id="contactEmailError">Please use a valid corporate email address. We do not accept
                 generic domains (gmail, yahoo) for initial inquiries.</p>
             </div>
@@ -158,7 +161,8 @@
 
             <div class="form-group" style="margin-top:1.5rem;">
               <label for="contactMessage" class="form-label">Context &amp; Objectives *</label>
-              <textarea id="contactMessage" name="message" class="form-textarea" required aria-describedby="contactMessageError"
+              <textarea id="contactMessage" name="message" class="form-textarea" required
+                aria-describedby="contactMessageError"
                 placeholder="Briefly describe your strategic goals or the specific challenge you are facing in the Greater Caspian Region."></textarea>
               <p class="form-error" id="contactMessageError"></p>
             </div>
@@ -196,7 +200,8 @@
 
         <!-- MEDIA TAB -->
         <div class="tabs__panel" data-tab-id="tab-media" role="tabpanel" aria-hidden="true">
-          <form id="contactFormMedia" class="contact-form" name="media-contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" data-form-type="media" novalidate>
+          <form id="contactFormMedia" class="contact-form" name="media-contact" method="POST" data-netlify="true"
+            data-netlify-honeypot="bot-field" data-form-type="media" novalidate>
             <input type="hidden" name="form-name" value="media-contact">
             <input type="hidden" name="language" value="en">
             <p class="hp-field" hidden><label>Don't fill this out: <input name="bot-field"></label></p>
@@ -240,7 +245,8 @@
 
         <!-- PARTNERSHIP TAB -->
         <div class="tabs__panel" data-tab-id="tab-other" role="tabpanel" aria-hidden="true">
-          <form id="contactFormPartner" class="contact-form" name="partnership-contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" data-form-type="partnership" novalidate>
+          <form id="contactFormPartner" class="contact-form" name="partnership-contact" method="POST"
+            data-netlify="true" data-netlify-honeypot="bot-field" data-form-type="partnership" novalidate>
             <input type="hidden" name="form-name" value="partnership-contact">
             <input type="hidden" name="language" value="en">
             <p class="hp-field" hidden><label>Don't fill this out: <input name="bot-field"></label></p>
@@ -278,11 +284,11 @@
           </form>
           <div class="form-success" id="formSuccessPartner" aria-live="polite">
             <h3>Thank You</h3>
-            <p class="mt-md">Your proposal has been received. A managing partner will review and respond within 48 business hours.</p>
+            <p class="mt-md">Your proposal has been received. A managing partner will review and respond within 48
+              business hours.</p>
           </div>
           <p class="text-sm text-light" style="margin-top:1.5rem;">For partnership inquiries or agent representation,
-            you may also direct your proposal to: <a
-              href="mailto:partners@gcrconsulting.com">partners@gcrconsulting.com</a></p>
+            you may also direct your proposal to: <a href="mailto:info@tethys-gcr.com">info@tethys-gcr.com</a></p>
         </div>
 
       </div>
@@ -365,7 +371,7 @@
   <!-- EmailJS SDK -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
-    (function(){ if (window.emailjs) emailjs.init({ publicKey: '9-FpPuoy3VV2bxbH0' }); })();
+    (function () { if (window.emailjs) emailjs.init({ publicKey: '9-FpPuoy3VV2bxbH0' }); })();
   </script>
 
   <script src="js/main.js" defer></script>
