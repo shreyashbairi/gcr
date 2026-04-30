@@ -91,224 +91,78 @@
     <!-- CONTACT FORM SECTION -->
     <section class="section">
       <div class="container container--narrow">
+        <form id="contactForm" class="contact-form" name="client-contact" method="POST" data-netlify="true"
+          data-netlify-honeypot="bot-field" data-form-type="client" novalidate>
+          <input type="hidden" name="form-name" value="client-contact">
+          <input type="hidden" name="language" value="zh">
+          <p class="hp-field" hidden><label>请勿填写此项：<input name="bot-field"></label></p>
 
-        <!-- Role Tabs -->
-        <div class="contact-form__tabs" role="tablist">
-          <button class="contact-form__tab is-active" data-tab-target="tab-client" role="tab"
-            aria-selected="true">我是客户</button>
-          <button class="contact-form__tab" data-tab-target="tab-media" role="tab" aria-selected="false">媒体与新闻</button>
-          <button class="contact-form__tab" data-tab-target="tab-other" role="tab" aria-selected="false">合作提案</button>
-        </div>
-
-        <!-- CLIENT TAB -->
-        <div class="tabs__panel is-active" data-tab-id="tab-client" role="tabpanel" aria-hidden="false">
-          <form id="contactForm" class="contact-form" name="client-contact" method="POST" data-netlify="true"
-            data-netlify-honeypot="bot-field" data-form-type="client" novalidate>
-            <input type="hidden" name="form-name" value="client-contact">
-            <input type="hidden" name="language" value="zh">
-            <p class="hp-field" hidden><label>请勿填写此项：<input name="bot-field"></label></p>
-
-            <div class="form-group">
-              <label for="contactName" class="form-label">姓名 *</label>
-              <input type="text" id="contactName" name="full_name" class="form-input" required
-                aria-describedby="contactNameError">
-              <p class="form-error" id="contactNameError"></p>
-            </div>
-
-            <div class="form-group">
-              <label for="contactTitle" class="form-label">职位</label>
-              <input type="text" id="contactTitle" name="job_title" class="form-input"
-                placeholder="例如：首席执行官、扩张负责人、董事总经理">
-            </div>
-
-            <div class="form-group">
-              <label for="contactEmail" class="form-label">工作邮箱 *</label>
-              <input type="email" id="contactEmail" name="email" class="form-input" required
-                aria-describedby="contactEmailError">
-              <p class="form-error" id="contactEmailError">请使用有效的企业邮箱地址。初次咨询不接受通用域名（gmail、yahoo）。</p>
-            </div>
-
-            <div class="form-group">
-              <label for="contactPhone" class="form-label">电话号码 <span class="text-sm text-light">（选填）</span></label>
-              <input type="tel" id="contactPhone" name="phone" class="form-input">
-              <p class="text-sm text-light" style="margin-top:0.25rem;">仅用于与您的咨询相关的紧急日程安排。</p>
-            </div>
-
-            <div class="form-group" style="margin-top:1.5rem;">
-              <label for="contactInquiry" class="form-label">咨询类型 *</label>
-              <select id="contactInquiry" name="inquiry_type" class="form-input contact-form__select" required>
-                <option value="">请选择咨询类型...</option>
-                <option value="market-entry">战略市场进入与验证</option>
-                <option value="gov-relations">政府关系与高层级准入</option>
-                <option value="ops-setup">运营搭建与风险防控</option>
-                <option value="partnership">合作提案</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="contactOrg" class="form-label">机构类型 *</label>
-              <select id="contactOrg" name="org_type" class="form-input contact-form__select" required>
-                <option value="">请选择机构类型...</option>
-                <option value="mnc">跨国企业</option>
-                <option value="fund">投资基金 / 私募股权 / 家族办公室</option>
-                <option value="scaleup">成长型企业 / 高增长创业公司</option>
-                <option value="gov">政府机构 / 非政府组织</option>
-              </select>
-            </div>
-
-            <div class="form-group" style="margin-top:1.5rem;">
-              <label for="contactMessage" class="form-label">背景与目标 *</label>
-              <textarea id="contactMessage" name="message" class="form-textarea" required
-                aria-describedby="contactMessageError" placeholder="请简要描述您的战略目标，或您在泛里海地区面临的具体挑战。"></textarea>
-              <p class="form-error" id="contactMessageError"></p>
-            </div>
-
-            <!-- Compliance Checkbox -->
-            <div class="contact-form__checkbox-group">
-              <input type="checkbox" id="contactConsent" name="consent" value="yes" required>
-              <label for="contactConsent">我已阅读并接受<a href="privacy-policy.html">隐私政策</a>，并确认我的咨询内容符合 GCR Consulting
-                的道德合规标准。我理解该公司严格在法律框架内运营，不参与任何灰色地带的操作。</label>
-            </div>
-
-            <!-- Privacy text -->
-            <div class="form-group">
-              <p class="text-sm text-light">GCR Consulting 承诺保护您的信息。您的信息将根据适用的数据隐私法律、公司内部政策及<a
-                  href="privacy-policy.html">隐私政策</a>使用。由于 GCR Consulting 是一家全球性机构，您的信息可能会由 GCR Consulting
-                及其关联公司在您居住国以外的国家存储和处理。无论您的信息在何处处理，我们都将以同样的谨慎态度尊重您的隐私。</p>
-            </div>
-
-            <button type="submit" class="btn btn--primary">申请咨询</button>
-          </form>
-
-          <!-- Success Message -->
-          <div class="form-success" id="formSuccess" aria-live="polite">
-            <h3>感谢您</h3>
-            <p class="mt-md">您的咨询请求已收到。管理合伙人将审阅您的请求，并在48个工作小时内回复。</p>
+          <div class="form-group">
+            <label for="contactName" class="form-label">姓名 *</label>
+            <input type="text" id="contactName" name="full_name" class="form-input" required
+              aria-describedby="contactNameError">
+            <p class="form-error" id="contactNameError"></p>
           </div>
-        </div>
 
-        <!-- MEDIA TAB -->
-        <div class="tabs__panel" data-tab-id="tab-media" role="tabpanel" aria-hidden="true">
-          <form id="contactFormMedia" class="contact-form" name="media-contact" method="POST" data-netlify="true"
-            data-netlify-honeypot="bot-field" data-form-type="media" novalidate>
-            <input type="hidden" name="form-name" value="media-contact">
-            <input type="hidden" name="language" value="zh">
-            <p class="hp-field" hidden><label>请勿填写此项：<input name="bot-field"></label></p>
-            <div class="form-group">
-              <label for="mediaName" class="form-label">姓名 *</label>
-              <input type="text" id="mediaName" name="full_name" class="form-input" required>
-            </div>
-            <div class="form-group">
-              <label for="mediaEmail" class="form-label">工作邮箱 *</label>
-              <input type="email" id="mediaEmail" name="email" class="form-input" required>
-            </div>
-            <div class="form-group">
-              <label for="mediaOutlet" class="form-label">媒体机构 / 出版物</label>
-              <input type="text" id="mediaOutlet" name="outlet" class="form-input">
-            </div>
-            <div class="form-group">
-              <label for="mediaTitle" class="form-label">职位 / 角色</label>
-              <input type="text" id="mediaTitle" name="job_title" class="form-input">
-            </div>
-            <div class="form-group">
-              <label for="mediaSubject" class="form-label">主题 *</label>
-              <input type="text" id="mediaSubject" name="subject" class="form-input" required
-                placeholder="采访请求、专家评论、媒体咨询...">
-            </div>
-            <div class="form-group">
-              <label for="mediaMessage" class="form-label">留言内容 *</label>
-              <textarea id="mediaMessage" name="message" class="form-textarea" required
-                placeholder="请描述您的媒体咨询需求，包括截止日期。"></textarea>
-            </div>
-            <div class="form-group">
-              <p class="text-sm text-light">GCR Consulting 承诺保护您的信息。您的数据将根据我们的<a href="privacy-policy.html">隐私政策</a>使用。
-              </p>
-            </div>
-            <button type="submit" class="btn btn--primary">提交</button>
-          </form>
-          <div class="form-success" id="formSuccessMedia" aria-live="polite">
-            <h3>感谢您</h3>
-            <p class="mt-md">您的媒体咨询已收到。我们将在48个工作小时内回复。</p>
+          <div class="form-group">
+            <label for="contactTitle" class="form-label">职位</label>
+            <input type="text" id="contactTitle" name="job_title" class="form-input" placeholder="例如：首席执行官、扩张负责人、董事总经理">
           </div>
-        </div>
 
-        <!-- PARTNERSHIP TAB -->
-        <div class="tabs__panel" data-tab-id="tab-other" role="tabpanel" aria-hidden="true">
-          <form id="contactFormPartner" class="contact-form" name="partnership-contact" method="POST"
-            data-netlify="true" data-netlify-honeypot="bot-field" data-form-type="partnership" novalidate>
-            <input type="hidden" name="form-name" value="partnership-contact">
-            <input type="hidden" name="language" value="zh">
-            <p class="hp-field" hidden><label>请勿填写此项：<input name="bot-field"></label></p>
-            <div class="form-group">
-              <label for="otherName" class="form-label">姓名 *</label>
-              <input type="text" id="otherName" name="full_name" class="form-input" required>
-            </div>
-            <div class="form-group">
-              <label for="otherEmail" class="form-label">工作邮箱 *</label>
-              <input type="email" id="otherEmail" name="email" class="form-input" required>
-            </div>
-            <div class="form-group">
-              <label for="otherCompany" class="form-label">所属机构</label>
-              <input type="text" id="otherCompany" name="organization" class="form-input">
-            </div>
-            <div class="form-group">
-              <label for="otherTitle" class="form-label">职位 / 角色</label>
-              <input type="text" id="otherTitle" name="job_title" class="form-input">
-            </div>
-            <div class="form-group">
-              <label for="otherSubject" class="form-label">主题 *</label>
-              <input type="text" id="otherSubject" name="subject" class="form-input" required
-                placeholder="合作提案、代理代表、合资企业...">
-            </div>
-            <div class="form-group">
-              <label for="otherMessage" class="form-label">提案详情 *</label>
-              <textarea id="otherMessage" name="message" class="form-textarea" required
-                placeholder="请概述您的合作提案，包括范围、地理重点以及预期的共同价值。"></textarea>
-            </div>
-            <div class="form-group">
-              <p class="text-sm text-light">GCR Consulting 承诺保护您的信息。您的数据将根据我们的<a href="privacy-policy.html">隐私政策</a>使用。
-              </p>
-            </div>
-            <button type="submit" class="btn btn--primary">提交提案</button>
-          </form>
-          <div class="form-success" id="formSuccessPartner" aria-live="polite">
-            <h3>感谢您</h3>
-            <p class="mt-md">您的提案已收到。管理合伙人将审阅并在48个工作小时内回复。</p>
+          <div class="form-group">
+            <label for="contactEmail" class="form-label">工作邮箱 *</label>
+            <input type="email" id="contactEmail" name="email" class="form-input" required
+              aria-describedby="contactEmailError">
+            <p class="form-error" id="contactEmailError">请使用有效的企业邮箱地址。初次咨询不接受通用域名（gmail、yahoo）。</p>
           </div>
-          <p class="text-sm text-light" style="margin-top:1.5rem;">如需合作咨询或代理代表事宜，您也可将提案发送至：<a
-              href="mailto:info@tethys-gcr.com">info@tethys-gcr.com</a></p>
-        </div>
 
+          <div class="form-group">
+            <label for="contactPhone" class="form-label">电话号码 <span class="text-sm text-light">（选填）</span></label>
+            <input type="tel" id="contactPhone" name="phone" class="form-input">
+          </div>
+
+          <div class="form-group">
+            <label for="contactMessage" class="form-label">背景与目标 *</label>
+            <textarea id="contactMessage" name="message" class="form-textarea" required
+              aria-describedby="contactMessageError" placeholder="请简要描述您的战略目标，或您在泛里海地区面临的具体挑战。"></textarea>
+            <p class="form-error" id="contactMessageError"></p>
+          </div>
+
+          <div class="form-group">
+            <label for="contactInquiryType" class="form-label">我是 *</label>
+            <select id="contactInquiryType" name="inquiry_type" class="form-select" required>
+              <option value="client">客户</option>
+              <option value="media">媒体与新闻</option>
+              <option value="partnership">合作提案</option>
+            </select>
+          </div>
+
+          <div class="contact-form__checkbox-group">
+            <input type="checkbox" id="contactConsent" name="consent" value="yes" required>
+            <label for="contactConsent">我已阅读并接受<a href="privacy-policy.html">隐私政策</a>，并确认我的咨询内容符合 GCR Consulting
+              的道德合规标准。</label>
+          </div>
+
+          <button type="submit" class="btn btn--primary">提交</button>
+        </form>
+
+        <div class="form-success" id="formSuccess" aria-live="polite">
+          <h3>感谢您</h3>
+          <p class="mt-md">您的咨询请求已收到。管理合伙人将审阅您的请求，并在48个工作小时内回复。</p>
+        </div>
       </div>
     </section>
 
   </main>
-
-  <section class="footer-cta">
-    <div class="footer-cta__inner container">
-      <div class="footer-cta__content">
-        <h2>联系我们</h2>
-        <p>与我们直接探讨您的里海及周边区域战略。</p>
-        <a href="page-08.html" class="footer-cta__btn">联系我们 &rarr;</a>
-      </div>
-      <div class="footer-cta__image">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop&q=80"
-          alt="GCR Consulting 团队协作" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
-      </div>
-    </div>
-  </section>
   <footer class="footer-new">
     <div class="footer-new__inner">
       <div class="footer-new__grid">
       </div>
       <div class="footer-new__company-info">
-        <h4>瑞士项目开发有限公司</h4>
-        <p class="footer-new__address">瑞士卢加诺 6900，维科街 12 号</p>
+        <h4>Swiss Project Development Company SA</h4>
+        <p class="footer-new__address">Via Pico 12, 6900 Lugano, Switzerland</p>
       </div>
-      <div class="footer-new__social">
-        <a href="#" aria-label="LinkedIn">in</a>
-        <a href="#" aria-label="Twitter">X</a>
-      </div>
+
       <div class="footer-new__copyright">
         <span>&copy; 2026 瑞士项目开发股份公司（Swiss Project Development Company SA）版权所有。</span>
         <div>

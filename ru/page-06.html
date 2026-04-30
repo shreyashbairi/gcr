@@ -7,7 +7,8 @@
   <meta name="description"
     content="Оценка готовности к рынку ВКР - Готов ли ваш бизнес к выходу на Великий Каспийский Регион?">
   <meta property="og:title" content="Оценка готовности к ВКР | GCR Consulting">
-  <meta property="og:description" content="Оцените свою готовность к выходу на рынок ВКР с помощью нашего инструмента оценки.">
+  <meta property="og:description"
+    content="Оцените свою готовность к выходу на рынок ВКР с помощью нашего инструмента оценки.">
   <meta property="og:type" content="website">
   <title>Оценка готовности к ВКР | GCR Consulting</title>
   <link rel="stylesheet" href="../css/styles.css">
@@ -68,7 +69,8 @@
       <div class="header-new__actions">
         <a href="page-08.html" class="header-new__contact-btn">Связаться с нами</a>
         <div class="header-new__lang-toggle">
-          <a href="#" class="lang-link" data-lang="en">EN</a><span>|</span><a href="#" class="lang-link" data-lang="zh">中文</a><span>|</span><a href="#" class="lang-link active" data-lang="ru">РУ</a>
+          <a href="#" class="lang-link" data-lang="en">EN</a><span>|</span><a href="#" class="lang-link"
+            data-lang="zh">中文</a><span>|</span><a href="#" class="lang-link active" data-lang="ru">РУ</a>
         </div>
       </div>
       <button class="header-new__burger" aria-label="Открыть меню"><span></span><span></span><span></span></button>
@@ -81,25 +83,23 @@
     <section class="hero hero--bg" style="background-image:url('../assets/images/hero/readiness-check.webp');">
       <div class="container">
         <h1 data-hero-anim>Оценка готовности к рынку ВКР</h1>
-        <p class="hero__subhead" data-hero-anim>Каспийский регион отдаёт предпочтение основательной подготовке, а не импровизации.</p>
+        <p class="hero__subhead" data-hero-anim>Каспийский регион отдаёт предпочтение основательной подготовке, а не
+          импровизации.</p>
       </div>
     </section>
 
-    <!-- INTRO TEXT -->
-    <section class="section">
-      <div class="container container--narrow">
-        <!-- Large CTA Button -->
-        <div style="text-align:center;margin:3rem 0;">
-          <a href="#quiz-section" class="readiness-start-btn">Начать оценку готовности ВКР</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ASSESSMENT DESCRIPTION -->
+    <!-- ASSESSMENT DESCRIPTION + CTA -->
     <section class="section section--alt">
       <div class="container container--narrow">
-        <p class="text-lg">Эта 10-минутная оценка охватывает пять ключевых направлений, которые чаще всего определяют успех или провал экспансии: соответствие рынку, регуляторная готовность, операционные возможности, доступ к партнёрам и структура корпоративного управления.</p>
-        <p class="text-lg" style="margin-top:1.5rem;">На основе ваших ответов мы формируем персональный профиль рисков и рекомендуемую отправную точку — будь то исследование рынка, правовой структурный анализ или прямой разговор с одним из наших партнёров.</p>
+        <div style="text-align:center;margin-bottom:3rem;">
+          <a href="#quiz-section" class="readiness-start-btn">Начать оценку готовности ВКР</a>
+        </div>
+        <p class="text-lg">Эта 10-минутная оценка охватывает пять ключевых направлений, которые чаще всего определяют
+          успех или провал экспансии: соответствие рынку, регуляторная готовность, операционные возможности, доступ к
+          партнёрам и структура корпоративного управления.</p>
+        <p class="text-lg" style="margin-top:1.5rem;">На основе ваших ответов мы формируем персональный профиль рисков и
+          рекомендуемую отправную точку — будь то исследование рынка, правовой структурный анализ или прямой разговор с
+          одним из наших партнёров.</p>
       </div>
     </section>
 
@@ -119,23 +119,84 @@
     <section class="section">
       <div class="container container--narrow" style="text-align:center;">
         <h2>Ваш персональный профиль рисков</h2>
-        <p>На основе ваших ответов мы формируем персональный профиль рисков и рекомендуемую отправную точку. Завершите оценку выше, чтобы сразу получить результаты.</p>
-        <a href="page-08.html" class="btn btn--primary" style="margin-top:1.5rem;">Поговорить с нашей командой &rsaquo;</a>
+        <p>На основе ваших ответов мы формируем персональный профиль рисков и рекомендуемую отправную точку. Завершите
+          оценку выше, чтобы сразу получить результаты.</p>
+        <a href="page-08.html" class="btn btn--primary" style="margin-top:1.5rem;">Поговорить с нашей командой
+          &rsaquo;</a>
       </div>
     </section>
 
   </main>
 
-  <section class="footer-cta">
-    <div class="footer-cta__inner container">
-      <div class="footer-cta__content">
+  <section class="footer-cta" style="text-align:left;">
+    <div class="container container--narrow">
+      <div class="footer-cta__content" style="text-align:center;margin-bottom:2rem;">
         <h2>Свяжитесь с нами</h2>
         <p>Обсудите вашу стратегию в ВКР напрямую с нашей командой.</p>
-        <a href="page-08.html" class="footer-cta__btn">Связаться с нами &rarr;</a>
       </div>
-      <div class="footer-cta__image">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop&q=80"
-          alt="Команда GCR Consulting за работой" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
+      <form id="contactForm" class="contact-form" name="client-contact" method="POST" data-netlify="true"
+        data-netlify-honeypot="bot-field" data-form-type="client" novalidate>
+        <input type="hidden" name="form-name" value="client-contact">
+        <input type="hidden" name="language" value="ru">
+        <p class="hp-field" hidden><label>Не заполняйте это поле: <input name="bot-field"></label></p>
+
+        <div class="form-group">
+          <label for="contactName" class="form-label">Полное имя *</label>
+          <input type="text" id="contactName" name="full_name" class="form-input" required
+            aria-describedby="contactNameError">
+          <p class="form-error" id="contactNameError"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="contactTitle" class="form-label">Должность</label>
+          <input type="text" id="contactTitle" name="job_title" class="form-input"
+            placeholder="например, Генеральный директор, Руководитель отдела экспансии, Управляющий директор">
+        </div>
+
+        <div class="form-group">
+          <label for="contactEmail" class="form-label">Рабочая электронная почта *</label>
+          <input type="email" id="contactEmail" name="email" class="form-input" required
+            aria-describedby="contactEmailError">
+          <p class="form-error" id="contactEmailError">Пожалуйста, используйте действительный корпоративный адрес
+            электронной почты. Для первоначальных запросов мы не принимаем общие домены (gmail, yahoo).</p>
+        </div>
+
+        <div class="form-group">
+          <label for="contactPhone" class="form-label">Номер телефона <span
+              class="text-sm text-light">(необязательно)</span></label>
+          <input type="tel" id="contactPhone" name="phone" class="form-input">
+        </div>
+
+        <div class="form-group">
+          <label for="contactMessage" class="form-label">Контекст и цели *</label>
+          <textarea id="contactMessage" name="message" class="form-textarea" required
+            aria-describedby="contactMessageError"
+            placeholder="Кратко опишите ваши стратегические цели или конкретный вызов, с которым вы столкнулись в Великом Каспийском Регионе."></textarea>
+          <p class="form-error" id="contactMessageError"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="contactInquiryType" class="form-label">Я *</label>
+          <select id="contactInquiryType" name="inquiry_type" class="form-select" required>
+            <option value="client">клиент</option>
+            <option value="media">СМИ и пресса</option>
+            <option value="partnership">Партнёрское предложение</option>
+          </select>
+        </div>
+
+        <div class="contact-form__checkbox-group">
+          <input type="checkbox" id="contactConsent" name="consent" value="yes" required>
+          <label for="contactConsent">Я ознакомился(-лась) с <a href="privacy-policy.html">Политикой
+              конфиденциальности</a> и подтверждаю, что мой запрос соответствует стандартам этической compliance GCR
+            Consulting.</label>
+        </div>
+
+        <button type="submit" class="btn btn--primary">Отправить</button>
+      </form>
+
+      <div class="form-success" id="formSuccess" aria-live="polite">
+        <h3>Благодарим вас</h3>
+        <p class="mt-md">Ваш запрос получен. Наш партнёр свяжется с вами лично в течение 1–2 рабочих дней.</p>
       </div>
     </div>
   </section>
@@ -145,13 +206,10 @@
       <div class="footer-new__grid">
       </div>
       <div class="footer-new__company-info">
-        <h4>Швейцарская компания по развитию проектов АО</h4>
-        <p class="footer-new__address">Виа Пико 12, 6900 Лугано, Швейцария</p>
+        <h4>Swiss Project Development Company SA</h4>
+        <p class="footer-new__address">Via Pico 12, 6900 Lugano, Switzerland</p>
       </div>
-      <div class="footer-new__social">
-        <a href="#" aria-label="LinkedIn">in</a>
-        <a href="#" aria-label="Twitter">X</a>
-      </div>
+
       <div class="footer-new__copyright">
         <span>&copy; 2026 Swiss Project Development Company SA. Все права защищены.</span>
         <div>
@@ -165,7 +223,8 @@
 
   <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Согласие на использование cookie" hidden>
     <div class="container cookie-banner__inner">
-      <p>Мы используем файлы cookie для улучшения вашего опыта. Ознакомьтесь с нашей <a href="privacy-policy.html">Политикой конфиденциальности</a>.</p>
+      <p>Мы используем файлы cookie для улучшения вашего опыта. Ознакомьтесь с нашей <a
+          href="privacy-policy.html">Политикой конфиденциальности</a>.</p>
       <div class="cookie-banner__actions">
         <button class="btn btn--primary btn--sm" id="cookieAccept">Принять</button>
         <button class="btn btn--secondary btn--sm" id="cookieDecline">Отклонить</button>

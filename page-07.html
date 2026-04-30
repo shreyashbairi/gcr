@@ -251,16 +251,75 @@
     </section>
   </main>
 
-  <section class="footer-cta">
-    <div class="footer-cta__inner container">
-      <div class="footer-cta__content">
+  <section class="footer-cta" style="text-align:left;">
+    <div class="container container--narrow">
+      <div class="footer-cta__content" style="text-align:center;margin-bottom:2rem;">
         <h2>Talk to Us</h2>
         <p>Discuss your Greater Caspian Region strategy directly with our team.</p>
-        <a href="page-08.html" class="footer-cta__btn">Contact Us &rarr;</a>
       </div>
-      <div class="footer-cta__image">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop&q=80"
-          alt="GCR Consulting team collaborating" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
+      <form id="contactForm" class="contact-form" name="client-contact" method="POST" data-netlify="true"
+        data-netlify-honeypot="bot-field" data-form-type="client" novalidate>
+        <input type="hidden" name="form-name" value="client-contact">
+        <input type="hidden" name="language" value="en">
+        <p class="hp-field" hidden><label>Don't fill this out: <input name="bot-field"></label></p>
+
+        <div class="form-group">
+          <label for="contactName" class="form-label">Full Name *</label>
+          <input type="text" id="contactName" name="full_name" class="form-input" required
+            aria-describedby="contactNameError">
+          <p class="form-error" id="contactNameError"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="contactTitle" class="form-label">Job Title</label>
+          <input type="text" id="contactTitle" name="job_title" class="form-input"
+            placeholder="e.g., CEO, Head of Expansion, Managing Director">
+        </div>
+
+        <div class="form-group">
+          <label for="contactEmail" class="form-label">Work Email *</label>
+          <input type="email" id="contactEmail" name="email" class="form-input" required
+            aria-describedby="contactEmailError">
+          <p class="form-error" id="contactEmailError">Please use a valid corporate email address. We do not accept
+            generic domains (gmail, yahoo) for initial inquiries.</p>
+        </div>
+
+        <div class="form-group">
+          <label for="contactPhone" class="form-label">Phone Number <span
+              class="text-sm text-light">(Optional)</span></label>
+          <input type="tel" id="contactPhone" name="phone" class="form-input">
+        </div>
+
+        <div class="form-group">
+          <label for="contactMessage" class="form-label">Context &amp; Objectives *</label>
+          <textarea id="contactMessage" name="message" class="form-textarea" required
+            aria-describedby="contactMessageError"
+            placeholder="Briefly describe your strategic goals or the specific challenge you are facing in the Greater Caspian Region."></textarea>
+          <p class="form-error" id="contactMessageError"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="contactInquiryType" class="form-label">I am *</label>
+          <select id="contactInquiryType" name="inquiry_type" class="form-select" required>
+            <option value="client">a Client</option>
+            <option value="media">Media &amp; Press</option>
+            <option value="partnership">Partnership Proposal</option>
+          </select>
+        </div>
+
+        <div class="contact-form__checkbox-group">
+          <input type="checkbox" id="contactConsent" name="consent" value="yes" required>
+          <label for="contactConsent">I acknowledge the <a href="privacy-policy.html">Privacy Policy</a> and confirm
+            that my inquiry aligns with GCR Consulting's ethical compliance standards.</label>
+        </div>
+
+        <button type="submit" class="btn btn--primary">Submit</button>
+      </form>
+
+      <div class="form-success" id="formSuccess" aria-live="polite">
+        <h3>Thank You</h3>
+        <p class="mt-md">Your inquiry has been received. A managing partner will review your request and respond
+          within 48 business hours.</p>
       </div>
     </div>
   </section>
@@ -302,10 +361,7 @@
         <h4>Swiss Project Development Company SA</h4>
         <p class="footer-new__address">Via Pico 12, 6900 Lugano, Switzerland</p>
       </div>
-      <div class="footer-new__social">
-        <a href="#" aria-label="LinkedIn">in</a>
-        <a href="#" aria-label="Twitter">X</a>
-      </div>
+
       <div class="footer-new__copyright">
         <span>&copy; 2026 GCR Consulting. All Rights Reserved.</span>
         <div>

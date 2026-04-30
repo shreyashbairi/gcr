@@ -1180,7 +1180,7 @@
   var EMAILJS_TEMPLATE_ID = 'template_lgz94kl';
 
   function initContactForm() {
-    ['contactForm', 'contactFormMedia', 'contactFormPartner'].forEach(function (formId) {
+    ['contactForm'].forEach(function (formId) {
       var form = document.getElementById(formId);
       if (!form) return;
 
@@ -1218,7 +1218,7 @@
     var fd = new FormData(form);
     var obj = {};
     fd.forEach(function (val, key) { obj[key] = val; });
-    obj.form_type = form.getAttribute('data-form-type') || 'client';
+    obj.form_type = obj.inquiry_type || form.getAttribute('data-form-type') || 'client';
     obj.form_name = obj['form-name'] || form.getAttribute('name') || '';
     obj.submitted_at = new Date().toISOString();
     obj.page_url = window.location.href;
@@ -1232,11 +1232,8 @@
   }
 
   function showContactFormSuccess(form) {
-    var successId = form.id === 'contactFormMedia' ? 'formSuccessMedia'
-                  : form.id === 'contactFormPartner' ? 'formSuccessPartner'
-                  : 'formSuccess';
     form.style.display = 'none';
-    var success = document.getElementById(successId);
+    var success = document.getElementById('formSuccess');
     if (success) success.classList.add('is-visible');
   }
 
@@ -1273,11 +1270,15 @@
         showFieldError(emailField, 'Please enter a valid email address.');
         isValid = false;
       } else if (form.id === 'contactForm') {
-        /* Strict corporate-email check only on the client inquiry form */
-        var domain = emailField.value.split('@')[1].toLowerCase();
-        if (GENERIC_DOMAINS.indexOf(domain) !== -1) {
-          showFieldError(emailField, 'Please use a corporate email address. Generic domains (Gmail, Yahoo) are not accepted for initial inquiries.');
-          isValid = false;
+        /* Strict corporate-email check only when inquiry type is client */
+        var inquirySelect = form.querySelector('[name="inquiry_type"]');
+        var inquiryVal = inquirySelect ? inquirySelect.value : 'client';
+        if (inquiryVal === 'client') {
+          var domain = emailField.value.split('@')[1].toLowerCase();
+          if (GENERIC_DOMAINS.indexOf(domain) !== -1) {
+            showFieldError(emailField, 'Please use a corporate email address. Generic domains (Gmail, Yahoo) are not accepted for initial inquiries.');
+            isValid = false;
+          }
         }
       }
     }

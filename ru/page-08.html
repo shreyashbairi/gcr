@@ -93,246 +93,84 @@
     <!-- CONTACT FORM SECTION -->
     <section class="section">
       <div class="container container--narrow">
+        <form id="contactForm" class="contact-form" name="client-contact" method="POST" data-netlify="true"
+          data-netlify-honeypot="bot-field" data-form-type="client" novalidate>
+          <input type="hidden" name="form-name" value="client-contact">
+          <input type="hidden" name="language" value="ru">
+          <p class="hp-field" hidden><label>Не заполняйте это поле: <input name="bot-field"></label></p>
 
-        <!-- Role Tabs -->
-        <div class="contact-form__tabs" role="tablist">
-          <button class="contact-form__tab is-active" data-tab-target="tab-client" role="tab" aria-selected="true">Я
-            клиент</button>
-          <button class="contact-form__tab" data-tab-target="tab-media" role="tab" aria-selected="false">СМИ и
-            пресса</button>
-          <button class="contact-form__tab" data-tab-target="tab-other" role="tab" aria-selected="false">Партнёрское
-            предложение</button>
-        </div>
-
-        <!-- CLIENT TAB -->
-        <div class="tabs__panel is-active" data-tab-id="tab-client" role="tabpanel" aria-hidden="false">
-
-          <h3 style="margin-bottom:0.5rem;">Стратегия и Партнёрство</h3>
-          <p style="margin-bottom:1.5rem;">Обсудите стратегию выхода на рынок или расширения бизнеса напрямую с нашими
-            партнёрами. Мы отдаём приоритет диалогу с системными компаниями, готовыми к масштабному росту.</p>
-
-          <form id="contactForm" class="contact-form" name="client-contact" method="POST" data-netlify="true"
-            data-netlify-honeypot="bot-field" data-form-type="client" novalidate>
-            <input type="hidden" name="form-name" value="client-contact">
-            <input type="hidden" name="language" value="ru">
-            <p class="hp-field" hidden><label>Не заполняйте это поле: <input name="bot-field"></label></p>
-
-            <div class="form-group">
-              <label for="contactName" class="form-label">Полное имя *</label>
-              <input type="text" id="contactName" name="full_name" class="form-input" required
-                aria-describedby="contactNameError">
-              <p class="form-error" id="contactNameError"></p>
-            </div>
-
-            <div class="form-group">
-              <label for="contactTitle" class="form-label">Должность</label>
-              <input type="text" id="contactTitle" name="job_title" class="form-input"
-                placeholder="например, Генеральный директор, Руководитель отдела экспансии, Управляющий директор">
-            </div>
-
-            <div class="form-group">
-              <label for="contactEmail" class="form-label">Рабочая электронная почта *</label>
-              <input type="email" id="contactEmail" name="email" class="form-input" required
-                aria-describedby="contactEmailError">
-              <p class="form-error" id="contactEmailError">Пожалуйста, используйте действительный корпоративный адрес
-                электронной почты. Для первоначальных запросов мы не принимаем общие домены (gmail, yahoo).</p>
-            </div>
-
-            <div class="form-group">
-              <label for="contactPhone" class="form-label">Номер телефона <span
-                  class="text-sm text-light">(необязательно)</span></label>
-              <input type="tel" id="contactPhone" name="phone" class="form-input">
-              <p class="text-sm text-light" style="margin-top:0.25rem;">Используется только для срочного согласования
-                времени в связи с вашим запросом.</p>
-            </div>
-
-            <div class="form-group" style="margin-top:1.5rem;">
-              <label for="contactInquiry" class="form-label">Характер запроса *</label>
-              <select id="contactInquiry" name="inquiry_type" class="form-input contact-form__select" required>
-                <option value="">Выберите тип запроса...</option>
-                <option value="market-entry">Стратегический выход на рынок и валидация</option>
-                <option value="gov-relations">Государственные отношения и доступ на высшем уровне</option>
-                <option value="ops-setup">Операционная настройка и снижение рисков</option>
-                <option value="partnership">Партнёрское предложение</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="contactOrg" class="form-label">Профиль организации *</label>
-              <select id="contactOrg" name="org_type" class="form-input contact-form__select" required>
-                <option value="">Выберите тип организации...</option>
-                <option value="mnc">Транснациональная корпорация / Крупное предприятие</option>
-                <option value="fund">Инвестиционный фонд / Частный капитал / Семейный офис</option>
-                <option value="scaleup">Масштабирующийся стартап / Быстрорастущий бизнес</option>
-                <option value="gov">Государственная структура / НКО</option>
-              </select>
-            </div>
-
-            <div class="form-group" style="margin-top:1.5rem;">
-              <label for="contactMessage" class="form-label">Контекст и цели *</label>
-              <textarea id="contactMessage" name="message" class="form-textarea" required
-                aria-describedby="contactMessageError"
-                placeholder="Кратко опишите ваши стратегические цели или конкретный вызов, с которым вы столкнулись в Великом Каспийском Регионе."></textarea>
-              <p class="form-error" id="contactMessageError"></p>
-            </div>
-
-            <!-- Compliance Checkbox -->
-            <div class="contact-form__checkbox-group">
-              <input type="checkbox" id="contactConsent" name="consent" value="yes" required>
-              <label for="contactConsent">Я ознакомился(-лась) с <a href="privacy-policy.html">Политикой
-                  конфиденциальности</a> и подтверждаю, что мой запрос соответствует стандартам этической compliance GCR
-                Consulting. Я понимаю, что компания строго работает в правовых рамках и не участвует в серых
-                схемах.</label>
-            </div>
-
-            <!-- Privacy text -->
-            <div class="form-group">
-              <p class="text-sm text-light">GCR Consulting обязуется защищать ваши данные. Ваша информация будет
-                использоваться в соответствии с применимым законодательством о защите персональных данных, нашими
-                внутренними политиками и нашей <a href="privacy-policy.html">политикой конфиденциальности</a>. Поскольку
-                GCR Consulting является глобальной организацией, ваша информация может храниться и обрабатываться GCR
-                Consulting и её аффилированными лицами в странах за пределами вашей страны проживания, однако где бы ни
-                обрабатывалась ваша информация, мы будем обращаться с ней с одинаковой тщательностью и уважением к вашей
-                конфиденциальности.</p>
-            </div>
-
-            <button type="submit" class="btn btn--primary">Запросить консультацию</button>
-          </form>
-
-          <!-- Success Message -->
-          <div class="form-success" id="formSuccess" aria-live="polite">
-            <h3>Благодарим вас</h3>
-            <p class="mt-md">Ваш запрос получен. Наш партнёр свяжется с вами лично в течение 1–2 рабочих дней.</p>
+          <div class="form-group">
+            <label for="contactName" class="form-label">Полное имя *</label>
+            <input type="text" id="contactName" name="full_name" class="form-input" required
+              aria-describedby="contactNameError">
+            <p class="form-error" id="contactNameError"></p>
           </div>
-        </div>
 
-        <!-- MEDIA TAB -->
-        <div class="tabs__panel" data-tab-id="tab-media" role="tabpanel" aria-hidden="true">
-          <form id="contactFormMedia" class="contact-form" name="media-contact" method="POST" data-netlify="true"
-            data-netlify-honeypot="bot-field" data-form-type="media" novalidate>
-            <input type="hidden" name="form-name" value="media-contact">
-            <input type="hidden" name="language" value="ru">
-            <p class="hp-field" hidden><label>Не заполняйте это поле: <input name="bot-field"></label></p>
-            <div class="form-group">
-              <label for="mediaName" class="form-label">Полное имя *</label>
-              <input type="text" id="mediaName" name="full_name" class="form-input" required>
-            </div>
-            <div class="form-group">
-              <label for="mediaEmail" class="form-label">Рабочая электронная почта *</label>
-              <input type="email" id="mediaEmail" name="email" class="form-input" required>
-            </div>
-            <div class="form-group">
-              <label for="mediaOutlet" class="form-label">СМИ / Издание</label>
-              <input type="text" id="mediaOutlet" name="outlet" class="form-input">
-            </div>
-            <div class="form-group">
-              <label for="mediaTitle" class="form-label">Должность / Роль</label>
-              <input type="text" id="mediaTitle" name="job_title" class="form-input">
-            </div>
-            <div class="form-group">
-              <label for="mediaSubject" class="form-label">Тема *</label>
-              <input type="text" id="mediaSubject" name="subject" class="form-input" required
-                placeholder="Запрос на интервью, экспертный комментарий, запрос от прессы...">
-            </div>
-            <div class="form-group">
-              <label for="mediaMessage" class="form-label">Сообщение *</label>
-              <textarea id="mediaMessage" name="message" class="form-textarea" required
-                placeholder="Пожалуйста, опишите ваш запрос от СМИ, включая любые сроки."></textarea>
-            </div>
-            <div class="form-group">
-              <p class="text-sm text-light">GCR Consulting обязуется защищать ваши данные. Ваша информация будет
-                использоваться в соответствии с нашей <a href="privacy-policy.html">политикой конфиденциальности</a>.
-              </p>
-            </div>
-            <button type="submit" class="btn btn--primary">Отправить</button>
-          </form>
-          <div class="form-success" id="formSuccessMedia" aria-live="polite">
-            <h3>Благодарим вас</h3>
-            <p class="mt-md">Ваш запрос получен. Мы ответим в течение 1–2 рабочих дней.</p>
+          <div class="form-group">
+            <label for="contactTitle" class="form-label">Должность</label>
+            <input type="text" id="contactTitle" name="job_title" class="form-input"
+              placeholder="например, Генеральный директор, Руководитель отдела экспансии, Управляющий директор">
           </div>
-        </div>
 
-        <!-- PARTNERSHIP TAB -->
-        <div class="tabs__panel" data-tab-id="tab-other" role="tabpanel" aria-hidden="true">
-          <form id="contactFormPartner" class="contact-form" name="partnership-contact" method="POST"
-            data-netlify="true" data-netlify-honeypot="bot-field" data-form-type="partnership" novalidate>
-            <input type="hidden" name="form-name" value="partnership-contact">
-            <input type="hidden" name="language" value="ru">
-            <p class="hp-field" hidden><label>Не заполняйте это поле: <input name="bot-field"></label></p>
-            <div class="form-group">
-              <label for="otherName" class="form-label">Полное имя *</label>
-              <input type="text" id="otherName" name="full_name" class="form-input" required>
-            </div>
-            <div class="form-group">
-              <label for="otherEmail" class="form-label">Рабочая электронная почта *</label>
-              <input type="email" id="otherEmail" name="email" class="form-input" required>
-            </div>
-            <div class="form-group">
-              <label for="otherCompany" class="form-label">Организация</label>
-              <input type="text" id="otherCompany" name="organization" class="form-input">
-            </div>
-            <div class="form-group">
-              <label for="otherTitle" class="form-label">Должность / Роль</label>
-              <input type="text" id="otherTitle" name="job_title" class="form-input">
-            </div>
-            <div class="form-group">
-              <label for="otherSubject" class="form-label">Тема *</label>
-              <input type="text" id="otherSubject" name="subject" class="form-input" required
-                placeholder="Партнёрское предложение, представительство агента, совместное предприятие...">
-            </div>
-            <div class="form-group">
-              <label for="otherMessage" class="form-label">Детали предложения *</label>
-              <textarea id="otherMessage" name="message" class="form-textarea" required
-                placeholder="Пожалуйста, изложите ваше партнёрское предложение, включая масштаб, географический фокус и ожидаемую взаимную ценность."></textarea>
-            </div>
-            <div class="form-group">
-              <p class="text-sm text-light">GCR Consulting обязуется защищать ваши данные. Ваша информация будет
-                использоваться в соответствии с нашей <a href="privacy-policy.html">политикой конфиденциальности</a>.
-              </p>
-            </div>
-            <button type="submit" class="btn btn--primary">Отправить предложение</button>
-          </form>
-          <div class="form-success" id="formSuccessPartner" aria-live="polite">
-            <h3>Благодарим вас</h3>
-            <p class="mt-md">Ваше предложение получено. Наш партнёр рассмотрит его и ответит в течение 1–2 рабочих дней.
-            </p>
+          <div class="form-group">
+            <label for="contactEmail" class="form-label">Рабочая электронная почта *</label>
+            <input type="email" id="contactEmail" name="email" class="form-input" required
+              aria-describedby="contactEmailError">
+            <p class="form-error" id="contactEmailError">Пожалуйста, используйте действительный корпоративный адрес
+              электронной почты. Для первоначальных запросов мы не принимаем общие домены (gmail, yahoo).</p>
           </div>
-          <p class="text-sm text-light" style="margin-top:1.5rem;">По вопросам партнёрства или агентского
-            представительства вы также можете направить своё предложение по адресу: <a
-              href="mailto:info@tethys-gcr.com">info@tethys-gcr.com</a></p>
-        </div>
 
+          <div class="form-group">
+            <label for="contactPhone" class="form-label">Номер телефона <span
+                class="text-sm text-light">(необязательно)</span></label>
+            <input type="tel" id="contactPhone" name="phone" class="form-input">
+          </div>
+
+          <div class="form-group">
+            <label for="contactMessage" class="form-label">Контекст и цели *</label>
+            <textarea id="contactMessage" name="message" class="form-textarea" required
+              aria-describedby="contactMessageError"
+              placeholder="Кратко опишите ваши стратегические цели или конкретный вызов, с которым вы столкнулись в Великом Каспийском Регионе."></textarea>
+            <p class="form-error" id="contactMessageError"></p>
+          </div>
+
+          <div class="form-group">
+            <label for="contactInquiryType" class="form-label">Я *</label>
+            <select id="contactInquiryType" name="inquiry_type" class="form-select" required>
+              <option value="client">клиент</option>
+              <option value="media">СМИ и пресса</option>
+              <option value="partnership">Партнёрское предложение</option>
+            </select>
+          </div>
+
+          <div class="contact-form__checkbox-group">
+            <input type="checkbox" id="contactConsent" name="consent" value="yes" required>
+            <label for="contactConsent">Я ознакомился(-лась) с <a href="privacy-policy.html">Политикой
+                конфиденциальности</a> и подтверждаю, что мой запрос соответствует стандартам этической compliance GCR
+              Consulting.</label>
+          </div>
+
+          <button type="submit" class="btn btn--primary">Отправить</button>
+        </form>
+
+        <div class="form-success" id="formSuccess" aria-live="polite">
+          <h3>Благодарим вас</h3>
+          <p class="mt-md">Ваш запрос получен. Наш партнёр свяжется с вами лично в течение 1–2 рабочих дней.</p>
+        </div>
       </div>
     </section>
 
   </main>
-
-  <section class="footer-cta">
-    <div class="footer-cta__inner container">
-      <div class="footer-cta__content">
-        <h2>Свяжитесь с нами</h2>
-        <p>Обсудите вашу стратегию в ВКР напрямую с нашей командой.</p>
-        <a href="page-08.html" class="footer-cta__btn">Связаться с нами &rarr;</a>
-      </div>
-      <div class="footer-cta__image">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop&q=80"
-          alt="Команда GCR Consulting за работой" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
-      </div>
-    </div>
-  </section>
 
   <footer class="footer-new">
     <div class="footer-new__inner">
       <div class="footer-new__grid">
       </div>
       <div class="footer-new__company-info">
-        <h4>Швейцарская компания по развитию проектов АО</h4>
-        <p class="footer-new__address">Виа Пико 12, 6900 Лугано, Швейцария</p>
+        <h4>Swiss Project Development Company SA</h4>
+        <p class="footer-new__address">Via Pico 12, 6900 Lugano, Switzerland</p>
       </div>
-      <div class="footer-new__social">
-        <a href="#" aria-label="LinkedIn">in</a>
-        <a href="#" aria-label="Twitter">X</a>
-      </div>
+
       <div class="footer-new__copyright">
         <span>&copy; 2026 Swiss Project Development Company SA. Все права защищены.</span>
         <div>

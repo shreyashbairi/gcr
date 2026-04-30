@@ -63,7 +63,8 @@
       <div class="header-new__actions">
         <a href="../page-08.html" class="header-new__contact-btn">Связаться с нами</a>
         <div class="header-new__lang-toggle">
-          <a href="#" class="lang-link" data-lang="en">EN</a><span>|</span><a href="#" class="lang-link" data-lang="zh">中文</a><span>|</span><a href="#" class="lang-link active" data-lang="ru">РУ</a>
+          <a href="#" class="lang-link" data-lang="en">EN</a><span>|</span><a href="#" class="lang-link"
+            data-lang="zh">中文</a><span>|</span><a href="#" class="lang-link active" data-lang="ru">РУ</a>
         </div>
       </div>
       <button class="header-new__burger" aria-label="Открыть меню"><span></span><span></span><span></span></button>
@@ -81,10 +82,7 @@
             <h1 class="leader-hero__name" data-hero-anim>Evan Kraus</h1>
             <p class="leader-hero__title" data-hero-anim>Президент и управляющий директор, APCO Worldwide</p>
             <p class="leader-hero__meta">Вашингтон, округ Колумбия &nbsp;|&nbsp; Языки: английский</p>
-            <div class="leader-hero__social">
-              <a href="#" title="LinkedIn">in</a>
-              <a href="#" title="Email">@</a>
-            </div>
+
           </div>
         </div>
       </div>
@@ -109,24 +107,89 @@
             </ul>
           </div>
           <div class="leader-bio">
-            <p>Evan Kraus занимает должность президента и управляющего директора APCO Worldwide, осуществляя руководство глобальными операциями и стратегическими клиентскими отношениями компании. Под его руководством APCO расширила своё присутствие на ключевых развивающихся рынках, разработав инновационные подходы к взаимодействию со стейкхолдерами и управлению корпоративной репутацией.</p>
-            <p>Kraus обладает глубокой экспертизой в области государственно-частного партнёрства и консультировал крупнейшие транснациональные корпорации по стратегиям выхода на рынки в политически сложных условиях. Его понимание взаимосвязи государственной политики и бизнес-стратегии критически важно для клиентов ВКР, стремящихся выстроить устойчивые операции в Большом Каспийском регионе.</p>
+            <p>Evan Kraus занимает должность президента и управляющего директора APCO Worldwide, осуществляя руководство
+              глобальными операциями и стратегическими клиентскими отношениями компании. Под его руководством APCO
+              расширила своё присутствие на ключевых развивающихся рынках, разработав инновационные подходы к
+              взаимодействию со стейкхолдерами и управлению корпоративной репутацией.</p>
+            <p>Kraus обладает глубокой экспертизой в области государственно-частного партнёрства и консультировал
+              крупнейшие транснациональные корпорации по стратегиям выхода на рынки в политически сложных условиях. Его
+              понимание взаимосвязи государственной политики и бизнес-стратегии критически важно для клиентов ВКР,
+              стремящихся выстроить устойчивые операции в Большом Каспийском регионе.</p>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <section class="footer-cta">
-    <div class="footer-cta__inner container">
-      <div class="footer-cta__content">
+  <section class="footer-cta" style="text-align:left;">
+    <div class="container container--narrow">
+      <div class="footer-cta__content" style="text-align:center;margin-bottom:2rem;">
         <h2>Свяжитесь с нами</h2>
-        <p>Обсудите стратегию в ВКР с нашей командой.</p>
-        <a href="../page-08.html" class="footer-cta__btn">Связаться с нами &rarr;</a>
+        <p>Обсудите вашу стратегию в ВКР напрямую с нашей командой.</p>
       </div>
-      <div class="footer-cta__image">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop&q=80"
-          alt="Команда ВКР Консалтинг за работой" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
+      <form id="contactForm" class="contact-form" name="client-contact" method="POST" data-netlify="true"
+        data-netlify-honeypot="bot-field" data-form-type="client" novalidate>
+        <input type="hidden" name="form-name" value="client-contact">
+        <input type="hidden" name="language" value="ru">
+        <p class="hp-field" hidden><label>Не заполняйте это поле: <input name="bot-field"></label></p>
+
+        <div class="form-group">
+          <label for="contactName" class="form-label">Полное имя *</label>
+          <input type="text" id="contactName" name="full_name" class="form-input" required
+            aria-describedby="contactNameError">
+          <p class="form-error" id="contactNameError"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="contactTitle" class="form-label">Должность</label>
+          <input type="text" id="contactTitle" name="job_title" class="form-input"
+            placeholder="например, Генеральный директор, Руководитель отдела экспансии, Управляющий директор">
+        </div>
+
+        <div class="form-group">
+          <label for="contactEmail" class="form-label">Рабочая электронная почта *</label>
+          <input type="email" id="contactEmail" name="email" class="form-input" required
+            aria-describedby="contactEmailError">
+          <p class="form-error" id="contactEmailError">Пожалуйста, используйте действительный корпоративный адрес
+            электронной почты. Для первоначальных запросов мы не принимаем общие домены (gmail, yahoo).</p>
+        </div>
+
+        <div class="form-group">
+          <label for="contactPhone" class="form-label">Номер телефона <span
+              class="text-sm text-light">(необязательно)</span></label>
+          <input type="tel" id="contactPhone" name="phone" class="form-input">
+        </div>
+
+        <div class="form-group">
+          <label for="contactMessage" class="form-label">Контекст и цели *</label>
+          <textarea id="contactMessage" name="message" class="form-textarea" required
+            aria-describedby="contactMessageError"
+            placeholder="Кратко опишите ваши стратегические цели или конкретный вызов, с которым вы столкнулись в Великом Каспийском Регионе."></textarea>
+          <p class="form-error" id="contactMessageError"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="contactInquiryType" class="form-label">Я *</label>
+          <select id="contactInquiryType" name="inquiry_type" class="form-select" required>
+            <option value="client">клиент</option>
+            <option value="media">СМИ и пресса</option>
+            <option value="partnership">Партнёрское предложение</option>
+          </select>
+        </div>
+
+        <div class="contact-form__checkbox-group">
+          <input type="checkbox" id="contactConsent" name="consent" value="yes" required>
+          <label for="contactConsent">Я ознакомился(-лась) с <a href="privacy-policy.html">Политикой
+              конфиденциальности</a> и подтверждаю, что мой запрос соответствует стандартам этической compliance GCR
+            Consulting.</label>
+        </div>
+
+        <button type="submit" class="btn btn--primary">Отправить</button>
+      </form>
+
+      <div class="form-success" id="formSuccess" aria-live="polite">
+        <h3>Благодарим вас</h3>
+        <p class="mt-md">Ваш запрос получен. Наш партнёр свяжется с вами лично в течение 1–2 рабочих дней.</p>
       </div>
     </div>
   </section>
@@ -165,13 +228,10 @@
         END TEMPORARILY HIDDEN Legal column -->
       </div>
       <div class="footer-new__company-info">
-        <h4>Швейцарская компания по развитию проектов АО</h4>
-        <p class="footer-new__address">Виа Пико 12, 6900 Лугано, Швейцария</p>
+        <h4>Swiss Project Development Company SA</h4>
+        <p class="footer-new__address">Via Pico 12, 6900 Lugano, Switzerland</p>
       </div>
-      <div class="footer-new__social">
-        <a href="#" aria-label="LinkedIn">in</a>
-        <a href="#" aria-label="Twitter">X</a>
-      </div>
+
 
       <div class="footer-new__copyright">
         <span>&copy; 2026 Swiss Project Development Company SA. Все права защищены.</span>
