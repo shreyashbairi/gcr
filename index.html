@@ -286,56 +286,43 @@
       </div>
     </section>
 
-    <!-- TEMPORARILY HIDDEN — uncomment to restore Leadership section:
+    <!-- SECTION 6: LEADERSHIP -->
     <section class="section">
       <div class="container">
         <div class="section-intro">
           <h2>Leadership</h2>
-          <p>Expertise grounded in decades of high-level diplomacy and business execution.</p>
+          <p>Expertise grounded in decades of high-level diplomacy and operational excellence across the Greater Caspian
+            Region.</p>
         </div>
         <div class="leader-carousel">
           <p class="leader-carousel__eyebrow">Our Leadership</p>
           <div class="leader-carousel__track">
             <div class="leader-carousel__slide">
               <div class="leader-carousel__photo">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=800&fit=crop&q=80"
-                  alt="GCR Partner" style="width:100%;height:100%;object-fit:cover;">
+                <img src="assets/images/leaders-real/ClaudeBegle.jpg" alt="Dr. Claude Béglé"
+                  style="width:100%;height:100%;object-fit:cover;">
               </div>
               <div class="leader-carousel__info">
-                <p class="leader-carousel__quote">A visionary leader with deep connections across the GCR's corridors of
-                  power, driving strategic partnerships that open markets and build lasting alliances for Western
-                  capital.</p>
-                <p class="leader-carousel__name">Partner Name</p>
-                <p class="leader-carousel__role">Founding Partner &bull; Davos Participant &bull; UN Expert</p>
+                <p class="leader-carousel__quote">Forty years across a hundred countries — from Nepal in the 1970s to
+                  the executive boards of Deutsche Post and the Swiss Federal Parliament — directed toward building
+                  companies with measurable environmental and public health impact.</p>
+                <p class="leader-carousel__name">Dr. Claude Béglé</p>
+                <p class="leader-carousel__role">Board Member &bull; 40 Years of International Career</p>
                 <a href="leader-01.html" class="leader-carousel__link">&rarr; Read Bio</a>
               </div>
             </div>
             <div class="leader-carousel__slide">
               <div class="leader-carousel__photo">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop&q=80"
-                  alt="GCR Partner" style="width:100%;height:100%;object-fit:cover;">
+                <img src="assets/images/leaders-real/EugeneSeachbbg.jpg" alt="Eugene Seah"
+                  style="width:100%;height:100%;object-fit:cover;">
               </div>
               <div class="leader-carousel__info">
-                <p class="leader-carousel__quote">Two decades navigating the complexities of Oil &amp; Gas in the
-                  Greater Caspian Region, from PSA negotiations to full-scale operational deployments across multiple
-                  jurisdictions.</p>
-                <p class="leader-carousel__name">Partner Name</p>
-                <p class="leader-carousel__role">Head of GCR Strategy &bull; 20 Years in Oil &amp; Gas</p>
+                <p class="leader-carousel__quote">Three decades of port management across Singapore, the Middle East,
+                  China and the Caspian — transforming a regional facility into one of Eurasia's most strategically
+                  connected maritime gateways.</p>
+                <p class="leader-carousel__name">Eugene Seah</p>
+                <p class="leader-carousel__role">Board Member &bull; 30 Years in Port Management</p>
                 <a href="leader-02.html" class="leader-carousel__link">&rarr; Read Bio</a>
-              </div>
-            </div>
-            <div class="leader-carousel__slide">
-              <div class="leader-carousel__photo">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop&q=80"
-                  alt="GCR Partner" style="width:100%;height:100%;object-fit:cover;">
-              </div>
-              <div class="leader-carousel__info">
-                <p class="leader-carousel__quote">Former Big4 partner bringing world-class governance frameworks and
-                  operational excellence to emerging market deployments, ensuring transparency and fiduciary control at
-                  every level.</p>
-                <p class="leader-carousel__name">Partner Name</p>
-                <p class="leader-carousel__role">Head of Operations &bull; Ex-Big4 Partner</p>
-                <a href="leader-03.html" class="leader-carousel__link">&rarr; Read Bio</a>
               </div>
             </div>
           </div>
@@ -344,14 +331,12 @@
             <div class="leader-carousel__dots">
               <button class="leader-carousel__dot is-active" aria-label="Go to leader 1"></button>
               <button class="leader-carousel__dot" aria-label="Go to leader 2"></button>
-              <button class="leader-carousel__dot" aria-label="Go to leader 3"></button>
             </div>
             <button class="leader-carousel__btn" data-carousel-next aria-label="Next leader">&rarr;</button>
           </div>
         </div>
       </div>
     </section>
-    END TEMPORARILY HIDDEN Leadership section -->
 
     <!-- TEMPORARILY HIDDEN — uncomment to restore Case Studies section:
     <section class="section section--alt">
@@ -440,16 +425,75 @@
   </main>
 
   <!-- FOOTER -->
-  <section class="footer-cta">
-    <div class="footer-cta__inner container">
-      <div class="footer-cta__content">
+  <section class="footer-cta" style="text-align:left;">
+    <div class="container container--narrow">
+      <div class="footer-cta__content" style="text-align:center;margin-bottom:2rem;">
         <h2>Talk to Us</h2>
         <p>Discuss your Greater Caspian Region strategy directly with our team.</p>
-        <a href="page-08.html" class="footer-cta__btn">Contact Us &rarr;</a>
       </div>
-      <div class="footer-cta__image">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop&q=80"
-          alt="GCR Consulting team collaborating" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
+      <form id="contactForm" class="contact-form" name="client-contact" method="POST" data-netlify="true"
+        data-netlify-honeypot="bot-field" data-form-type="client" novalidate>
+        <input type="hidden" name="form-name" value="client-contact">
+        <input type="hidden" name="language" value="en">
+        <p class="hp-field" hidden><label>Don't fill this out: <input name="bot-field"></label></p>
+
+        <div class="form-group">
+          <label for="contactName" class="form-label">Full Name *</label>
+          <input type="text" id="contactName" name="full_name" class="form-input" required
+            aria-describedby="contactNameError">
+          <p class="form-error" id="contactNameError"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="contactTitle" class="form-label">Job Title</label>
+          <input type="text" id="contactTitle" name="job_title" class="form-input"
+            placeholder="e.g., CEO, Head of Expansion, Managing Director">
+        </div>
+
+        <div class="form-group">
+          <label for="contactEmail" class="form-label">Work Email *</label>
+          <input type="email" id="contactEmail" name="email" class="form-input" required
+            aria-describedby="contactEmailError">
+          <p class="form-error" id="contactEmailError">Please use a valid corporate email address. We do not accept
+            generic domains (gmail, yahoo) for initial inquiries.</p>
+        </div>
+
+        <div class="form-group">
+          <label for="contactPhone" class="form-label">Phone Number <span
+              class="text-sm text-light">(Optional)</span></label>
+          <input type="tel" id="contactPhone" name="phone" class="form-input">
+        </div>
+
+        <div class="form-group">
+          <label for="contactMessage" class="form-label">Context &amp; Objectives *</label>
+          <textarea id="contactMessage" name="message" class="form-textarea" required
+            aria-describedby="contactMessageError"
+            placeholder="Briefly describe your strategic goals or the specific challenge you are facing in the Greater Caspian Region."></textarea>
+          <p class="form-error" id="contactMessageError"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="contactInquiryType" class="form-label">I am *</label>
+          <select id="contactInquiryType" name="inquiry_type" class="form-select" required>
+            <option value="client">a Client</option>
+            <option value="media">Media &amp; Press</option>
+            <option value="partnership">Partnership Proposal</option>
+          </select>
+        </div>
+
+        <div class="contact-form__checkbox-group">
+          <input type="checkbox" id="contactConsent" name="consent" value="yes" required>
+          <label for="contactConsent">I acknowledge the <a href="privacy-policy.html">Privacy Policy</a> and confirm
+            that my inquiry aligns with GCR Consulting's ethical compliance standards.</label>
+        </div>
+
+        <button type="submit" class="btn btn--primary">Submit</button>
+      </form>
+
+      <div class="form-success" id="formSuccess" aria-live="polite">
+        <h3>Thank You</h3>
+        <p class="mt-md">Your inquiry has been received. A managing partner will review your request and respond
+          within 48 business hours.</p>
       </div>
     </div>
   </section>
@@ -491,10 +535,7 @@
         <h4>Swiss Project Development Company SA</h4>
         <p class="footer-new__address">Via Pico 12, 6900 Lugano, Switzerland</p>
       </div>
-      <div class="footer-new__social">
-        <a href="#" aria-label="LinkedIn">in</a>
-        <a href="#" aria-label="Twitter">X</a>
-      </div>
+
       <div class="footer-new__copyright">
         <span>&copy; 2026 Swiss Project Development Company SA. All Rights Reserved.</span>
         <div>

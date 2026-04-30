@@ -144,7 +144,8 @@
             </div>
             <div class="strategic-section__stat">
               <p class="strategic-section__stat-number">Энергетический переход</p>
-              <p class="strategic-section__stat-label">Крупнейший нераскрытый потенциал в нефти, газе, критических минералах и ВИЭ</p>
+              <p class="strategic-section__stat-label">Крупнейший нераскрытый потенциал в нефти, газе, критических
+                минералах и ВИЭ</p>
             </div>
             <div class="strategic-section__stat">
               <p class="strategic-section__stat-number">+40% г/г</p>
@@ -296,11 +297,57 @@
       </div>
     </section>
 
-    <!-- TEMPORARILY HIDDEN — uncomment to restore Leadership section:
+    <!-- SECTION 6: LEADERSHIP -->
     <section class="section">
-      ...
+      <div class="container">
+        <div class="section-intro">
+          <h2>Руководство</h2>
+          <p>Экспертиза, основанная на десятилетиях дипломатии высокого уровня и операционного совершенства в Великом
+            Каспийском Регионе.</p>
+        </div>
+        <div class="leader-carousel">
+          <p class="leader-carousel__eyebrow">Наше руководство</p>
+          <div class="leader-carousel__track">
+            <div class="leader-carousel__slide">
+              <div class="leader-carousel__photo">
+                <img src="../assets/images/leaders-real/ClaudeBegle.jpg" alt="Dr. Claude Béglé"
+                  style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="leader-carousel__info">
+                <p class="leader-carousel__quote">Сорок лет работы в ста странах — от Непала 1970-х годов до
+                  исполнительных советов Deutsche Post и Федерального парламента Швейцарии — направлены на создание
+                  компаний с измеримым воздействием на окружающую среду и общественное здоровье.</p>
+                <p class="leader-carousel__name">Dr. Claude Béglé</p>
+                <p class="leader-carousel__role">Член Совета директоров &bull; 40 лет международной карьеры</p>
+                <a href="leader-01.html" class="leader-carousel__link">&rarr; Читать биографию</a>
+              </div>
+            </div>
+            <div class="leader-carousel__slide">
+              <div class="leader-carousel__photo">
+                <img src="../assets/images/leaders-real/EugeneSeachbbg.jpg" alt="Eugene Seah"
+                  style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="leader-carousel__info">
+                <p class="leader-carousel__quote">Тридцать лет управления портами в Сингапуре, на Ближнем Востоке, в
+                  Китае и Каспийском регионе — превращение регионального объекта в один из наиболее стратегически
+                  связанных морских узлов Евразии.</p>
+                <p class="leader-carousel__name">Eugene Seah</p>
+                <p class="leader-carousel__role">Член Совета директоров &bull; 30 лет в портовом управлении</p>
+                <a href="leader-02.html" class="leader-carousel__link">&rarr; Читать биографию</a>
+              </div>
+            </div>
+          </div>
+          <div class="leader-carousel__controls">
+            <button class="leader-carousel__btn" data-carousel-prev aria-label="Предыдущий руководитель">&larr;</button>
+            <div class="leader-carousel__dots">
+              <button class="leader-carousel__dot is-active" aria-label="Перейти к руководителю 1"></button>
+              <button class="leader-carousel__dot" aria-label="Перейти к руководителю 2"></button>
+            </div>
+            <button class="leader-carousel__btn" data-carousel-next aria-label="Следующий руководитель">&rarr;</button>
+          </div>
+        </div>
+      </div>
     </section>
-    END TEMPORARILY HIDDEN Leadership section -->
 
     <!-- TEMPORARILY HIDDEN — uncomment to restore Case Studies section:
     <section class="section section--alt">
@@ -323,16 +370,75 @@
   </main>
 
   <!-- FOOTER -->
-  <section class="footer-cta">
-    <div class="footer-cta__inner container">
-      <div class="footer-cta__content">
+  <section class="footer-cta" style="text-align:left;">
+    <div class="container container--narrow">
+      <div class="footer-cta__content" style="text-align:center;margin-bottom:2rem;">
         <h2>Свяжитесь с нами</h2>
-        <p>Обсудите вашу стратегию в Великом Каспийском Регионе напрямую с нашей командой.</p>
-        <a href="page-08.html" class="footer-cta__btn">Связаться с нами &rarr;</a>
+        <p>Обсудите вашу стратегию в ВКР напрямую с нашей командой.</p>
       </div>
-      <div class="footer-cta__image">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop&q=80"
-          alt="Команда GCR Consulting" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
+      <form id="contactForm" class="contact-form" name="client-contact" method="POST" data-netlify="true"
+        data-netlify-honeypot="bot-field" data-form-type="client" novalidate>
+        <input type="hidden" name="form-name" value="client-contact">
+        <input type="hidden" name="language" value="ru">
+        <p class="hp-field" hidden><label>Не заполняйте это поле: <input name="bot-field"></label></p>
+
+        <div class="form-group">
+          <label for="contactName" class="form-label">Полное имя *</label>
+          <input type="text" id="contactName" name="full_name" class="form-input" required
+            aria-describedby="contactNameError">
+          <p class="form-error" id="contactNameError"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="contactTitle" class="form-label">Должность</label>
+          <input type="text" id="contactTitle" name="job_title" class="form-input"
+            placeholder="например, Генеральный директор, Руководитель отдела экспансии, Управляющий директор">
+        </div>
+
+        <div class="form-group">
+          <label for="contactEmail" class="form-label">Рабочая электронная почта *</label>
+          <input type="email" id="contactEmail" name="email" class="form-input" required
+            aria-describedby="contactEmailError">
+          <p class="form-error" id="contactEmailError">Пожалуйста, используйте действительный корпоративный адрес
+            электронной почты. Для первоначальных запросов мы не принимаем общие домены (gmail, yahoo).</p>
+        </div>
+
+        <div class="form-group">
+          <label for="contactPhone" class="form-label">Номер телефона <span
+              class="text-sm text-light">(необязательно)</span></label>
+          <input type="tel" id="contactPhone" name="phone" class="form-input">
+        </div>
+
+        <div class="form-group">
+          <label for="contactMessage" class="form-label">Контекст и цели *</label>
+          <textarea id="contactMessage" name="message" class="form-textarea" required
+            aria-describedby="contactMessageError"
+            placeholder="Кратко опишите ваши стратегические цели или конкретный вызов, с которым вы столкнулись в Великом Каспийском Регионе."></textarea>
+          <p class="form-error" id="contactMessageError"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="contactInquiryType" class="form-label">Я *</label>
+          <select id="contactInquiryType" name="inquiry_type" class="form-select" required>
+            <option value="client">клиент</option>
+            <option value="media">СМИ и пресса</option>
+            <option value="partnership">Партнёрское предложение</option>
+          </select>
+        </div>
+
+        <div class="contact-form__checkbox-group">
+          <input type="checkbox" id="contactConsent" name="consent" value="yes" required>
+          <label for="contactConsent">Я ознакомился(-лась) с <a href="privacy-policy.html">Политикой
+              конфиденциальности</a> и подтверждаю, что мой запрос соответствует стандартам этической compliance GCR
+            Consulting.</label>
+        </div>
+
+        <button type="submit" class="btn btn--primary">Отправить</button>
+      </form>
+
+      <div class="form-success" id="formSuccess" aria-live="polite">
+        <h3>Благодарим вас</h3>
+        <p class="mt-md">Ваш запрос получен. Наш партнёр свяжется с вами лично в течение 1–2 рабочих дней.</p>
       </div>
     </div>
   </section>
@@ -371,13 +477,10 @@
         END TEMPORARILY HIDDEN Legal column -->
       </div>
       <div class="footer-new__company-info">
-        <h4>Швейцарская компания по развитию проектов АО</h4>
-        <p class="footer-new__address">Виа Пико 12, 6900 Лугано, Швейцария</p>
+        <h4>Swiss Project Development Company SA</h4>
+        <p class="footer-new__address">Via Pico 12, 6900 Lugano, Switzerland</p>
       </div>
-      <div class="footer-new__social">
-        <a href="#" aria-label="LinkedIn">in</a>
-        <a href="#" aria-label="Twitter">X</a>
-      </div>
+
       <div class="footer-new__copyright">
         <span>&copy; 2026 Swiss Project Development Company SA. Все права защищены.</span>
         <div>

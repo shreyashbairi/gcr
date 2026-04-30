@@ -274,16 +274,70 @@
     </section>
   </main>
 
-  <section class="footer-cta">
-    <div class="footer-cta__inner container">
-      <div class="footer-cta__content">
+  <section class="footer-cta" style="text-align:left;">
+    <div class="container container--narrow">
+      <div class="footer-cta__content" style="text-align:center;margin-bottom:2rem;">
         <h2>联系我们</h2>
         <p>与我们直接探讨您的里海及周边区域战略。</p>
-        <a href="page-08.html" class="footer-cta__btn">联系我们 &rarr;</a>
       </div>
-      <div class="footer-cta__image">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop&q=80"
-          alt="GCR Consulting 团队协作" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
+      <form id="contactForm" class="contact-form" name="client-contact" method="POST" data-netlify="true"
+        data-netlify-honeypot="bot-field" data-form-type="client" novalidate>
+        <input type="hidden" name="form-name" value="client-contact">
+        <input type="hidden" name="language" value="zh">
+        <p class="hp-field" hidden><label>请勿填写此项：<input name="bot-field"></label></p>
+
+        <div class="form-group">
+          <label for="contactName" class="form-label">姓名 *</label>
+          <input type="text" id="contactName" name="full_name" class="form-input" required
+            aria-describedby="contactNameError">
+          <p class="form-error" id="contactNameError"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="contactTitle" class="form-label">职位</label>
+          <input type="text" id="contactTitle" name="job_title" class="form-input" placeholder="例如：首席执行官、扩张负责人、董事总经理">
+        </div>
+
+        <div class="form-group">
+          <label for="contactEmail" class="form-label">工作邮箱 *</label>
+          <input type="email" id="contactEmail" name="email" class="form-input" required
+            aria-describedby="contactEmailError">
+          <p class="form-error" id="contactEmailError">请使用有效的企业邮箱地址。初次咨询不接受通用域名（gmail、yahoo）。</p>
+        </div>
+
+        <div class="form-group">
+          <label for="contactPhone" class="form-label">电话号码 <span class="text-sm text-light">（选填）</span></label>
+          <input type="tel" id="contactPhone" name="phone" class="form-input">
+        </div>
+
+        <div class="form-group">
+          <label for="contactMessage" class="form-label">背景与目标 *</label>
+          <textarea id="contactMessage" name="message" class="form-textarea" required
+            aria-describedby="contactMessageError" placeholder="请简要描述您的战略目标，或您在泛里海地区面临的具体挑战。"></textarea>
+          <p class="form-error" id="contactMessageError"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="contactInquiryType" class="form-label">我是 *</label>
+          <select id="contactInquiryType" name="inquiry_type" class="form-select" required>
+            <option value="client">客户</option>
+            <option value="media">媒体与新闻</option>
+            <option value="partnership">合作提案</option>
+          </select>
+        </div>
+
+        <div class="contact-form__checkbox-group">
+          <input type="checkbox" id="contactConsent" name="consent" value="yes" required>
+          <label for="contactConsent">我已阅读并接受<a href="privacy-policy.html">隐私政策</a>，并确认我的咨询内容符合 GCR Consulting
+            的道德合规标准。</label>
+        </div>
+
+        <button type="submit" class="btn btn--primary">提交</button>
+      </form>
+
+      <div class="form-success" id="formSuccess" aria-live="polite">
+        <h3>感谢您</h3>
+        <p class="mt-md">您的咨询请求已收到。管理合伙人将审阅您的请求，并在48个工作小时内回复。</p>
       </div>
     </div>
   </section>
@@ -292,13 +346,10 @@
       <div class="footer-new__grid">
       </div>
       <div class="footer-new__company-info">
-        <h4>瑞士项目开发有限公司</h4>
-        <p class="footer-new__address">瑞士卢加诺 6900，维科街 12 号</p>
+        <h4>Swiss Project Development Company SA</h4>
+        <p class="footer-new__address">Via Pico 12, 6900 Lugano, Switzerland</p>
       </div>
-      <div class="footer-new__social">
-        <a href="#" aria-label="LinkedIn">in</a>
-        <a href="#" aria-label="Twitter">X</a>
-      </div>
+
       <div class="footer-new__copyright">
         <span>&copy; 2026 瑞士项目开发股份公司（Swiss Project Development Company SA）版权所有。</span>
         <div>
