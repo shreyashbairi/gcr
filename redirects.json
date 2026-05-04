@@ -1,16 +1,16 @@
 {
   "redirects": [
-    { "from": "/about", "to": "/page-02.html" },
-    { "from": "/services", "to": "/page-03.html" },
-    { "from": "/cases", "to": "/page-04.html" },
-    { "from": "/case-studies", "to": "/page-04.html" },
-    { "from": "/leadership", "to": "/page-05.html" },
-    { "from": "/readiness", "to": "/page-06.html" },
-    { "from": "/readiness-check", "to": "/page-06.html" },
-    { "from": "/news", "to": "/page-07.html" },
-    { "from": "/insights", "to": "/page-07.html" },
-    { "from": "/contact", "to": "/page-08.html" },
-    { "from": "/legal", "to": "/page-09.html" },
-    { "from": "/privacy", "to": "/page-09.html#privacy" }
+    { "from": "/about", "to": "/about-gcr.html" },
+    { "from": "/services", "to": "/market-entry-gtm.html" },
+    { "from": "/cases", "to": "/case-studies.html" },
+    { "from": "/case-studies", "to": "/case-studies.html" },
+    { "from": "/leadership", "to": "/leadership.html" },
+    { "from": "/readiness", "to": "/readiness-check.html" },
+    { "from": "/readiness-check", "to": "/readiness-check.html" },
+    { "from": "/news", "to": "/news.html" },
+    { "from": "/insights", "to": "/news.html" },
+    { "from": "/contact", "to": "/contact-us.html" },
+    { "from": "/legal", "to": "/legal.html" },
+    { "from": "/privacy", "to": "/legal.html#privacy" }
   ]
 }

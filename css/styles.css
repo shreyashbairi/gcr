@@ -428,6 +428,11 @@ p:last-child {
   font-size: var(--text-sm);
 }
 
+/* Buttons inside hero sections (dark backgrounds) — non-transparent grey-white on hover */
+.hero .btn {
+  background-color: var(--color-bg-alt);
+}
+
 /* 4d. CARDS */
 
 .card {
@@ -5340,7 +5345,7 @@ html.lenis, html.lenis body {
   z-index: 0;
 }
 
-/* ABOUT PAGE (page-02) — Custom Sections */
+/* ABOUT PAGE (about-gcr) — Custom Sections */
 
 /* About Hero */
 .about-hero {
@@ -5440,22 +5445,49 @@ html.lenis, html.lenis body {
 
 .about-cta-buttons__shiny-btn {
   display: inline-block;
-  font-family: var(--font-body);
-  font-size: var(--text-base);
-  font-weight: 700;
-  color: var(--color-primary);
-  text-decoration: none;
+  font-size: 1.15rem;
+  padding: 1.1em 2.5em;
   background: transparent;
+  color: #FFFFFF;
   border: none;
-  border-bottom: 1px solid var(--color-primary);
-  padding: 0 0 2px 0;
+  border-radius: 5px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: var(--font-body);
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+  transform: scale(1.06);
+  box-shadow: 4px 5px 17px -4px rgba(255, 255, 255, 0.6);
+  transition: color 200ms, transform 800ms, box-shadow 800ms;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
   cursor: pointer;
-  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.about-cta-buttons__shiny-btn::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 250%;
+  height: 100%;
+  background-color: var(--color-accent);
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: width 800ms;
 }
 
 .about-cta-buttons__shiny-btn:hover {
   color: var(--color-accent);
-  border-bottom-color: var(--color-accent);
+  transform: scale(1);
+  box-shadow: none;
+}
+
+.about-cta-buttons__shiny-btn:hover::before {
+  width: 0;
 }
 
 
@@ -6821,7 +6853,7 @@ html.lenis, html.lenis body {
 }
 
 /* ======================================================================
-   CASE STUDY GRID CARDS (page-04)
+   CASE STUDY GRID CARDS (case-studies)
    ====================================================================== */
 .case-grid {
   display: grid;
