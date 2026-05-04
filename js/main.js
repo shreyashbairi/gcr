@@ -105,19 +105,20 @@
       '      <div class="mobile-drawer__sub" aria-hidden="true">',
       '        <a href="market-entry-gtm.html">Market Entry &amp; GTM</a>',
       '        <a href="deployment-teams.html">Deployment Teams</a>',
-      '        <a href="strategic-partner-search.html">Strategic Alliances</a>',
-      '        <a href="capital-access.html">Negotiation &amp; Channels</a>',
-      '        <a href="negotiation-mastery.html">Fiscal Architecture</a>',
-      '        <a href="corporate-structuring.html">Industrial Assets</a>',
-      '        <a href="industrial-footprint.html">Regulatory Access</a>',
-      '        <a href="market-access-compliance.html">M&amp;A &amp; Capital</a>',
-      '        <a href="mna-lifecycle.html">Digital &amp; Innovation</a>',
-      '        <a href="digital-ecosystems.html">Corporate Governance</a>',
-      '        <a href="corporate-governance.html">Risk &amp; Asset Protection</a>',
+      '        <a href="strategic-partner-search.html">Strategic Partners</a>',
+      '        <a href="capital-access.html">Capital Access</a>',
+      '        <a href="negotiation-mastery.html">Negotiation &amp; Channels</a>',
+      '        <a href="corporate-structuring.html">Corporate Structuring</a>',
+      '        <a href="industrial-footprint.html">Industrial Footprint</a>',
+      '        <a href="market-access-compliance.html">Market Access</a>',
+      '        <a href="mna-lifecycle.html">M&amp;A Lifecycle</a>',
+      '        <a href="digital-ecosystems.html">Digital Ecosystems</a>',
+      '        <a href="corporate-governance.html">Corporate Governance</a>',
       '        <a href="legal-defense-crisis.html">Legal Defense &amp; Crisis</a>',
       '      </div>',
       '    </div>',
-      '    <a href="readiness-check.html" class="mobile-drawer__link">Readiness Check</a>'
+      '    <a href="readiness-check.html" class="mobile-drawer__link">Readiness Check</a>',
+      '    <a href="leadership.html" class="mobile-drawer__link">Leadership</a>'
     ];
 
     var menuZH = [
@@ -143,7 +144,8 @@
       '        <a href="legal-defense-crisis.html">争议解决与危机应对</a>',
       '      </div>',
       '    </div>',
-      '    <a href="readiness-check.html" class="mobile-drawer__link">准备度评估</a>'
+      '    <a href="readiness-check.html" class="mobile-drawer__link">准备度评估</a>',
+      '    <a href="leadership.html" class="mobile-drawer__link">管理团队</a>'
     ];
 
     var menuRU = [
@@ -155,9 +157,9 @@
       '        <svg class="mobile-drawer__chevron" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
       '      </button>',
       '      <div class="mobile-drawer__sub" aria-hidden="true">',
-      '        <a href="market-entry-gtm.html">Стратегия выхода на рынок</a>',
+      '        <a href="market-entry-gtm.html">Стратегия выхода на рынок и GTM</a>',
       '        <a href="deployment-teams.html">Команды развёртывания</a>',
-      '        <a href="strategic-partner-search.html">Стратегические альянсы</a>',
+      '        <a href="strategic-partner-search.html">Стратегические партнёры</a>',
       '        <a href="capital-access.html">Доступ к капиталу</a>',
       '        <a href="negotiation-mastery.html">Управление переговорами</a>',
       '        <a href="corporate-structuring.html">Корпоративное структурирование</a>',
@@ -169,7 +171,8 @@
       '        <a href="legal-defense-crisis.html">Урегулирование споров</a>',
       '      </div>',
       '    </div>',
-      '    <a href="readiness-check.html" class="mobile-drawer__link">Оценка готовности</a>'
+      '    <a href="readiness-check.html" class="mobile-drawer__link">Оценка готовности</a>',
+      '    <a href="leadership.html" class="mobile-drawer__link">Руководство</a>'
     ];
 
     var menuItems = isRu ? menuRU : (isZh ? menuZH : menuEN);
@@ -2475,7 +2478,21 @@
   /* ─── SERVICE SIDEBAR ─── */
   function initServiceSidebar() {
     var page = window.location.pathname.split('/').pop() || 'index.html';
-    if (!/^service-\d+(\.html)?$/.test(page)) return;
+    var SERVICE_PAGES = [
+      'market-entry-gtm.html',
+      'deployment-teams.html',
+      'strategic-partner-search.html',
+      'capital-access.html',
+      'negotiation-mastery.html',
+      'corporate-structuring.html',
+      'industrial-footprint.html',
+      'market-access-compliance.html',
+      'mna-lifecycle.html',
+      'digital-ecosystems.html',
+      'corporate-governance.html',
+      'legal-defense-crisis.html'
+    ];
+    if (SERVICE_PAGES.indexOf(page) === -1) return;
 
     var _sidebarIsZh = window.location.pathname.indexOf('/zh/') !== -1;
     var _sidebarIsRu = window.location.pathname.indexOf('/ru/') !== -1;

@@ -7008,6 +7008,7 @@ html.lenis, html.lenis body {
 
 .service-cta .btn {
   font-size: var(--text-lg);
+  background-color: var(--color-bg-alt);
 }
 
 /* Readiness section — remove gray lines, bring heading closer to quiz */
