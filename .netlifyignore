@@ -1,0 +1,8 @@
+.git
+.gitignore
+.claude
+.DS_Store
+**/.DS_Store
+*.backup
+Leader texts.md
+.netlifyignore
