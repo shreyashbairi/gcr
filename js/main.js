@@ -181,6 +181,8 @@
     /* Language switcher links for mobile drawer */
     var path = window.location.pathname;
     var filename = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
+    /* Netlify pretty URLs strip .html — re-append so cross-locale links resolve */
+    if (filename.indexOf('.') === -1) filename += '.html';
     var enHref = (isZh || isRu) ? '../' + filename : '#';
     var zhHref = isZh ? '#' : (isRu ? '../zh/' + filename : 'zh/' + filename);
     var ruHref = isRu ? '#' : (isZh ? '../ru/' + filename : 'ru/' + filename);
@@ -297,6 +299,8 @@
     if (currentPage === '' || currentPage === '/') {
       currentPage = 'index.html';
     }
+    /* Netlify pretty URLs strip .html — re-append so href lookups still match */
+    if (currentPage.indexOf('.') === -1) currentPage += '.html';
 
     /* Mark all nav links (both old and new header) */
     var selectors = '.header__nav-link, .header__mobile-link, .header-new__nav-link';
@@ -2478,6 +2482,8 @@
   /* ─── SERVICE SIDEBAR ─── */
   function initServiceSidebar() {
     var page = window.location.pathname.split('/').pop() || 'index.html';
+    /* Netlify's pretty URLs strip .html — normalize so lookups still match */
+    if (page && page.indexOf('.') === -1) page += '.html';
     var SERVICE_PAGES = [
       'market-entry-gtm.html',
       'deployment-teams.html',
@@ -2612,6 +2618,8 @@
 
     var path = window.location.pathname;
     var filename = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
+    /* Netlify pretty URLs strip .html — re-append so cross-locale links resolve */
+    if (filename.indexOf('.') === -1) filename += '.html';
     var inZh = path.indexOf('/zh/') !== -1;
     var inRu = path.indexOf('/ru/') !== -1;
 
