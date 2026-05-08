@@ -5621,6 +5621,116 @@ html.lenis, html.lenis body {
   }
 }
 
+/* Market V2 — Text-split variant (right side is text with a divider) */
+.about-market-v2--text-split .about-market-v2__right--text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.about-market-v2__right-text {
+  font-size: var(--text-base);
+  color: var(--color-text);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.about-market-v2__cta {
+  margin-top: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .about-market-v2--text-split .about-market-v2__right--text {
+    border-left: 1px solid var(--color-border);
+    padding-left: var(--space-2xl);
+    /* Use margin-top (not padding-top) so the divider line itself shifts down,
+       visually aligning the divider + right body text with the left body text. */
+    margin-top: calc(var(--space-3xl) + var(--space-2xl));
+  }
+}
+
+/* GCR by the Numbers — map background with stats overlay */
+.about-market-numbers {
+  margin-top: var(--space-3xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.about-market-numbers__title {
+  font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+  color: var(--color-primary);
+  line-height: 1.2;
+  margin-bottom: var(--space-xs);
+}
+
+.about-market-numbers__subtitle {
+  font-size: clamp(var(--text-xl), 3vw, var(--text-2xl));
+  color: var(--color-text-slate);
+  font-weight: 400;
+  margin-bottom: var(--space-md);
+}
+
+.about-market-numbers__sep {
+  width: 48px;
+  height: 3px;
+  background: var(--color-primary);
+  margin-bottom: var(--space-xl);
+}
+
+.about-market-numbers__layout {
+  position: relative;
+  background-color: #f3f5f8; /* subtle grey so the map's white land is visible */
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-xl);
+  min-height: 360px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Map layer — placed in a pseudo-element so the edge fade only affects the
+   map itself, leaving the subtle grey container background intact. */
+.about-market-numbers__layout::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/images/GCR_MAP-Tethys.png');
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  -webkit-mask-image: radial-gradient(ellipse 92% 96% at 55% 50%, #000 55%, transparent 100%);
+          mask-image: radial-gradient(ellipse 92% 96% at 55% 50%, #000 55%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about-market-numbers__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .about-market-numbers__layout {
+    padding: var(--space-2xl);
+    min-height: 460px;
+  }
+
+  .about-market-numbers__stats {
+    max-width: 55%;
+  }
+}
+
+@media (min-width: 992px) {
+  .about-market-numbers__layout {
+    min-height: 520px;
+  }
+
+  .about-market-numbers__stats {
+    max-width: 50%;
+  }
+}
+
 /* Reality Check V2 */
 .about-reality-v2 {
   background: var(--color-bg-alt);
