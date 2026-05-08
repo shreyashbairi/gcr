@@ -5631,8 +5631,9 @@ html.lenis, html.lenis body {
 .about-market-v2__right-text {
   font-size: var(--text-base);
   color: var(--color-text);
-  line-height: 1.7;
+  line-height: 1.5;
   margin: 0;
+  padding-top: 25px;
 }
 
 .about-market-v2__cta {
