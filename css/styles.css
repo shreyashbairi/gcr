@@ -5678,57 +5678,41 @@ html.lenis, html.lenis body {
 }
 
 .about-market-numbers__layout {
-  position: relative;
   background-color: #f3f5f8; /* subtle grey so the map's white land is visible */
   border-radius: var(--border-radius-lg);
   padding: var(--space-xl);
-  min-height: 360px;
   overflow: hidden;
-  isolation: isolate;
 }
 
-/* Map layer — placed in a pseudo-element so the edge fade only affects the
-   map itself, leaving the subtle grey container background intact. */
-.about-market-numbers__layout::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url('../assets/images/GCR_MAP-Tethys.png');
-  background-size: cover;
-  background-position: center right;
-  background-repeat: no-repeat;
-  -webkit-mask-image: radial-gradient(ellipse 92% 96% at 55% 50%, #000 55%, transparent 100%);
-          mask-image: radial-gradient(ellipse 92% 96% at 55% 50%, #000 55%, transparent 100%);
-  pointer-events: none;
-  z-index: 0;
+.about-market-numbers__map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--space-xl);
+}
+
+.about-market-numbers__map img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  /* Fade the hard image edges into the subtle grey background */
+  -webkit-mask-image: radial-gradient(ellipse 92% 96% at 50% 50%, #000 55%, transparent 100%);
+          mask-image: radial-gradient(ellipse 92% 96% at 50% 50%, #000 55%, transparent 100%);
 }
 
 .about-market-numbers__stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-md);
-  position: relative;
-  z-index: 2;
 }
 
 @media (min-width: 768px) {
   .about-market-numbers__layout {
     padding: var(--space-2xl);
-    min-height: 460px;
   }
 
   .about-market-numbers__stats {
-    max-width: 55%;
-  }
-}
-
-@media (min-width: 992px) {
-  .about-market-numbers__layout {
-    min-height: 520px;
-  }
-
-  .about-market-numbers__stats {
-    max-width: 50%;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
