@@ -1,3 +1,5 @@
+# 
+
 # **Long**
 
 **Oscar Wendel**
@@ -8,9 +10,13 @@
 
 \#Conference Architecture & Content Strategy · \#High-Level Stakeholder Engagement · \#Middle East Market Access · \#Thought Leadership Platforms · \#Editorial & Industry Programming
 
-Oscar Wendel has spent nearly two decades at the intersection of media, capital, and policy \- the places where global industries decide what to talk about next, and who gets to be in the room when they do. He has built conference divisions from nothing, launched flagship platforms that now define entire regional sectors, and assembled the kind of speaker networks that take most careers a lifetime to develop. His base is Dubai \- the connective tissue between Europe, Africa, and Asia \- and his network stretches from London to Riyadh, from Stockholm to Singapore, from the Financial Times newsroom to Fortune 500 boardrooms.
+Oscar Wendel has spent nearly two decades at the intersection of media, capital, and policy \- the places where global industries decide what to talk about next, and who gets to be in the room when they do. Today he runs Global Stratalogues, the independent platform he founded to convene senior leaders across technology, finance, and public policy through invitation-only roundtables and original research. Before that he built conference divisions from nothing, launched flagship platforms that now define entire regional sectors, and assembled the kind of speaker networks that take most careers a lifetime to develop. His base is Dubai \- the connective tissue between Europe, Africa, and Asia \- and his network stretches from London to Riyadh, from Stockholm to Singapore, from the Financial Times newsroom to Fortune 500 boardrooms.
 
 **Career milestones at a glance:**
+
+•      Founder of Global Stratalogues \- convening senior leaders across technology, finance, and public policy through roundtables and research
+
+•      Editor-at-Large at MEA Finance \- the Gulf's leading banking and finance publication
 
 •      Founded and built ITP Media Group's conference division \- the leading B2B events portfolio in the Middle East
 
@@ -19,8 +25,6 @@ Oscar Wendel has spent nearly two decades at the intersection of media, capital,
 •      Recruited Tony Blair as keynote speaker (2013) and built speaker line-ups including ministers, Fortune 500 CEOs, and global technology founders
 
 •      Led conference strategy and content for GITEX Global, Gulfood, and Dubai International Boat Show at Dubai World Trade Centre
-
-•      Editor-at-Large at MEA Finance \- the Gulf's leading banking and finance publication
 
 •      Designed and delivered international business summits for the Financial Times' global events portfolio
 
@@ -42,7 +46,7 @@ Nearly twenty years in, his most valuable asset is the simplest to describe and 
 
 # **Short**
 
-Nearly two decades curating the conversations that define industries \- from the Financial Times in London to Dubai World Trade Centre's flagship platforms. Oscar built ITP Media Group's conference division from a blank page, launched Fintech Surge and Future Blockchain Summit (now the region's leading fintech and Web3 events), and led programming for GITEX Global, Gulfood, and the Dubai Boat Show. Today as Editor-at-Large at MEA Finance and founder of Global Stratalogues, he shapes the platforms \- roundtables, summits, policy dialogues \- where Middle East finance, technology, and public policy converge. When organizations need the right people in the room, they call him. And those people take the call.
+Nearly two decades curating the conversations that define industries \- from the Financial Times in London to Dubai World Trade Centre's flagship platforms. Oscar founded Global Stratalogues, the independent platform convening senior leaders across technology, finance, and public policy. Before that he built ITP Media Group's conference division from a blank page, launched Fintech Surge and Future Blockchain Summit (now the region's leading fintech and Web3 events), and led programming for GITEX Global, Gulfood, and the Dubai Boat Show. Today, alongside Global Stratalogues, he serves as Editor-at-Large at MEA Finance, shaping the platforms \- roundtables, summits, policy dialogues \- where Middle East finance, technology, and public policy converge. When organizations need the right people in the room, they call him. And those people take the call.
 
 **Oscar Wendel**
 
