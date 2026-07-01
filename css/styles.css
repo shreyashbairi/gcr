@@ -5416,7 +5416,12 @@ h2 {
 .trust-bar--marquee .trust-bar__logo {
   flex-shrink: 0;
   height: 96px;
-  width: auto;
+  /* Explicit width (logos are square 500x500) so the track's total width is
+     deterministic from first paint. With `width: auto` the width was 0 until
+     each PNG finished loading, so on a cold cache the fixed-duration marquee
+     ran against an unstable/near-zero track width and appeared to race. */
+  width: 96px;
+  aspect-ratio: 1 / 1;
   object-fit: contain;
   opacity: 1;
   filter: grayscale(100%) brightness(0) invert(0.4);
